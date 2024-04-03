@@ -1,0 +1,50 @@
+#content{
+    margin-top: 150px;
+}
+
+#center{
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+#footer{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
+}
+
+#link{
+    text-decoration:none;
+    color: black;
+}
+
+#link:hover{
+    text-decoration: underline;
+    font-weight: bold;
+    color:purple
+}
+
+.table{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.table tr{
+    padding: 0;
+    border: 2px solid black;
+}
+
+.table tr td{
+    border: 2px solid black;
+}
+
+.table tr td img{
+    width: 100%;
+}
+
+.immagini_tabella tr td img{
+    max-width: 25%;
+    max-height: auto;
+}
