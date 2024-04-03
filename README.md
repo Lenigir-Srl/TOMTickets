@@ -1,7 +1,6 @@
-# web-maven-project
+# risto89
 
-This repo is a java servlet application, built with maven and hosted via Tomcat.
-
+The best restaurant all over Arezzo
 ---
 
 The following text contains most of the commands and operations I've done to build this project.
