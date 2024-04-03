@@ -34,7 +34,11 @@
    -->
    <servlet>
         <servlet-name>hello_servlet</servlet-name>
-	<servlet-class>HelloServlet</servlet-class>
+	    <servlet-class>HelloServlet</servlet-class>
+
+        <servlet-name>login</servlet-name>
+	    <servlet-class>Login</servlet-class>
+
 
 	<!-- Contains a name/value pair as an initialization
 	     attribute of the servlet -->
@@ -59,7 +63,15 @@
     <servlet-mapping>
         <servlet-name>hello_servlet</servlet-name>
         <url-pattern>/hello</url-pattern>
+
+        <servlet-name>login</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+
+   <!-- Setup Session -->
+   <session-config>
+           <session-timeout>2</session-timeout>
+   </session-config>
 
 </web-app>
