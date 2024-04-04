@@ -15,7 +15,7 @@ public class Profile extends HttpServlet {
     // Get Session Attributes
     
     // Do no create a new session
-    HttpSession session = req.getSession(true); 
+    HttpSession session = req.getSession(false); 
     String name = (String) session.getAttribute("name");
 
 
