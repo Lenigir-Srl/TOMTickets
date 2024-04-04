@@ -77,6 +77,18 @@
     </servlet-mapping>
 
 
+    <!-- Filters config -->
+    <filter>
+            <filter-name>AuthenticationFilter</filter-name>
+            <filter-class>AuthenticationFilter</filter-class>
+    </filter>
+
+    <!-- Url to map the filter onto -->
+    <filter-mapping>
+            <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/profile</url-pattern>
+    </filter-mapping>
+  
    <!-- Setup Session -->
    <session-config>
            <session-timeout>2</session-timeout>
