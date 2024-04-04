@@ -32,10 +32,6 @@ public class Login extends HttpServlet {
     // the authentication will be based only over hardcoded credentials
     // TODO: Use a database
 
-    profiles = new HashMap<String, String>();
-    profiles.put("admin", "admin");
-    profiles.put("foo", "barr");
-    
     if (name == null || password == null) return false;
     
     // Checking name and pawword over a list
