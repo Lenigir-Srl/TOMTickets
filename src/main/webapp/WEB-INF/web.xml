@@ -25,7 +25,7 @@
      the server then tries the next file in the list. 
    -->
    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>Homepage.html</welcome-file>
    </welcome-file-list>
 
 
@@ -34,7 +34,11 @@
    -->
    <servlet>
         <servlet-name>hello_servlet</servlet-name>
-	<servlet-class>HelloServlet</servlet-class>
+	    <servlet-class>HelloServlet</servlet-class>
+
+        <servlet-name>login</servlet-name>
+	    <servlet-class>Login</servlet-class>
+
 
         <servlet-name>profile</servlet-name>
 	    <servlet-class>Profile</servlet-class>
@@ -66,7 +70,16 @@
 
         <servlet-name>profile</servlet-name>
         <url-pattern>/profile</url-pattern>
+
+        <servlet-name>login</servlet-name>
+        <url-pattern>/login</url-pattern>
+
     </servlet-mapping>
 
+
+   <!-- Setup Session -->
+   <session-config>
+           <session-timeout>2</session-timeout>
+   </session-config>
 
 </web-app>
