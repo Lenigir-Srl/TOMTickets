@@ -31,12 +31,16 @@ public class Login extends HttpServlet {
     // In the first draft, we are not implementing a database,
     // the authentication will be based only over hardcoded credentials
     // TODO: Use a database
- 
+
+    profiles = new HashMap<String, String>();
+    profiles.put("admin", "admin");
+    profiles.put("foo", "barr");
+    
     if (name == null || password == null) return false;
     
     // Checking name and pawword over a list
     String passwd = profiles.get(name);
-    return (passwd != null && passwd == password);
+    return (passwd != null && passwd.equals(password));
   }
 
   // Sets up hardcoded profiles, should be removed when the
@@ -74,7 +78,8 @@ public class Login extends HttpServlet {
         session.setAttribute("name", name);
 
         // Redirect to another page
-        req.getRequestDispatcher("./HelloServlet").forward(req, res);
+        // req.getRequestDispatcher("./HelloServlet").forward(req, res);
+        res.sendRedirect("/servlet-1.0");
     }
     else {
        // TODO: Redirect to error page
