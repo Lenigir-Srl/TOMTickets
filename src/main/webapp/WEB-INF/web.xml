@@ -71,7 +71,6 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
-
     <!-- Filters config -->
     <filter>
             <filter-name>AuthenticationFilter</filter-name>

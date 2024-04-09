@@ -75,11 +75,19 @@ public class Login extends HttpServlet {
 
         // Redirect to another page
         // req.getRequestDispatcher("./HelloServlet").forward(req, res);
-        res.sendRedirect("/servlet-1.0");
+        res.sendRedirect("/risto89-1.0/profile");
     }
     else {
-       // TODO: Redirect to error page
+    	res.sendRedirect("/risto89-1.0/login");
     }
+
+  }
+
+  protected void doGet (HttpServletRequest req,
+  		     HttpServletResponse res)
+     throws ServletException, IOException
+  {
+    req.getRequestDispatcher("/Loginpage.html").include(req, res);
 
   }
 }
