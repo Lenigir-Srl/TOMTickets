@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.unitn.app</groupId>
-  <artifactId>servlet</artifactId>
+  <groupId>com.Lenigir.app</groupId>
+  <artifactId>risto89</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
 
-  <name>servlet</name>
+  <name>risto89</name>
   
   <dependencies>
 
