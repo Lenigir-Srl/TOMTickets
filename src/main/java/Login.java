@@ -87,8 +87,7 @@ public class Login extends HttpServlet {
   		     HttpServletResponse res)
      throws ServletException, IOException
   {
-    RequestDispatcher dispatcher = req.getRequestDispatcher("/Loginpage.html");
-    dispatcher.include(req, res);
+    req.getRequestDispatcher("/Loginpage.html").include(req, res);
 
   }
 }
