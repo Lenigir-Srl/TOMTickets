@@ -71,7 +71,11 @@ public class Login extends HttpServlet {
     if (userExists(name, password)) {
 
         HttpSession session = req.getSession();
-        session.setAttribute("name", name);
+        
+        // Thread safe
+        synchronized(session) {
+            session.setAttribute("name", name);
+        }
 
         // Redirect to another page
         // req.getRequestDispatcher("./HelloServlet").forward(req, res);
