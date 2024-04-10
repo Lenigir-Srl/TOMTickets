@@ -76,10 +76,13 @@ public class Login extends HttpServlet {
         synchronized(session) {
             session.setAttribute("name", name);
         }
-
-        // Redirect to another page
-        // req.getRequestDispatcher("./HelloServlet").forward(req, res);
-        res.sendRedirect("/risto89-1.0/profile");
+        
+        // Encode the Session ID in the URL, this allows
+        // the use of the Session when cookies are disabled
+        String encodedURL = res.encodeURL("/risto89-1.0/profile");
+        
+        // Redirect
+        res.sendRedirect(encodedURL);
     }
     else {
     	res.sendRedirect("/risto89-1.0/login");
