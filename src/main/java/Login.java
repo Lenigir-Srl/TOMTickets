@@ -78,6 +78,7 @@ public class Login extends HttpServlet {
         }
 
         // Redirect to another page
+        // req.getRequestDispatcher("./HelloServlet").forward(req, res);
         req.getRequestDispatcher("./HelloServlet").forward(req, res);
    }
     else {
