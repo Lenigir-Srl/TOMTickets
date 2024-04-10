@@ -49,6 +49,12 @@
        <servlet-class>Error</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>testdb</servlet-name>
+       <servlet-class>TestDB</servlet-class>
+   </servlet>
+
+
 
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
@@ -79,6 +85,12 @@
         <servlet-name>error</servlet-name>
 	<url-pattern>/error</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>testdb</servlet-name>
+	    <url-pattern>/testdb</url-pattern>
+    </servlet-mapping>
+
 
     <!-- Filters config -->
     <filter>
