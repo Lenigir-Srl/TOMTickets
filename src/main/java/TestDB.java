@@ -21,6 +21,33 @@ public class TestDB extends HttpServlet {
 
         // Loading the driver
         Class.forName("org.apache.derby.jdbc.ClientDriver");
+
+        try {
+            // Connecting
+            String url = "jdbc:derby://localhost:1527/DemoDB";
+             Connection con = DriverManager.getConnection(url);
+
+            // Query
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+
+            // Output
+            PrintWriter out = res.getWriter();
+
+            while (rs.next()) {
+
+                String s = rs.getString("NAME");
+                out.println(s);
+            }
+
+            out.close();
+         }
+         catch (SQLException e) {
+
+            PrintWriter out = res.getWriter();
+            out.println("ERR " + e.getMessage());
+            out.close();
+        }
     }
     catch(ClassNotFoundException e) {
 
@@ -29,31 +56,5 @@ public class TestDB extends HttpServlet {
         out.close();
     }
     
-    try {
-        // Connecting
-        String url = "jdbc:derby://localhost:1527/DemoDB";
-        Connection con = DriverManager.getConnection(url);
-
-        // Query
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-
-        // Output
-        PrintWriter out = res.getWriter();
-
-        while (rs.next()) {
-
-            String s = rs.getString("NAME");
-            out.println(s);
-        }
-
-        out.close();
-    }
-    catch (SQLException e) {
-
-        PrintWriter out = res.getWriter();
-        out.println("ERR " + e.getMessage());
-        out.close();
-    }
   }
 }
