@@ -4,8 +4,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.*;
 import javax.servlet.*;
 
-import java.util.HashMap;
-
 // This servlet handles Logout, invalidating the 
 // sessione and redirecting to the login page
 public class Logout extends HttpServlet {
