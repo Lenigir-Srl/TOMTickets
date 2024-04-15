@@ -33,27 +33,27 @@
    -->
    <servlet>
         <servlet-name>hello_servlet</servlet-name>
-	    <servlet-class>HelloServlet</servlet-class>
+        <servlet-class>HelloServlet</servlet-class>
    </servlet>
 
    <servlet>
         <servlet-name>login</servlet-name>
-	    <servlet-class>Login</servlet-class>
+        <servlet-class>Login</servlet-class>
    </servlet>
 
    <servlet>
         <servlet-name>profile</servlet-name>
-	    <servlet-class>Profile</servlet-class>
+        <servlet-class>Profile</servlet-class>
    </servlet>
 
    <servlet>
-       <servlet-name>error</servlet-name>
-       <servlet-class>Error</servlet-class>
+        <servlet-name>error</servlet-name>
+        <servlet-class>Error</servlet-class>
    </servlet>
 
    <servlet>
-       <servlet-name>logout</servlet-name>
-       <servlet-class>Logout</servlet-class>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>Logout</servlet-class>
    </servlet>
 
 
