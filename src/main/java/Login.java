@@ -42,7 +42,10 @@ public class Login extends HttpServlet {
   // Sets up hardcoded profiles, should be removed when the
   // DB gets implemented
   @Override
-  public void init() throws ServletException {
+  public void init(ServletConfig config) throws ServletException {
+
+    super.init(config);
+
     profiles = new HashMap<String, String>();
     profiles.put("admin", "admin");
     profiles.put("foo", "barr");
