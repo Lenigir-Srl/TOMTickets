@@ -56,6 +56,12 @@
         <servlet-class>Logout</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>testdb</servlet-name>
+       <servlet-class>TestDB</servlet-class>
+   </servlet>
+
+
 
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
@@ -88,8 +94,11 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>logout</servlet-name>
-        <url-pattern>/logout</url-pattern>
+      <servlet-name>testdb</servlet-name>
+	    <url-pattern>/testdb</url-pattern>
+
+      <servlet-name>logout</servlet-name>
+      <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
 
