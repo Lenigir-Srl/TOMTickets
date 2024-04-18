@@ -26,7 +26,11 @@ public class Profile extends HttpServlet {
 
         // Write output
         PrintWriter out = res.getWriter();
-        out.println("Hello " + name + ", welcome to your profile page!");
+        out.println("<p>Hello " + name + ", welcome to your profile page!</p>");
+
+        // Logout link
+        out.println("<a href=\"/risto89-1.0/logout\">Logout</a>");
+        
         out.close();
     }
   }

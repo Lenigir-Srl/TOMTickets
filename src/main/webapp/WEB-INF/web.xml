@@ -18,7 +18,6 @@
 -->
 
 
-
    <!-- 
      When the URL request is a directory name, WebLogic Server serves
      the first file specified in this element. If that file is not found,
@@ -34,19 +33,27 @@
    -->
    <servlet>
         <servlet-name>hello_servlet</servlet-name>
-	<servlet-class>HelloServlet</servlet-class>
+        <servlet-class>HelloServlet</servlet-class>
    </servlet>
+
    <servlet>
         <servlet-name>login</servlet-name>
-	<servlet-class>Login</servlet-class>
+        <servlet-class>Login</servlet-class>
    </servlet>
+
    <servlet>
         <servlet-name>profile</servlet-name>
-	<servlet-class>Profile</servlet-class>
+        <servlet-class>Profile</servlet-class>
    </servlet>
+
    <servlet>
-       <servlet-name>error</servlet-name>
-       <servlet-class>Error</servlet-class>
+        <servlet-name>error</servlet-name>
+        <servlet-class>Error</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>Logout</servlet-class>
    </servlet>
 
    <servlet>
@@ -87,8 +94,11 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>testdb</servlet-name>
+      <servlet-name>testdb</servlet-name>
 	    <url-pattern>/testdb</url-pattern>
+
+      <servlet-name>logout</servlet-name>
+      <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
 
@@ -98,12 +108,14 @@
             <filter-class>AuthenticationFilter</filter-class>
     </filter>
 
+
     <!-- Url to map the filter onto -->
     <filter-mapping>
             <filter-name>AuthenticationFilter</filter-name>
             <url-pattern>/profile</url-pattern>
     </filter-mapping>
-  
+
+
    <!-- Setup Session -->
    <session-config>
            <session-timeout>2</session-timeout>
