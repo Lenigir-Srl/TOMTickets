@@ -8,11 +8,10 @@ public class Error extends HttpServlet {
                      HttpServletResponse res)
     throws ServletException, IOException
   {
-    PrintWriter out = res.getWriter();
+    res.setCharacterEncoding("UTF-8");
 
-    req.getRequestDispatcher("/Errorpage.html").include(req, res);
+    req.getRequestDispatcher("./Errorpage.jsp").include(req, res); //Print the jasper page
 
-    String error = req.getParameter("error");
-    out.close();
+        
   }
 }
