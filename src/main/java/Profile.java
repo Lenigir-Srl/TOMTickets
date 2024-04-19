@@ -13,25 +13,13 @@ public class Profile extends HttpServlet {
     throws ServletException, IOException
   {
 
-
-    // Get Session Attributes
-    
+    res.setCharacterEncoding("UTF-8");
     // Do no create a new session
     HttpSession session = req.getSession(false);
     
     // Thread Safe
     synchronized(session) {
-
-        String name = (String) session.getAttribute("name");
-
-        // Write output
-        PrintWriter out = res.getWriter();
-        out.println("<p>Hello " + name + ", welcome to your profile page!</p>");
-
-        // Logout link
-        out.println("<a href=\"/risto89-1.0/logout\">Logout</a>");
-        
-        out.close();
+        req.getRequestDispatcher("./Profile.jsp").include(req, res);
     }
   }
 }
