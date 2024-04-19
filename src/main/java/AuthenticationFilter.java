@@ -21,13 +21,12 @@ public class AuthenticationFilter implements Filter {
 
     HttpServletRequest http_req = (HttpServletRequest) req;
 
-    // Chech session
+    // Check session
     if (http_req.getSession(false) == null) {
         
-        // TODO: Redirect to error page 
-        PrintWriter out = res.getWriter();
-        out.println("Sorry, you can't access this page");
-        out.close();
+        req.setAttribute("error", "Non hai ancora fatto il login!"); //Set error message
+        
+        req.getRequestDispatcher("./error").forward(req,res); //Redirect to Error.java
        
     }
     else {
