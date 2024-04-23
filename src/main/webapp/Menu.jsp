@@ -25,7 +25,7 @@
                         <img style="width: 30%; height: 30%;" src="./immagini/bevande.jpeg">
                     </td>
                     <td>
-                        <a id="link" href="./Menu/Bevande.html">Bevande</a>
+                        <a id="link" href="./Menu/Bevande.jsp">Bevande</a>
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,7 @@
                         <img style="width: 30%; height: 30%;" src="./immagini/antipasto.jpeg">
                     </td>
                     <td>
-                        <a id="link" href="./Menu/Antipasti.html">Antipasti</a>
+                        <a id="link" href="./Menu/Antipasti.jsp">Antipasti</a>
                     </td>
                 </tr>
                 <tr>
@@ -41,7 +41,7 @@
                         <img style="width: 30%; height: 30%;" src="./immagini/primopiatto.jpeg">
                     </td>
                     <td>
-                        <a id="link" href="./Menu/Primipiatti.html">Primi Piatti</a>
+                        <a id="link" href="./Menu/Primipiatti.jsp">Primi Piatti</a>
                     </td>
                 </tr>
                 <tr>
@@ -49,7 +49,7 @@
                         <img style="width: 30%; height: 30%;" src="./immagini/secondopiatto.jpeg">
                     </td>
                     <td id="td">
-                        <a id="link" href="./Menu/Secondipiatti.html">Secondi Piatti</a>
+                        <a id="link" href="./Menu/Secondipiatti.jsp">Secondi Piatti</a>
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +57,7 @@
                         <img style="width: 30%; height: 30%;" src="./immagini/dessert.jpeg">
                     </td>
                     <td>
-                        <a id="link" href="./Menu/Dessert.html">Dessert</a>
+                        <a id="link" href="./Menu/Dessert.jsp">Dessert</a>
                     </td>
                 </tr>
             </table>
