@@ -26,7 +26,7 @@
 	<div>
             <form action="./login" method="post">
                 <input type="text" name="name" label="Inserisci lo username" required>
-                <input type="text" name="password" label="Inserisci la password" required>
+                <input type="password" name="password" label="Inserisci la password" required>
                 <input type="submit" value="Fai il login">
             </form>
         </div>

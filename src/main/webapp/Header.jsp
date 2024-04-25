@@ -22,10 +22,20 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+                <% 
+	        String name = (String) session.getAttribute("name");
+	        if(name == null){
+	        %>
+	        <li class ="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./login">Login</a>
+	        <%
+	        }else{
+	        %>
                 <li class ="nav-item">
-		<%--TODO Check if the user is already logged in, if so then don't show "login" button--%>
-                    <a class="nav-link active" aria-current="page" href="./Loginpage.jsp">Login</a>
-                </li>
+                    <a class="nav-link active" aria-current="page" href="./logout">Logout</a>
+	        <%
+	        }
+	        %>
             </ul>
         </div>
     </div>
