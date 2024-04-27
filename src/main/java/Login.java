@@ -94,7 +94,8 @@ public class Login extends HttpServlet {
   		     HttpServletResponse res)
      throws ServletException, IOException
   {
-    req.getRequestDispatcher("/Loginpage.html").include(req, res);
+    res.setCharacterEncoding("UTF-8");
+    req.getRequestDispatcher("/Loginpage.jsp").include(req, res);
 
   }
 }

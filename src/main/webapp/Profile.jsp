@@ -16,9 +16,8 @@
 
 
         <!--PAGE CONTENT-->
-
-        <% String name = (String) session.getAttribute("name"); %>
-        
+   
+   	<%-- "name" variable defined in "Header.jsp" --%>
 	<div>
 	    <% if (name == null){%>
 	        <p>Non hai ancora fatto il login!</p>
