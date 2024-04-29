@@ -57,8 +57,8 @@
    </servlet>
 
    <servlet>
-        <servlet-name>testdb</servlet-name>
-        <servlet-class>TestDB</servlet-class>
+       <servlet-name>testdb</servlet-name>
+       <servlet-class>TestDB</servlet-class>
    </servlet>
 
 
@@ -90,37 +90,35 @@
 
     <servlet-mapping>
         <servlet-name>error</servlet-name>
-	    <url-pattern>/error</url-pattern>
+	<url-pattern>/error</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>testdb</servlet-name>
-        <url-pattern>/testdb</url-pattern>
-    </servlet-mapping>
+      <servlet-name>testdb</servlet-name>
+	    <url-pattern>/testdb</url-pattern>
 
-    <servlet-mapping>
-        <servlet-name>logout</servlet-name>
-        <url-pattern>/logout</url-pattern>
+      <servlet-name>logout</servlet-name>
+      <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
 
     <!-- Filters config -->
     <filter>
-        <filter-name>AuthenticationFilter</filter-name>
-        <filter-class>AuthenticationFilter</filter-class>
+            <filter-name>AuthenticationFilter</filter-name>
+            <filter-class>AuthenticationFilter</filter-class>
     </filter>
 
 
     <!-- Url to map the filter onto -->
     <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/profile</url-pattern>
+            <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/profile</url-pattern>
     </filter-mapping>
 
 
    <!-- Setup Session -->
    <session-config>
-        <session-timeout>2</session-timeout>
+           <session-timeout>2</session-timeout>
    </session-config>
 
 </web-app>

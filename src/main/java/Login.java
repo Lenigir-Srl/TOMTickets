@@ -4,39 +4,49 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.*;
 import javax.servlet.*;
 
-import java.util.HashMap;
+import java.sql.*;
 
 // This Servlet handles login with user credentials:
 // it requires the parameters "user" and "password" and It will
 // check the existance of those credentials over a list of hardcoded
 // users. If it finds the credentials, the user will be granted a session.
 //
-// TODO:
-// - Change list to a database
-// - Redirect to error page
-//
 public class Login extends HttpServlet {
   
-  HashMap<String, String> profiles;
-
-  // Check that the uses exists in the list of existing users
+  // Checks if the user and password exist in the database
   // 
   // Return Value:
   // Return true if the user exists, false otherwise
   //
   // Example:
-  // boolean exists = userExists("marco", "p4ssw0rd");
+  // boolean exists = userExists("marco", "p4ssw0rd", dbConnection);
   //
-  private boolean userExists(String name, String password) {
-    // In the first draft, we are not implementing a database,
-    // the authentication will be based only over hardcoded credentials
-    // TODO: Use a database
+  private boolean userExists(String name, String password, Connection con) {
 
     if (name == null || password == null) return false;
-    
-    // Checking name and pawword over a list
-    String passwd = profiles.get(name);
-    return (passwd != null && passwd.equals(password));
+   
+    // Query
+    try {
+        Statement stmt = con.createStatement();
+        String query = "SELECT NAME FROM users WHERE NAME = '"
+                       + name + "' AND PASSWORD = '"
+                       + password + "'"; 
+
+        ResultSet rs = stmt.executeQuery(query);
+
+        if (rs.next()) {
+            // Match
+            return true;
+        }
+        else {
+            // No match
+            return false;
+        }
+    }
+    catch (SQLException e) {
+
+        return false;
+    }
   }
 
   // Sets up hardcoded profiles, should be removed when the
@@ -46,15 +56,15 @@ public class Login extends HttpServlet {
 
     super.init(config);
 
-    profiles = new HashMap<String, String>();
-    profiles.put("admin", "admin");
-    profiles.put("foo", "barr");
-  }
+    // Loading the driver
+    try {
 
-  // Clearing the profie hashMap
-  @Override
-  public void destroy() {
-    profiles.clear();
+      Class.forName("org.apache.derby.jdbc.ClientDriver");
+    }
+    catch (ClassNotFoundException e) {
+
+      throw new ServletException("Driver not found");
+    }
   }
 
   // Handle POST Requests
@@ -64,29 +74,49 @@ public class Login extends HttpServlet {
     throws ServletException, IOException
   {
 
-    // Get parameters name and password
-    String name = req.getParameter("name");
-    String password = req.getParameter("password");
+      // DB Connection
+      try {
 
+        // Connecting
+        String url = "jdbc:derby://localhost:1527/DemoDB";
+        Connection con = DriverManager.getConnection(url);
 
-    // Check for existance and create session
-    // with an attribute "name"
-    if (userExists(name, password)) {
+        // Get parameters name and password
+        String name = req.getParameter("name");
+        String password = req.getParameter("password");
 
-        HttpSession session = req.getSession();
+        // Check for existance and create session
+        if (userExists(name, password, con)) {
+
+            HttpSession session = req.getSession();
         
-        // Thread safe
-        synchronized(session) {
-            session.setAttribute("name", name);
+            // Thread safe
+            synchronized(session) {
+
+                // Set name attribute
+                session.setAttribute("name", name);
+
+                // Set DB connection attribute
+                SessionConnection sessionconnection = new SessionConnection(con);
+                session.setAttribute("sessionconnection", sessionconnection);
+            }
+
+            // Redirect to another page
+            // req.getRequestDispatcher("./HelloServlet").forward(req, res);
+            res.sendRedirect("/risto89-1.0/profile");
+        }
+        else {
+            
+            con.close();
+    	    res.sendRedirect("/risto89-1.0/login");
         }
 
-        // Redirect to another page
-        // req.getRequestDispatcher("./HelloServlet").forward(req, res);
-        res.sendRedirect("/risto89-1.0/profile");
-    }
-    else {
-    	res.sendRedirect("/risto89-1.0/login");
-    }
+      }
+      catch (SQLException e) {
+
+        req.setAttribute("error", "Errore di connessione al database");
+        req.getRequestDispatcher("/error").forward(req, res);
+      }
 
   }
 
@@ -94,8 +124,9 @@ public class Login extends HttpServlet {
   		     HttpServletResponse res)
      throws ServletException, IOException
   {
+    
     res.setCharacterEncoding("UTF-8");
     req.getRequestDispatcher("/Loginpage.jsp").include(req, res);
-
+    
   }
 }
