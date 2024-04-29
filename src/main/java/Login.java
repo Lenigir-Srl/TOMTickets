@@ -81,12 +81,15 @@ public class Login extends HttpServlet {
         String url = "jdbc:derby://localhost:1527/DemoDB";
         Connection con = DriverManager.getConnection(url);
 
-        // Get parameters name and password
-        String name = req.getParameter("name");
-        String password = req.getParameter("password");
+        //Create Java Bean for profile
+	ProfileBean profile = new ProfileBean();
+
+	// Get parameters name and password
+        profile.setName(req.getParameter("name"));
+        profile.setPassword(req.getParameter("password"));
 
         // Check for existance and create session
-        if (userExists(name, password, con)) {
+        if (userExists(profile.getName(), profile.getPassword(), con)) {
 
             HttpSession session = req.getSession();
         
@@ -94,7 +97,7 @@ public class Login extends HttpServlet {
             synchronized(session) {
 
                 // Set name attribute
-                session.setAttribute("name", name);
+                session.setAttribute("name", profile.getName());
 
                 // Set DB connection attribute
                 SessionConnection sessionconnection = new SessionConnection(con);
