@@ -1,6 +1,11 @@
 # risto89
 
 The best restaurant all over Arezzo
+
+### Testo consegna
+
+Il testo per la consegna può essere trovato in [Testo](Testo_Progetto.pdf)
+
 ---
 
 The following text contains most of the commands and operations I've done to build this project.
