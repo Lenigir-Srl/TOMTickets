@@ -31,7 +31,7 @@ public class TestDB extends HttpServlet {
                      HttpServletResponse res)
     throws ServletException, IOException
   {
-    
+
       try {
 
         // Connecting
@@ -40,7 +40,7 @@ public class TestDB extends HttpServlet {
 
         // Query
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+        ResultSet rs = stmt.executeQuery("SELECT NAME FROM users");
 
         // Output
         PrintWriter out = res.getWriter();
@@ -59,5 +59,12 @@ public class TestDB extends HttpServlet {
         out.println("ERR " + e.getMessage());
         out.close();
       }
+  }
+
+  public void doPost (HttpServletRequest req,
+                      HttpServletResponse res)
+    throws ServletException, IOException
+  {
+    doGet(req, res);
   }
 }
