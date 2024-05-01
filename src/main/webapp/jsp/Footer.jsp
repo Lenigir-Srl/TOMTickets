@@ -7,16 +7,13 @@
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item">
-	        <a href="./Descrizione.jsp" class="nav-link px-2 text-muted">Descrizione</a>
+	        <a href="./descrizione" class="nav-link px-2 text-muted">Descrizione</a>
 	    </li>
             <li class="nav-item">
-	        <a href="./Menu.jsp" class="nav-link px-2 text-muted">Menù</a>
+                <a href="./contatti" class="nav-link px-2 text-muted">Contatti</a>
             </li>
             <li class="nav-item">
-                <a href="./Contatti.jsp" class="nav-link px-2 text-muted">Contatti</a>
-            </li>
-            <li class="nav-item">
-	        <a href="./profile" class="nav-link px-2 text-muted">Profilo</a>
+	        <a href="./profilo" class="nav-link px-2 text-muted">Profilo</a>
             </li>
         </ul>
         <p class="text-center text-muted">© 2024 risto89</p>

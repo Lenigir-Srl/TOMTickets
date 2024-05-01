@@ -19,7 +19,7 @@ public class Profile extends HttpServlet {
     
     // Thread Safe
     synchronized(session) {
-        req.getRequestDispatcher("./Profile.jsp").include(req, res);
+        req.getRequestDispatcher("./jsp/Profile.jsp").include(req, res);
     }
   }
 }

@@ -103,7 +103,7 @@ public class Login extends HttpServlet {
 
             // Redirect to another page
             // req.getRequestDispatcher("./HelloServlet").forward(req, res);
-            res.sendRedirect("/risto89-1.0/profile");
+            res.sendRedirect("/risto89-1.0/profilo");
         }
         else {
             
@@ -115,7 +115,7 @@ public class Login extends HttpServlet {
       catch (SQLException e) {
 
         req.setAttribute("error", "Errore di connessione al database");
-        req.getRequestDispatcher("/error").forward(req, res);
+        req.getRequestDispatcher("/errore").forward(req, res);
       }
 
   }
@@ -126,7 +126,7 @@ public class Login extends HttpServlet {
   {
     
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/Loginpage.jsp").include(req, res);
+    req.getRequestDispatcher("./jsp/Loginpage.jsp").include(req, res);
     
   }
 }
