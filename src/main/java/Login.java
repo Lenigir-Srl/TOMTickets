@@ -82,14 +82,14 @@ public class Login extends HttpServlet {
         Connection con = DriverManager.getConnection(url);
 
         //Create Java Bean for profile
-	ProfileBean profile = new ProfileBean();
+	TentativoAccessoBean attempt = new TentativoAccessoBean();
 
 	// Get parameters name and password
-        profile.setName(req.getParameter("name"));
-        profile.setPassword(req.getParameter("password"));
+        attempt.setUsername(req.getParameter("name"));
+        attempt.setPassword(req.getParameter("password"));
 
         // Check for existance and create session
-        if (userExists(profile.getName(), profile.getPassword(), con)) {
+        if (userExists(attempt.getUsername(), attempt.getPassword(), con)) {
 
             HttpSession session = req.getSession();
         
@@ -97,7 +97,7 @@ public class Login extends HttpServlet {
             synchronized(session) {
 
                 // Set name attribute
-                session.setAttribute("name", profile.getName());
+                session.setAttribute("name", attempt.getUsername());
 
                 // Set DB connection attribute
                 SessionConnection sessionconnection = new SessionConnection(con);
