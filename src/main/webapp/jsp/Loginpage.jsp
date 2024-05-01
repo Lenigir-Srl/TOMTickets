@@ -4,7 +4,7 @@
 
 <html lang="en">
     <%-- Include JS file into the page --%>
-    <script type="text/javascript" src="./Login.js"></script>
+    <script type="text/javascript" src="./js/Login.js"></script>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

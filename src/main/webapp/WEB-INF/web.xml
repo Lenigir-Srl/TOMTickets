@@ -37,6 +37,16 @@
    </servlet>
 
    <servlet>
+       <servlet-name>descrizione</servlet-name>
+       <jsp-file>/jsp/Descrizione.jsp</jsp-file>
+   </servlet>
+
+   <servlet>
+       <servlet-name>menu</servlet-name>
+       <jsp-file>/jsp/Menu.jsp</jsp-file>
+   </servlet>
+
+   <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>Login</servlet-class>
    </servlet>
@@ -62,7 +72,6 @@
    </servlet>
 
 
-
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
             <param-name>value_name</param-name>
@@ -79,8 +88,13 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>descrizione</servlet-name>
+        <url-pattern>/descrizione</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>profile</servlet-name>
-        <url-pattern>/profile</url-pattern>
+        <url-pattern>/profilo</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -90,7 +104,7 @@
 
     <servlet-mapping>
         <servlet-name>error</servlet-name>
-	<url-pattern>/error</url-pattern>
+	<url-pattern>/errore</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -100,7 +114,6 @@
       <servlet-name>logout</servlet-name>
       <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-
 
     <!-- Filters config -->
     <filter>
