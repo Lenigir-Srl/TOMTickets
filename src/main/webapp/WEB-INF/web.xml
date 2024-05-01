@@ -24,7 +24,7 @@
      the server then tries the next file in the list. 
    -->
    <welcome-file-list>
-        <welcome-file>/</welcome-file>
+        <welcome-file>/jsp/Homepage.jsp</welcome-file>
    </welcome-file-list>
 
 
@@ -37,18 +37,8 @@
    </servlet>
 
    <servlet>
-       <servlet-name>homepage</servlet-name>
-       <jsp-file>/jsp/Homepage.jsp</jsp-file>
-   </servlet>
-
-   <servlet>
        <servlet-name>descrizione</servlet-name>
        <jsp-file>/jsp/Descrizione.jsp</jsp-file>
-   </servlet>
-
-   <servlet>
-       <servlet-name>menu</servlet-name>
-       <jsp-file>/jsp/Menu.jsp</jsp-file>
    </servlet>
 
    <servlet>
@@ -90,11 +80,6 @@
     <servlet-mapping>
         <servlet-name>hello_servlet</servlet-name>
         <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>homepage</servlet-name>
-	<url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

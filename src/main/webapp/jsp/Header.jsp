@@ -14,9 +14,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="./descrizione">Descrizione</a>
                 </li>
-		<li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./contatti">Contatti</a>
-                </li>
             </ul>
             <ul class="navbar-nav">
                 <% 
