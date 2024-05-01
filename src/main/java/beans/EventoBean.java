@@ -12,7 +12,7 @@ import java.io.Serializable;
 // - tipologiaBiglietti VARCHAR(30)
 // - prezzo REAL
 // - sconto REAL
-// - numeroClick INT);
+// - numeroClick INT
 //
 public class EventoBean implements Serializable {
     

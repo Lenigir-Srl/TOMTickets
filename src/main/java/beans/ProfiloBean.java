@@ -9,7 +9,7 @@ import java.io.Serializable;
 // - email VARCHAR(30)
 // - phoneNumber VARCHAR(10)
 // - numeroAcquisti INT
-// - isAdmin BOOLEAN);
+// - isAdmin BOOLEAN
 //
 public class ProfiloBean implements Serializable {
 
