@@ -6,6 +6,9 @@ import javax.servlet.*;
 
 import java.sql.*;
 
+//import DAO.*;
+import beans.*;
+
 // This Servlet handles login with user credentials:
 // it requires the parameters "user" and "password" and It will
 // check the existance of those credentials over a list of hardcoded
@@ -13,44 +16,6 @@ import java.sql.*;
 //
 public class Login extends HttpServlet {
   
-  // Checks if the user and password exist in the database
-  // 
-  // Return Value:
-  // Return true if the user exists, false otherwise
-  //
-  // Example:
-  // boolean exists = userExists("marco", "p4ssw0rd", dbConnection);
-  //
-  private boolean userExists(String name, String password, Connection con) {
-
-    if (name == null || password == null) return false;
-   
-    // Query
-    try {
-        Statement stmt = con.createStatement();
-        String query = "SELECT NAME FROM users WHERE NAME = '"
-                       + name + "' AND PASSWORD = '"
-                       + password + "'"; 
-
-        ResultSet rs = stmt.executeQuery(query);
-
-        if (rs.next()) {
-            // Match
-            return true;
-        }
-        else {
-            // No match
-            return false;
-        }
-    }
-    catch (SQLException e) {
-
-        return false;
-    }
-  }
-
-  // Sets up hardcoded profiles, should be removed when the
-  // DB gets implemented
   @Override
   public void init(ServletConfig config) throws ServletException {
 
@@ -78,15 +43,19 @@ public class Login extends HttpServlet {
       try {
 
         // Connecting
-        String url = "jdbc:derby://localhost:1527/DemoDB";
+        String url = "jdbc:derby://localhost:1527/DerbyDB";
         Connection con = DriverManager.getConnection(url);
 
         // Get parameters name and password
-        String name = req.getParameter("name");
+        String username = req.getParameter("username");
         String password = req.getParameter("password");
+    
+        //Create Java Bean for profile
+	    TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
+        TentativoAccessoDAO.checkUser(tentativoAccessoBean, con);
 
         // Check for existance and create session
-        if (userExists(name, password, con)) {
+        if (tentativoAccessoBean.getValid()) {
 
             HttpSession session = req.getSession();
         
@@ -94,7 +63,7 @@ public class Login extends HttpServlet {
             synchronized(session) {
 
                 // Set name attribute
-                session.setAttribute("name", name);
+                session.setAttribute("username", username);
 
                 // Set DB connection attribute
                 SessionConnection sessionconnection = new SessionConnection(con);

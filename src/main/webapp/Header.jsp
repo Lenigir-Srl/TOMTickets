@@ -23,7 +23,7 @@
             </ul>
             <ul class="navbar-nav">
                 <% 
-	        String name = (String) session.getAttribute("name");
+	        String name = (String) session.getAttribute("username");
 	        if(name == null){
 	        %>
 	        <li class ="nav-item">

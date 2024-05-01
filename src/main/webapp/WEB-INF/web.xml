@@ -95,8 +95,10 @@
 
     <servlet-mapping>
       <servlet-name>testdb</servlet-name>
-	    <url-pattern>/testdb</url-pattern>
+      <url-pattern>/testdb</url-pattern>
+    </servlet-mapping>
 
+    <servlet-mapping>
       <servlet-name>logout</servlet-name>
       <url-pattern>/logout</url-pattern>
     </servlet-mapping>
