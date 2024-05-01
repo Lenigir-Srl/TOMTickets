@@ -1,0 +1,4 @@
+enum TipologiaBigliettiEnum {
+    InPiedi,
+    Seduti
+}

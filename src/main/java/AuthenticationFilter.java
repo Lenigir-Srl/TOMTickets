@@ -26,7 +26,7 @@ public class AuthenticationFilter implements Filter {
         
         req.setAttribute("error", "Non hai ancora fatto il login!"); //Set error message
         
-        req.getRequestDispatcher("./error").forward(req,res); //Redirect to Error.java
+        req.getRequestDispatcher("/error").forward(req,res); //Redirect to Error.java
        
     }
     else {
