@@ -84,7 +84,7 @@ public class Signup extends HttpServlet {
 
 
         //Create Java Bean for profile
-	    ProfiloBean profiloBean = new ProfiloBean(nome,
+        ProfiloBean profiloBean = new ProfiloBean(nome,
                         cognome, dataNascita, email, telefono, username, password, 0, false);
         
         // Insert the user in the database
