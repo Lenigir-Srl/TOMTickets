@@ -42,74 +42,74 @@ public class ProfiloBean implements Serializable {
         this.isAdmin = isAdmin;
     }
 
-    protected String getNome() {
+    public String getNome() {
         return this.nome;
     }
 
-    protected void setNome(String arg) {
+    public void setNome(String arg) {
         this.nome = arg;
     }
 
-    protected String getCognome() {
+    public String getCognome() {
         return this.cognome;
     }
 
-    protected void setCognome(String arg) {
+    public void setCognome(String arg) {
         this.cognome = arg;
     }
 
-    protected String getBirthDate() {
+    public String getBirthDate() {
         return this.birthDate;
     }
 
-    protected void setBirthDate(String arg) {
+    public void setBirthDate(String arg) {
         this.birthDate = arg;
     }
 
-    protected String getEmail() {
+    public String getEmail() {
         return this.email;
     }
 
-    protected void setEmail(String arg) {
+    public void setEmail(String arg) {
         this.email = arg;
     }
 
-    protected String getPhoneNumber() {
+    public String getPhoneNumber() {
         return this.phoneNumber;
     }
 
-    protected void setPhoneNumber(String arg) {
+    public void setPhoneNumber(String arg) {
         this.phoneNumber = arg;
     }
 
-    protected String getUsername() {
+    public String getUsername() {
         return this.username;
     }
-    protected void setUsername(String arg) {
+    public void setUsername(String arg) {
         this.username = arg;
     }
 
-    protected String getPassword() {
+    public String getPassword() {
         return this.password;
     }
 
-    protected void setPassword(String arg) {
+    public void setPassword(String arg) {
         this.password = arg;
     }
 
-    protected Integer getAcquisti() {
+    public Integer getAcquisti() {
         return this.numeroAcquisti;
     }
 
-    protected void setAcquisti(Integer arg) {
+    public void setAcquisti(Integer arg) {
         this.numeroAcquisti = arg;
     }
 
-    protected boolean isAdmin() {
+    public boolean isAdmin() {
         return this.isAdmin;
     }
 
-    protected void setAdmin(boolean arg) {
+    public void setAdmin(boolean arg) {
         this.isAdmin = arg;
     }
 
