@@ -13,53 +13,81 @@
     </head>
 
 
-    <body>
-
         <!--HEADER-->
 	<%@include file="./Header.jsp"%>
 	<!--HEADER-->
 
         <!--PAGE CONTENT-->
-        
+       
+    <div style="padding-left: 2%; padding-top: 2%">
+	    <p class="h2"> Perfavore, inserisci i seguenti dati: </p>
+    </div>
 
-	<div> Perfavore inserisci i seguenti dati: </div>
+	<div style="float: left; width: 100%; padding-left: 2%; padding-top: 2%">
 
-	<div>
-            <form name="signupForm" onsubmit="return validateForm()" action="./signup" method="post" >
-                <label for="nome">Nome:</label><br>
-                <input type="text" id="nome" name="nome" label="Inserisci il tuo nome" required><br>  
+        <form name="signupForm" onsubmit="return validateForm()" action="./signup" method="post" style="width: 30%">
 
-                <label for="cognome">Cognome:</label><br>
-                <input type="text" id="cognome" name="cognome" label="inserisci il tuo cognome" required><br>
-
-                <label for="dataNascita">Data di nascita:</label><br>
-                <input type="date" id="dataNascita" name="dataNascita" label="inserisci la tua data di nascita" required><br>
-
-                <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email" label="inserisci la tua email" required><br>
-
-                <label for="telefono">Numero di telefono:</label><br>
-                <input type="text" id="telefono" name="telefono" label="inserisci il tuo numero di telefono" required><br>
-
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" label="inserisci la tuo username" required><br>
-
-                <label for="password">Password:</label><br>
-                <input id="password" type="password" name="password" label="Inserisci la password" required><br>
-                <label for="ripetiPassword">Ripeti la password:</label><br>
-                <input id="ripetiPassword" type="password" name="ripetiPassword" label="Ripeti la password" required><br>
-                <input type="submit" value="Fai il signup">
-            </form>
-	    <br>
-	    <input type="checkbox" onclick="makePasswordVisible()" name="Showpassword" autocomplete="off">
-        <label for"Showpassword"> Mostra la password </label><br>
-
-        <button onclick="clearFields()">Clear</button>
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input type="text" class="form-control" id="nome" placeholder="Mario">
         </div>
-      
+
+        <div class="mb-3">
+          <label for="cognome" class="form-label">Cognome:</label>
+          <input type="text" class="form-control" id="cognome" placeholder="Rossi">
+        </div>
+
+        <div class="mb-3">
+          <label for="dataNascita" class="form-label">Data di nascita:</label>
+          <input type="date" class="form-control" id="dataNascita">
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="example@example.com">
+        </div>
+
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Numero di telefono:</label>
+          <input type="text" class="form-control" id="telefono" placeholder="1234567890">
+        </div>
+
+        <div class="mb-3">
+          <label for="username" class="form-label">Username:</label>
+          <input type="text" class="form-control" id="username" placeholder="mario.rossi">
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+
+        <div class="mb-3">
+          <label for="ripetiPassword" class="form-label">Ripeti la password:</label>
+          <input type="password" class="form-control" id="ripetiPassword">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Registrati</button>
+        </form>
+
+        <div class="row mb-3" style="padding-top: 20px">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" onclick="makePasswordVisible()" name="Showpassword" autocomplete="off">
+                <label class="form-check-label" for="Showpassword">
+                  Mostra la password
+                </label>
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary" onclick="clearFields()">Clear</button>
+        </div>
+    </div>
+
 	<!--PAGE CONTENT-->
-	
-        <!--FOOTER-->
+
+    <!--FOOTER-->
 	<%@include file="./Footer.jsp"%>
 	<!--FOOTER-->
 
