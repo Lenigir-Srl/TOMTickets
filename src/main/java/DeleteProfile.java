@@ -1,3 +1,4 @@
+
 import java.io.*;
 
 import javax.servlet.http.*;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 
 // Profile page, should be accessible only
 // when logged in, It shows the session Attributes
-public class Profile extends HttpServlet {
+public class DeleteProfile extends HttpServlet {
 
   @Override
   public void doGet (HttpServletRequest req,
@@ -29,16 +30,23 @@ public class Profile extends HttpServlet {
           throw new SQLException();
       }
 
+      Connection connection = scon.getConnection();
+
       // Getting the profile bean from the dao
-      ProfiloBean profilo = ProfiloDAO.GetProfiloBean(username, scon.getConnection());
+      ProfiloBean profilo = ProfiloDAO.GetProfiloBean(username, connection);
+    
+      // Deleting the profile
+      ProfiloDAO.EliminaProfilo(profilo, connection);
 
 
-      // Setting the profile bean as an attribute
-      req.setAttribute("profilo", profilo);
+      // Invalidating the session
+      session.invalidate();
 
 
-      // Forwarding the request to the Profile.jsp
-      req.getRequestDispatcher("/WEB-INF/Profile.jsp").forward(req, res);
+      // TODO Move to /OK
+      req.setAttribute("error", "Account rimosso con successo");
+      req.getRequestDispatcher("/error").forward(req, res);
+
     }
     catch(SQLException e) {
 
@@ -48,5 +56,13 @@ public class Profile extends HttpServlet {
       return;
     }
 
+  }
+
+  @Override
+  public void doPost (HttpServletRequest req,
+                      HttpServletResponse res)
+    throws ServletException, IOException
+  {
+    doGet(req, res);
   }
 }

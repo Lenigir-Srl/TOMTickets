@@ -61,6 +61,10 @@
        <servlet-class>TestDB</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>eliminaProfilo</servlet-name>
+       <servlet-class>DeleteProfile</servlet-class>
+   </servlet>
 
 
     <!--  Servlet and JSPs can access this data using getServletContext().method
@@ -101,6 +105,11 @@
     <servlet-mapping>
       <servlet-name>logout</servlet-name>
       <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>eliminaProfilo</servlet-name>
+      <url-pattern>/eliminaProfilo</url-pattern>
     </servlet-mapping>
 
 

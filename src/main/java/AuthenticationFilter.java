@@ -21,18 +21,27 @@ public class AuthenticationFilter implements Filter {
 
     HttpServletRequest http_req = (HttpServletRequest) req;
 
-    // Check session
-    if (http_req.getSession(false) == null) {
-        
-        req.setAttribute("error", "Non hai ancora fatto il login!"); //Set error message
-        
-        req.getRequestDispatcher("/error").forward(req,res); //Redirect to Error.java
-       
-    }
-    else {
+    try {
+        if (http_req.getSession(false) == null) {
+            throw new Exception();
+        }
 
-        // Continue
+        HttpSession session = http_req.getSession(false);
+        if (session.getAttribute("sessionconnection") == null) {
+            throw new Exception();
+        }
+        
+        if (session.getAttribute("username") == null) {
+            throw new Exception();
+        }
+
         chain.doFilter(req, res);
+
+    }
+    catch (Exception e) {
+
+        req.setAttribute("error", "Utente non autenticato"); //Set error message
+        req.getRequestDispatcher("/error").forward(req,res); //Redirect to Error.java
     }
   }
 }
