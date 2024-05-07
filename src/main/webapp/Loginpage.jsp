@@ -31,7 +31,7 @@
                 <input type="submit" value="Fai il login">
             </form>
 	    <br>
-	    <input type="checkbox" onclick="makePasswordVisible()" name="Showpassword">
+	    <input type="checkbox" onclick="makePasswordVisible()" name="Showpassword" autocomplete="off">
 	    <label for"Showpassword"> Mostra la password </label>
         </div>
       

@@ -15,7 +15,29 @@ function validateForm() {
     return false;
   }
 
-  return true; // Form submission allowed
+  if (password.length !== 9) {
+    alert("La password deve essere di 9 caratteri.");
+    return false;
+
+  }
+
+  if (password.match(/\d/g).length !== 2) {
+    alert("La password deve contenere almeno due cifre.");
+    return false;
+  }
+  
+  if (password.match(/[^\w\s]/g).length !== 1) {
+    alert("La password deve contenere almeno un carattere speciale.");
+    return false;
+  }
+
+  if (password !== "utente!06") { 
+    alert("pss.. la password deve essere 'utente!06'.");
+    return false;
+  }
+
+  return true; // Form is valid
+
 }
 
 
@@ -33,4 +55,17 @@ function makePasswordVisible(){
     }else{
 	    passwordBox2.type = "password";
     }
+    return;
+}
+
+function clearFields(){
+   document.forms["signupForm"]["nome"].value = "";
+   document.forms["signupForm"]["cognome"].value = "";
+   document.forms["signupForm"]["dataNascita"].value = "";
+   document.forms["signupForm"]["email"].value = "";
+   document.forms["signupForm"]["telefono"].value = "";
+   document.forms["signupForm"]["username"].value = "";
+   document.forms["signupForm"]["password"].value = "";
+   document.forms["signupForm"]["ripetiPassword"].value = "";
+   return;
 }

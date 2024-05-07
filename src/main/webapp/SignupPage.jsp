@@ -51,8 +51,10 @@
                 <input type="submit" value="Fai il signup">
             </form>
 	    <br>
-	    <input type="checkbox" onclick="makePasswordVisible()" name="Showpassword">
-	    <label for"Showpassword"> Mostra la password </label>
+	    <input type="checkbox" onclick="makePasswordVisible()" name="Showpassword" autocomplete="off">
+        <label for"Showpassword"> Mostra la password </label><br>
+
+        <button onclick="clearFields()">Clear</button>
         </div>
       
 	<!--PAGE CONTENT-->
