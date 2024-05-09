@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <script type"text/javascript" src="./js/Homepage.js"></script>
+    <script type"text/javascript" src="js/Homepage.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOMTickets</title>
@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--NAVIGATION BAR-->
-<%@include file="./Header.jsp"%>
+<%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
 
 
@@ -71,13 +71,13 @@
 <!--PAGE CONTENT-->
 
 
-<!--FOOTER-->
-<%@include file="./Footer.jsp"%>
-<!--FOOTER-->
+	<!--FOOTER-->
+        <%@include file="/jsp/Footer.jsp"%>
+        <!--FOOTER-->
 
-<!--COOKIE-->
-<%@include file="./Cookie.jsp"%>
-<!--COOKIE-->
+        <!--COOKIE-->
+        <%@include file="/jsp/Cookie.jsp"%>
+        <!--COOKIE-->
 
 </body>
 </html>

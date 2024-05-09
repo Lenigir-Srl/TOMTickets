@@ -57,6 +57,11 @@
    </servlet>
 
    <servlet>
+        <servlet-name>ok</servlet-name>
+        <servlet-class>OK</servlet-class>
+   </servlet>
+
+   <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>Logout</servlet-class>
    </servlet>
@@ -105,6 +110,11 @@
     <servlet-mapping>
         <servlet-name>error</servlet-name>
 	<url-pattern>/error</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ok</servlet-name>
+        <url-pattern>/OK</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

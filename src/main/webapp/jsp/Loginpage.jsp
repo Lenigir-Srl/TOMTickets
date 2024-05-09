@@ -4,7 +4,7 @@
 
 <html lang="en">
     <%-- Include JS file into the page --%>
-    <script type="text/javascript" src="./js/Loginpage.js"></script>
+    <script type="text/javascript" src="js/Loginpage.js"></script>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
     <body>
 
         <!--HEADER-->
-	<%@include file="./Header.jsp"%>
+	<%@include file="/jsp/Header.jsp"%>
 	<!--HEADER-->
 
         <!--PAGE CONTENT-->
@@ -43,18 +43,18 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Accedi nel tuo profilo</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="username" name="username" class="form-control form-control-lg" required/>
+                    <input type="text" id="username" name="username" class="form-control form-control-lg" required />
                     <label class="form-label" for="email">Username</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="password" name="password" class="form-control form-control-lg" required/>
+                    <input type="password" id="password" name="password" class="form-control form-control-lg" required />
                     <label class="form-label" for="password">Password</label>
                   </div>
 
                   <div class="pt-2 pb-3 text-center">
 		    <button class="btn btn-warning btn-lg btn-block" onclick="clearFields()" type="button">Cancella</button>
-                    <button class="btn btn-success btn-lg btn-block" type="submit">Accedi</button>
+                    <button class="btn btn-success btn-lg btn-block" onclick="return validateForm()" type="submit">Accedi</button>
                   </div>
 		</form>
 		<div class="d-flex justify-content-center align-items-center">
@@ -74,11 +74,11 @@
 	<!--PAGE CONTENT-->
 	
         <!--FOOTER-->
-	<%@include file="./Footer.jsp"%>
+	<%@include file="/jsp/Footer.jsp"%>
 	<!--FOOTER-->
 	
 	<!--COOKIE-->
-        <%@include file="./Cookie.jsp"%>
+        <%@include file="/jsp/Cookie.jsp"%>
         <!--COOKIE-->
 
     </body>

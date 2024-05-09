@@ -38,7 +38,7 @@ public class Profile extends HttpServlet {
 
 
       // Forwarding the request to the Profile.jsp
-      req.getRequestDispatcher("/WEB-INF/Profile.jsp").forward(req, res);
+      req.getRequestDispatcher("/WEB-INF/jsp/Profile.jsp").forward(req, res);
     }
     catch(SQLException e) {
 

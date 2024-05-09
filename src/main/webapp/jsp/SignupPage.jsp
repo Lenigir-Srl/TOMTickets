@@ -4,7 +4,7 @@
 
 <html lang="en">
     <%-- Include JS file into the page --%>
-    <script type"text/javascript" src="./js/Signuppage.js"></script>
+    <script type"text/javascript" src="js/Signuppage.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 </head>
 
 <!--NAVIGATION BAR-->
-<%@include file="./Header.jsp"%>
+<%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
 
 <!--PAGE CONTENT-->
@@ -117,11 +117,11 @@
 <!--PAGE CONTENT-->
 
     	<!--FOOTER-->
-	<%@include file="./Footer.jsp"%>
+	<%@include file="/jsp/Footer.jsp"%>
 	<!--FOOTER-->
 
 	<!--COOKIE-->
-        <%@include file="./Cookie.jsp"%>
+        <%@include file="/jsp/Cookie.jsp"%>
         <!--COOKIE-->
 
     </body>

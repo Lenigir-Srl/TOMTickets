@@ -5,13 +5,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>risto89 - errore</title>
+        <title>risto89 - OK</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
 
         <!--NAVIGATION BAR-->
-        <%@include file="/jsp/Header.jsp"%>
+        <%@include file="../../jsp/Header.jsp"%>
         <!--NAVIGATION BAR-->
 
 
@@ -19,19 +19,19 @@
         <section class="vh-10 justify-content-center align-items-center bg-dark-subtle">
         <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center" style="height:80vh;">
             <div class="card w-75">
-                <div class="card-header bg-danger">
-                    <h1 class="text-center text-white">Errore!</h1>
+                <div class="card-header bg-success">
+                    <h1 class="text-center text-white">OK!</h1>
                 </div>
                 <div class="card-body py-3">
                     <blockquote class="blockquote">
                         <%-- Get the error message --%>
-                        <% String error = (String) request.getAttribute("error"); %>
-                        <% if (error == null){%>
+                        <% String ok = (String) request.getAttribute("OK"); %>
+                        <% if (ok == null){%>
                             <%-- No errors printed if null --%>
-                            <p class="text-center">Nessun errore riscontrato.</p>
+                            <p class="text-center">Nessun messagio ricevuto.</p>
                         <%}else{%>
                             <%-- Print the error message --%>
-                            <p class="text-center"><%= error %></p>
+                            <p class="text-center"><%= ok %></p>
                         <%}%>
                         <footer class="blockquote-footer text-center"><cite title="Source Title">Descrizione</cite></footer>
                     </blockquote>
@@ -43,11 +43,11 @@
 
 
         <!--FOOTER-->
-        <%@include file="/jsp/Footer.jsp"%>
+        <%@include file="../../jsp/Footer.jsp"%>
         <!--FOOTER-->
 
         <!--COOKIE-->
-        <%@include file="/jsp/Cookie.jsp"%>
+        <%@include file="../../jsp/Cookie.jsp"%>
         <!--COOKIE-->
 
     </body>
