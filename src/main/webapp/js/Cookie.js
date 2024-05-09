@@ -50,4 +50,5 @@ function setCookieConsent(Choice){
 			window.localStorage.setItem("cookies", "NaN");
 		}
 	}
+	location.reload();
 }

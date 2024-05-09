@@ -43,7 +43,7 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Accedi nel tuo profilo</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="email" name="email" class="form-control form-control-lg" required/>
+                    <input type="text" id="username" name="username" class="form-control form-control-lg" required/>
                     <label class="form-label" for="email">Username</label>
                   </div>
 
@@ -52,19 +52,17 @@
                     <label class="form-label" for="password">Password</label>
                   </div>
 
-		  <div class="d-flex justify-content-center align-items-center">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input fs-3" type="checkbox" id="flexSwitchCheckDefault" onchange="makePasswordVisible()" autocomplete="off">
-                      <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Mostra la password</label>
-                    </div>
-                  </div>
-
-                  <div class="pt-5 mb-4 text-center">
+                  <div class="pt-2 pb-3 text-center">
 		    <button class="btn btn-warning btn-lg btn-block" onclick="clearFields()" type="button">Cancella</button>
                     <button class="btn btn-success btn-lg btn-block" type="submit">Accedi</button>
                   </div>
 		</form>
-
+		<div class="d-flex justify-content-center align-items-center">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input fs-3" type="checkbox" id="flexSwitchCheckDefault" onchange="makePasswordVisible()" autocomplete="off">
+                    <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Mostra la password</label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@
     <body>
 
 	<!--NAVIGATION BAR-->
-        <%@include file="../Header.jsp"%>
+        <%@include file="../../jsp/Header.jsp"%>
 	<!--NAVIGATION BAR-->
 
 

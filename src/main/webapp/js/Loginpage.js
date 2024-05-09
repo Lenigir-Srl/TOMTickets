@@ -8,7 +8,7 @@ function makePasswordVisible(){
 }
 
 function clearFields(){
-   document.forms["loginForm"]["email"].value = "";
+   document.forms["loginForm"]["username"].value = "";
    document.forms["loginForm"]["password"].value = "";
    return;
 }

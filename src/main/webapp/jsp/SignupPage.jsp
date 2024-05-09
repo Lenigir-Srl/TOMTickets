@@ -41,13 +41,13 @@
                   <div class="row">
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="text" id="nome" name="nome" class="form-control" />
+                        <input type="text" id="nome" name="nome" class="form-control" required />
                         <label class="form-label" for="nome">Nome</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="text" id="cognome" name="cognome" class="form-control" />
+                        <input type="text" id="cognome" name="cognome" class="form-control" required />
                         <label class="form-label" for="cognome">Cognome</label>
                       </div>
                     </div>
@@ -56,26 +56,26 @@
                   <div class="row">
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="date" id="dataNascita" name="dataNascita" class="form-control" />
+                        <input type="date" id="dataNascita" name="dataNascita" class="form-control" required />
                         <label class="form-label" for="dataNascita">Data di nascita</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="tel" id="telefono" name="telefono" class="form-control" />
+                        <input type="tel" id="telefono" name="telefono" class="form-control" required />
                         <label class="form-label" for="telefono">Numero di telefono</label>
                       </div>
                     </div>
                   </div>
 
                   <div data-mdb-input-init class="form-outline mb-2">
-                    <input type="email" id="email" name="email" class="form-control" />
+                    <input type="email" id="email" name="email" class="form-control" required />
                     <label class="form-label" for="email">Indirizzo Email</label>
                   </div>
 
                   <div class="row">
                     <div data-mdb-input-init class="form-outline mb-2">
-                      <input type="text" id="username" name="username" class="form-control" />
+                      <input type="text" id="username" name="username" class="form-control" required />
                       <label class="form-label" for="username">Username</label>
                     </div>
                   </div>
@@ -83,30 +83,30 @@
                   <div class="row">
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="password" id="password" name="password" class="form-control" />
+                        <input type="password" id="password" name="password" class="form-control" required />
                         <label class="form-label" for="password">Password</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="password" id="ripetiPassword" name="ripetiPassword" class="form-control" />
+                        <input type="password" id="ripetiPassword" name="ripetiPassword" class="form-control" required />
                         <label class="form-label" for="ripetiPassword">Ripeti la password</label>
                       </div>
                     </div>
                   </div>
-
-                  <div class="d-flex justify-content-center align-items-center">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input fs-3" type="checkbox" id="flexSwitchCheckDefault" onchange="makePasswordVisible()" autocomplete="off">
-                      <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Mostra la password</label>
-                    </div>
-                  </div>
-                  <div class="pt-5 text-center">
+                  
+		  <div class="pt-2 pb-3 text-center">
                     <button type="button" onclick="clearFields()" class="btn btn-warning btn-lg">Cancella</button>
                     <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg ms-2">Registrati</button>
                   </div>
                 </form>
-              </div>
+            	<div class="d-flex justify-content-center align-items-center">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input fs-3" type="checkbox" id="flexSwitchCheckDefault" onchange="makePasswordVisible()" autocomplete="off">
+                    <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Mostra la password</label>
+                  </div>
+                </div>
+	      </div>
             </div>
           </div>
         </div>
