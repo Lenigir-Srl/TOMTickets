@@ -10,8 +10,8 @@ import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 
-// This servlet is used to display the profiles of the users
-public class VisualizzaProfili extends HttpServlet {
+// This servlet is used to handle the event management
+public class GestioneEventi extends HttpServlet {
 
   @Override
   public void init(ServletConfig config) throws ServletException {
@@ -45,23 +45,23 @@ public class VisualizzaProfili extends HttpServlet {
         }
 
         // Getting the profile bean from the dao
-        List<ProfiloBean> profili = ProfiloDAO.GetProfili(scon.getConnection());
+        List<EventoBean> eventi = EventoDAO.GetEventi(scon.getConnection());
 
 
         // Convert list to json
-        String jsonArray = new Gson().toJson(profili);
+        String jsonArray = new Gson().toJson(eventi);
 
         // Setting the profile bean as an attribute
-        req.setAttribute("profiliJson", jsonArray);
+        req.setAttribute("eventiJson", jsonArray);
 
 
         // Forwarding the request to the Profile.jsp
-        req.getRequestDispatcher("/WEB-INF/VisualizzaProfili.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/GestioneEventi.jsp").forward(req, res);
 
       }
       catch (Exception e) {
 
-          req.setAttribute("error", "(VisualizzaProfilo) Errore di connessione al database, " + e.getMessage());
+          req.setAttribute("error", "(Gestione Eventi) Errore di connessione al database, " + e.getMessage());
           req.getRequestDispatcher("/error").forward(req, res);
       }
   }

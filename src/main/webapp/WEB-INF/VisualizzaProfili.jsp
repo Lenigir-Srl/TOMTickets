@@ -84,8 +84,6 @@
 
         <!--PAGE CONTENT-->
 
-    <%@ page import="com.google.gson.*" %> 
-
     <div class="table-responsive" style="padding-top: 2%; padding-left: 2%; padding-right: 2%">
 
         <table class="table">

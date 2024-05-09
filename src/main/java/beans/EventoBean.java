@@ -8,7 +8,7 @@ import java.io.Serializable;
 // - luogo VARCHAR(30)
 // - data DATE
 // - ora TIME
-// - timage BLOB
+// - image BLOB
 // - tipologiaBiglietti VARCHAR(30)
 // - prezzo REAL
 // - sconto REAL

@@ -76,6 +76,21 @@
        <servlet-class>VisualizzaProfili</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>gestioneEventi</servlet-name>
+       <servlet-class>GestioneEventi</servlet-class>
+   </servlet>
+
+   <servlet>
+       <servlet-name>eliminaEvento</servlet-name>
+       <servlet-class>DeleteEvent</servlet-class>
+   </servlet>
+   
+   <servlet>
+       <servlet-name>creaEvento</servlet-name>
+       <servlet-class>CreaEvento</servlet-class>
+   </servlet>
+
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
             <param-name>value_name</param-name>
@@ -131,6 +146,20 @@
       <url-pattern>/visualizzaProfili</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+      <servlet-name>gestioneEventi</servlet-name>
+      <url-pattern>/gestioneEventi</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>eliminaEvento</servlet-name>
+      <url-pattern>/eliminaEvento</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>creaEvento</servlet-name>
+      <url-pattern>/creaEvento</url-pattern>
+    </servlet-mapping>
 
     <!-- Filters config -->
     <filter>
@@ -151,10 +180,29 @@
     </filter-mapping>
 
     <filter-mapping>
+            <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/eliminaProfilo</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
             <filter-name>AdminFilter</filter-name>
             <url-pattern>/visualizzaProfili</url-pattern>
     </filter-mapping>
 
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/gestioneEventi</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/eliminaEvento</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/creaEvento</url-pattern>
+    </filter-mapping>
 
    <!-- Setup Session -->
    <session-config>
