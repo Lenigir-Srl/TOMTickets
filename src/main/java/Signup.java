@@ -93,9 +93,8 @@ public class Signup extends HttpServlet {
 
         con.close();
 
-        // TODO: Redirect to OK page
-        req.setAttribute("error", "Registrazione effettuata con successo");
-    	req.getRequestDispatcher("/error").forward(req, res);
+        req.setAttribute("OK", "Registrazione effettuata con successo");
+    	req.getRequestDispatcher("/OK").forward(req, res);
 
       }
       catch (SQLException e) {

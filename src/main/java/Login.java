@@ -95,7 +95,7 @@ public class Login extends HttpServlet {
   {
     
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("./jsp/Loginpage.jsp").include(req, res);
+    req.getRequestDispatcher("/jsp/Loginpage.jsp").include(req, res);
     
   }
 }
