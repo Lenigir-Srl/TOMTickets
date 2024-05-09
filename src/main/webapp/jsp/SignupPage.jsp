@@ -83,13 +83,13 @@
                   <div class="row">
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="getPasswordState()" id="password" name="password" class="form-control" />
+                        <input type="password" id="password" name="password" class="form-control" />
                         <label class="form-label" for="password">Password</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-2">
                       <div data-mdb-input-init class="form-outline">
-                        <input type="getPasswordState()" id="ripetiPassword" name="ripetiPassword" class="form-control" />
+                        <input type="password" id="ripetiPassword" name="ripetiPassword" class="form-control" />
                         <label class="form-label" for="ripetiPassword">Ripeti la password</label>
                       </div>
                     </div>
@@ -116,9 +116,13 @@
 </section>
 <!--PAGE CONTENT-->
 
-    <!--FOOTER-->
+    	<!--FOOTER-->
 	<%@include file="./Footer.jsp"%>
 	<!--FOOTER-->
+
+	<!--COOKIE-->
+        <%@include file="./Cookie.jsp"%>
+        <!--COOKIE-->
 
     </body>
 </html>

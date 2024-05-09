@@ -42,26 +42,26 @@
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Accedi nel tuo profilo</h5>
 
-                  <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="email" name="email" class="form-control form-control-lg" required/>
+                  <div class="form-outline mb-4">
+                    <input type="text" id="email" name="email" class="form-control form-control-lg" required/>
                     <label class="form-label" for="email">Username</label>
                   </div>
 
-                  <div data-mdb-input-init class="form-outline mb-4">
+                  <div class="form-outline mb-4">
                     <input type="password" id="password" name="password" class="form-control form-control-lg" required/>
                     <label class="form-label" for="password">Password</label>
                   </div>
 
 		  <div class="d-flex justify-content-center align-items-center">
-                  <div class="form-check form-switch">
-  <input class="form-check-input fs-3" type="checkbox" id="flexSwitchCheckDefault" onchange="makePasswordVisible()" autocomplete="off">
-  <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Mostra la password</label>
-</div>
-</div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input fs-3" type="checkbox" id="flexSwitchCheckDefault" onchange="makePasswordVisible()" autocomplete="off">
+                      <label class="form-check-label fs-4" for="flexSwitchCheckDefault">Mostra la password</label>
+                    </div>
+                  </div>
 
                   <div class="pt-5 mb-4 text-center">
-		    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-lg btn-block" onclick="clearFields()" type="button">Cancella</button>
-                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg btn-block" type="submit">Accedi</button>
+		    <button class="btn btn-warning btn-lg btn-block" onclick="clearFields()" type="button">Cancella</button>
+                    <button class="btn btn-success btn-lg btn-block" type="submit">Accedi</button>
                   </div>
 		</form>
 
@@ -78,6 +78,10 @@
         <!--FOOTER-->
 	<%@include file="./Footer.jsp"%>
 	<!--FOOTER-->
+	
+	<!--COOKIE-->
+        <%@include file="./Cookie.jsp"%>
+        <!--COOKIE-->
 
     </body>
 </html>
