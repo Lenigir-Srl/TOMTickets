@@ -14,9 +14,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">About</a>
-        </li>
+        <%
+            String name = (String) session.getAttribute("username");
+            if(name == null){
+        %>
+	 <!--Show something to the not-logged user -->
+        <%
+            }else{
+        %>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Visualizza Utenti</a>
+            </li>
+	    <li class="nav-item">
+              <a class="nav-link disabled" href="#">Visualizza Dipendenti</a>
+            </li>
+        <%
+            }
+        %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Eventi
