@@ -112,7 +112,7 @@ public class Signup extends HttpServlet {
   {
     
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/SignupPage.jsp").include(req, res);
+    req.getRequestDispatcher("/jsp/SignupPage.jsp").include(req, res);
     
   }
 }

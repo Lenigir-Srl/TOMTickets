@@ -24,7 +24,7 @@
      the server then tries the next file in the list. 
    -->
    <welcome-file-list>
-        <welcome-file>Homepage.jsp</welcome-file>
+        <welcome-file>jsp/Homepage.jsp</welcome-file>
    </welcome-file-list>
 
 

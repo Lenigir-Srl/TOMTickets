@@ -69,3 +69,4 @@ function clearFields(){
    document.forms["signupForm"]["ripetiPassword"].value = "";
    return;
 }
+

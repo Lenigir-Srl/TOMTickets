@@ -18,7 +18,7 @@ public class Error extends HttpServlet {
   {
 
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("./Errorpage.jsp").include(req, res);
+    req.getRequestDispatcher("./jsp/Errorpage.jsp").include(req, res);
   }
 
   @Override
