@@ -47,7 +47,6 @@
       </ul>
       <div class="d-flex align-items-center">
         <%
-            String name = (String) session.getAttribute("username");
             if(name == null){
         %>
 	    <a class="me-3 btn btn-primary navbar-btn" href="./signup">Registrati</a>
