@@ -114,6 +114,11 @@
             lista.appendChild(tr);
         });
     }
+
+
+    function goCreaEvento() {
+        window.location.href = "/risto89-1.0/creaEvento";
+    }
     </script>   
 
 
@@ -152,6 +157,9 @@
 
         <label class="form-check-label" for="isOrdered">Ordina per numero di click</label>
         <input type="checkbox" id="isOrdered" onclick="mostraLista()" autocomplete="off">
+
+        <br>
+        <button class="btn btn-primary padding-top: 2%" onclick="goCreaEvento()">Crea Evento</button>
 
 	</div>
 

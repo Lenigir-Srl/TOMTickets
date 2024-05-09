@@ -28,62 +28,78 @@
 
         <div class="mb-3">
           <label for="titolo" class="form-label">Titolo</label>
-          <input type="text" class="form-control" id="titolo" name="titolo">
+          <input type="text" class="form-control" id="titolo" name="titolo" required>
         </div>
 
         <div class="mb-3">
           <label for="sottotitolo" class="form-label">Sottotitolo:</label>
-          <input type="text" class="form-control" id="sottotitolo" name="sottotitolo">
+          <input type="text" class="form-control" id="sottotitolo" name="sottotitolo" required>
         </div>
 
         <div class="mb-3">
           <label for="descrizione" class="form-label">Descrizione:</label>
-          <input type="text" class="form-control" id="descrizione" name="descrizione">
+          <input type="text" class="form-control" id="descrizione" name="descrizione" required>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3"> <!-- NOTA per il frontend developer: la tipologia deve essere
+             scelta da una lista e dubmittare uno dei seguenti valori:
+             - Concerti
+             - SpettacoliTeatrali
+             - EventiSportivi
+             - VisiteGuidate
+             -->
           <label for="tipologia" class="form-label">Tipologia:</label>
-          <input type="text" class="form-control" id="tipologia" name="tipologiaEvento">
+          <input type="text" class="form-control" id="tipologia" name="tipologiaEvento" required>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3"> <!-- scelto dalla seguente lista:
+             - Trento
+             - Povo
+             - Rovereto
+             - Riva
+             - Arco
+             -->
           <label for="luogo" class="form-label">Luogo:</label>
-          <input type="text" class="form-control" id="luogo" name="luogo">
+          <input type="text" class="form-control" id="luogo" name="luogo" required>
         </div>
 
         <div class="mb-3">
           <label for="data" class="form-label">Data:</label>
-          <input type="date" class="form-control" id="data" name="data">
+          <input type="date" class="form-control" id="data" name="data" required>
         </div>
 
         <div class="mb-3">
           <label for="ora" class="form-label">Ora:</label>
-          <input type="time" class="form-control" id="ora" name="ora">
+          <input type="time" class="form-control" id="ora" name="ora" required>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3"> <!-- TODO in un commit successivo -->
           <label for="image" class="form-label">Immagine:</label>
-          <input type="text" class="form-control" id="image" name="image">
+          <input type="text" class="form-control" id="image" name="image" required>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3"> <!-- la tipologia di biglietti deve essere scelta da una lista 
+             che deve sumbittare uno dei seguenti valori:
+             - InPiedi
+             - Seduti
+             -->
           <label for="tipologiaBiglietti" class="form-label">Tipologia Biglietti:</label>
-          <input type="text" class="form-control" id="tipologiaBiglietti" name="tipologiaBiglietti">
+          <input type="text" class="form-control" id="tipologiaBiglietti" name="tipologiaBiglietti" required>
         </div>
 
         <div class="mb-3">
           <label for="prezzo" class="form-label">Prezzo:</label>
-          <input type="text" class="form-control" id="prezzo" name="prezzo">
+          <input type="text" class="form-control" id="prezzo" name="prezzo" required>
         </div>
 
         <div class="mb-3">
           <label for="sconto" class="form-label">Sconto:</label>
-          <input type="text" class="form-control" id="sconto" name="sconto">
+          <input type="text" class="form-control" id="sconto" name="sconto" required>
         </div>
 
         <div class="mb-3">
           <label for="numeroClick" class="form-label">Numero Click:</label>
-          <input type="text" class="form-control" id="numeroClick" name="numeroClick">
+          <input type="text" class="form-control" id="numeroClick" name="numeroClick" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Crea</button>
