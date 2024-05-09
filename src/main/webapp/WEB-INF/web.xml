@@ -71,6 +71,10 @@
        <servlet-class>DeleteProfile</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>visualizzaProfili</servlet-name>
+       <servlet-class>VisualizzaProfili</servlet-class>
+   </servlet>
 
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
@@ -122,6 +126,11 @@
       <url-pattern>/eliminaProfilo</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+      <servlet-name>visualizzaProfili</servlet-name>
+      <url-pattern>/visualizzaProfili</url-pattern>
+    </servlet-mapping>
+
 
     <!-- Filters config -->
     <filter>
@@ -129,11 +138,21 @@
             <filter-class>AuthenticationFilter</filter-class>
     </filter>
 
+    <filter>
+            <filter-name>AdminFilter</filter-name>
+            <filter-class>AdminFilter</filter-class>
+    </filter>
+
 
     <!-- Url to map the filter onto -->
     <filter-mapping>
             <filter-name>AuthenticationFilter</filter-name>
             <url-pattern>/profile</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/visualizzaProfili</url-pattern>
     </filter-mapping>
 
 
