@@ -43,15 +43,15 @@ public class DeleteProfile extends HttpServlet {
       session.invalidate();
 
 
-      // TODO Move to /OK
-      req.setAttribute("error", "Account rimosso con successo");
-      req.getRequestDispatcher("/error").forward(req, res);
+      req.setAttribute("OK", "Account rimosso con successo");
+      req.getRequestDispatcher("/OK").forward(req, res);
 
     }
     catch(SQLException e) {
 
       // If there is an error, we redirect to the error page
       req.setAttribute("error", "Errore di connessione al database");
+      req.setAttribute("description", e.getMessage());
       req.getRequestDispatcher("/error").forward(req, res);
       return;
     }

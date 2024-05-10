@@ -33,7 +33,16 @@
                             <%-- Print the error message --%>
                             <p class="text-center"><%= error %></p>
                         <%}%>
-                        <footer class="blockquote-footer text-center"><cite title="Source Title">Descrizione</cite></footer>
+                        <footer class="blockquote-footer text-center"><cite title="Source Title">
+			<% String description = (String) request.getAttribute("description"); %>
+			<% if (description == null){%>
+			    <%-- No description found --%>
+			    Qualcosa è andato storto!
+			<%}else{%>
+			    <%-- Print the description --%>
+			    <%= description %>
+			<%}%>
+			</cite></footer>
                     </blockquote>
                 </div>
             </div>

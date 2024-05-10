@@ -5,8 +5,7 @@ import javax.servlet.*;
 
 // Check that the user making the request has a session
 // If that's not the case, It blocks acces to the page
-//
-// TODO: Redirect to error page
+
 public class AuthenticationFilter implements Filter {
 
   public void init(FilterConfig fConfig) throws ServletException {}
@@ -28,11 +27,11 @@ public class AuthenticationFilter implements Filter {
 
         HttpSession session = http_req.getSession(false);
         if (session.getAttribute("sessionconnection") == null) {
-            throw new Exception();
+            throw new Exception("Non e' stato possibile trovare la sessione");
         }
         
         if (session.getAttribute("username") == null) {
-            throw new Exception();
+            throw new Exception("Lo username non e' corretto.");
         }
 
         chain.doFilter(req, res);
@@ -40,8 +39,9 @@ public class AuthenticationFilter implements Filter {
     }
     catch (Exception e) {
 
-        req.setAttribute("error", "Utente non autenticato"); //Set error message
-        req.getRequestDispatcher("/error").forward(req,res); //Redirect to Error.java
+        req.setAttribute("error", "Non hai ancora fatto il login!"); //Set error message
+        req.setAttribute("description", e.getMessage());
+	req.getRequestDispatcher("/error").forward(req,res); //Redirect to Error.java
     }
   }
 }

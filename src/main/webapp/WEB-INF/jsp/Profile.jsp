@@ -86,8 +86,12 @@
 
 
         <!--FOOTER-->
-        <%@include file="../Footer.jsp"%>
+        <%@include file="../../jsp/Footer.jsp"%>
         <!--FOOTER-->
+
+	<!--COOKIE-->
+        <%@include file="../../jsp/Cookie.jsp"%>
+        <!--COOKIE-->
 
     </body>
 </html>

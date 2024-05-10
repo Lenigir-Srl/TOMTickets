@@ -18,7 +18,7 @@ public class OK extends HttpServlet {
   {
 
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/jsp/OKpage.jsp").include(req, res);
+    req.getRequestDispatcher("/WEB-INF/jsp/OKpage.jsp").include(req, res);
   }
 
   @Override

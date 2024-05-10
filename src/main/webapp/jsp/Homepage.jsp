@@ -57,15 +57,10 @@
             </div>
         </div>
     </div>
-    <div class="col"> <!-- New column added -->
-        <div class="card" style="width: 35vw; margin-bottom:20px; margin-left: auto; margin-right:20px"> <!-- Adjusted margin-left -->
-            <div class="container align-items-center justify-content-center d-flex"><div class="card-header"><h2>Cose divertenti da sapere</h2></div></div>
-            <ul class="list-group list-group-flush d-flex justify-content-center align-items-center">
-                <li class="list-group-item text-center" id="Times_visited_shower"></li>
-                <li class="list-group-item text-center" id="Cookies_accepted_shower"></li>
-                <li class="list-group-item text-center">Intellij best IDE ever designed</li>
-            </ul>
-        </div>
+    <div class="col"> 
+        <!--FUNFACTS-->
+	<%@include file="/jsp/Funfacts.jsp"%>
+	<!--FUNFACTS-->
     </div>
 </section>
 <!--PAGE CONTENT-->
