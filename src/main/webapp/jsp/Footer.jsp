@@ -3,7 +3,7 @@
 
 
 <div class="container-fluid bg-transparent">
-    <footer class="py-2 my-2 fixed-bottom">
+    <footer class="py-2 my-2">
         <%--
 	<ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item">

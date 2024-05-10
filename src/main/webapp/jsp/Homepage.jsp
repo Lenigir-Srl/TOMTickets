@@ -21,9 +21,9 @@
     <div class="container d-flex justify-content-center align-items-center py-4 h-100">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col">
-                <div class="card" style="border-radius: 1rem; width:50vw; padding-top:1rem;">
+                <div class="card" style="border-radius: 1rem; width:75vw; padding-top:1vm;">
                     <!-- Carousel code here -->
-                    <div id="carouselExampleCaptions" class="carousel slide justify-content-center container" style="width:50rem;" data-bs-ride="carousel">
+                    <div id="carouselExampleCaptions" class="carousel slide justify-content-center container" style="width:auto;" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>

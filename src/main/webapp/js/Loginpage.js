@@ -3,12 +3,26 @@ function validateForm() {
   var username = document.forms["loginForm"]["username"].value;
  
   if (typeof username !== 'string' || username === "") {
-    alert("Perfavore inserisci uno username!");
+    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito lo username!"
+    document.getElementById('notifyModalDescription').innerHTML= "Il campo username risulta essere vuoto, perfavore inserisci lo username del tuo profilo.";
+    $('#notifyModal').modal({
+                backdrop: 'static',
+                focus: true,
+                keyboard: false
+    })
+    $('#notifyModal').modal('show');
     return false;
   }
 
   if (typeof password !== 'string' || password === "") {
-    alert("Perfavore inserisci una password!");
+    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito la password!"
+    document.getElementById('notifyModalDescription').innerHTML= "Il campo password risulta essere vuoto, perfavore inserisci la password del tuo profilo.";
+    $('#notifyModal').modal({
+                backdrop: 'static',
+                focus: true,
+                keyboard: false
+    })
+    $('#notifyModal').modal('show');
     return false;
   }
 

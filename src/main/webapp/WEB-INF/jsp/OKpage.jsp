@@ -24,16 +24,17 @@
                 </div>
                 <div class="card-body py-3">
                     <blockquote class="blockquote">
-                        <%-- Get the error message --%>
+                        <%-- Get the OK message --%>
                         <% String ok = (String) request.getAttribute("OK"); %>
                         <% if (ok == null){%>
-                            <%-- No errors printed if null --%>
+                            <%-- No message printed if null --%>
                             <p class="text-center">Nessun messagio ricevuto.</p>
                         <%}else{%>
-                            <%-- Print the error message --%>
-                            <p class="text-center"><%= ok %></p>
+                            <%-- Print the OK message --%>
+                            <% String description = (String) request.getAttribute("description"); %>
+			    <p class="text-center"><%= ok %></p>
+                            <footer class="blockquote-footer text-center"><cite title="Source Title"><%= description %></cite></footer>
                         <%}%>
-                        <footer class="blockquote-footer text-center"><cite title="Source Title">Descrizione</cite></footer>
                     </blockquote>
                 </div>
             </div>

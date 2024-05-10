@@ -72,8 +72,10 @@ public class Login extends HttpServlet {
 
             // Redirect to another page
             // req.getRequestDispatcher("./HelloServlet").forward(req, res);
-            res.sendRedirect("/risto89-1.0/profile");
-        }
+            req.setAttribute("OK", "Login effettuato con successo!");
+            req.setAttribute("description", "Hai inserito le credenziali corrette e adesso ti trovi dentro il tuo profilo, siamo felici di rivederti, " + username + " ! ");
+	    req.getRequestDispatcher("/OK").forward(req, res);
+	}
         else {
             
             con.close();
