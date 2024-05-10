@@ -54,8 +54,8 @@
         <%
             }else{
         %>
-	    <a class="btn btn-primary navbar-btn" href="./profile">Il Mio Profilo</a>
-            <a class="btn btn-danger navbar-btn" href="./logout">Esci</a>
+	    <a class="me-3 btn btn-primary navbar-btn" href="./profile">Il Mio Profilo</a>
+            <a class="me-3 btn btn-danger navbar-btn" href="./logout">Esci</a>
         <%
             }
         %>

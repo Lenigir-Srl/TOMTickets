@@ -146,6 +146,11 @@
             <url-pattern>/profile</url-pattern>
     </filter-mapping>
 
+    <filter-mapping>
+            <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/OK</url-pattern>
+    </filter-mapping>
+
 
    <!-- Setup Session -->
    <session-config>
