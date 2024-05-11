@@ -37,9 +37,7 @@
                                <footer class="blockquote-footer text-center"><cite title="name">Via della Malpensada n.140, Trento, Italia</cite></footer>
 			    </blockquote>
                         </div>
-                        <div class="card-footer align-items-center text-center justify-content-center">
-                            © TOMTickets Srl
-                        </div>
+                        <div class="card-footer align-items-center text-center justify-content-center">Orari di apertura<br>08:00 - 17:30 Lunedi' - Giovedi'<br>08:30 - 17:00 Venerdi'</div>
                     </div>
                 </div>
                 <div class="container align-items-center justify-content-center flex-grow-1 mt-3">
@@ -61,9 +59,8 @@
                     <div class="card h-100">
                         <div class="card-header h3 text-center bg-primary text-white">I nostri contatti</div>
                         <div class="card-body">
-			<%-- crea quattro rows per centrare --%>
                             <blockquote class="blockquote h-100">
-			    	<div class="row">
+				<div class="row">
 				<p class="text-center">Valerio Asaro</p>
                                 <footer class="blockquote-footer text-center"><cite title="numtel">Numero di telefono: +39 371 365 1046</cite></footer>
 				<footer class="blockquote-footer text-center"><cite title="birth">valerio.asaro@unitn.it</cite></footer>
@@ -83,11 +80,10 @@
                                 <footer class="blockquote-footer text-center"><cite title="numtel">Numero di telefono: --- --- ----</cite></footer>
                                 <footer class="blockquote-footer text-center"><cite title="email">vincenzomarco.deluca@unitn.it</cite></footer>
 			        </div>
-                                
 			    </blockquote>
                         </div>
                         <div class="card-footer align-items-center text-center justify-content-center">
-                            © TOMTickets Srl
+                            © TOMTickets Srl Team
                         </div>
                     </div>
                 </div>
