@@ -18,8 +18,9 @@
     <!--HEADER-->
 
     <!--PAGE CONTENT-->
-    <section class="h-100 bg-dark-subtle">
-        <div class="container py-4 h-100">
+
+     <section class="bg-dark-subtle text-center align-items-center justify-content-center d-flex" style="min-height: 95vh;">   
+	<div class="container py-4 h-100">
             <div class="card" style="border-radius: 1rem;">
                 <div class="card-body p-4 p-lg-5 text-black text-center">
 

@@ -17,7 +17,7 @@
 
 
 <!--PAGE CONTENT-->
-<section class="vh-10 pb-4 justify-content-center align-items-center bg-dark-subtle">
+<section class="bg-dark-subtle text-center align-items-center justify-content-center d-flex" style="min-height: 95vh;">
     <div class="container d-flex justify-content-center align-items-center py-4 h-100">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col">
