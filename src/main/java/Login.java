@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
         // Get parameters name and password
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-    
+
         //Create Java Bean for profile
 	    TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
         TentativoAccessoDAO.checkUser(tentativoAccessoBean, con);
@@ -64,6 +64,12 @@ public class Login extends HttpServlet {
 
                 // Set name attribute
                 session.setAttribute("username", username);
+		
+		if(ProfiloDAO.isAdmin(username, con)){
+                    session.setAttribute("isAdmin", true);
+		}else{
+		    session.setAttribute("isAdmin", false);
+		}
 
                 // Set DB connection attribute
                 SessionConnection sessionconnection = new SessionConnection(con);
@@ -80,7 +86,9 @@ public class Login extends HttpServlet {
         else {
             
             con.close();
-    	    res.sendRedirect("/risto89-1.0/login");
+    	    req.setAttribute("wrongCredentials", true);
+            req.getRequestDispatcher("/jsp/Loginpage.jsp").forward(req, res);
+	    //res.sendRedirect("/risto89-1.0/login");
         }
 
       }

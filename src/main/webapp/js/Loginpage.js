@@ -45,3 +45,16 @@ function clearFields(){
    document.forms["loginForm"]["password"].value = "";
    return;
 }
+
+
+//Print wrong credentials modal
+function printWrongCredentials() {
+    document.getElementById('notifyModalTitle').innerHTML = "Credenziali errate";
+    document.getElementById('notifyModalDescription').innerHTML = "Lo username e la password non corrispondono a nessun profilo esistente.<br>Controlla che tu abbia inserito le credenziali corrette per accedere nel tuo profilo.";
+    $('#notifyModal').modal({
+        backdrop: 'static',
+        focus: true,
+        keyboard: false
+    });
+    $('#notifyModal').modal('show');
+}

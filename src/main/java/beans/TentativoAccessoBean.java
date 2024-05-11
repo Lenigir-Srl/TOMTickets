@@ -5,7 +5,7 @@ public class TentativoAccessoBean implements Serializable {
 	
 	private String username;	
 	private String password;
-    private boolean isValid;
+        private boolean isValid;
 
 	public TentativoAccessoBean(String username, String password) {
         this.username = username;
@@ -44,4 +44,5 @@ public class TentativoAccessoBean implements Serializable {
         sb.append("Validity: ").append(isValid).append("\n");
         return sb.toString();
     }
+
 }

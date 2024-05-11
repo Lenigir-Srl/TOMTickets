@@ -74,6 +74,16 @@
     <!--NOTIFICATION-->
     <%@include file="/jsp/Notify.jsp"%>
     <!--NOTIFICATION-->
+    
+    <%--Wrong credentials modal info--%>
+    <% boolean wrongCredentials = false; %>
+    <% if(request.getAttribute("wrongCredentials") != null){ %>
+    <%   wrongCredentials = (boolean) request.getAttribute("wrongCredentials"); %>
+    <% } %>
+    <% if(wrongCredentials == true){ %>
+    <%--Show the modal--%>
+    <script>setTimeout(printWrongCredentials, 100);</script>
+    <% } %>
 
 </body>
 </html>

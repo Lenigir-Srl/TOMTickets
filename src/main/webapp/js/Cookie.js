@@ -23,6 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+function showCookieConsent(){
+    $('#cookieModal').modal({
+            backdrop: 'static',
+            focus: true,
+            keyboard: false
+    })
+    $('#cookieModal').modal('show');
+}
+
 /*
 $( document ).on('turbolinks:load', function(){
     var checkFirstTimeVisit = window.localStorage.getItem('times_visited');

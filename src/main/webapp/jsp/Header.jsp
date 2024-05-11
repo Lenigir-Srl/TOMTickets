@@ -31,32 +31,20 @@ ${profilo.getNome()}
                         <li><a class="dropdown-item" href="./eventi">Visualizza tutti</a></li>
                     </ul>
                 </li>
-                <%
-		    String name = (String) session.getAttribute("username");
-                    if(name == null){
-                %>
-                <!--Show something to the not-logged user -->
-                <%
-                    }else{
-                %>
-                    <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn bg-warning text-white" href="#">Visualizza Utenti</a></li>
-                    <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn bg-success text-white" href="#">Visualizza Dipendenti</a></li>
-                <%
-                    }
-                %>
-                <%
-                    if(name == null){
-                %>
+                <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showCookieConsent()" style="background-color: orange;">Privacy</a></li>
+		<% String name = (String) session.getAttribute("username"); %>
+                <% if(name == null){ %>
                     <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn btn-primary navbar-btn" href="./signup">Registrati</a></li>
                     <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn btn-success navbar-btn" href="./login">Accedi</a></li>
-                <%
-                    }else{
-                %>
+                <% }else{ %>
+		    <% boolean isAdmin = (boolean) session.getAttribute("isAdmin"); %>
+		    <% if(isAdmin){ %>
+                        <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn bg-warning text-white" href="#">Visualizza Utenti</a></li>
+                        <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn bg-success text-white" href="#">Visualizza Dipendenti</a></li>
+		    <% } %>
                     <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn btn-primary navbar-btn" href="./profile">Profilo</a></li>
                     <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn btn-danger navbar-btn" href="./logout">Esci</a></li>
-                <%
-                    }
-                %>
+                <% } %>
 	    </ul>
         </div>
     </div>
