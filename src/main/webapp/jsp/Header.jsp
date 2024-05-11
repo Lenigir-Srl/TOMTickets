@@ -21,7 +21,7 @@ ${profilo.getNome()}
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 	    <ul class="nav navbar-nav">
 		<li class="nav-item mb-1 mt-1 dropdown d-flex">
-                    <a class="me-3 ms-auto dropdown-toggle btn btn-danger text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
+                    <a class="me-3 ms-auto dropdown-toggle btn text-white" style="background-color: purple" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="position: absolute; !important;">
                         <li><a class="dropdown-item" href="#">Concerti</a></li>
                         <li><a class="dropdown-item" href="#">Spettacoli teatrali</a></li>

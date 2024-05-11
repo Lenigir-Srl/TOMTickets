@@ -57,7 +57,7 @@
                     </blockquote>
                 </div>
 		<div class="card-footer align-items-center text-center justify-content-center">
-                        <a class="mb-1 mt-1 btn btn-primary" href="./">Vai alla homepage</a>
+                        <a class="mb-1 mt-1 btn btn-dark" href="./">Vai alla homepage</a>
                 </div>
             </div>
         </div>

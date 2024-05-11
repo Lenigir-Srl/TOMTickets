@@ -63,8 +63,9 @@
 		</div>
 		<!-- DELETE BUTTON -->
                 <div class="card-footer">
-                     <button type="submit" onclick="return checkChoice()" id="deleteProfile" class="btn btn-danger">Elimina il mio Profilo</button>
-                </div>
+		<form action="./eliminaProfilo" id="deleteProfile" method="post"> 
+                     <button type="button" onclick="return checkChoice()" id="deleteProfile" class="btn btn-danger">Elimina il mio Profilo</button>
+                </form>
 	    </div>
         </div>
         </section>	

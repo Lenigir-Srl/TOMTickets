@@ -9,7 +9,11 @@ function showWarningModal(){
     $('#warningModal').modal('show');
 }
 
+function deleteProfile(){
+   document.getElementById("deleteProfile").submit();
+}
 
 function checkChoice(){
    showWarningModal();
+   document.getElementById("continueButton").onclick = deleteProfile;
 }
