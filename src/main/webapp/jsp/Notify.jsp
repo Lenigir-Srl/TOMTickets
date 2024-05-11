@@ -3,7 +3,7 @@
 
 
 <%-- Include JS file into the page --%>
-<script type"text/javascript" src="js/Notify.js"></script>
+<%-- <script type"text/javascript" src="js/Notify.js"></script> --%>
 
 <!-- Modal -->
 <div class="modal fade" id="notifyModal" tabindex="-1" aria-hidden="true">

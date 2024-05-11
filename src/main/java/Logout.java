@@ -15,14 +15,16 @@ public class Logout extends HttpServlet {
 
     HttpSession session = req.getSession(false);
 
-    req.setAttribute("OK", "Logout eseguito con successo!");
-    req.setAttribute("description", "Ci dispiace vederti andare via cosi presto :< e noi di TOMTickets speriamo di rivederti molto presto!");
-    req.getRequestDispatcher("/OK").forward(req, res);
-
     // Check if the session exists
     if (session != null) {
       session.invalidate();
     }
+
+    req.setAttribute("title", "Info");
+    req.setAttribute("error", "Sei uscito dal tuo profilo!");
+    req.setAttribute("description", "Ci dispiace vederti andare via cosi presto :(( <br>Noi di TOMTickets speriamo di rivederti molto presto!");
+    req.getRequestDispatcher("/error").forward(req, res);
+
     
   }
 }

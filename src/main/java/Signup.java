@@ -93,8 +93,9 @@ public class Signup extends HttpServlet {
 
         con.close();
 
-        req.setAttribute("OK", "Registrazione effettuata con successo");
-    	req.setAttribute("description", "Hai inserito le corrette informazioni e adesso il tuo profilo e' stato creato con successo! Benvenuto in TOMTickets, " + username + " siamo felici di averti qui con noi!");
+	req.setAttribute("title", "Registrazione");
+        req.setAttribute("OK", "Profilo creato con successo!");
+    	req.setAttribute("description", "Hai inserito le corrette informazioni e adesso<br>il tuo profilo e' stato creato con successo!<br>Benvenuto/a in TOMTickets, " + username + " siamo felici di averti qui con noi!");
 	req.getRequestDispatcher("/OK").forward(req, res);
 
       }

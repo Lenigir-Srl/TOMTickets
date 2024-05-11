@@ -5,7 +5,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>risto89 - errore</title>
+	<% String title = (String) request.getAttribute("title"); %>
+        <% if(title ==  null){ %>
+		<title>TOMTickets - Errore</title>
+        <%}else{%>
+        	<title>TOMTickets - <%= title %></title>
+	<%}%>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
@@ -19,9 +24,15 @@
         <section class="vh-10 justify-content-center align-items-center bg-dark-subtle">
         <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center" style="height:80vh;">
             <div class="card w-75">
-                <div class="card-header bg-danger">
-                    <h1 class="text-center text-white">Errore!</h1>
-                </div>
+		<% if(title ==  null){ %> <%-- Show something as an error --%>
+ 			<div class="card-header bg-danger">
+                            <h1 class="text-center text-white">Errore!</h1>
+                        </div>
+		<%}else{%> <%-- Show something as an info --%>
+			<div class="card-header bg-primary">
+                            <h1 class="text-center text-white"><%= title %></h1>
+                        </div>
+		<%}%>
                 <div class="card-body py-3">
                     <blockquote class="blockquote">
                         <%-- Get the error message --%>
@@ -44,6 +55,9 @@
 			<%}%>
 			</cite></footer>
                     </blockquote>
+                </div>
+		<div class="card-footer align-items-center text-center justify-content-center">
+                        <a class="mb-1 mt-1 btn btn-primary" href="./">Vai alla homepage</a>
                 </div>
             </div>
         </div>

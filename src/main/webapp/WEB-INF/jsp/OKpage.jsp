@@ -20,7 +20,15 @@
         <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center" style="height:80vh;">
             <div class="card w-75">
                 <div class="card-header bg-success">
-                    <h1 class="text-center text-white">OK!</h1>
+		    <%-- Get the title --%>
+		    <% String title = (String) request.getAttribute("title"); %>
+                        <% if (title == null){%>
+                            <%-- OK if null --%>
+                            <h1 class="text-center text-white">OK!</h1>
+			<%}else{%>
+                            <%-- Print the OK title --%>
+			    <h1 class="text-center text-white"><%= title %></h1>
+                        <%}%>
                 </div>
                 <div class="card-body py-3">
                     <blockquote class="blockquote">
@@ -37,6 +45,11 @@
                         <%}%>
                     </blockquote>
                 </div>
+		<div class="card-footer align-items-center text-center justify-content-center">
+			<%-- Se sto loggado fuori dal mio account non puoi mettermi vai al profilo, e nemmeno se mi sono appena registrato, aggiungere controllo --%>
+			<a class="mb-1 mt-1 btn btn-success" href="./profile">Visualizza il mio profilo</a>
+			<a class="mb-1 mt-1 btn btn-primary" href="./">Vai alla homepage</a>
+		</div>
             </div>
         </div>
         </section>

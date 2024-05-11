@@ -1,27 +1,28 @@
 function validateForm() {
-  var password = document.forms["loginForm"]["password"].value;
-  var username = document.forms["loginForm"]["username"].value;
- 
-  if (typeof username !== 'string' || username === "") {
-    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito lo username!"
-    document.getElementById('notifyModalDescription').innerHTML= "Il campo username risulta essere vuoto, perfavore inserisci lo username del tuo profilo.";
+  // Username validation
+  var username = document.forms["loginForm"]["username"].value.trim(); // Trim to remove leading and trailing whitespace
+  if (!username || /^\s*$/.test(username)) { // Check if username is null, empty, or contains only whitespace
+    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito uno username!";
+    document.getElementById('notifyModalDescription').innerHTML = "Il campo username risulta essere vuoto.<br>Perfavore inserisci lo username del tuo profilo.";
     $('#notifyModal').modal({
-                backdrop: 'static',
-                focus: true,
-                keyboard: false
-    })
+        backdrop: 'static',
+        focus: true,
+        keyboard: false
+    });
     $('#notifyModal').modal('show');
     return false;
   }
 
-  if (typeof password !== 'string' || password === "") {
-    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito la password!"
-    document.getElementById('notifyModalDescription').innerHTML= "Il campo password risulta essere vuoto, perfavore inserisci la password del tuo profilo.";
+  // Password validation
+  var password = document.forms["loginForm"]["password"].value.trim(); // Trim to remove leading and trailing whitespace
+  if (!password || /^\s*$/.test(password)) { // Check if password is null, empty, or contains only whitespace
+    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito la password!";
+    document.getElementById('notifyModalDescription').innerHTML = "Il campo password risulta essere vuoto.<br>Perfavore inserisci la password del tuo profilo.";
     $('#notifyModal').modal({
-                backdrop: 'static',
-                focus: true,
-                keyboard: false
-    })
+        backdrop: 'static',
+        focus: true,
+        keyboard: false
+    });
     $('#notifyModal').modal('show');
     return false;
   }

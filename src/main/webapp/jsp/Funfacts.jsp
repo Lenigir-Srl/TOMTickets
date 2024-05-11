@@ -1,7 +1,7 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
-<script type"text/javascript" src="js/Funfacts.js"></script>
+<%-- <script type"text/javascript" src="js/Funfacts.js"></script> --%>
 
 <div class="card border-dark" style="width: 35vw; margin-bottom:20px; margin-left: auto; margin-right:10vw">
     <div class="container align-items-center justify-content-center d-flex bg-info-subtle rounded"><div class="card-header bg-transparent"><h3>Cose divertenti da sapere</h3></div></div>
