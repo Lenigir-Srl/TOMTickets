@@ -21,7 +21,7 @@
 
 
         <!--PAGE CONTENT-->
-        <section class="vh-10 justify-content-center align-items-center bg-dark-subtle">
+        <section class="bg-dark-subtle text-center align-items-center justify-content-center d-flex" style="min-height: 95vh;">
         <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center" style="height:80vh;">
             <div class="card w-75">
 		<% if(title ==  null){ %> <%-- Show something as an error --%>
