@@ -17,7 +17,7 @@
 
         <!--PAGE CONTENT-->
         <section class="bg-dark-subtle text-center align-items-center justify-content-center d-flex" style="min-height: 95vh;">
-        <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center" style="height:80vh;">
+        <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center">
             <div class="card w-75">
                 <div class="card-header bg-success">
 		    <%-- Get the title --%>
@@ -47,7 +47,7 @@
                 </div>
 		<div class="card-footer align-items-center text-center justify-content-center">
 			<%-- Se sto loggado fuori dal mio account non puoi mettermi vai al profilo, e nemmeno se mi sono appena registrato, aggiungere controllo --%>
-			<a class="mb-1 mt-1 btn btn-success" href="./profile">Visualizza il mio profilo</a>
+			<a class="mb-1 mt-1 btn btn-success" href="./login">Accedi nel nuovo profilo</a>
 			<a class="mb-1 mt-1 btn btn-primary" href="./">Vai alla homepage</a>
 		</div>
             </div>

@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <%-- Include JS file into the page --%>
+        <script type"text/javascript" src="js/Profile.js"></script>
+	<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>risto89 - profilo</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -16,71 +18,56 @@
 
 
         <!--PAGE CONTENT-->
-   
-	<div style="padding-top: 2%; padding-left: 2%; width: 30%">
-          <h1>Il mio profilo</h1>
+        <section class="bg-dark-subtle text-center align-items-center justify-content-center d-flex" style="min-height: 95vh;">
+        <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center">
+            <div class="card w-75">
+ 			<div class="card-header bg-primary">
+                            <h1 class="text-center text-white">Il mio profilo</h1>
+                        </div>
+                <div class="card-body py-3">
+                    <blockquote class="blockquote">
+                        <div class="row">
+			   <div class="col">
+			      <div class="row">
+			          <p class="text-center">Nome</p>
+                                  <footer class="blockquote-footer text-center"><cite title="name">${profilo.getNome()}</cite></footer>
+			      </div>
+			      <div class="row">
+                                  <p class="text-center">Cognome</p>
+                                  <footer class="blockquote-footer text-center"><cite title="name">${profilo.getCognome()}</cite></footer>
+			      </div>
+			      <div class="row">
+			          <p class="text-center">Data di Nascita</p>
+                                  <footer class="blockquote-footer text-center"><cite title="name">${profilo.getBirthDate()}</cite></footer>
+                              </div>
+			   </div>
+			   <div class="col">
+			      <div class="row">
+			          <p class="text-center">Username</p>
+                                  <footer class="blockquote-footer text-center"><cite title="name">${profilo.getUsername()}</cite></footer>
+			      </div>
+			      <div class="row">
+			          <p class="text-center">Indirizzo email</p>
+                                  <footer class="blockquote-footer text-center"><cite title="name">${profilo.getEmail()}</cite></footer>
+			      </div>
+			      <div class="row">
+                                  <p class="text-center">Numero di telefono</p>
+                                  <footer class="blockquote-footer text-center"><cite title="name">${profilo.getPhoneNumber()}</cite></footer>
+                              </div>
+			   </div>
+			</div>
 
-          <div style="padding-top: 20px">
-
-                  <p class="h4">Nome</p>
-                  <div class="card">
-                    <div class="card-body">
-                            ${profilo.getNome()}
-                    </div>
-                  </div>
-
-                  <p class="h4">Cognome</p>
-                  <div class="card">
-                    <div class="card-body">
-                            ${profilo.getCognome()}
-                    </div>
-                  </div>
-
-                  <p class="h4">Data di Nascita</p>
-                  <div class="card">
-                    <div class="card-body">
-                            ${profilo.getBirthDate()}
-                    </div>
-                  </div>
-
-                  <p class="h4">Email</p>
-                  <div class="card">
-                    <div class="card-body">
-                            ${profilo.getEmail()}
-                    </div>
-                  </div>
-
-                  <p class="h4">Numero di telefono:</p>
-                  <div class="card">
-                    <div class="card-body">
-                            ${profilo.getPhoneNumber()}
-                    </div>
-                  </div>
-
-                  <p class="h4">Username</p>
-                  <div class="card">
-                    <div class="card-body">
-                            ${profilo.getUsername()}
-                    </div>
-                  </div>
-
-                  <p class="h4">Numero di acquisti</p>
-                  <div class="card">
-                    <div class="card-body">
-                            ${profilo.getAcquisti()}
-                    </div>
-                  </div>
-          
-
-                  <!-- DELETE BUTTON -->
-                  <form action="./eliminaProfilo" method="post" style="padding-top: 30px">
-                    <button type="submit" class="btn btn-danger">Elimina Profilo</button>
-                  </form>
-
-          </div>
-
-
-	</div>
+                        <p class="text-center">Numero di acquisti effettuati</p>
+                        <footer class="blockquote-footer text-center"><cite title="name">${profilo.getAcquisti()}</cite></footer>
+                    </blockquote>
+		</div>
+		<!-- DELETE BUTTON -->
+                <div class="card-footer">
+                     <button type="submit" onclick="return checkChoice()" id="deleteProfile" class="btn btn-danger">Elimina il mio Profilo</button>
+                </div>
+	    </div>
+        </div>
+        </section>	
 
 	<!--PAGE CONTENT-->
 
@@ -92,6 +79,10 @@
 	<!--COOKIE-->
         <%@include file="../../jsp/Cookie.jsp"%>
         <!--COOKIE-->
+
+	<!--WARNING-->
+        <%@include file="../../jsp/Warning.jsp"%>
+        <!--WARNING-->
 
     </body>
 </html>
