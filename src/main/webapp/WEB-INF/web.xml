@@ -24,7 +24,7 @@
      the server then tries the next file in the list. 
    -->
    <welcome-file-list>
-        <welcome-file>Homepage.jsp</welcome-file>
+        <welcome-file>/jsp/Homepage.jsp</welcome-file>
    </welcome-file-list>
 
 
@@ -54,6 +54,11 @@
    <servlet>
         <servlet-name>error</servlet-name>
         <servlet-class>Error</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>ok</servlet-name>
+        <servlet-class>OK</servlet-class>
    </servlet>
 
    <servlet>
@@ -108,6 +113,11 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>ok</servlet-name>
+        <url-pattern>/OK</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
       <servlet-name>testdb</servlet-name>
       <url-pattern>/testdb</url-pattern>
     </servlet-mapping>
@@ -134,6 +144,11 @@
     <filter-mapping>
             <filter-name>AuthenticationFilter</filter-name>
             <url-pattern>/profile</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/OK</url-pattern>
     </filter-mapping>
 
 

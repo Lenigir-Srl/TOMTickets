@@ -19,7 +19,12 @@ public class Logout extends HttpServlet {
     if (session != null) {
       session.invalidate();
     }
+
+    req.setAttribute("title", "Info");
+    req.setAttribute("error", "Sei uscito dal tuo profilo!");
+    req.setAttribute("description", "Ci dispiace vederti andare via cosi presto :(( <br>Noi di TOMTickets speriamo di rivederti molto presto!");
+    req.getRequestDispatcher("/error").forward(req, res);
+
     
-    res.sendRedirect("/risto89-1.0/");
   }
 }

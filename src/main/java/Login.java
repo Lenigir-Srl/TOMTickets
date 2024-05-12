@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
         // Get parameters name and password
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-    
+
         //Create Java Bean for profile
 	    TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
         TentativoAccessoDAO.checkUser(tentativoAccessoBean, con);
@@ -64,6 +64,12 @@ public class Login extends HttpServlet {
 
                 // Set name attribute
                 session.setAttribute("username", username);
+		
+		if(ProfiloDAO.isAdmin(username, con)){
+                    session.setAttribute("isAdmin", true);
+		}else{
+		    session.setAttribute("isAdmin", false);
+		}
 
                 // Set DB connection attribute
                 SessionConnection sessionconnection = new SessionConnection(con);
@@ -72,12 +78,17 @@ public class Login extends HttpServlet {
 
             // Redirect to another page
             // req.getRequestDispatcher("./HelloServlet").forward(req, res);
-            res.sendRedirect("/risto89-1.0/profile");
-        }
+            req.setAttribute("title", "Login");
+	    req.setAttribute("OK", "Accesso nel profilo effettuato con successo!");
+            req.setAttribute("description", "Hai inserito le credenziali corrette e adesso ti trovi dentro il tuo profilo.<br>Siamo felici di rivederti, " + username + "!");
+	    req.getRequestDispatcher("/OK").forward(req, res);
+	}
         else {
             
             con.close();
-    	    res.sendRedirect("/risto89-1.0/login");
+    	    req.setAttribute("wrongCredentials", true);
+            req.getRequestDispatcher("/jsp/Loginpage.jsp").forward(req, res);
+	    //res.sendRedirect("/risto89-1.0/login");
         }
 
       }
@@ -95,7 +106,7 @@ public class Login extends HttpServlet {
   {
     
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/Loginpage.jsp").include(req, res);
+    req.getRequestDispatcher("/jsp/Loginpage.jsp").include(req, res);
     
   }
 }
