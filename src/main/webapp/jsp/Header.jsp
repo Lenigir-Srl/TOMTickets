@@ -20,8 +20,9 @@ ${profilo.getNome()}
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 	    <ul class="nav navbar-nav">
+                <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showCookieConsent()" style="background-color: orange;">Privacy</a></li>
 		<li class="nav-item mb-1 mt-1 dropdown d-flex">
-                    <a class="me-3 ms-auto dropdown-toggle btn text-white" style="background-color: purple" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
+                    <a class="me-3 ms-auto dropdown-toggle btn btn-warning text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="position: absolute; !important;">
                         <li><a class="dropdown-item" href="#">Concerti</a></li>
                         <li><a class="dropdown-item" href="#">Spettacoli teatrali</a></li>
@@ -31,7 +32,6 @@ ${profilo.getNome()}
                         <li><a class="dropdown-item" href="./eventi">Visualizza tutti</a></li>
                     </ul>
                 </li>
-                <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showCookieConsent()" style="background-color: orange;">Privacy</a></li>
 		<% String name = (String) session.getAttribute("username"); %>
                 <% if(name == null){ %>
                     <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn btn-primary navbar-btn" href="./signup">Registrati</a></li>
@@ -39,8 +39,8 @@ ${profilo.getNome()}
                 <% }else{ %>
 		    <% boolean isAdmin = (boolean) session.getAttribute("isAdmin"); %>
 		    <% if(isAdmin){ %>
-                        <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn bg-warning text-white" href="#">Visualizza Utenti</a></li>
-                        <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn bg-success text-white" href="#">Visualizza Dipendenti</a></li>
+                        <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn bg-success text-white" href="./visualizzaProfili">Visualizza Utenti</a></li>
+                        <li class="nav-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn text-white" style="background-color: purple;"  href="./gestioneEventi">Gestione Eventi</a></li>
 		    <% } %>
                     <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn btn-primary navbar-btn" href="./profile">Profilo</a></li>
                     <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn btn-danger navbar-btn" href="./logout">Esci</a></li>

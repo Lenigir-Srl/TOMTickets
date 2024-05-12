@@ -85,11 +85,11 @@
         <%@include file="../../jsp/Footer.jsp"%>
   <!--FOOTER-->
 
-	<!--COOKIE-->
+  <!--COOKIE-->
         <%@include file="../../jsp/Cookie.jsp"%>
   <!--COOKIE-->
 
-	<!--WARNING-->
+  <!--WARNING-->
         <%@include file="../../jsp/Warning.jsp"%>
   <!--WARNING-->
 

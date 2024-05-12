@@ -130,7 +130,7 @@
     <body onload="mostraLista()">
 
 	<!--NAVIGATION BAR-->
-        <%@include file="../../Header.jsp"%>
+        <%@include file="../../jsp/Header.jsp"%>
 	<!--NAVIGATION BAR-->
 
 
@@ -173,9 +173,16 @@
 	<!--PAGE CONTENT-->
 
 
-        <!--FOOTER-->
-        <%@include file="../../Footer.jsp"%>
-        <!--FOOTER-->
+  <!--FOOTER-->
+        <%@include file="../../jsp/Footer.jsp"%>
+  <!--FOOTER-->
 
+  <!--COOKIE-->
+        <%@include file="../../jsp/Cookie.jsp"%>
+  <!--COOKIE-->
+
+  <!--WARNING-->
+        <%@include file="../../jsp/Warning.jsp"%>
+  <!--WARNING-->
     </body>
 </html>

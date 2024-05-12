@@ -53,7 +53,7 @@
 
 		<% if (title == "Registrazione") { %>
                     <%-- login if registration --%>
-                    <a class="mb-1 mt-1 btn btn-success" href="./">Accedi al profilo creato</a>
+                    <a class="mb-1 mt-1 btn btn-success" href="./login">Accedi al profilo creato</a>
 		<% } %>
 		<a class="mb-1 mt-1 btn btn-dark" href="./">Vai alla homepage</a>
             </div>
