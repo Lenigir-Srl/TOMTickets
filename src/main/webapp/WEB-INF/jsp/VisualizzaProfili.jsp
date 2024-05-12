@@ -30,8 +30,7 @@
        #numberOfPurchases;
        #isAdmin;
 
-       //constructor(name = " ", surname = " ", dateOfBirth = " ", phoneNumber = " ", email = " ", username = " ", password = " ", numberOfPurchases = 0, isAdmin = false) {
-       constructor(name, surname, dateOfBirth, phoneNumber, email, username, password, numberOfPurchases, isAdmin) {
+       constructor(name = " ", surname = " ", dateOfBirth = " ", phoneNumber = " ", email = " ", username = " ", password = " ", numberOfPurchases = 0, isAdmin = false) {
             this.name = name;
 	    this.surname = surname;
 	    this.dateOfBirth = dateOfBirth;
@@ -40,18 +39,22 @@
 	    this.username = username;
 	    this.password = password;
 	    this.numberOfPurchases = numberOfPurchases;
-	    this.isAdmin = isAdmin;
+	    if(isAdmin){
+		this.isAdmin = "Si";
+	    }else{
+                this.isAdmin = "No";
+	    }
        }
 
        //Private method
-       _getVariableShower(label = "", variable = ""){
+       _getVariablePrinter(label = "", variable = ""){
 
             var shower = document.createElement("span");
 
                    var shower_label = document.createElement("p");
                    shower_label.classList.add("text-center");
                    shower_label.textContent = label;
-		   shower_label.style.fontSize = "15px";
+		   shower_label.style.fontSize = "13px";
             
                    var shower_footer = document.createElement("footer");
                    shower_footer.classList.add("blockquote-footer");
@@ -59,7 +62,7 @@
 
                           var shower_footer_cite = document.createElement("cite");
                           shower_footer_cite.textContent = variable;
-			  shower_footer_cite.style.fontSize = "18px";
+			  shower_footer_cite.style.fontSize = "15px";
 
                    shower_footer.appendChild(shower_footer_cite);
 
@@ -70,11 +73,20 @@
        }
 
        //Private method
+       _createSubRow(label = "", variable = ""){
+            var subrow = document.createElement("div");
+            subrow.classList.add("row");
+            var variablePrinter = this._getVariablePrinter(label, variable);
+            subrow.appendChild(variablePrinter);
+            return subrow;
+       }
+
+       //Private method
        _getHeader(){
             var header = document.createElement("div");
 	    header.classList.add("card-header");
 
-	    if(this.isAdmin){
+	    if(this.isAdmin === "Si"){
                  header.classList.add("bg-danger");
 	    }else{
                  header.classList.add("bg-primary");
@@ -110,45 +122,25 @@
            blockquote_col.classList.add("col");
 
                   //First subrow;
-	          var blockquote_subrow = document.createElement("div");
-	          blockquote_subrow.classList.add("row");
- 
-                       var nameContainer = this._getVariableShower("Nome", this.name);
-
-	          blockquote_subrow.appendChild(nameContainer);
-	          blockquote_col.appendChild(blockquote_subrow);
+                  var name_subrow = this._createSubRow("Nome", this.name);
+	          blockquote_col.appendChild(name_subrow);
 	          //First subrow;
 
 
 	          //Second subrow;
-                  blockquote_subrow = document.createElement("div");
-                  blockquote_subrow.classList.add("row");
-
-                        var surnameContainer = this._getVariableShower("Cognome", this.surname);
-
-                  blockquote_subrow.appendChild(surnameContainer);
-	          blockquote_col.appendChild(blockquote_subrow);
+                  var surname_subrow = this._createSubRow("Cognome", this.surname);
+                  blockquote_col.appendChild(surname_subrow);
                   //Second subrow;
 
 
 	          //Third subrow;
-                  blockquote_subrow = document.createElement("div");
-                  blockquote_subrow.classList.add("row");
-
-                         var dateOfBirthContainer = this._getVariableShower("Data di Nascita", this.dateOfBirth);
-
-                  blockquote_subrow.appendChild(dateOfBirthContainer);
-                  blockquote_col.appendChild(blockquote_subrow);
+                  var dateOfBirth_subrow = this._createSubRow("Data di Nascita", this.dateOfBirth);
+                  blockquote_col.appendChild(dateOfBirth_subrow);
                   //Third subrow;
 		  
                   //Fourth subrow;
-                  blockquote_subrow = document.createElement("div");
-                  blockquote_subrow.classList.add("row");
-
-                         var phoneNumberContainer = this._getVariableShower("Numero di Telefono", this.phoneNumber);
-
-                  blockquote_subrow.appendChild(phoneNumberContainer);
-	          blockquote_col.appendChild(blockquote_subrow);
+		  var phoneNumber_subrow = this._createSubRow("Numero di Telefono", this.phoneNumber);
+	          blockquote_col.appendChild(phoneNumber_subrow);
                   //Fourth subrow;               
 
 
@@ -162,45 +154,25 @@
            blockquote_col.classList.add("col");
 
                   //First subrow;
-                  blockquote_subrow = document.createElement("div");
-                  blockquote_subrow.classList.add("row");
-
-                          var usernameContainer = this._getVariableShower("Username", this.username);
-
-                  blockquote_subrow.appendChild(usernameContainer);
-                  blockquote_col.appendChild(blockquote_subrow);
+		  var username_subrow = this._createSubRow("Username", this.username);
+                  blockquote_col.appendChild(username_subrow);
                   //First subrow;
 
 
                   //Second subrow;
-                  blockquote_subrow = document.createElement("div");
-                  blockquote_subrow.classList.add("row");
-
-                          var emailContainer = this._getVariableShower("Email", this.email);
-
-                  blockquote_subrow.appendChild(emailContainer);
-                  blockquote_col.appendChild(blockquote_subrow);
+                  var email_subrow = this._createSubRow("Indirizzo email", this.email);
+                  blockquote_col.appendChild(email_subrow);
                   //Second subrow;
 
 
                   //Third subrow;
-                  blockquote_subrow = document.createElement("div");
-                  blockquote_subrow.classList.add("row");
-
-                          var passwordContainer = this._getVariableShower("Password", this.password);
-
-                  blockquote_subrow.appendChild(passwordContainer);
-                  blockquote_col.appendChild(blockquote_subrow);
+                  var password_subrow = this._createSubRow("Password", this.password);
+		  blockquote_col.appendChild(password_subrow);
                   //Third subrow;
                   
                   //Fourth subrow;
-                  blockquote_subrow = document.createElement("div");
-                  blockquote_subrow.classList.add("row");
-
-                          var isAdminContainer = this._getVariableShower("Admin", this.isAdmin);
-
-                  blockquote_subrow.appendChild(isAdminContainer);
-                  blockquote_col.appendChild(blockquote_subrow);
+                  var isAdmin_subrow = this._createSubRow("Admin", this.isAdmin);
+                  blockquote_col.appendChild(isAdmin_subrow);
                   //Fourth subrow;               
 
 
@@ -210,7 +182,7 @@
 	   
            //Number of purchases;
 	   
-	   var numberOfPurchasesContainer = this._getVariableShower("Numero di acquisti", this.numberOfPurchases);
+	   var numberOfPurchasesContainer = this._getVariablePrinter("Numero di acquisti", this.numberOfPurchases);
 
 	   blockquote.appendChild(numberOfPurchasesContainer);
            //Number of purchases;
@@ -255,6 +227,7 @@
 
        cardList = document.getElementById("profiliCards");
        
+       //clean the list before printing it
        while(cardList.firstChild){
            cardList.removeChild(cardList.firstChild);
        }
@@ -304,38 +277,35 @@
 
 
         <!--PAGE CONTENT-->
+	<section class="bg-dark-subtle" style="min-height: 95vh;">
     
-    <section class="bg-dark-subtle" style="min-height: 95vh;">
-    <div class="container-fluid align-items-center justify-content-center flex-grow-1" id="profiliCards"></div>
-    </section>
+        
+        <!--SEARCH BAR-->
+	<div class="w-75 mx-auto pt-4">
 
-
-    <div class="table-responsive" style="padding-top: 2%; padding-left: 2%; padding-right: 2%">
-
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Data di Nascita</th>
-            <th>Email</th>
-            <th>Numero di Telefono</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Numero di Acquisti</th>
-            <th>Admin</th>
-          </tr>
-          </thead>
-          <tbody id="listaProfili"></tbody>
-
-        </table>
-
-        <label class="form-check-label" for="isOrdered">Ordina per numero di acquisti</label>
-        <input type="checkbox" id="isOrdered" onclick="mostraLista()" autocomplete="off">
-
+	<div class="card h-100 ">
+	     <div class="card-body">
+                  <div class="input-group">
+                       <input type="search" class="form-control rounded" placeholder="username, nome, cognome..." aria-label="Search" aria-describedby="search-addon" />
+                       <button type="button" class="btn btn-outline-primary">Cerca</button>
+                  </div>
+	     </div>
+	     <div class="card-footer d-flex justify-content-center align-items-center text-center">
+                  <input class="form-check-input fs-3 me-4" onchange="mostraLista()" type="checkbox" id="isOrdered" autocomplete="off">
+                  <label class="form-check-label fs-6" for="isOrdered">Ordina per numero di acquisti</label>
+	     </div>
+	</div>
 	</div>
 
+        
+	<!--SEARCH BAR-->
 
+        <!--USERS LIST-->
+        <div class="container-fluid align-items-center justify-content-center flex-grow-1" id="profiliCards"></div>
+	<!--USERS LIST-->
+     
+     
+        </section>
 
 	<!--PAGE CONTENT-->
 
