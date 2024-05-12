@@ -3,13 +3,13 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.*;
 
-// This Servlet handles the error page
-// You need to pass the error message as a parameter
+// This Servlet handles the OK page
+// You need to pass the OK message as a parameter
 // like so:
 //
-// req.setAttribute("error", "Non hai ancora fatto il login!");
-// req.getRequestDispatcher("./error").forward(req,res);
-public class Error extends HttpServlet {
+// req.setAttribute("OK", "Account creato con successo!");
+// req.getRequestDispatcher("./OK").forward(req,res);
+public class OK extends HttpServlet {
 
   @Override
   public void doGet (HttpServletRequest req,
@@ -18,7 +18,7 @@ public class Error extends HttpServlet {
   {
 
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/jsp/Errorpage.jsp").include(req, res);
+    req.getRequestDispatcher("/WEB-INF/jsp/OKpage.jsp").include(req, res);
   }
 
   @Override

@@ -93,9 +93,10 @@ public class Signup extends HttpServlet {
 
         con.close();
 
-        // TODO: Redirect to OK page
-        req.setAttribute("error", "Registrazione effettuata con successo");
-    	req.getRequestDispatcher("/error").forward(req, res);
+	req.setAttribute("title", "Registrazione");
+        req.setAttribute("OK", "Profilo creato con successo!");
+    	req.setAttribute("description", "Hai inserito le corrette informazioni e adesso<br>il tuo profilo e' stato creato con successo!<br>Benvenuto/a in TOMTickets, " + username + " siamo felici di averti qui con noi!");
+	req.getRequestDispatcher("/OK").forward(req, res);
 
       }
       catch (Exception e) {
@@ -112,7 +113,7 @@ public class Signup extends HttpServlet {
   {
     
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/SignupPage.jsp").include(req, res);
+    req.getRequestDispatcher("/jsp/SignupPage.jsp").include(req, res);
     
   }
 }

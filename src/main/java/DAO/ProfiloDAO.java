@@ -13,7 +13,7 @@ import java.util.List;
 // - ProfiloBean GetProfiloBean(String username, Connection)
 // - List<ProfiloBean> GetProfili(Connection)
 // - boolean UserExists(string username, Connection)
-
+// - boolean isAdmin(string username, Connection)
 public class ProfiloDAO {
 
     // Adds a new ProfiloBean enty in the DB
@@ -207,5 +207,25 @@ public class ProfiloDAO {
             throw new SQLException(e);
         }
     }
-    
+    public static boolean isAdmin(String username, Connection con) throws SQLException {
+    try {
+        String query = "SELECT isAdmin FROM Profili WHERE username=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, username);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            // Assuming 'isAdmin' column is a boolean in the database
+            return rs.getBoolean("isAdmin");
+        } else {
+            // If user not found or admin status not set
+            return false;
+        }
+    } catch (SQLException e) {
+        // Handle SQL exception
+        throw new SQLException(e);
+    }
+}
+
+
 }

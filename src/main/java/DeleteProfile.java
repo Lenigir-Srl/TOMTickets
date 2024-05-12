@@ -42,9 +42,10 @@ public class DeleteProfile extends HttpServlet {
       // Invalidating the session
       session.invalidate();
 
-
-      // TODO Move to /OK
-      req.setAttribute("error", "Account rimosso con successo");
+      
+      req.setAttribute("title", "Info");
+      req.setAttribute("error", "Profilo eliminato con successo!");
+      req.setAttribute("description", "Direi che questo per noi sia un addio...<br><br>Ma noi di TOMTickets non gettiamo mai la spugna, e sappiamo che<br>prima o poi ritornerai sotto un altro nome...fino ad allora.");
       req.getRequestDispatcher("/error").forward(req, res);
 
     }
@@ -52,6 +53,7 @@ public class DeleteProfile extends HttpServlet {
 
       // If there is an error, we redirect to the error page
       req.setAttribute("error", "Errore di connessione al database");
+      req.setAttribute("description", e.getMessage());
       req.getRequestDispatcher("/error").forward(req, res);
       return;
     }
