@@ -99,7 +99,7 @@ public class Signup extends HttpServlet {
 	req.getRequestDispatcher("/OK").forward(req, res);
 
       }
-      catch (SQLException e) {
+      catch (Exception e) {
 
         req.setAttribute("error", "Errore di connessione al database");
         req.getRequestDispatcher("/error").forward(req, res);

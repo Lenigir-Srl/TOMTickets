@@ -76,6 +76,25 @@
        <servlet-class>DeleteProfile</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>visualizzaProfili</servlet-name>
+       <servlet-class>VisualizzaProfili</servlet-class>
+   </servlet>
+
+   <servlet>
+       <servlet-name>gestioneEventi</servlet-name>
+       <servlet-class>GestioneEventi</servlet-class>
+   </servlet>
+
+   <servlet>
+       <servlet-name>eliminaEvento</servlet-name>
+       <servlet-class>DeleteEvent</servlet-class>
+   </servlet>
+   
+   <servlet>
+       <servlet-name>creaEvento</servlet-name>
+       <servlet-class>CreaEvento</servlet-class>
+   </servlet>
 
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
@@ -132,11 +151,35 @@
       <url-pattern>/eliminaProfilo</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+      <servlet-name>visualizzaProfili</servlet-name>
+      <url-pattern>/visualizzaProfili</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>gestioneEventi</servlet-name>
+      <url-pattern>/gestioneEventi</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>eliminaEvento</servlet-name>
+      <url-pattern>/eliminaEvento</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>creaEvento</servlet-name>
+      <url-pattern>/creaEvento</url-pattern>
+    </servlet-mapping>
 
     <!-- Filters config -->
     <filter>
             <filter-name>AuthenticationFilter</filter-name>
             <filter-class>AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter>
+            <filter-name>AdminFilter</filter-name>
+            <filter-class>AdminFilter</filter-class>
     </filter>
 
 
@@ -148,13 +191,47 @@
 
     <filter-mapping>
             <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/eliminaProfilo</url-pattern>
+    </filter-mapping>
+  
+    <filter-mapping>
+            <filter-name>AuthenticationFilter</filter-name>
             <url-pattern>/OK</url-pattern>
     </filter-mapping>
+  
+    <!-- Admin filter -->
 
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/visualizzaProfili</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/gestioneEventi</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/eliminaEvento</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AdminFilter</filter-name>
+            <url-pattern>/creaEvento</url-pattern>
+    </filter-mapping>
 
    <!-- Setup Session -->
    <session-config>
            <session-timeout>2</session-timeout>
    </session-config>
+
+   <!-- Save images -->
+   <multipart-config>
+       <location>/tmp</location>
+       <max-file-size>20848820</max-file-size>
+       <max-request-size>418018841</max-request-size>
+       <file-size-threshold>1048576</file-size-threshold>
+   </multipart-config>
 
 </web-app>

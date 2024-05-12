@@ -5,7 +5,7 @@
     <head>
         <%-- Include JS file into the page --%>
         <script type"text/javascript" src="js/Profile.js"></script>
-	<meta charset="UTF-8">
+	      <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>risto89 - profilo</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -17,7 +17,7 @@
 	<!--NAVIGATION BAR-->
 
 
-        <!--PAGE CONTENT-->
+  <!--PAGE CONTENT-->
     <section class="bg-dark-subtle text-center align-items-center justify-content-center d-flex" style="min-height: 95vh;">
         <div class="container pt-5 pb-5 d-flex align-items-center justify-content-center">
             <div class="card w-75">
@@ -81,17 +81,17 @@
 	<!--PAGE CONTENT-->
 
 
-        <!--FOOTER-->
+  <!--FOOTER-->
         <%@include file="../../jsp/Footer.jsp"%>
-        <!--FOOTER-->
+  <!--FOOTER-->
 
 	<!--COOKIE-->
         <%@include file="../../jsp/Cookie.jsp"%>
-        <!--COOKIE-->
+  <!--COOKIE-->
 
 	<!--WARNING-->
         <%@include file="../../jsp/Warning.jsp"%>
-        <!--WARNING-->
+  <!--WARNING-->
 
     </body>
 </html>

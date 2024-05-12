@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 // Profile page, should be accessible only
-// when logged in, It shows the session Attributes
+// when logged in, It shows the user's profile
 public class Profile extends HttpServlet {
 
   @Override

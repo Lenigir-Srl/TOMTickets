@@ -8,7 +8,7 @@ import java.io.Serializable;
 // - luogo VARCHAR(30)
 // - data DATE
 // - ora TIME
-// - timage BLOB
+// - image BLOB
 // - tipologiaBiglietti VARCHAR(30)
 // - prezzo REAL
 // - sconto REAL
@@ -23,10 +23,10 @@ public class EventoBean implements Serializable {
     private LuogoEnum luogo;
     private String data;
     private String ora;
-    private byte[] image;
+    private String image;
     private TipologiaBigliettiEnum tipologiaBiglietti;
-    private float prezzo;
-    private float sconto;
+    private double prezzo;
+    private double sconto;
     private int numeroClick;
 
     // Empty constructor
@@ -34,9 +34,9 @@ public class EventoBean implements Serializable {
 
     public EventoBean(String titolo, String sottotitolo, String descrizione,
                       TipologiaEventoEnum tipologia, LuogoEnum luogo,
-                      String data, String ora, byte[] image,
+                      String data, String ora, String image,
                       TipologiaBigliettiEnum tipologiaBiglietti,
-                      float prezzo, float sconto, int numeroClick) {
+                      double prezzo, double sconto, int numeroClick) {
 
         this.titolo = titolo;
         this.sottotitolo = sottotitolo;
@@ -116,11 +116,11 @@ public class EventoBean implements Serializable {
     }
 
     // Getter e Setter per l'attributo 'image'
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -134,20 +134,20 @@ public class EventoBean implements Serializable {
     }
 
     // Getter e Setter per l'attributo 'prezzo'
-    public float getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 
-    public void setPrezzo(float prezzo) {
+    public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
 
     // Getter e Setter per l'attributo 'sconto'
-    public float getSconto() {
+    public double getSconto() {
         return sconto;
     }
 
-    public void setSconto(float sconto) {
+    public void setSconto(double sconto) {
         this.sconto = sconto;
     }
 
@@ -170,6 +170,7 @@ public class EventoBean implements Serializable {
         sb.append("Luogo: ").append(luogo).append("\n");
         sb.append("Data: ").append(data).append("\n");
         sb.append("Ora: ").append(ora).append("\n");
+        sb.append("Image: ").append(image).append("\n");
         sb.append("Tipologia Biglietti: ").append(tipologiaBiglietti).append("\n");
         sb.append("Prezzo: ").append(prezzo).append("\n");
         sb.append("Sconto: ").append(sconto).append("\n");
