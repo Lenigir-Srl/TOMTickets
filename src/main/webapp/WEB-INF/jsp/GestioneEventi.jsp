@@ -30,7 +30,7 @@
         // Make the POST request
         fetch(url, options).then(response => {
             if (response.ok) {
-                console.log('Success!', response);
+                console.log('Success!');
                 location.reload();
             } else {
                 console.error('Request failed:', response.statusText);
@@ -95,6 +95,10 @@
             ora.textContent = elemento.ora;
             tr.appendChild(ora); 
 
+            var immagine = document.createElement("td");
+            immagine.innerHTML = "<a href='/risto89-1.0/immagini/" + elemento.image + "'>Image</a>";
+            tr.appendChild(immagine);
+
             var tipologiaBiglietti = document.createElement("td");
             tipologiaBiglietti.textContent = elemento.tipologiaBiglietti;
             tr.appendChild(tipologiaBiglietti); 
@@ -126,7 +130,7 @@
     <body onload="mostraLista()">
 
 	<!--NAVIGATION BAR-->
-        <%@include file="../Header.jsp"%>
+        <%@include file="../../Header.jsp"%>
 	<!--NAVIGATION BAR-->
 
 
@@ -145,9 +149,10 @@
             <th>Luogo</th>
             <th>Data</th>
             <th>Ora</th>
+            <th>Immagine</th>
             <th>Tipologia Biglietti</th>
             <th>Prezzo</th>
-            <th>Sconto</th>
+            <th>Sconto %</th>
             <th>Numero di Click</th>
           </tr>
           </thead>
@@ -169,7 +174,7 @@
 
 
         <!--FOOTER-->
-        <%@include file="../Footer.jsp"%>
+        <%@include file="../../Footer.jsp"%>
         <!--FOOTER-->
 
     </body>

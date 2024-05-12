@@ -69,7 +69,9 @@ public class ProfiloDAO {
        
         try {
 
-            if (!UserExists(profilo.getUsername(), con)) return 0;
+            if (!UserExists(profilo.getUsername(), con)) {
+                throw new SQLException("User does not exist");
+            }
             
             String query = "DELETE FROM Profili WHERE username=?";
 

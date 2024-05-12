@@ -94,8 +94,7 @@ public class TestDB extends HttpServlet {
         // Eventi
 
         // sample event
-        byte[] image = new byte[8];
-        EventoBean evento1 = new EventoBean("Un bell evento nuovo nuovo", "descrizione qua", "ueywueywuewye", TipologiaEventoEnum.Concerti, LuogoEnum.Trento, "2024-01-01", "11:22", image, TipologiaBigliettiEnum.Seduti, 110.0f, 0.5f, 69); 
+        EventoBean evento1 = new EventoBean("Un bell evento nuovo nuovo", "descrizione qua", "ueywueywuewye", TipologiaEventoEnum.Concerti, LuogoEnum.Trento, "2024-01-01", "11:22", "evento5.jpeg", TipologiaBigliettiEnum.Seduti, 110.0, 0.5, 69); 
 
 
         // CreaEvento

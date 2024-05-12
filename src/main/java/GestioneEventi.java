@@ -56,7 +56,7 @@ public class GestioneEventi extends HttpServlet {
 
 
         // Forwarding the request to the Profile.jsp
-        req.getRequestDispatcher("/WEB-INF/GestioneEventi.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/jsp/GestioneEventi.jsp").forward(req, res);
 
       }
       catch (Exception e) {

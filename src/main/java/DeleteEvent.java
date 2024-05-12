@@ -41,10 +41,15 @@ public class DeleteEvent extends HttpServlet {
         throw new Exception("Evento non trovato");
       }
 
+      
+      ServletContext sc = getServletContext();
+      String path = sc.getRealPath("/immagini");
+      EventoDAO.EliminaImmagine(evento, path);
       EventoDAO.EliminaEvento(evento, connection);
 
+
       res.setStatus(HttpServletResponse.SC_OK);
-      res.getWriter().write("OK");
+      res.getWriter().write("OK, evento eliminato: ");
 
     }
     catch(Exception e) {

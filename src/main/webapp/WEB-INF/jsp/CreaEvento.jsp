@@ -13,7 +13,7 @@
 
 
         <!--HEADER-->
-	<%@include file="../Header.jsp"%>
+	<%@include file="../../Header.jsp"%>
 	<!--HEADER-->
 
         <!--PAGE CONTENT-->
@@ -24,7 +24,7 @@
 
 	<div style="float: left; width: 100%; padding-left: 2%; padding-top: 2%">
 
-        <form name="signupForm" action="./creaEvento" method="post" style="width: 30%">
+        <form name="signupForm" action="./creaEvento" method="post" style="width: 30%" enctype="multipart/form-data">
 
         <div class="mb-3">
           <label for="titolo" class="form-label">Titolo</label>
@@ -73,9 +73,9 @@
           <input type="time" class="form-control" id="ora" name="ora" required>
         </div>
 
-        <div class="mb-3"> <!-- TODO in un commit successivo -->
+        <div class="mb-3">
           <label for="image" class="form-label">Immagine:</label>
-          <input type="text" class="form-control" id="image" name="image" required>
+          <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
         </div>
 
         <div class="mb-3"> <!-- la tipologia di biglietti deve essere scelta da una lista 
@@ -89,17 +89,12 @@
 
         <div class="mb-3">
           <label for="prezzo" class="form-label">Prezzo:</label>
-          <input type="text" class="form-control" id="prezzo" name="prezzo" required>
+          <input type="number" class="form-control" id="prezzo" name="prezzo" required>
         </div>
 
         <div class="mb-3">
-          <label for="sconto" class="form-label">Sconto:</label>
-          <input type="text" class="form-control" id="sconto" name="sconto" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="numeroClick" class="form-label">Numero Click:</label>
-          <input type="text" class="form-control" id="numeroClick" name="numeroClick" required>
+          <label for="sconto" class="form-label">Sconto %:</label>
+          <input type="number" class="form-control" id="sconto" name="sconto" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Crea</button>
@@ -113,7 +108,7 @@
 	<!--PAGE CONTENT-->
 
     <!--FOOTER-->
-	<%@include file="../Footer.jsp"%>
+	<%@include file="../../Footer.jsp"%>
 	<!--FOOTER-->
 
     </body>

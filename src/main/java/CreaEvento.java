@@ -9,6 +9,9 @@ import java.sql.*;
 //import DAO.*;
 import beans.*;
 
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
+
 // This servlet is used to handle the sign-up process
 // It asks for:
 // - titolo
@@ -24,6 +27,7 @@ import beans.*;
 // - sconto
 // - numeroClick
 //
+@MultipartConfig
 public class CreaEvento extends HttpServlet {
   
   @Override
@@ -70,24 +74,26 @@ public class CreaEvento extends HttpServlet {
         LuogoEnum luogo = LuogoEnum.valueOf(req.getParameter("luogo"));
         String data = req.getParameter("data");
         String ora = req.getParameter("ora");
-        //String image = req.getParameter("image"); // TODO
         TipologiaBigliettiEnum tipologiaBiglietti = TipologiaBigliettiEnum.valueOf(req.getParameter("tipologiaBiglietti"));
-        float prezzo = Float.parseFloat(req.getParameter("prezzo"));
-        float sconto = Float.parseFloat(req.getParameter("sconto"));
-        int numeroClick = Integer.parseInt(req.getParameter("numeroClick"));
+        double prezzo = Double.parseDouble(req.getParameter("prezzo"));
+        double sconto = Double.parseDouble(req.getParameter("sconto"));
+
+        Part filePart = req.getPart("image");
 
         // Check if any of those variable is empty
         if (titolo.isEmpty() || sottotitolo.isEmpty() || 
-            descrizione.isEmpty() || data.isEmpty() || ora.isEmpty()) {
+            descrizione.isEmpty() || data.isEmpty() || ora.isEmpty() || filePart == null) {
 
             throw new Exception("Uno o piu' campi sono vuoti");
         }
 
+        String fileName = EventoDAO.getFileName(filePart);
+
         //Create Java Bean for event
         EventoBean eventoBean = new EventoBean(titolo,
-                        sottotitolo, descrizione, TipologiaEventoEnum.Concerti,
-                        LuogoEnum.Trento, data, ora, new byte[10], TipologiaBigliettiEnum.Seduti,
-                        prezzo, sconto, numeroClick);
+                        sottotitolo, descrizione, tipologiaEvento,
+                        luogo, data, ora, fileName, tipologiaBiglietti,
+                        prezzo, sconto, 0);
        
 
         // Check if the event already exists
@@ -96,7 +102,13 @@ public class CreaEvento extends HttpServlet {
         }
 
 
-        // Insert the user in the database
+        // Save image
+        ServletContext sc = getServletContext();
+        String path = sc.getRealPath("/immagini");
+        EventoDAO.salvaImmagine(filePart, path);
+
+
+        // Insert the event in the database
         EventoDAO.AggiungiEvento(eventoBean, con);
 
 
@@ -119,7 +131,7 @@ public class CreaEvento extends HttpServlet {
   {
     
     res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/WEB-INF/CreaEvento.jsp").include(req, res);
+    req.getRequestDispatcher("/WEB-INF/jsp/CreaEvento.jsp").include(req, res);
     
   }
 }

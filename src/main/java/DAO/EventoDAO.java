@@ -7,6 +7,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Part;
+import java.io.*;
+
 // This class provides the following methods:
 // - int CreaEvento(EventoBean, Connection)
 // - int EliminaEvento(EventoBean, Connection)
@@ -14,6 +17,8 @@ import java.util.List;
 // - EventoBean GetEvento(String titolo, Connection)
 // - List<EventoBean> GetSconti(Connection)
 // - boolean EventoExists(EventoBean, connection)
+// - void salvaImmagine(Part)
+// - void eliminaImmagine(EventoBean)
 //
 public class EventoDAO {
 
@@ -45,10 +50,10 @@ public class EventoDAO {
             ps.setString(5, evento.getLuogo().toString());
             ps.setString(6, evento.getData());
             ps.setString(7, evento.getOra());
-            ps.setBytes(8, evento.getImage());
+            ps.setString(8, evento.getImage());
             ps.setString(9, evento.getTipologiaBiglietti().toString());
-            ps.setFloat(10, evento.getPrezzo());
-            ps.setFloat(11, evento.getSconto());
+            ps.setDouble(10, evento.getPrezzo());
+            ps.setDouble(11, evento.getSconto());
             ps.setInt(12, evento.getNumeroClick());
 
             int rowsaffected = ps.executeUpdate();
@@ -82,6 +87,10 @@ public class EventoDAO {
             ps.setString(1, evento.getTitolo());
 
             int rowsaffected = ps.executeUpdate();
+
+            // TODO elimina image
+
+
             return rowsaffected;
 
         } catch (SQLException e) {
@@ -120,7 +129,7 @@ public class EventoDAO {
                 evento.setLuogo(LuogoEnum.valueOf(rs.getString("luogo")));
                 evento.setData(rs.getString("data"));
                 evento.setOra(rs.getString("ora"));
-                evento.setImage(rs.getBytes("image"));
+                evento.setImage(rs.getString("image"));
                 evento.setTipologiaBiglietti(
                         TipologiaBigliettiEnum.valueOf(
                                 rs.getString("tipologiaBiglietti")));
@@ -171,7 +180,7 @@ public class EventoDAO {
                 evento.setLuogo(LuogoEnum.valueOf(rs.getString("luogo")));
                 evento.setData(rs.getString("data"));
                 evento.setOra(rs.getString("ora"));
-                evento.setImage(rs.getBytes("image"));
+                evento.setImage(rs.getString("image"));
                 evento.setTipologiaBiglietti(
                         TipologiaBigliettiEnum.valueOf(
                                 rs.getString("tipologiaBiglietti")));
@@ -221,7 +230,7 @@ public class EventoDAO {
                 evento.setLuogo(LuogoEnum.valueOf(rs.getString("luogo")));
                 evento.setData(rs.getString("data"));
                 evento.setOra(rs.getString("ora"));
-                evento.setImage(rs.getBytes("image"));
+                evento.setImage(rs.getString("image"));
                 evento.setTipologiaBiglietti(
                         TipologiaBigliettiEnum.valueOf(
                                 rs.getString("tipologiaBiglietti")));
@@ -271,6 +280,64 @@ public class EventoDAO {
 
         } catch (SQLException e) {
             throw new SQLException(e);
+        }
+    }
+
+    // Deletes the image of an EventoBean from the server
+    //
+    // Arguments:
+    // - Part
+    //
+    // Throws:
+    // IOException
+    static void salvaImmagine(Part filePart, String path) throws IOException {
+        
+        final String fileName = getFileName(filePart);
+
+        OutputStream out = null;
+        InputStream filecontent = null;
+
+        try {
+            out = new FileOutputStream(new File(path + File.separator
+                    + fileName));
+            filecontent = filePart.getInputStream();
+
+            int read = 0;
+            final byte[] bytes = new byte[1024];
+
+            while ((read = filecontent.read(bytes)) != -1) {
+                out.write(bytes, 0, read);
+            }
+
+        } catch (FileNotFoundException fne) {
+
+            throw new RuntimeException("Errore nel salvataggio dell'immagine", fne);
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+            if (filecontent != null) {
+                filecontent.close();
+            }
+        }
+    }
+
+    // Utility function: get the file name from a part
+    static String getFileName(final Part part) {
+        final String partHeader = part.getHeader("content-disposition");
+        for (String content : part.getHeader("content-disposition").split(";")) {
+            if (content.trim().startsWith("filename")) {
+                return content.substring(
+                        content.indexOf('=') + 1).trim().replace("\"", "");
+            }
+        }
+        return null;
+    }
+
+    static void EliminaImmagine(EventoBean evento, String path) throws IOException {
+        File file = new File(path + File.separator + evento.getImage());
+        if (!file.delete()) {
+            throw new IOException("Errore nell'eliminazione dell'immagine");
         }
     }
 

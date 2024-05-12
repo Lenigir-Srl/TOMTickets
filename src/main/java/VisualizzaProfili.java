@@ -56,7 +56,7 @@ public class VisualizzaProfili extends HttpServlet {
 
 
         // Forwarding the request to the Profile.jsp
-        req.getRequestDispatcher("/WEB-INF/VisualizzaProfili.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/jsp/VisualizzaProfili.jsp").forward(req, res);
 
       }
       catch (Exception e) {
