@@ -14,7 +14,8 @@ if(!window.sessionStorage.getItem('first_open_check')){
 document.addEventListener('DOMContentLoaded', function() {
     var checkFirstTimeVisit = window.localStorage.getItem('times_visited');
     if(checkFirstTimeVisit == 0){
-    	$('#cookieModal').modal({
+    	window.localStorage.setItem("cookies", true);
+	$('#cookieModal').modal({
   		backdrop: 'static',
 		focus: true,
 		keyboard: false

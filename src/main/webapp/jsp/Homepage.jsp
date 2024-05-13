@@ -15,6 +15,9 @@
 <%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
 
+<!--COOKIE-->
+<%@include file="/jsp/Cookie.jsp"%>
+<!--COOKIE-->
 
 <!--PAGE CONTENT-->
 <section class="bg-dark-subtle text-center align-items-center justify-content-center d-flex" style="min-height: 95vh;">
@@ -70,9 +73,6 @@
         <%@include file="/jsp/Footer.jsp"%>
         <!--FOOTER-->
 
-        <!--COOKIE-->
-        <%@include file="/jsp/Cookie.jsp"%>
-        <!--COOKIE-->
 
 </body>
 </html>

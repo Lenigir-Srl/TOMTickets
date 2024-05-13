@@ -107,6 +107,26 @@
     <%@include file="/jsp/Notify.jsp"%>
     <!--NOTIFICATION-->
 
+    <%--Existing username modal info--%>
+    <% boolean existingUsername = false; %>
+    <% if(request.getAttribute("existingUsername") != null){ %>
+    <%   existingUsername = (boolean) request.getAttribute("existingUsername"); %>
+    <% } %>
+    <% if(existingUsername == true){ %>
+    <%--Show the modal--%>
+         <script>
+	 document.getElementById("nome").value = "<%= request.getAttribute("name") %>";
+	 document.getElementById("cognome").value = "<%= request.getAttribute("surname") %>";
+	 document.getElementById("dataNascita").value = "<%= request.getAttribute("dateOfBirth") %>";
+	 document.getElementById("email").value = "<%= request.getAttribute("email") %>";
+	 document.getElementById("telefono").value = "<%= request.getAttribute("phoneNumber") %>";
+	 document.getElementById("username").value = "<%= request.getAttribute("username") %>";
+	 document.getElementById("password").value = "<%= request.getAttribute("password") %>";
+	 document.getElementById("ripetiPassword").value = "<%= request.getAttribute("password") %>";
+	 setTimeout(existingUsername, 100);
+	 </script>
+    <% } %>
+
 </body>
 </html>
 

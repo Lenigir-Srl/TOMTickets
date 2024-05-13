@@ -82,7 +82,11 @@
     <% } %>
     <% if(wrongCredentials == true){ %>
     <%--Show the modal--%>
-    <script>setTimeout(printWrongCredentials, 100);</script>
+         <script>
+         document.getElementById("username").value = "<%= request.getAttribute("username") %>";
+	 document.getElementById("password").value = "<%= request.getAttribute("password") %>";
+         setTimeout(printWrongCredentials, 100);
+	 </script>
     <% } %>
 
 </body>
