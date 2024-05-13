@@ -22,7 +22,7 @@ public class Logout extends HttpServlet {
 
     req.setAttribute("title", "Info");
     req.setAttribute("error", "Sei uscito dal tuo profilo!");
-    req.setAttribute("description", "Ci dispiace vederti andare via cosi presto :(( <br>Noi di TOMTickets speriamo di rivederti molto presto!");
+    req.setAttribute("description", "Ci dispiace vederti andare via :(( <br>Noi di TOMTickets speriamo di incontrarti di nuovo molto presto!");
     req.getRequestDispatcher("/error").forward(req, res);
 
     
