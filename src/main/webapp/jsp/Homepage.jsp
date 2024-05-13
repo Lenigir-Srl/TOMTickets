@@ -5,10 +5,9 @@
 <head>
     <%-- Include JS file into the page --%>
     <script type"text/javascript" src="js/Homepage.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%-- Include meta info of the page (favicon and such) --%>
+    <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <!--NAVIGATION BAR-->
@@ -21,15 +20,23 @@
 
 <!--PAGE CONTENT-->
 <section class="bg-dark-subtle text-center align-items-center justify-content-center" style="min-height: 95vh;">
-	<div class="col-lg px-0 d-flex justify-content-center align-items-center text-center" style="height:400px"> 
-        <!--CAROUSEL-->
-        <%@include file="/jsp/Carousel.jsp"%>
-	<!--CAROUSEL-->
+	<div class="col-lg-8 offset-lg-2">
+	    <div class="card bg-dark-subtle border-0" style="padding-top: 50px;"> 
+                <div class="card-header bg-success text-white">
+	            <div class="h1">BENVENUTO!</div>
+	        </div>
+	        <span class="card-body bg-dark" style="border-radius: 0 0 0.25rem 0.25rem;">
+	        <!--CAROUSEL-->
+                <%@include file="/jsp/Carousel.jsp"%>
+	        <!--CAROUSEL-->
+	        </span>
+	     </div>
 	</div>
-
-        <!--FUNFACTS-->
-	<%@include file="/jsp/Funfacts.jsp"%>
-	<!--FUNFACTS-->
+	<div class="col-lg-6 offset-lg-3">
+             <!--FUNFACTS-->
+	     <%@include file="/jsp/Funfacts.jsp"%>
+             <!--FUNFACTS-->
+	</div>
 </section>
 <!--PAGE CONTENT-->
 
