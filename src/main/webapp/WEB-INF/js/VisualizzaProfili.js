@@ -17,7 +17,7 @@
        #numberOfPurchases;
        #isAdmin;
 
-       constructor(name = " ", surname = " ", dateOfBirth = " ", phoneNumber = " ", email = " ", username = " ", password = " ", numberOfPurchases = 0, isAdmin = false) {
+       constructor(name = "defaultName", surname = "defaultSurname", dateOfBirth = "defaultDateOfBirth", phoneNumber = "defaultPhoneNumber", email = "defaultEmail", username = "defaultUserName", password = "defaultPassword", numberOfPurchases = 0, isAdmin = false) {
             this.name = name;
 	   this.surname = surname;
 	   this.dateOfBirth = dateOfBirth;
@@ -94,11 +94,11 @@
        //Private method
        _getBody(){
            var body = document.createElement("div");
-	  body.classList.add("card-body");
+	   body.classList.add("card-body");
          
 
            var blockquote = document.createElement("div");
-	  blockquote.classList.add("blockquote");
+	   blockquote.classList.add("blockquote");
 
            var blockquote_row = document.createElement("div");
            blockquote_row.classList.add("row");
@@ -187,13 +187,13 @@
 	   card.classList.add("card");
 	   card.classList.add("h-100");
             
-            var card_header = document.createElement("div");
+           var card_header = document.createElement("div");
 	   card_header.classList.add("card-header");
 
 	   card.appendChild(this._getHeader());
-            card.appendChild(this._getBody());
+           card.appendChild(this._getBody());
 
-            return card;
+           return card;
        }
 
 

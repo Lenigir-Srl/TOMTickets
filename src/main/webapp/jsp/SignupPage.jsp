@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <script type"text/javascript" src="js/Signuppage.js"></script>
+    <script type="text/javascript" src="js/Signuppage.js"></script>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets - signup</title>
@@ -53,16 +53,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-outline mb-2">
-                            <input type="email" id="email" name="email" class="form-control border border-dark" required />
-                            <label class="form-label" for="email">Indirizzo Email</label>
-                        </div>
-                        <div class="row">
-                            <div class="form-outline mb-2">
-                                <input type="text" id="username" name="username" class="form-control border border-dark" required />
-                                <label class="form-label" for="username">Username</label>
+			<div class="row">
+			    <div class="col-md-6 mb-2">
+                                <div class="form-outline mb-2">
+                                    <input type="email" id="email" name="email" class="form-control border border-dark" required />
+                                    <label class="form-label" for="email">Indirizzo Email</label>
+                                </div>
+		            </div>
+			    <div class="col-md-6 mb-2">
+                                <div class="form-outline mb-2">
+                                    <input type="text" id="username" name="username" class="form-control border border-dark" required />
+                                    <label class="form-label" for="username">Username</label>
+                                </div>
                             </div>
-                        </div>
+			</div>
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <div class="form-outline">
@@ -122,7 +126,9 @@
 	 document.getElementById("username").value = "<%= request.getAttribute("username") %>";
 	 document.getElementById("password").value = "<%= request.getAttribute("password") %>";
 	 document.getElementById("ripetiPassword").value = "<%= request.getAttribute("password") %>";
-	 setTimeout(existingUsername, 100);
+	 document.addEventListener('DOMContentLoaded', function() {
+	     showErrorModal("Username non disponibile", "Ci dispiace ma lo username che hai inserito è gia associato ad un altro profilo.<br>Perfavore inserisci uno username diverso.");
+         });
 	 </script>
     <% } %>
 

@@ -1,36 +1,31 @@
-//showModal() function declared inside "Notify.js"
-//setModalTitle() function declared inside "Notify.js"
-//setModalDescription() function declared inside "Notify.js"
+//showErrorModal() function declared inside "Notify.js"
 
 function validateForm() {
 
+  //Commonly used;
+  var form = document.forms["signupForm"];
+
   // Name validation
-  var name = document.forms["signupForm"]["nome"].value.trim(); // Trim to remove leading and trailing whitespace
+  var name = form["nome"].value.trim(); // Trim to remove leading and trailing whitespace
   if (!name || /^\s*$/.test(name)) { // Check if name is null, empty, or contains only whitespace
-    setModalTitle("Nome errato!");
-    setModalDescription("Il nome inserito non è corretto, è malformato o è vuoto!");
-    showModal();
+    showErrorModal("Nome errato!", "Il nome inserito non è corretto, è malformato o è vuoto!");
     return false;
   }
 
   // Surname validation
-  var surname = document.forms["signupForm"]["cognome"].value.trim(); // Trim to remove leading and trailing whitespace
+  var surname = form["cognome"].value.trim(); // Trim to remove leading and trailing whitespace
   if (!surname || /^\s*$/.test(surname)) { // Check if surname is null, empty, or contains only whitespace
-    setModalTitle("Cognome errato!");
-    setModalDescription("Il cognome inserito non è corretto, è malformato o è vuoto!");
-    showModal();
+    showErrorModal("Cognome errato!", "Il cognome inserito non è corretto, è malformato o è vuoto!");
     return false;
   }
 
 
   // Date of Birth validation
 
-  var birthday = document.forms["signupForm"]["dataNascita"].value;
+  var birthday = form["dataNascita"].value;
   // Check if birthday is empty or null
   if (!birthday || /^\s*$/.test(birthday)) { // Check if birthday is null, empty, or contains only whitespace
-    setModalTitle("Data di nascita errata!");
-    setModalDescription("La data di nascita inserita non è corretta, è malformata o è vuota.");
-    showModal();
+    showErrorModal("Data di nascita errata!", "La data di nascita inserita non è corretta, è malformata o è vuota.");
     return false;
   }
 
@@ -52,6 +47,7 @@ function validateForm() {
 
   // Check if the user is still yet to be born or is a god
   if (isNaN(age)||(age<0)){
+    setRainbowModal();
     setModalTitle("Le macchine del tempo esistono!");
     setModalDescription("E' con grande ritegno che la informiamo che lei ha " + age + " anni.<br>Grazie per averci fatto sapere che proviene dal futuro, agiremo di conseguenza.");
     showModal();
@@ -60,14 +56,14 @@ function validateForm() {
 
   // Check if the user is 18 years or older
   if (age < 18) {
-    setModalTitle("Non sei maggiorenne!");
-    setModalDescription("Per motivi legali noi di TOMTickets non possiamo ammettere minorenni all'interno del nostro sito.<br>Grazie per la comprensione!");
+    showErrorModal("Non sei maggiorenne!", "Per motivi legali noi di TOMTickets non possiamo ammettere minorenni all'interno del nostro sito.<br>Grazie per la comprensione!");
     showModal();
     return false;
   }
   
   //Check if the user is my great-great-great-grandfather
   if (age >= 100){
+    setRainbowModal();
     setModalTitle("wOW.");
     setModalDescription("dEVI aVERe mANGiaTO tAnTA fRUttA nELLA TUa VIta PERchE' haI lA BELleZzA DI bEN " + age + " ANnI.<br>cOMpLImeNTOni!1!11!!!1");
     showModal();
@@ -75,74 +71,58 @@ function validateForm() {
   }
   
   // Phone number validation
-  var phone = document.forms["signupForm"]["telefono"].value;
+  var phone = form["telefono"].value;
 
   if (phone.length !== 10 || isNaN(phone)) {
-    setModalTitle("Numero di telefono errato!");
-    setModalDescription("Il numero di telefono deve avere 10 cifre.<br>Controlla che non sia stato inserito correttamente, sia malformato o sia vuoto!");
-    showModal();
+    showErrorModal("Numero di telefono errato!", "Il numero di telefono deve avere 10 cifre.<br>Controlla che non sia stato inserito correttamente, sia malformato o sia vuoto!");
     return false;
   }
 
   // Email validation
-  var email = document.forms["signupForm"]["email"].value;
+  var email = form["email"].value;
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
   if (!emailRegex.test(email)) {
-    setModalTitle("Indirizzo email errato!");
-    setModalDescription("L'indirizzo email inserito non è corretto, è malformato o è vuoto!");
-    showModal();
+    showErrorModal("Indirizzo email errato!", "L'indirizzo email inserito non è corretto, è malformato o è vuoto!");
     return false;
   }
 
   // Username validation
-  var username = document.forms["signupForm"]["username"].value.trim(); // Trim to remove leading and trailing whitespace
+  var username = form["username"].value.trim(); // Trim to remove leading and trailing whitespace
   if (!username || /^\s*$/.test(username)) { // Check if username is null, empty, or contains only whitespace
-    setModalTitle("Username errato!");
-    setModalDescription("Lo username inserito non è corretto, è malformato o è vuoto!");
-    showModal();
+    showErrorModal("Username errato!", "Lo username inserito non è corretto, è malformato o è vuoto!");
     return false;
   }
 
   // Password validation
-  var password = document.forms["signupForm"]["password"].value;
-  var repeatPassword = document.forms["signupForm"]["ripetiPassword"].value;
+  var password = form["password"].value;
+  var repeatPassword = form["ripetiPassword"].value;
 
   if (password !== repeatPassword) {
-    setModalTitle("Le password non corrispondono!");
-    setModalDescription("Controlla se non hai fatto errori di battitura in entrambe le caselle della password, o se magari una delle due è vuota!");
-    showModal();
+    showErrorModal("Le password non corrispondono!", "Controlla se non hai fatto errori di battitura in entrambe le caselle della password, o se magari una delle due è vuota!");
     return false;
   }
 
   if (password.length === 0) {
-    setModalTitle("Perfavore inserisci una password!");
-    setModalDescription("Il campo password risulta essere vuoto, perfavore inserisci una password per il tuo nuovo profilo.");
-    showModal();
+    showErrorModal("Perfavore inserisci una password!", "Il campo password risulta essere vuoto, perfavore inserisci una password per il tuo nuovo profilo.");
     return false;
 
   }
 
   if (password.length < 9) {
-    setModalTitle("La password non è lunga nove caratteri!");
-    setModalDescription("Per motivi di sicurezza, noi di TOMTickets chiediamo gentilmente agli utenti di inserire una password che abbia una lunghezza minima di 9 caratteri.<br>Grazie per la comprensione!");
-    showModal();
+    showErrorModal("La password non è lunga nove caratteri!", "Per motivi di sicurezza, noi di TOMTickets chiediamo gentilmente agli utenti di inserire una password che abbia una lunghezza minima di 9 caratteri.<br>Grazie per la comprensione!");
     return false;
 
   }
 
   var numDigits = (password.match(/\d/g) || []).length;
   if (numDigits < 2) {
-    setModalTitle("La password non contiene due numeri!");
-    setModalDescription("Per motivi di sicurezza, noi di TOMTickets chiediamo gentilmente agli utenti di inserire una password che contenga al suo interno almeno due numeri.<br>Grazie per la comprensione!");
-    showModal();
+    showErrorModal("La password non contiene due numeri!", "Per motivi di sicurezza, noi di TOMTickets chiediamo gentilmente agli utenti di inserire una password che contenga al suo interno almeno due numeri.<br>Grazie per la comprensione!");
     return false;
   }
   
   if (!password.match(/[^\w\s]/)) {
-    setModalTitle("La password non contiene un carattere speciale!");
-    setModalDescription("Per motivi di sicurezza, noi di TOMTickets chiediamo gentilmente agli utenti di inserire una password che contenga almeno un carattere speciale del tipo % @ & $ £.<br>Grazie per la comprensione!");
-    showModal();
+    showErrorModal("La password non contiene un carattere speciale!", "Per motivi di sicurezza, noi di TOMTickets chiediamo gentilmente agli utenti di inserire una password che contenga almeno un carattere speciale del tipo % @ & $ £.<br>Grazie per la comprensione!");
     return false;
   }
 

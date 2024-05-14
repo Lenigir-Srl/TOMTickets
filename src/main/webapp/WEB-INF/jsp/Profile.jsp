@@ -4,10 +4,10 @@
 <html lang="en">
     <head>
         <%-- Include JS file into the page --%>
-        <script type"text/javascript" src="js/Profile.js"></script>
+	<%@include file="../js/Profile.js"%>
 	<%-- Include meta info of the page (favicon and such) --%>
         <%@include file="../../html/Metacontent.html"%>
-	<title>risto89 - profilo</title>
+	<title>TOMTickets - Profilo</title>
     </head>
     <body>
 

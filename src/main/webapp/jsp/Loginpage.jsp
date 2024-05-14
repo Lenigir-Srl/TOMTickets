@@ -4,6 +4,13 @@
 
 <html lang="en">
 <head>
+    <!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <%-- Include JS file into the page --%>
     <script type="text/javascript" src="js/Loginpage.js"></script>
     <%-- Include meta info of the page (favicon and such) --%>
@@ -84,7 +91,9 @@
          <script>
          document.getElementById("username").value = "<%= request.getAttribute("username") %>";
 	 document.getElementById("password").value = "<%= request.getAttribute("password") %>";
-         setTimeout(printWrongCredentials, 100);
+         document.addEventListener('DOMContentLoaded', function() {
+	     setTimeout(showErrorModal("Credenziali errate", "Lo username e la password non corrispondono a nessun profilo esistente.<br>Controlla che tu abbia inserito le credenziali corrette per accedere nel tuo profilo."), 100);
+	 });
 	 </script>
     <% } %>
 

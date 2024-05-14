@@ -3,9 +3,8 @@
 
 
 <%-- Include JS file into the page --%>
-<script type"text/javascript" src="js/Warning.js"></script>
+<script type="text/javascript" src="js/Warning.js"></script>
 
-<!-- Modal -->
 <div class="modal fade" id="warningModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -21,8 +20,8 @@
                     <div class="col-9">
                         <p id="warningModalDescription"></p>
                         <form>
-			    <input class="form-check-input fs-3" onchange="toggleContinueButtonAvailable()" type="checkbox" id="flexSwitchCheckDefault" autocomplete="off">
-                            <label class="form-check-label fs-6" for="flexSwitchCheckDefault">Capisco e decidero procedere</label>
+			    <input class="form-check-input fs-3" onchange="toggleContinueButtonAvailable()" type="checkbox" id="imsureSwitch" autocomplete="off">
+                            <label class="form-check-label fs-6" for="flexSwitchCheckDefault">Capisco e desidero procedere</label>
 			</form>
 		    </div>
 
@@ -30,7 +29,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="$('#warningModal').modal('hide')" class="btn btn-success">Torna indietro</button>
+                <button type="button" onclick="continueButton()" class="btn btn-success">Torna indietro</button>
                 <button type="button" id="continueButton" onclick="" class="btn btn-outline-warning" disabled>Continua</button>
 	    </div>
         </div>

@@ -7,7 +7,7 @@
         <%@include file="../js/VisualizzaProfili.js"%>
         <%-- Include meta info of the page (favicon and such) --%>
         <%@include file="../../html/Metacontent.html"%>
-        <title>risto89 - visualizza utenti</title>
+        <title>TOMTickets - Visualizza Utenti</title>
     </head>
     <body onload="mostraLista()">
 

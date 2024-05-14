@@ -8,7 +8,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
 	    <div class ="d-flex align-items-center text-center" style="height:400px">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Panorama_di_trento.jpg/1200px-Panorama_di_trento.jpg" class="d-block mx-auto"  style="max-width:100%; max-height:400px;"alt="Immagine 1">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Panorama_di_trento.jpg/1200px-Panorama_di_trento.jpg" class="d-block mx-auto"  style="max-width:100%; max-height:400px;" alt="Immagine 1">
             </div>
 	    <%--
 	    <div class="carousel-caption d-none d-md-block">

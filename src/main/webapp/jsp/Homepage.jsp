@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <script type"text/javascript" src="js/Homepage.js"></script>
+    <script type="text/javascript" src="js/Homepage.js"></script>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets</title>

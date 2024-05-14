@@ -3,9 +3,8 @@
 
 
 <%-- Include JS file into the page --%>
-<script type"text/javascript" src="js/Cookie.js"></script>
+<script type="text/javascript" src="js/Cookie.js"></script>
 
-<!-- Modal -->
 <div class="modal fade" id="cookieModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
