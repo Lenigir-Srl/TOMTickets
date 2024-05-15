@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
         String password = req.getParameter("password");
 
         //Create Java Bean for profile
-	    TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
+	TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
         TentativoAccessoDAO.checkUser(tentativoAccessoBean, con);
 
         // Check for existance and create session

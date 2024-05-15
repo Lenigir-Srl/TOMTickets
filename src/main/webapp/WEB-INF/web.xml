@@ -96,6 +96,11 @@
        <servlet-class>CreaEvento</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>ottieniEvento</servlet-name>
+       <servlet-class>GetEvento</servlet-class>
+   </servlet>
+
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
             <param-name>value_name</param-name>
@@ -169,6 +174,11 @@
     <servlet-mapping>
       <servlet-name>creaEvento</servlet-name>
       <url-pattern>/creaEvento</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>ottieniEvento</servlet-name>
+      <url-pattern>/ottieniEvento</url-pattern>
     </servlet-mapping>
 
     <!-- Filters config -->

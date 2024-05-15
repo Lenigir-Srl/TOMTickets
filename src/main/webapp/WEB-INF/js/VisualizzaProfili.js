@@ -41,11 +41,10 @@
                    var shower_label = document.createElement("p");
                    shower_label.classList.add("text-center");
                    shower_label.textContent = label;
-		  shower_label.style.fontSize = "13px";
+		   shower_label.style.fontSize = "13px";
             
                    var shower_footer = document.createElement("footer");
-                   shower_footer.classList.add("blockquote-footer");
-                   shower_footer.classList.add("text-center");
+                   shower_footer.classList.add("blockquote-footer", "text-center");
 
                           var shower_footer_cite = document.createElement("cite");
                           shower_footer_cite.textContent = variable;
@@ -74,15 +73,14 @@
 	   header.classList.add("card-header");
 
 	   if(this.isAdmin === "Si"){
-                 header.classList.add("bg-danger");
+                 header.style.backgroundColor = "red";
 	   }else{
-                 header.classList.add("bg-primary");
+                 header.style.backgroundColor = "blue";
 	   }
 
-            var header_label = document.createElement("h3");
+           var header_label = document.createElement("h3");
 
-            header_label.classList.add("text-center");
-	   header_label.classList.add("text-white");
+           header_label.classList.add("text-center", "text-white");
 	   header_label.textContent = this.username;
 
 	   header.appendChild(header_label);
@@ -107,28 +105,28 @@
 	  
            var blockquote_col = document.createElement("div");
            blockquote_col.classList.add("col");
-
-                  //First subrow;
-                  var name_subrow = this._createSubRow("Nome", this.name);
-	         blockquote_col.appendChild(name_subrow);
-	         //First subrow;
-
-
-	         //Second subrow;
-                  var surname_subrow = this._createSubRow("Cognome", this.surname);
-                  blockquote_col.appendChild(surname_subrow);
-                  //Second subrow;
+               
+               //First subrow;
+               var name_subrow = this._createSubRow("Nome", this.name);
+	       blockquote_col.appendChild(name_subrow);
+	       //First subrow;
 
 
-	         //Third subrow;
-                  var dateOfBirth_subrow = this._createSubRow("Data di Nascita", this.dateOfBirth);
-                  blockquote_col.appendChild(dateOfBirth_subrow);
-                  //Third subrow;
-		 
-                  //Fourth subrow;
-		 var phoneNumber_subrow = this._createSubRow("Numero di Telefono", this.phoneNumber);
-	         blockquote_col.appendChild(phoneNumber_subrow);
-                  //Fourth subrow;               
+	       //Second subrow;
+               var surname_subrow = this._createSubRow("Cognome", this.surname);
+               blockquote_col.appendChild(surname_subrow);
+               //Second subrow;
+
+
+	       //Third subrow;
+               var dateOfBirth_subrow = this._createSubRow("Data di Nascita", this.dateOfBirth);
+               blockquote_col.appendChild(dateOfBirth_subrow);
+               //Third subrow;
+	 
+               //Fourth subrow;
+	       var phoneNumber_subrow = this._createSubRow("Numero di Telefono", this.phoneNumber);
+	       blockquote_col.appendChild(phoneNumber_subrow);
+               //Fourth subrow;               
 
 
 	  blockquote_row.appendChild(blockquote_col);
@@ -140,27 +138,27 @@
            blockquote_col = document.createElement("div");
            blockquote_col.classList.add("col");
 
-                  //First subrow;
-		 var username_subrow = this._createSubRow("Username", this.username);
-                  blockquote_col.appendChild(username_subrow);
-                  //First subrow;
+                //First subrow;
+		var username_subrow = this._createSubRow("Username", this.username);
+                blockquote_col.appendChild(username_subrow);
+                //First subrow;
 
 
-                  //Second subrow;
-                  var email_subrow = this._createSubRow("Indirizzo email", this.email);
-                  blockquote_col.appendChild(email_subrow);
-                  //Second subrow;
+                //Second subrow;
+                var email_subrow = this._createSubRow("Indirizzo email", this.email);
+                blockquote_col.appendChild(email_subrow);
+                //Second subrow;
 
 
-                  //Third subrow;
-                  var password_subrow = this._createSubRow("Password", this.password);
-		 blockquote_col.appendChild(password_subrow);
-                  //Third subrow;
+                //Third subrow;
+                var password_subrow = this._createSubRow("Password", this.password);
+		blockquote_col.appendChild(password_subrow);
+                //Third subrow;
                   
-                  //Fourth subrow;
-                  var isAdmin_subrow = this._createSubRow("Admin", this.isAdmin);
-                  blockquote_col.appendChild(isAdmin_subrow);
-                  //Fourth subrow;               
+                //Fourth subrow;
+                var isAdmin_subrow = this._createSubRow("Admin", this.isAdmin);
+                blockquote_col.appendChild(isAdmin_subrow);
+                //Fourth subrow;               
 
 
            blockquote_row.appendChild(blockquote_col);
@@ -184,8 +182,7 @@
        getCard(){
 
 	   var card = document.createElement("div");
-	   card.classList.add("card");
-	   card.classList.add("h-100");
+	   card.classList.add("card", "h-100");
             
            var card_header = document.createElement("div");
 	   card_header.classList.add("card-header");
@@ -227,18 +224,16 @@
 
 
        datiJson.forEach(function(elemento) {
-            col = document.createElement("div");
-	   col.classList.add("col-lg");
-            col.classList.add("mb-4");
-	   col.classList.add("mt-4");
+           col = document.createElement("div");
+	   col.classList.add("col-lg", "mb-4", "mt-4");
 
 	   var user = new userCard(elemento.nome, elemento.cognome, elemento.birthDate, elemento.phoneNumber, elemento.email, elemento.username, elemento.password, elemento.numeroAcquisti, elemento.isAdmin);
 
 	   col.appendChild(user.getCard());
 
-            row.appendChild(col);
+           row.appendChild(col);
 	  
-            count = count + 1;
+           count = count + 1;
 
 	   if(count%3 == 0){
                 cardList.appendChild(row);

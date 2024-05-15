@@ -11,12 +11,12 @@
         $('#warningModal').modal('show');
     }
 
-    function deleteEvent(titolo) {
+    function deleteEvent(title) {
         const url = '/risto89-1.0/eliminaEvento';
         
         // Data to be sent in the POST request
         var data = new URLSearchParams();
-        data.append('titolo', titolo);
+        data.append('titolo', title);
 
         // Options for the fetch request
         const options = {
@@ -75,6 +75,123 @@
 	   this.numberOfClicks = numberOfClicks;
        }
 
+      //Private
+      _scrollToElement(elementId) {
+          var element = document.getElementById(elementId);
+          if (element) {
+              var rect = element.getBoundingClientRect();
+              // Scorrere la pagina fino a quando l'elemento è visibile
+              window.scrollTo({
+                   top: rect.top + window.pageYOffset, // Aggiungi lo spostamento della finestra
+                   behavior: 'smooth' // Scorrimento animato
+              });
+          }
+      }
+
+
+
+       //Prepare your eyes for this one
+       _getDetailsCard(title = "defaultTitle", subtitle = "defaultSubTitle", description = "defaultDescription", eventType = "defaultEventType", place = "defaultPlace", date = "defaultDate", hour = "defaultHour", image = "...", ticket_type = "defaultTicketType", price = "defaultPrice", discount = "defaultDiscount", numberOfClicks = "defaultNumberOfClicks"){
+	
+
+		var card = document.createElement("div");
+		card.classList.add("card");
+		
+		var card_header = document.createElement("div");
+		card_header.classList.add("card-header", "text-white", "h3");
+
+
+		switch (eventType){
+
+                 case "Concerti":
+                     card_header.style.backgroundColor = "red";
+                 break;
+
+                 case "EventiSportivi":
+                     card_header.style.backgroundColor = "orange";
+                 break;
+
+                 case "SpettacoliTeatrali":
+                     card_header.style.backgroundColor = "green";
+                 break;
+
+                 case "VisiteGuidate":
+                     card_header.style.backgroundColor = "purple";
+                 break;
+
+                 default:
+                     card_header.style.backgroundColor = "blue";
+                 break;
+               }
+
+	        card_header.textContent = title;
+
+		var card_body = document.createElement("div");
+
+	        var card_footer = document.createElement("div");
+		card_footer.classList.add("card-footer", "d-flex", "justify-content-between");
+
+		var closeButton = document.createElement("button");
+		closeButton.textContent = "Chiudi";
+		closeButton.classList.add("btn", "btn-success");
+		closeButton.onclick = () => {
+                     var content = document.getElementById(title);
+                     // Clearing the table
+                     while (content.firstChild) {
+                         content.removeChild(content.firstChild);
+                     }
+		};
+
+		var deleteButton = document.createElement("button");
+		deleteButton.textContent = "Elimina";
+		deleteButton.classList.add("btn", "btn-warning");
+		deleteButton.onclick = () => {
+		    checkDeleteChoice(title);
+	        }
+
+		card_footer.appendChild(closeButton);
+		card_footer.appendChild(deleteButton);
+
+
+
+		card.appendChild(card_header);
+		card.appendChild(card_body);
+		card.appendChild(card_footer);
+		return card;
+
+
+
+       }
+
+       //Private
+       _showMoreDetails(){
+           var content = document.getElementById(this.title);
+	   var detailsCard = this._getDetailsCard;
+	   // Clearing the table
+           while (content.firstChild) {
+                content.removeChild(content.firstChild);
+           }
+
+	   let url = 'http://localhost:41063/risto89-1.0/ottieniEvento?title=' + encodeURIComponent(this.title);
+	   fetch(url )
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse JSON data from response
+                })
+                .then(function(data) {
+                    // Assuming data is an object representing EventoBean
+		    
+		    content.appendChild(detailsCard(data.titolo, data.sottotitolo, data.descrizione, data.tipologia, data.luogo, data.data, data.ora, data.image, data.tipologiaBiglietti, data.prezzo, data.sconto, data.numeroClick));
+                })
+                .catch(function(error) {
+                    console.error('Error fetching data:', error);
+                    content.innerHTML = 'Error fetching data.';
+                });
+
+       }
+
 
        //Private method
        _getHeader(){
@@ -84,27 +201,29 @@
            switch (this.eventType){
 
                  case "Concerti":
-		     header.classList.add("bg-danger");
+		     header.style.backgroundColor = "red";
 		 break;
 
 		 case "EventiSportivi":
-                     header.classList.add("bg-warning");
+                     header.style.backgroundColor = "orange";
                  break;
 
 		 case "SpettacoliTeatrali":
-                     header.classList.add("bg-success");
+                     header.style.backgroundColor = "green";
                  break;
 
+		 case "VisiteGuidate":
+		     header.style.backgroundColor = "purple";
+		 break;
 
                  default:
-		     header.classList.add("bg-primary");
+		     header.style.backgroundColor = "blue";
 		 break;
 	   }
 
            var header_label = document.createElement("h3");
 
-           header_label.classList.add("text-center");
-           header_label.classList.add("text-white");
+           header_label.classList.add("text-center", "text-white");
            header_label.textContent = this.title;
 
            header.appendChild(header_label);
@@ -125,17 +244,15 @@
        //Private method
        _getFooter(){
            var footer = document.createElement("div");
-           footer.classList.add("card-footer");
-	   footer.classList.add("d-flex");
-	   footer.classList.add("justify-content-between");
+           footer.classList.add("card-footer", "d-flex", "justify-content-between");
 
-           var deleteEvent = document.createElement("button");
-           deleteEvent.classList.add("btn");
-           deleteEvent.classList.add("btn-primary");
-           deleteEvent.textContent = "Vedi dettagli";
+           var moreDetails = document.createElement("button");
+           moreDetails.classList.add("btn", "btn-primary");
+           moreDetails.textContent = "Vedi dettagli";
 
-           deleteEvent.onclick = () => {
-                  checkDeleteChoice(this.title);
+           moreDetails.onclick = () => {
+                  this._showMoreDetails();
+		  this._scrollToElement(this.title);
            };
 
 
@@ -144,12 +261,11 @@
 
            var numClicksShower = document.createElement("p");
            numClicksShower.textContent = this.numberOfClicks + " clicks";
-           numClicksShower.classList.add("text-end");
-	   numClicksShower.classList.add("mb-0");
+           numClicksShower.classList.add("text-end", "mb-0");
 
            numClicks.appendChild(numClicksShower);
 
-           footer.appendChild(deleteEvent);
+           footer.appendChild(moreDetails);
            footer.appendChild(numClicks);
 	   return footer;
        }
@@ -157,8 +273,7 @@
        getCard(){
 
            var card = document.createElement("div");
-           card.classList.add("card");
-           card.classList.add("h-100");
+           card.classList.add("card", "h-100");
 
            var card_header = document.createElement("div");
            card_header.classList.add("card-header");
@@ -174,34 +289,6 @@
 
 
     /**
-     * Function that makes a POST request to the server to delete an event
-     * @param {string} titolo - The title of the event to delete
-     */
-    function callDeleteEvent(titolo) {
-        const url = '/risto89-1.0/eliminaEvento';
-        
-        // Data to be sent in the POST request
-        var data = new URLSearchParams();
-        data.append('titolo', titolo);
-
-        // Options for the fetch request
-        const options = {
-            method: 'POST',
-            body: data 
-        };
-
-        // Make the POST request
-        fetch(url, options).then(response => {
-            if (response.ok) {
-                console.log('Success!');
-                location.reload();
-            } else {
-                console.error('Request failed:', response.statusText);
-            }
-        });
-    }
-
-    /**
      * Function that shows the list of events
      */
     function mostraLista() {
@@ -213,8 +300,10 @@
                return a.numeroClick < b.numeroClick;
            });
        }
-
+      
        var cardList = document.getElementById("eventiCards");
+       var eventDetails = document.createElement("div");
+       eventDetails.classList.add("row");
 
        // Clearing the table
        while (cardList.firstChild) {
@@ -229,28 +318,35 @@
 
 
        datiJson.forEach(function(elemento) {
-            col = document.createElement("div");
-           col.classList.add("col-lg");
-            col.classList.add("mb-4");
-           col.classList.add("mt-4");
+           col = document.createElement("div");
+           col.classList.add("col-lg", "mb-4", "mt-4");
 
            var event = new eventCard(elemento.titolo, elemento.sottotitolo, elemento.descrizione, elemento.tipologia, elemento.luogo, elemento.data, elemento.ora, elemento.image, elemento.tipologiaBiglietti, elemento.prezzo, elemento.sconto, elemento.numeroClick);
   
            col.appendChild(event.getCard());
 
-            row.appendChild(col);
+           row.appendChild(col);
 
-            count = count + 1;
+           count = count + 1;
 
-           if(count%3 == 0){
+           let eventDetail = document.createElement("div");
+           eventDetail.id = elemento.titolo;
+           eventDetails.appendChild(eventDetail);
+
+	   if(count%3 == 0){
                 cardList.appendChild(row);
+		cardList.appendChild(eventDetails);
+		eventDetails = document.createElement("div");
+		eventDetails.classList.add("row");
                 row = document.createElement("div");
                 row.classList.add("row");
-           }
+            }
+
 
         // Append the last row if its not already appended
             if(count % 3 !== 0){
                 cardList.appendChild(row);
+		cardList.appendChild(eventDetails);
             }
 	    
 	});

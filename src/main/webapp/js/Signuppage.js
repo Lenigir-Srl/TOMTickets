@@ -1,9 +1,9 @@
 //showErrorModal() function declared inside "Notify.js"
 
-function validateForm() {
+//Commonly used;
+var form = document.forms["signupForm"];
 
-  //Commonly used;
-  var form = document.forms["signupForm"];
+function validateForm() {
 
   // Name validation
   var name = form["nome"].value.trim(); // Trim to remove leading and trailing whitespace
@@ -154,14 +154,14 @@ function makePasswordVisible(){
 }
 
 function clearFields(){
-   document.forms["signupForm"]["nome"].value = "";
-   document.forms["signupForm"]["cognome"].value = "";
-   document.forms["signupForm"]["dataNascita"].value = "";
-   document.forms["signupForm"]["email"].value = "";
-   document.forms["signupForm"]["telefono"].value = "";
-   document.forms["signupForm"]["username"].value = "";
-   document.forms["signupForm"]["password"].value = "";
-   document.forms["signupForm"]["ripetiPassword"].value = "";
+   form["nome"].value = "";
+   form["cognome"].value = "";
+   form["dataNascita"].value = "";
+   form["email"].value = "";
+   form["telefono"].value = "";
+   form["username"].value = "";
+   form["password"].value = "";
+   form["ripetiPassword"].value = "";
    return;
 }
 
