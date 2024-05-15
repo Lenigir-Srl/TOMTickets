@@ -1,4 +1,6 @@
 <script>
+
+
 function validateForm(){
   
   //Commonly used;
@@ -78,6 +80,23 @@ function validateForm(){
   }
 
   return true;
+}
+
+function clearFields(){
+   //Commonly used;
+   var form = document.forms["createEventForm"];
+   form["titolo"].value = "";
+   form["sottotitolo"].value = "";
+   form["descrizione"].value = "";
+   form["data"].value = "";
+   form["ora"].value = "";
+   form["tipologiaBiglietti"].value = "";
+   form["prezzo"].value = "";
+   form["sconto"].value = "";
+   form["tipologiaEvento"].value = "";
+   form["luogo"].value = "";
+   form["image"].value = "";
+   return;
 }
 </script>
 

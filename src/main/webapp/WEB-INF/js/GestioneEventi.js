@@ -236,8 +236,76 @@
        //Private method
        _getBody(){
            var body = document.createElement("div");
-           body.classList.add("card-body");
+	   body.classList.add("card-body");
 	   
+	   var body_container = document.createElement("div");
+
+
+	   var first_half = document.createElement("div");
+	   first_half.classList.add("row");
+
+
+	   var first_half_image = document.createElement("div");
+	   first_half_image.classList.add("col-md-6", "d-flex", "justify-content-center");
+           
+
+	   var image = document.createElement("img");
+	   image.classList.add("img-fluid", "rounded", "d-block"); // Bootstrap classes for responsive images and centering
+	   image.style.maxHeight = "200px";
+	   image.src = "./immagini/" + this.image;
+	   first_half_image.appendChild(image);
+
+	   
+
+
+
+           var second_half_description = document.createElement("div");
+           second_half_description.classList.add("col-md-6", "text-center");
+
+	   var subtitle_row = document.createElement("div");
+	   subtitle_row.classList.add("row", "text-center");
+
+	   var subtitle = document.createElement("p");
+	   subtitle.classList.add("h5");
+	   subtitle.textContent = this.subtitle;
+
+           subtitle_row.appendChild(subtitle);
+
+	   second_half_description.appendChild(subtitle_row);
+
+  
+
+	   first_half.appendChild(first_half_image);
+	   first_half.appendChild(second_half_description);
+
+           
+	   var second_half = document.createElement("div");
+	   second_half.classList.add("row", "d-flex", "justify-content-center");
+
+
+	   var price = document.createElement("div");
+	   price.classList.add("row", "text-center");
+	   var price_shower = document.createElement("p");
+	   price_shower.classList.add("h3", "rounded", "mb-2");
+	   price_shower.style.backgroundColor = "lightgreen";
+	   price_shower.textContent = this.price;
+	   price.appendChild(price_shower);
+	   second_half.appendChild(price);
+	   
+	   if(this.discount != 0){
+               var discount = document.createElement("div");
+               discount.classList.add("row", "text-center");
+               var discount_shower = document.createElement("p");
+	       discount_shower.classList.add("h3", "rounded");
+	       discount_shower.style.backgroundColor = "red";
+               discount_shower.textContent = this.discount;
+               discount.appendChild(discount_shower);
+               second_half.appendChild(discount);
+	   }
+
+	   body_container.appendChild(first_half);
+	   body_container.appendChild(second_half);
+	   body.appendChild(body_container);
 	   return body;
        }
 

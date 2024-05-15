@@ -1,9 +1,10 @@
 //showErrorModal() function declared inside "Notify.js"
 
-//Commonly used;
-var form = document.forms["signupForm"];
 
 function validateForm() {
+
+  //Commonly used;
+  var form = document.forms["signupForm"];
 
   // Name validation
   var name = form["nome"].value.trim(); // Trim to remove leading and trailing whitespace
@@ -154,6 +155,8 @@ function makePasswordVisible(){
 }
 
 function clearFields(){
+   //Commonly used;
+   var form = document.forms["signupForm"];
    form["nome"].value = "";
    form["cognome"].value = "";
    form["dataNascita"].value = "";

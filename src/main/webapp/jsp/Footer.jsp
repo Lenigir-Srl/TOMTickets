@@ -10,7 +10,8 @@
                         <div class="card-header h3 text-center bg-warning text-white">
                             Informazioni Legali
                         </div>
-                        <div class="card-body">
+                        <%-- TODO Controllare che effettivamente serva mettere <footer> ad ogni <cite> --%>
+			<div class="card-body">
                             <blockquote class="blockquote">
 			       <div class="row">
 			          <div class="col-lg">
