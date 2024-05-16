@@ -95,10 +95,10 @@
 	
 
 		var card = document.createElement("div");
-		card.classList.add("card");
+		card.classList.add("card", "mt-4");
 		
 		var card_header = document.createElement("div");
-		card_header.classList.add("card-header", "text-white", "h3");
+		card_header.classList.add("card-header", "text-white", "h3", "text-center");
 
 
 		switch (eventType){
@@ -127,6 +127,103 @@
 	        card_header.textContent = title;
 
 		var card_body = document.createElement("div");
+		card_body.classList.add("card-body", "text-center");
+
+		var first_row = document.createElement("div");
+		first_row.classList.add("row", "container-fluid");
+		
+		var picture_container = document.createElement("div");
+		picture_container.classList.add("col-lg-7", "text-center", "bg-dark", "rounded");
+
+		var picture = document.createElement("img");
+		picture.style.maxWidth = "100%";
+		picture.src = "http://localhost:41063/risto89-1.0/immagini/" + image;
+	
+		
+		picture_container.appendChild(picture);
+
+		var subtitle_description_container = document.createElement("div");
+		subtitle_description_container.classList.add("col-lg-5" , "text-center");
+
+
+		var description_row = document.createElement("div");
+		description_row.classList.add("row");
+
+		var description_shower = document.createElement("cite");
+		description_shower.textContent = description;
+
+	        description_row.appendChild(description_shower);
+
+		var subtitle_row = document.createElement("div");
+                subtitle_row.classList.add("row");
+
+                var subtitle_shower = document.createElement("p");
+		subtitle_shower.textContent = subtitle;
+                subtitle_shower.classList.add("h2");
+
+                subtitle_row.appendChild(subtitle_shower);
+
+
+		subtitle_description_container.appendChild(subtitle_row);
+		subtitle_description_container.appendChild(description_row);
+
+
+		first_row.appendChild(picture_container);
+		first_row.appendChild(subtitle_description_container);
+
+
+		var second_row = document.createElement("div");
+                second_row.classList.add("row", "container-fluid");
+
+
+		function get_cite_footer(title = "defaultTitle", text = "defaultText"){
+			var footer = document.createElement("span");
+                        
+			var title_shower = document.createElement("p");
+			title_shower.classList.add("text-center", "h4");
+			title_shower.textContent = title;
+
+			var text_container = document.createElement("footer");
+			text_container.classList.add("text-center");
+
+			var text_cite = document.createElement("cite");
+			text_cite.classList.add("h5");
+			text_cite.textContent = text;
+
+			text_container.appendChild(text_cite);
+			
+			footer.appendChild(title_shower);
+			footer.appendChild(text_container);
+			return footer;
+		
+		}
+
+		var first_subrow = document.createElement("div");
+		first_subrow.classList.add("row");
+
+		var first_subcol = document.createElement("div");
+		first_subcol.classList.add("col");
+
+		first_subcol.appendChild(get_cite_footer("Prezzo", price + "€"));
+	
+		var second_subcol = document.createElement("div");
+		second_subcol.classList.add("col");
+		second_subcol.appendChild(get_cite_footer("Sconto", discount));
+		first_subrow.appendChild(first_subcol);
+		first_subrow.appendChild(second_subcol);
+
+		second_row.appendChild(first_subrow);
+
+
+
+		card_body.appendChild(first_row);
+		card_body.appendChild(second_row);
+
+		var second_row = document.createElement("div");
+		second_row.classList.add("row", "container-fluid");
+
+
+
 
 	        var card_footer = document.createElement("div");
 		card_footer.classList.add("card-footer", "d-flex", "justify-content-between");
@@ -246,12 +343,12 @@
 
 
 	   var first_half_image = document.createElement("div");
-	   first_half_image.classList.add("col-md-6", "d-flex", "justify-content-center");
+	   first_half_image.classList.add("col-md-5", "d-flex", "justify-content-center");
            
 
 	   var image = document.createElement("img");
 	   image.classList.add("img-fluid", "rounded", "d-block"); // Bootstrap classes for responsive images and centering
-	   image.style.maxHeight = "200px";
+	   image.style.maxHeight = "150px";
 	   image.src = "./immagini/" + this.image;
 	   first_half_image.appendChild(image);
 
@@ -260,7 +357,7 @@
 
 
            var second_half_description = document.createElement("div");
-           second_half_description.classList.add("col-md-6", "text-center");
+           second_half_description.classList.add("col-md-7", "text-center");
 
 	   var subtitle_row = document.createElement("div");
 	   subtitle_row.classList.add("row", "text-center");
@@ -276,35 +373,75 @@
   
 
 	   first_half.appendChild(first_half_image);
-	   first_half.appendChild(second_half_description);
+
+	   var price_discount_date_hour = document.createElement("div");
+	   price_discount_date_hour.classList.add("col", "align-items-center", "border", "rounded", "border-warning");
 
            
-	   var second_half = document.createElement("div");
-	   second_half.classList.add("row", "d-flex", "justify-content-center");
-
-
-	   var price = document.createElement("div");
-	   price.classList.add("row", "text-center");
+	   var price_discount = document.createElement("div");
+	   price_discount.classList.add("row");
+	   
+	   var price_container = document.createElement("div");
+	   price_container.classList.add("col-md-6", "d-flex", "align-items-center", "justify-content-center");
 	   var price_shower = document.createElement("p");
-	   price_shower.classList.add("h3", "rounded", "mb-2");
-	   price_shower.style.backgroundColor = "lightgreen";
-	   price_shower.textContent = this.price;
-	   price.appendChild(price_shower);
-	   second_half.appendChild(price);
+	   price_shower.classList.add("btn", "btn-outline-success", "h3", "mb-2", "mt-2");
+	   price_shower.style.marginLeft = "0.5rem";
+	   price_shower.style.marginRight = "0.5rem";
+	   price_shower.textContent = this.price + "€";
+	   price_container.appendChild(price_shower);
+	   price_discount.appendChild(price_container);
 	   
 	   if(this.discount != 0){
-               var discount = document.createElement("div");
-               discount.classList.add("row", "text-center");
+	       var discount_container = document.createElement("div");
+	       discount_container.classList.add("col-md-6", "d-flex", "align-items-center", "justify-content-center");
                var discount_shower = document.createElement("p");
-	       discount_shower.classList.add("h3", "rounded");
-	       discount_shower.style.backgroundColor = "red";
-               discount_shower.textContent = this.discount;
-               discount.appendChild(discount_shower);
-               second_half.appendChild(discount);
+	       discount_shower.style.marginRight = "0.5rem";
+	       discount_shower.style.marginLeft = "0.5rem";
+               discount_shower.classList.add("btn", "btn-outline-danger", "h5", "mb-2", "mt-2");
+	       discount_shower.style.maxWidth = "100%";
+	       discount_shower.textContent = "- " + this.discount + "%"
+	       discount_container.appendChild(discount_shower);
+	       price_discount.appendChild(discount_container);
 	   }
 
+	   price_discount_date_hour.appendChild(price_discount);
+
+
+	   var date_hour = document.createElement("div");
+	   date_hour.classList.add("row");
+
+	   var date_container = document.createElement("div");
+	   date_container.classList.add("col-md-6", "d-flex", "align-items-center", "justify-content-center");
+	   var date_shower = document.createElement("p");
+	   date_shower.textContent = this.date;
+	   date_shower.style.marginLeft = "0.5rem";
+	   date_shower.style.marginRight = "0.5rem";
+	   date_shower.classList.add("btn", "btn-outline-primary", "h3", "mb-2", "mt-2");
+	   date_container.appendChild(date_shower);
+
+	   date_hour.appendChild(date_container);
+
+
+	   var hour_container = document.createElement("div");
+	   hour_container.classList.add("col-md-6", "d-flex", "align-items-center", "justify-content-center");
+	   var hour_shower = document.createElement("p");
+	   hour_shower.textContent = this.hour;
+	   hour_shower.style.marginRight = "0.5rem";
+	   hour_shower.style.marginLeft = "0.5rem";
+	   hour_shower.classList.add("btn", "h3", "mb-2", "mt-2");
+	   hour_shower.style.borderColor = "purple";
+	   hour_shower.style.color = "purple";
+           hour_container.appendChild(hour_shower);
+
+	   date_hour.appendChild(hour_container);
+
+	   price_discount_date_hour.appendChild(date_hour);
+
+
+	   second_half_description.appendChild(price_discount_date_hour);
+	   first_half.appendChild(second_half_description);
+
 	   body_container.appendChild(first_half);
-	   body_container.appendChild(second_half);
 	   body.appendChild(body_container);
 	   return body;
        }
@@ -359,8 +496,8 @@
     /**
      * Function that shows the list of events
      */
-    function mostraLista() {
-       var datiJson = JSON.parse( '${eventiJson}' ); 
+    function mostraCards(datiJson) {
+       
 
        var check = document.getElementById("isOrdered");
        if (check.checked) {
@@ -418,6 +555,27 @@
             }
 	    
 	});
+    }
+
+    function mostraLista(){
+	let url = 'http://localhost:41063/risto89-1.0/ottieniEventi';
+           fetch(url)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse JSON data from response
+                })
+                .then(function(data) {
+                    // Assuming data is an object representing EventoBean
+
+                    mostraCards(data);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching data:', error);
+                    content.innerHTML = 'Error fetching data.';
+                });
+
     }
 
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 // This servlet is used to handle the event management
-public class GestioneEventi extends HttpServlet {
+public class GetEventi extends HttpServlet {
 
   @Override
   public void init(ServletConfig config) throws ServletException {
@@ -44,8 +44,20 @@ public class GestioneEventi extends HttpServlet {
           throw new Exception();
         }
 
-	// Forwarding the request to the Profile.jsp
-        req.getRequestDispatcher("/WEB-INF/jsp/GestioneEventi.jsp").forward(req, res);
+        // Getting the profile bean from the dao
+        List<EventoBean> eventi = EventoDAO.GetEventi(scon.getConnection());
+
+
+        // Convert list to json
+        String jsonArray = new Gson().toJson(eventi);
+
+        // Set response content type to JSON
+        res.setContentType("application/json");
+        res.setCharacterEncoding("UTF-8");
+
+        // Write JSON to response
+        PrintWriter out = res.getWriter();
+        out.println(jsonArray);
 
       }
       catch (Exception e) {

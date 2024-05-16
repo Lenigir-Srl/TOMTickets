@@ -32,7 +32,7 @@
                   <div class="input-group container justify-content-center">
                        <div class="row container-fluid">
 		            <div class="col-lg-9 d-flex pt-2 container text-center">
-		                 <input type="search" class="form-control rounded" placeholder="username, nome, cognome..." aria-label="Search" aria-describedby="search-addon" />
+		                 <input type="search" class="form-control rounded" placeholder="titolo, sottotitolo, tipo evento..." aria-label="Search" aria-describedby="search-addon" />
                                  <button type="button" class="btn btn-outline-primary">Cerca</button>
 	                     </div>
 		             <div class="col-lg-3 pt-2 container text-center">
@@ -47,7 +47,7 @@
                        <label class="form-check-label fs-6" for="isOrdered">Ordina per numero di visualizzazioni</label>
                   </div>
                   <div class="text-start ms-md-auto">
-                       <button type="button" onclick="console.log('suca')" id="cakeDiagram" class="btn btn-primary">Diagramma a torta</button>
+                       <button type="button" onclick="showPieChart()" id="Charts" class="btn btn-primary">Diagrammi</button>
                   </div>
              </div>
         </div>
@@ -80,6 +80,10 @@
     <!--NOTIFICATION-->
     <%@include file="/jsp/Notify.jsp"%>
     <!--NOTIFICATION-->
+
+    <!--CAKE DIAGRAM-->
+    <%@include file="PieChart.jsp"%>
+    <!--CAKE DIAGRAM-->
 
     </body>
 </html>

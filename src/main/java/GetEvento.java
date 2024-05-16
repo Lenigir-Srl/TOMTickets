@@ -49,7 +49,7 @@ public class GetEvento extends HttpServlet {
       out.println(jsonEvent);
 
     } catch (Exception e) {
-      req.setAttribute("error", "(Gestione Eventi) Errore di connessione al database, " + e.getMessage());
+      req.setAttribute("error", "(Ottieni Evento) Errore di connessione al database, " + e.getMessage());
       req.getRequestDispatcher("/error").forward(req, res);
     }
   }
