@@ -199,8 +199,7 @@
 
 
     // Parsing JSON data and displaying it in a table
-    function mostraLista() {
-       var datiJson = JSON.parse( '${profiliJson}' ); 
+    function mostraProfili(datiJson) {
 
        var check = document.getElementById("isOrdered");
        if (check.checked) {
@@ -247,4 +246,26 @@
                 cardList.appendChild(row);
             }
     }
+
+    function mostraLista(){
+        let url = 'http://localhost:41063/risto89-1.0/ottieniProfili';
+           fetch(url)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse JSON data from response
+                })
+                .then(function(data) {
+                    // Assuming data is an object representing EventoBean
+
+                    mostraProfili(data);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching data:', error);
+                    content.innerHTML = 'Error fetching data.';
+                });
+
+    }
+
 </script> 
