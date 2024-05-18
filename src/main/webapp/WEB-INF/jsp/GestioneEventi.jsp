@@ -36,7 +36,7 @@
                                  <button type="button" class="btn btn-outline-primary">Cerca</button>
 	                     </div>
 		             <div class="col-lg-3 pt-2 container text-center">
-		                 <a class="btn btn-success" href="./creaEvento">Crea un nuovo Evento</a>
+		                 <a class="btn btn-success" href="./creaEvento">Crea Evento</a>
                              </div>
 		       </div>
 		  </div>

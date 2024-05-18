@@ -82,11 +82,11 @@ let url = 'http://localhost:41063/risto89-1.0/ottieniEventi';
 
 function showPieChart(){
 	getDataJson();
-	showModal();
+	showPieChartModal();
 }
 
 
-function showModal(){
+function showPieChartModal(){
     $('#pieChartModal').modal({
         backdrop: 'static',
         focus: true,

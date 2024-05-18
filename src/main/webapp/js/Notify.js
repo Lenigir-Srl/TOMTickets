@@ -23,6 +23,7 @@ function setSuccessModal(){
 
 
 function showModal(){
+    console.log("ciao");
     $('#notifyModal').modal({
         backdrop: 'static',
         focus: true,
