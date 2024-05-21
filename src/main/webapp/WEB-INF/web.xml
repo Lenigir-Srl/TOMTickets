@@ -131,6 +131,16 @@
         <servlet-class>TerminaAcquisto</servlet-class>
    </servlet>
 
+   <servlet>
+        <servlet-name>getmostclicked</servlet-name>
+        <servlet-class>MostClicked</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>getsconti</servlet-name>
+        <servlet-class>Discounts</servlet-class>
+   </servlet>
+
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
             <param-name>value_name</param-name>
@@ -239,6 +249,16 @@
     <servlet-mapping>
       <servlet-name>ottieniProfili</servlet-name>
       <url-pattern>/ottieniProfili</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>getmostclicked</servlet-name>
+      <url-pattern>/getmostclicked</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>getsconti</servlet-name>
+      <url-pattern>/getsconti</url-pattern>
     </servlet-mapping>
 
     <!-- Filters config -->
