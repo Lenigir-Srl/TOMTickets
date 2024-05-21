@@ -14,6 +14,7 @@ import java.io.*;
 // - int CreaEvento(EventoBean, Connection)
 // - int EliminaEvento(EventoBean, Connection)
 // - List<EventoBean> GetEventi(Connection)
+// - List<EventoBean> GetEventi(Connection, TipologiaEventoEnum)
 // - EventoBean GetEvento(String titolo, Connection)
 // - List<EventoBean> GetSconti(Connection)
 // - boolean EventoExists(EventoBean, connection)
@@ -88,9 +89,6 @@ public class EventoDAO {
 
             int rowsaffected = ps.executeUpdate();
 
-            // TODO elimina image
-
-
             return rowsaffected;
 
         } catch (SQLException e) {
@@ -148,6 +146,58 @@ public class EventoDAO {
         return eventi;
     }
     
+    // Returns a List of all the events in the DB
+    //
+    // Arguments:
+    // - Connection
+    //
+    // Return value:
+    // A List<EventoBean> with all the profiles from the DB
+    //
+    // Throws:
+    // SQLException
+    public static List<EventoBean> GetEventiTipologia(Connection con, TipologiaEventoEnum tipologia) throws SQLException {
+
+        List<EventoBean> eventi = new ArrayList<>(); 
+
+        try {
+       
+            String query = "SELECT * FROM Eventi WHERE tipologiaEvento=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, tipologia.toString());
+            
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                
+                EventoBean evento = new EventoBean();
+                
+                evento.setTitolo(rs.getString("titolo"));
+                evento.setSottotitolo(rs.getString("sottotitolo"));
+                evento.setDescrizione(rs.getString("descrizione"));
+                evento.setTipologia(TipologiaEventoEnum.valueOf(rs.getString("tipologiaEvento")));
+                evento.setLuogo(LuogoEnum.valueOf(rs.getString("luogo")));
+                evento.setData(rs.getString("data"));
+                evento.setOra(rs.getString("ora"));
+                evento.setImage(rs.getString("image"));
+                evento.setTipologiaBiglietti(
+                        TipologiaBigliettiEnum.valueOf(
+                                rs.getString("tipologiaBiglietti")));
+                evento.setPrezzo(rs.getFloat("prezzo"));
+                evento.setSconto(rs.getFloat("sconto"));
+                evento.setNumeroClick(rs.getInt("numeroClick"));
+
+                eventi.add(evento);
+            }
+
+        }
+        catch(SQLException e) {
+            throw new SQLException(e);
+        }
+        
+        return eventi;
+    }
+
     // Returns an EventoBean from the DB with the given title
     //
     // Arguments:

@@ -21,13 +21,17 @@ public class GetEvento extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    // Get connection from session,
-    // Assuming that the connection is already established
-    HttpSession session = req.getSession(false);
-    SessionConnection scon = (SessionConnection) session.getAttribute("sessionconnection");
+
+    String url = "jdbc:derby://localhost:1527/DerbyDB";
 
     try {
-      if (scon == null) {
+
+      // Connect to DB
+      // We are not useing the session since this servlet
+      // can be accessed by anyone
+      Connection con = DriverManager.getConnection(url);
+      
+      if (con == null) {
         throw new Exception();
       }
 
@@ -35,7 +39,7 @@ public class GetEvento extends HttpServlet {
       String title = req.getParameter("title");
 
       // Getting the profile bean from the dao
-      EventoBean evento = EventoDAO.GetEvento(title, scon.getConnection());
+      EventoBean evento = EventoDAO.GetEvento(title, con);
 
       // Convert evento to JSON
       String jsonEvent = new Gson().toJson(evento);

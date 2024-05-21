@@ -26,7 +26,7 @@ public class Profile extends HttpServlet {
     try {
 
       if (scon == null) {
-          throw new SQLException();
+          throw new Exception();
       }
 
       // Getting the profile bean from the dao
@@ -40,7 +40,7 @@ public class Profile extends HttpServlet {
       // Forwarding the request to the Profile.jsp
       req.getRequestDispatcher("/WEB-INF/jsp/Profile.jsp").forward(req, res);
     }
-    catch(SQLException e) {
+    catch(Exception e) {
 
       // If there is an error, we redirect to the error page
       req.setAttribute("error", "Errore di connessione al database");

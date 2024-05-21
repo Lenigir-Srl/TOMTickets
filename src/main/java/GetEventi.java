@@ -33,20 +33,34 @@ public class GetEventi extends HttpServlet {
     throws ServletException, IOException
   {
 
-      // Get connection from session,
-      // Assuming that the connection is already established
-      HttpSession session = req.getSession(false);
-      SessionConnection scon = (SessionConnection) session.getAttribute("sessionconnection");
+      String url = "jdbc:derby://localhost:1527/DerbyDB";
+
+      String tipologia = req.getParameter("tipologia");
+      TipologiaEventoEnum tipologiaEnum = null;
 
       try {
 
-        if (scon == null) {
+        if (tipologia != null) {
+          tipologiaEnum = TipologiaEventoEnum.valueOf(tipologia);
+        }
+
+        // Connect to DB
+        // We are not useing the session since this servlet
+        // can be accessed by anyone
+        Connection con = DriverManager.getConnection(url);
+
+        if (con == null) {
           throw new Exception();
         }
 
         // Getting the profile bean from the dao
-        List<EventoBean> eventi = EventoDAO.GetEventi(scon.getConnection());
-
+        List<EventoBean> eventi = null;
+        if (tipologia != null) {
+            eventi = EventoDAO.GetEventiTipologia(con, tipologiaEnum);
+        }
+        else {
+            eventi = EventoDAO.GetEventi(con);
+        }
 
         // Convert list to json
         String jsonArray = new Gson().toJson(eventi);
