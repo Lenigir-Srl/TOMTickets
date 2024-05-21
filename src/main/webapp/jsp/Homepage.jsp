@@ -9,7 +9,7 @@
     <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets</title>
 </head>
-<body>
+<body onload="window.setInterval(getMostClicked, 15000); window.setInterval(getDiscounts, 15000);">
 <!--NAVIGATION BAR-->
 <%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
@@ -36,7 +36,19 @@
              <!--FUNFACTS-->
 	     <%@include file="/jsp/Funfacts.jsp"%>
              <!--FUNFACTS-->
+
 	</div>
+
+    <div>
+    <!-- MOST CLICKED EVENTS -->
+    <%@include file="/jsp/MostClicked.jsp"%>
+    <!-- MOST CLICKED EVENTS -->
+
+    <!-- DISCOUNTS -->
+    <%@include file="/jsp/Discounts.jsp"%>
+    <!-- DISCOUNTS -->
+    </div>
+
 </section>
 <!--PAGE CONTENT-->
 
