@@ -19,6 +19,7 @@ import java.io.*;
 // - EventoBean GetEvento(String titolo, Connection)
 // - List<EventoBean> GetSconti(Connection)
 // - boolean EventoExists(EventoBean, connection)
+// - void IncreaseClickNumber(EventoBean, Connection)
 // - void salvaImmagine(Part)
 // - void eliminaImmagine(EventoBean)
 //
@@ -380,6 +381,37 @@ public class EventoDAO {
             } else {
                 return false;
             }
+
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
+    }
+
+    // Deletes EventoBean from the DB
+    // Arguments:
+    // - EventoBean
+    // - Connection
+    //
+    // Return value:
+    // The number of rows affected by the change
+    //
+    // Throws:
+    // SQLException
+    public static int IncreaseClickNumber(EventoBean evento, Connection con) throws SQLException {
+       
+        try {
+
+            if (!EventoExists(evento, con)) return 0;
+            
+            String query = "UPDATE Eventi SET numeroClick=? WHERE titolo=?";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, String.valueOf(evento.getNumeroClick() + 1));
+            ps.setString(2, evento.getTitolo());
+
+            int rowsaffected = ps.executeUpdate();
+
+            return rowsaffected;
 
         } catch (SQLException e) {
             throw new SQLException(e);
