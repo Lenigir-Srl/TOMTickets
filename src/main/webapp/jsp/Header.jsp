@@ -6,7 +6,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-
 <%-- Dobbiamo mostrare i bottoni "visualizza eventi" e compagnia bella solo se c'è l'admin, come si fa? stavo pensando di settare una variabile local storage quando si fa il login in Login.java ma è un po brutto magari tu valerio del futuro ti inventi una magia
 <% ProfiloBean profilo = ProfiloDAO.GetProfiloBean(username, scon.getConnection()); %>
 
@@ -24,10 +23,10 @@ ${profilo.getNome()}
 		<li class="nav-item mb-1 mt-1 dropdown d-flex">
                     <a class="me-3 ms-auto dropdown-toggle btn btn-warning text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="position: absolute; !important;">
-                        <li><a class="dropdown-item" href="#">Concerti</a></li>
-                        <li><a class="dropdown-item" href="#">Spettacoli teatrali</a></li>
-                        <li><a class="dropdown-item" href="#">Eventi sportivi</a></li>
-                        <li><a class="dropdown-item" href="#">Visite guidate</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=Concerti">Concerti</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=SpettacoliTeatrali">Spettacoli teatrali</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=EventiSportivi">Eventi sportivi</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=VisiteGuidate">Visite guidate</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="./eventi">Visualizza tutti</a></li>
                     </ul>
