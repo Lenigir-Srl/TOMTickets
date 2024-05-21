@@ -8,8 +8,17 @@
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets</title>
+    <script>
+   
+function setupPage() {
+        getMostClicked();
+        getDiscounts();
+        window.setInterval(getMostClicked, 15000);
+        window.setInterval(getDiscounts, 15000);
+}
+    </script>
 </head>
-<body onload="window.setInterval(getMostClicked, 15000); window.setInterval(getDiscounts, 15000);">
+<body onload="setupPage();">
 <!--NAVIGATION BAR-->
 <%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
