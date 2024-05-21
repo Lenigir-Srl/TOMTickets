@@ -31,7 +31,5 @@
     <ul class="list-group list-group-flush d-flex justify-content-center align-items-center">
         <li class="list-group-item text-center" id="Times_visited_shower"></li>
         <li class="list-group-item text-center" id="Cookies_accepted_shower"></li>
-        <li class="list-group-item text-center">Intellij best IDE ever designed</li>
-	<li class="list-group-item text-center">Il colore dello sfondo del titolo di questa carta e' la cosa più brutta che io abbia mai fatto. Ma ci stava - Valerio</li>
     </ul>
 </div>

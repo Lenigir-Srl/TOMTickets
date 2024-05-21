@@ -4,18 +4,19 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 
-
+//Get user's choice about cookies and print it.
 function printCookiesChoice(){
 	var choice = window.localStorage.getItem('cookies');
 	var print = "";
 	if(choice == "false"){
-		print = print + "Non hai accettato i cookies sob sob :'(";
+		print = print + "Non hai accettato i cookies.";
 	}else{
-		print = print + "Hai accettato i cookies :D";
+		print = print + "Hai accettato i cookies!!";
 	}
 	document.getElementById('Cookies_accepted_shower').textContent = print;
 }
 
+//Get the number of visits from local storage and print it.
 function printTimesVisited(){
 	var timesVisited = window.localStorage.getItem('times_visited');
         var print = "";

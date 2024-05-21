@@ -8,7 +8,6 @@ if(!window.sessionStorage.getItem('first_open_check')){
     }
 }
 
-//window.onload = showCookieModal();
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+//Function to show on screen the cookie modal, this is bootstrap's js
 function showCookieConsent(){
     $('#cookieModal').modal({
             backdrop: 'static',
@@ -34,22 +34,8 @@ function showCookieConsent(){
     $('#cookieModal').modal('show');
 }
 
-/*
-$( document ).on('turbolinks:load', function(){
-    var checkFirstTimeVisit = window.localStorage.getItem('times_visited');
-    if(checkFirstTimeVisit == 0){
-        $('#cookieModal').modal({
-                backdrop: 'static',
-                focus: true,
-                keyboard: false
-        })
-        $('#cookieModal').modal('show');
-    }
-    window.localStorage.setItem('times_visited', 0);
-});
-*/
-
 function setCookieConsent(Choice){
+	//Save the choice of the user inside a storage boolean variable called "cookies"
 	if(Choice == "T"){
 		window.localStorage.setItem('times_visited', 1);
 		window.localStorage.setItem("cookies", true)
@@ -61,5 +47,6 @@ function setCookieConsent(Choice){
 			window.localStorage.setItem("cookies", "NaN");
 		}
 	}
+	//Reload the page;
 	location.reload();
 }
