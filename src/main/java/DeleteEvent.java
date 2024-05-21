@@ -47,7 +47,6 @@ public class DeleteEvent extends HttpServlet {
       EventoDAO.EliminaImmagine(evento, path);
       EventoDAO.EliminaEvento(evento, connection);
 
-
       res.setStatus(HttpServletResponse.SC_OK);
       res.getWriter().write("OK, evento eliminato: ");
 

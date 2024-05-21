@@ -1,3 +1,4 @@
+<script>
 function showWarningModal(){
     document.getElementById('warningModalTitle').innerHTML = "NE SEI DAVVERO SICURO??";
     document.getElementById('warningModalDescription').innerHTML = "Eliminando il profilo non sara' piu' possibile recuperarne i dati, gli acquisti e tutte le relative informazioni legate ad esso!!!";
@@ -10,6 +11,7 @@ function showWarningModal(){
 }
 
 function deleteProfile(){
+   disableContinueButton();
    document.getElementById("deleteProfile").submit();
 }
 
@@ -17,3 +19,4 @@ function checkChoice(){
    showWarningModal();
    document.getElementById("continueButton").onclick = deleteProfile;
 }
+</script>

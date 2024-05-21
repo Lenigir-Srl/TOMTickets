@@ -10,7 +10,8 @@
                         <div class="card-header h3 text-center bg-warning text-white">
                             Informazioni Legali
                         </div>
-                        <div class="card-body">
+                        <%-- TODO Controllare che effettivamente serva mettere <footer> ad ogni <cite> --%>
+			<div class="card-body">
                             <blockquote class="blockquote">
 			       <div class="row">
 			          <div class="col-lg">
@@ -26,7 +27,7 @@
 			       <div class="row">
                                   <div class="col-lg">
                                      <p class="text-center">Partita IVA</p>
-                                     <footer class="blockquote-footer text-center"><cite title="name">12345678901</cite></footer>
+                                     <footer class="blockquote-footer text-center"><cite title="name">IT 12345678901</cite></footer>
                                   </div>
 				  <div class="col-lg">
                                      <p class="text-center">Email Aziendale</p>
@@ -35,9 +36,10 @@
                                </div>
                                <p class="text-center">Sede Aziendale</p>
                                <footer class="blockquote-footer text-center"><cite title="name">Via della Malpensada n.140, Trento, Italia</cite></footer>
+			       <footer class="blockquote-footer text-center"><cite title="name">Via Sommarive n.5, Povo, Trento, Italia</cite></footer>
 			    </blockquote>
                         </div>
-                        <div class="card-footer align-items-center text-center justify-content-center">Orari di apertura<br>08:00 - 17:30 Lunedi' - Giovedi'<br>08:30 - 17:00 Venerdi'</div>
+                        <div class="card-footer align-items-center text-center justify-content-center">Orari di ricevimento<br>08:00 - 17:30 Lunedi' - Giovedi'<br>08:30 - 17:00 Venerdi'</div>
                     </div>
                 </div>
                 <div class="container align-items-center justify-content-center flex-grow-1 mt-3">
@@ -59,7 +61,7 @@
                     <div class="card h-100">
                         <div class="card-header h3 text-center bg-primary text-white">I nostri contatti</div>
                         <div class="card-body">
-                            <blockquote class="blockquote h-100">
+                            <blockquote class="blockquote mb-0 h-100">
 				<div class="row">
 				<p class="text-center">Valerio Asaro</p>
                                 <footer class="blockquote-footer text-center"><cite title="numtel">Numero di telefono: +39 371 365 1046</cite></footer>

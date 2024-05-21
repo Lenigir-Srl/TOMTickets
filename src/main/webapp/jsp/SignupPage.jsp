@@ -5,11 +5,10 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <script type"text/javascript" src="js/Signuppage.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/Signuppage.js"></script>
+    <%-- Include meta info of the page (favicon and such) --%>
+    <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets - signup</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <!--NAVIGATION BAR-->
@@ -54,16 +53,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-outline mb-2">
-                            <input type="email" id="email" name="email" class="form-control border border-dark" required />
-                            <label class="form-label" for="email">Indirizzo Email</label>
-                        </div>
-                        <div class="row">
-                            <div class="form-outline mb-2">
-                                <input type="text" id="username" name="username" class="form-control border border-dark" required />
-                                <label class="form-label" for="username">Username</label>
+			<div class="row">
+			    <div class="col-md-6 mb-2">
+                                <div class="form-outline mb-2">
+                                    <input type="email" id="email" name="email" class="form-control border border-dark" required />
+                                    <label class="form-label" for="email">Indirizzo Email</label>
+                                </div>
+		            </div>
+			    <div class="col-md-6 mb-2">
+                                <div class="form-outline mb-2">
+                                    <input type="text" id="username" name="username" class="form-control border border-dark" required />
+                                    <label class="form-label" for="username">Username</label>
+                                </div>
                             </div>
-                        </div>
+			</div>
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <div class="form-outline">
@@ -106,6 +109,28 @@
     <!--NOTIFICATION-->
     <%@include file="/jsp/Notify.jsp"%>
     <!--NOTIFICATION-->
+
+    <%--Existing username modal info--%>
+    <% boolean existingUsername = false; %>
+    <% if(request.getAttribute("existingUsername") != null){ %>
+    <%   existingUsername = (boolean) request.getAttribute("existingUsername"); %>
+    <% } %>
+    <% if(existingUsername == true){ %>
+    <%--Show the modal--%>
+         <script>
+	 document.getElementById("nome").value = "<%= request.getAttribute("name") %>";
+	 document.getElementById("cognome").value = "<%= request.getAttribute("surname") %>";
+	 document.getElementById("dataNascita").value = "<%= request.getAttribute("dateOfBirth") %>";
+	 document.getElementById("email").value = "<%= request.getAttribute("email") %>";
+	 document.getElementById("telefono").value = "<%= request.getAttribute("phoneNumber") %>";
+	 document.getElementById("username").value = "<%= request.getAttribute("username") %>";
+	 document.getElementById("password").value = "<%= request.getAttribute("password") %>";
+	 document.getElementById("ripetiPassword").value = "<%= request.getAttribute("password") %>";
+	 document.addEventListener('DOMContentLoaded', function() {
+	     showErrorModal("Username non disponibile", "Ci dispiace ma lo username che hai inserito è gia associato ad un altro profilo.<br>Perfavore inserisci uno username diverso.");
+         });
+	 </script>
+    <% } %>
 
 </body>
 </html>

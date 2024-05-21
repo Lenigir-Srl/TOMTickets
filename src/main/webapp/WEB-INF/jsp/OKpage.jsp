@@ -3,10 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%-- Include meta info of the page (favicon and such) --%>
+    <%@include file="../../html/Metacontent.html"%>
     <title>risto89 - OK</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 
@@ -53,7 +52,7 @@
 
 		<% if (title == "Registrazione") { %>
                     <%-- login if registration --%>
-                    <a class="mb-1 mt-1 btn btn-success" href="./">Accedi al profilo creato</a>
+                    <a class="mb-1 mt-1 btn btn-success" href="./login">Accedi al profilo creato</a>
 		<% } %>
 		<a class="mb-1 mt-1 btn btn-dark" href="./">Vai alla homepage</a>
             </div>

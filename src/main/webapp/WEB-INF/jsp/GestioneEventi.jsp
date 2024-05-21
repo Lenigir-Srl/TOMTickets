@@ -3,179 +3,87 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>risto89 - gestione eventi</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-
-    <script>
-    /**
-     * Function that makes a POST request to the server to delete an event
-     * @param {string} titolo - The title of the event to delete
-     */
-    function callDeleteEvent(titolo) {
-        const url = '/risto89-1.0/eliminaEvento';
-        
-        // Data to be sent in the POST request
-        var data = new URLSearchParams();
-        data.append('titolo', titolo);
-
-        // Options for the fetch request
-        const options = {
-            method: 'POST',
-            body: data 
-        };
-
-        // Make the POST request
-        fetch(url, options).then(response => {
-            if (response.ok) {
-                console.log('Success!');
-                location.reload();
-            } else {
-                console.error('Request failed:', response.statusText);
-            }
-        });
-    }
-
-    /**
-     * Function that shows the list of events
-     */
-    function mostraLista() {
-       var datiJson = JSON.parse( '${eventiJson}' ); 
-
-       var check = document.getElementById("isOrdered");
-       if (check.checked) {
-           datiJson.sort(function(a, b) {
-               return a.numeroClick < b.numeroClick;
-           });
-       }
-
-       var lista = document.getElementById("listaEventi");
-
-       // Clearing the table
-       while (lista.firstChild) {
-         lista.removeChild(lista.firstChild);
-       }
-
-       datiJson.forEach(function(elemento) {
-            var tr = document.createElement("tr");
-
-            var button = document.createElement("button");
-            button.textContent = "Elimina";
-            button.classList += "btn btn-danger";
-            button.onclick = function() { callDeleteEvent(elemento.titolo); };
-            tr.appendChild(button);
-
-            var titolo = document.createElement("td");
-            titolo.textContent = elemento.titolo;
-            tr.appendChild(titolo); 
- 
-            var sottotitolo = document.createElement("td");
-            sottotitolo.textContent = elemento.sottotitolo;
-            tr.appendChild(sottotitolo); 
- 
-            var descrizione = document.createElement("td");
-            descrizione.textContent = elemento.descrizione;
-            tr.appendChild(descrizione); 
- 
-            var tipologia = document.createElement("td");
-            tipologia.textContent = elemento.tipologia;
-            tr.appendChild(tipologia); 
- 
-            var luogo = document.createElement("td");
-            luogo.textContent = elemento.luogo;
-            tr.appendChild(luogo); 
- 
-            var data = document.createElement("td");
-            data.textContent = elemento.data;
-            tr.appendChild(data); 
- 
-            var ora = document.createElement("td");
-            ora.textContent = elemento.ora;
-            tr.appendChild(ora); 
-
-            var immagine = document.createElement("td");
-            immagine.innerHTML = "<a href='/risto89-1.0/immagini/" + elemento.image + "'>Image</a>";
-            tr.appendChild(immagine);
-
-            var tipologiaBiglietti = document.createElement("td");
-            tipologiaBiglietti.textContent = elemento.tipologiaBiglietti;
-            tr.appendChild(tipologiaBiglietti); 
- 
-            var prezzo = document.createElement("td");
-            prezzo.textContent = elemento.prezzo;
-            tr.appendChild(prezzo); 
- 
-            var sconto = document.createElement("td");
-            sconto.textContent = elemento.sconto;
-            tr.appendChild(sconto); 
- 
-            var numeroClick = document.createElement("td");
-            numeroClick.textContent = elemento.numeroClick;
-            tr.appendChild(numeroClick); 
- 
-            lista.appendChild(tr);
-        });
-    }
-
-
-    function goCreaEvento() {
-        window.location.href = "/risto89-1.0/creaEvento";
-    }
-    </script>   
-
-
+        <%-- Include JS file into the page --%>
+        <%@include file="../js/GestioneEventi.js"%>
+        <%-- Include meta info of the page (favicon and such) --%>
+        <%@include file="../../html/Metacontent.html"%>
+        <title>TOMTickets - Gestione Eventi</title>
     </head>
+
     <body onload="mostraLista()">
 
 	<!--NAVIGATION BAR-->
-        <%@include file="../../Header.jsp"%>
+        <%@include file="../../jsp/Header.jsp"%>
 	<!--NAVIGATION BAR-->
 
 
         <!--PAGE CONTENT-->
 
-    <div class="table-responsive" style="padding-top: 2%; padding-left: 2%; padding-right: 2%">
 
-        <table class="table">
-          <thead>
-          <tr>
-            <th></th>
-            <th>Titolo</th>
-            <th>Sottotiolo</th>
-            <th>Descrizione</th>
-            <th>Tipologia</th>
-            <th>Luogo</th>
-            <th>Data</th>
-            <th>Ora</th>
-            <th>Immagine</th>
-            <th>Tipologia Biglietti</th>
-            <th>Prezzo</th>
-            <th>Sconto %</th>
-            <th>Numero di Click</th>
-          </tr>
-          </thead>
-          <tbody id="listaEventi"></tbody>
-
-        </table>
-
-        <label class="form-check-label" for="isOrdered">Ordina per numero di click</label>
-        <input type="checkbox" id="isOrdered" onclick="mostraLista()" autocomplete="off">
-
-        <br>
-        <button class="btn btn-primary padding-top: 2%" onclick="goCreaEvento()">Crea Evento</button>
-
-	</div>
+        <!--PAGE CONTENT-->
+        <section class="bg-dark-subtle" style="min-height: 95vh;">
 
 
+        <!--SEARCH BAR-->
+        <div class="w-75 mx-auto pt-4">
 
-	<!--PAGE CONTENT-->
+        <div class="card h-100 ">
+             <div class="card-body">
+                  <div class="input-group container justify-content-center">
+                       <div class="row container-fluid">
+		            <div class="col-lg-9 d-flex pt-2 container text-center">
+		                 <input type="search" class="form-control rounded" placeholder="titolo, sottotitolo, tipo evento..." aria-label="Search" aria-describedby="search-addon" />
+                                 <button type="button" class="btn btn-outline-primary">Cerca</button>
+	                     </div>
+		             <div class="col-lg-3 pt-2 container text-center">
+		                 <a class="btn btn-success" href="./creaEvento">Crea Evento</a>
+                             </div>
+		       </div>
+		  </div>
+             </div>
+	     <div class="card-footer d-flex flex-column flex-md-row justify-content-center align-items-center text-center">
+                  <div class="text-center mb-2 mb-md-0">
+                       <input class="form-check-input fs-3 me-2" onchange="mostraLista()" type="checkbox" id="isOrdered" autocomplete="off">
+                       <label class="form-check-label fs-6" for="isOrdered">Ordina per numero di visualizzazioni</label>
+                  </div>
+                  <div class="text-start ms-md-auto">
+                       <button type="button" onclick="showPieChart()" id="Charts" class="btn btn-primary">Diagrammi</button>
+                  </div>
+             </div>
+        </div>
+        </div>
 
 
-        <!--FOOTER-->
-        <%@include file="../../Footer.jsp"%>
-        <!--FOOTER-->
+        <!--SEARCH BAR-->
+
+        <!--EVENTI LIST-->
+        <div class="container-fluid align-items-center justify-content-center flex-grow-1" id="eventiCards"></div>
+        <!--EVENTI LIST-->
+
+
+        </section>
+
+
+
+    <!--FOOTER-->
+    <%@include file="../../jsp/Footer.jsp"%>
+    <!--FOOTER-->
+
+    <!--COOKIE-->
+    <%@include file="../../jsp/Cookie.jsp"%>
+    <!--COOKIE-->
+
+    <!--WARNING-->
+    <%@include file="../../jsp/Warning.jsp"%>
+    <!--WARNING-->
+
+    <!--NOTIFICATION-->
+    <%@include file="/jsp/Notify.jsp"%>
+    <!--NOTIFICATION-->
+
+    <!--CAKE DIAGRAM-->
+    <%@include file="PieChart.jsp"%>
+    <!--CAKE DIAGRAM-->
 
     </body>
 </html>
