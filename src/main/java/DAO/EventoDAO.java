@@ -387,7 +387,7 @@ public class EventoDAO {
         }
     }
 
-    // Deletes EventoBean from the DB
+    // Increases the number of clicks of an EventoBean
     // Arguments:
     // - EventoBean
     // - Connection

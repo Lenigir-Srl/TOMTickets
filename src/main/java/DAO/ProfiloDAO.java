@@ -12,6 +12,7 @@ import java.util.List;
 // - int EliminaProfilo(ProfileBean, Connection)
 // - ProfiloBean GetProfiloBean(String username, Connection)
 // - List<ProfiloBean> GetProfili(Connection)
+// - void IncreaseAcquisti(ProfiloBean, Connection)
 // - boolean UserExists(string username, Connection)
 // - boolean isAdmin(string username, Connection)
 public class ProfiloDAO {
@@ -225,7 +226,39 @@ public class ProfiloDAO {
         // Handle SQL exception
         throw new SQLException(e);
     }
-}
+    }
+
+
+    // Increases the number of purchases of a ProfiloBean
+    // Arguments:
+    // - ProfiloBean
+    // - Connection
+    //
+    // Return value:
+    // The number of rows affected by the change
+    //
+    // Throws:
+    // SQLException
+    public static int IncreaseAcquisti(ProfiloBean profilo, Connection con, int numeroAcquisti) throws SQLException {
+       
+        try {
+
+            if (!UserExists(profilo.getUsername(), con)) return 0;
+            
+            String query = "UPDATE Profili SET numeroAcquisti=? WHERE username=?";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, String.valueOf(profilo.getAcquisti() + numeroAcquisti));
+            ps.setString(2, profilo.getUsername());
+
+            int rowsaffected = ps.executeUpdate();
+
+            return rowsaffected;
+
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
+    }
 
 
 }
