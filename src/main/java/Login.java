@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
         String password = req.getParameter("password");
 
         //Create Java Bean for profile
-	    TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
+	TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
         TentativoAccessoDAO.checkUser(tentativoAccessoBean, con);
 
         // Check for existance and create session
@@ -86,7 +86,9 @@ public class Login extends HttpServlet {
         else {
             
             con.close();
-    	    req.setAttribute("wrongCredentials", true);
+    	    req.setAttribute("username", username);
+	    req.setAttribute("password", password);
+	    req.setAttribute("wrongCredentials", true);
             req.getRequestDispatcher("/jsp/Loginpage.jsp").forward(req, res);
 	    //res.sendRedirect("/risto89-1.0/login");
         }

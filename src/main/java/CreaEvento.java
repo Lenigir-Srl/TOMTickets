@@ -110,11 +110,11 @@ public class CreaEvento extends HttpServlet {
 
         // Insert the event in the database
         EventoDAO.AggiungiEvento(eventoBean, con);
-
-
-        // TODO: Redirect to OK page
-        req.setAttribute("error", "Evento creato con successo");
-    	req.getRequestDispatcher("/error").forward(req, res);
+        
+	req.setAttribute("title", "Evento");
+        req.setAttribute("OK", "Evento creato con successo!");
+        req.setAttribute("description", "Il nuovo evento '" + titolo + "' e' stato creato con successo e<br>si trova adesso all'interno di TOMTickets!");
+        req.getRequestDispatcher("/OK").forward(req, res);
 
       }
       catch (Exception e) {

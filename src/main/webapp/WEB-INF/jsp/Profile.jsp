@@ -4,11 +4,10 @@
 <html lang="en">
     <head>
         <%-- Include JS file into the page --%>
-        <script type"text/javascript" src="js/Profile.js"></script>
-	      <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>risto89 - profilo</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<%@include file="../js/Profile.js"%>
+	<%-- Include meta info of the page (favicon and such) --%>
+        <%@include file="../../html/Metacontent.html"%>
+	<title>TOMTickets - Profilo</title>
     </head>
     <body>
 
@@ -85,11 +84,11 @@
         <%@include file="../../jsp/Footer.jsp"%>
   <!--FOOTER-->
 
-	<!--COOKIE-->
+  <!--COOKIE-->
         <%@include file="../../jsp/Cookie.jsp"%>
   <!--COOKIE-->
 
-	<!--WARNING-->
+  <!--WARNING-->
         <%@include file="../../jsp/Warning.jsp"%>
   <!--WARNING-->
 

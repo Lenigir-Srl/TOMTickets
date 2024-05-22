@@ -10,8 +10,8 @@ import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 
-// This servlet is used to handle the event management
-public class GestioneEventi extends HttpServlet {
+// This servlet is used to load the events page
+public class VisualizzaEventi extends HttpServlet {
 
   @Override
   public void init(ServletConfig config) throws ServletException {
@@ -33,26 +33,15 @@ public class GestioneEventi extends HttpServlet {
     throws ServletException, IOException
   {
 
-      // Get connection from session,
-      // Assuming that the connection is already established
-      HttpSession session = req.getSession(false);
-      SessionConnection scon = (SessionConnection) session.getAttribute("sessionconnection");
+    String tipologia = req.getParameter("tipologia");
 
-      try {
+    if (tipologia != null) {
 
-        if (scon == null) {
-          throw new Exception();
-        }
+        req.setAttribute("tipologia", tipologia);
+    }
 
 	// Forwarding the request to the Profile.jsp
-        req.getRequestDispatcher("/WEB-INF/jsp/GestioneEventi.jsp").forward(req, res);
-
-      }
-      catch (Exception e) {
-
-          req.setAttribute("error", "(Gestione Eventi) Errore di connessione al database, " + e.getMessage());
-          req.getRequestDispatcher("/error").forward(req, res);
-      }
+    req.getRequestDispatcher("/jsp/Eventi.jsp").forward(req, res);
   }
 
   public void doPost (HttpServletRequest req,

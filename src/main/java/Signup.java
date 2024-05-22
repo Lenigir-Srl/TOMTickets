@@ -78,8 +78,15 @@ public class Signup extends HttpServlet {
         // Check if the user already exists
         if (ProfiloDAO.UserExists(username, con)) {
 
-            req.setAttribute("error", "Username gia esistente");
-            req.getRequestDispatcher("/error").forward(req, res);
+            req.setAttribute("existingUsername", true);
+            req.setAttribute("name", nome);
+	    req.setAttribute("surname", cognome);
+	    req.setAttribute("dateOfBirth", dataNascita);
+	    req.setAttribute("email", email);
+	    req.setAttribute("phoneNumber", telefono);
+	    req.setAttribute("username", username);
+	    req.setAttribute("password", password);
+	    req.getRequestDispatcher("/jsp/SignupPage.jsp").forward(req, res);
         }
 
 

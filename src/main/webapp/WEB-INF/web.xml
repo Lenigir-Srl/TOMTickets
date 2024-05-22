@@ -96,6 +96,51 @@
        <servlet-class>CreaEvento</servlet-class>
    </servlet>
 
+   <servlet>
+       <servlet-name>ottieniEvento</servlet-name>
+       <servlet-class>GetEvento</servlet-class>
+   </servlet>
+
+   <servlet>
+       <servlet-name>ottieniEventi</servlet-name>
+       <servlet-class>GetEventi</servlet-class>
+   </servlet>
+
+   <servlet>
+       <servlet-name>ottieniProfili</servlet-name>
+       <servlet-class>GetProfili</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>eventi</servlet-name>
+        <servlet-class>VisualizzaEventi</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>evento</servlet-name>
+        <servlet-class>VisualizzaEvento</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>acquistaevento</servlet-name>
+        <servlet-class>AcquistaEvento</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>terminaacquisto</servlet-name>
+        <servlet-class>TerminaAcquisto</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>getmostclicked</servlet-name>
+        <servlet-class>MostClicked</servlet-class>
+   </servlet>
+
+   <servlet>
+        <servlet-name>getsconti</servlet-name>
+        <servlet-class>Discounts</servlet-class>
+   </servlet>
+
     <!--  Servlet and JSPs can access this data using getServletContext().method
         <context-param>
             <param-name>value_name</param-name>
@@ -152,6 +197,26 @@
     </servlet-mapping>
 
     <servlet-mapping>
+      <servlet-name>eventi</servlet-name>
+      <url-pattern>/eventi</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>evento</servlet-name>
+      <url-pattern>/evento</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>acquistaevento</servlet-name>
+      <url-pattern>/acquistaevento</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>terminaacquisto</servlet-name>
+      <url-pattern>/terminaacquisto</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
       <servlet-name>visualizzaProfili</servlet-name>
       <url-pattern>/visualizzaProfili</url-pattern>
     </servlet-mapping>
@@ -169,6 +234,31 @@
     <servlet-mapping>
       <servlet-name>creaEvento</servlet-name>
       <url-pattern>/creaEvento</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>ottieniEvento</servlet-name>
+      <url-pattern>/ottieniEvento</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>ottieniEventi</servlet-name>
+      <url-pattern>/ottieniEventi</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>ottieniProfili</servlet-name>
+      <url-pattern>/ottieniProfili</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>getmostclicked</servlet-name>
+      <url-pattern>/getmostclicked</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>getsconti</servlet-name>
+      <url-pattern>/getsconti</url-pattern>
     </servlet-mapping>
 
     <!-- Filters config -->
@@ -199,6 +289,16 @@
             <url-pattern>/OK</url-pattern>
     </filter-mapping>
   
+    <filter-mapping>
+            <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/acquistaevento</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+            <filter-name>AuthenticationFilter</filter-name>
+            <url-pattern>/terminaacquisto</url-pattern>
+    </filter-mapping>
+
     <!-- Admin filter -->
 
     <filter-mapping>

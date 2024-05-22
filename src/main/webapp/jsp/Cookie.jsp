@@ -3,9 +3,8 @@
 
 
 <%-- Include JS file into the page --%>
-<script type"text/javascript" src="js/Cookie.js"></script>
+<script type="text/javascript" src="js/Cookie.js"></script>
 
-<!-- Modal -->
 <div class="modal fade" id="cookieModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -19,7 +18,7 @@
                     </div>
 
                     <div class="col-9">
-                        <p>Questo sito utilizza cookie tecnici per fornirti la migliore esperienza possibile.<a class="d-block" href="#">Voglio saperne di più</a></p>
+                        <p>Questo sito utilizza cookie tecnici per fornirti la migliore esperienza possibile.<a class="d-block" href="https://en.wikipedia.org/wiki/Cookie_Clicker">Voglio saperne di più</a></p>
                     </div>
                 </div>
             </div>
