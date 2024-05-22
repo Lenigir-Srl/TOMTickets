@@ -4,8 +4,10 @@ import javax.servlet.http.*;
 import com.google.gson.*;
 import java.sql.*;
 
+import java.util.List;
+
 // This servlet is used to handle the event management
-public class GetEvento extends HttpServlet {
+public class Discounts extends HttpServlet {
 
   @Override
   public void init(ServletConfig config) throws ServletException {
@@ -35,11 +37,8 @@ public class GetEvento extends HttpServlet {
         throw new Exception();
       }
 
-      // Assuming `title` is passed as a parameter
-      String title = req.getParameter("title");
-
       // Getting the profile bean from the dao
-      EventoBean evento = EventoDAO.GetEvento(title, con);
+      List<EventoBean> evento = EventoDAO.GetSconti(con);
 
       // Convert evento to JSON
       String jsonEvent = new Gson().toJson(evento);

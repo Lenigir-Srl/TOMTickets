@@ -14,9 +14,12 @@ import java.io.*;
 // - int CreaEvento(EventoBean, Connection)
 // - int EliminaEvento(EventoBean, Connection)
 // - List<EventoBean> GetEventi(Connection)
+// - List<EventoBean> GetEventi(Connection, TipologiaEventoEnum)
+// - List<EventoBean> GetMostClicked(Connection)
 // - EventoBean GetEvento(String titolo, Connection)
 // - List<EventoBean> GetSconti(Connection)
 // - boolean EventoExists(EventoBean, connection)
+// - void IncreaseClickNumber(EventoBean, Connection)
 // - void salvaImmagine(Part)
 // - void eliminaImmagine(EventoBean)
 //
@@ -88,9 +91,6 @@ public class EventoDAO {
 
             int rowsaffected = ps.executeUpdate();
 
-            // TODO elimina image
-
-
             return rowsaffected;
 
         } catch (SQLException e) {
@@ -148,6 +148,110 @@ public class EventoDAO {
         return eventi;
     }
     
+    // Returns a List of all the events in the DB matching
+    // the given TipologiaEventoEnum
+    //
+    // Arguments:
+    // - Connection
+    // - TipologiaEventoEnum
+    //
+    // Return value:
+    // A List<EventoBean> with all the profiles from the DB
+    //
+    // Throws:
+    // SQLException
+    public static List<EventoBean> GetEventiTipologia(Connection con, TipologiaEventoEnum tipologia) throws SQLException {
+
+        List<EventoBean> eventi = new ArrayList<>(); 
+
+        try {
+       
+            String query = "SELECT * FROM Eventi WHERE tipologiaEvento=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, tipologia.toString());
+            
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                
+                EventoBean evento = new EventoBean();
+                
+                evento.setTitolo(rs.getString("titolo"));
+                evento.setSottotitolo(rs.getString("sottotitolo"));
+                evento.setDescrizione(rs.getString("descrizione"));
+                evento.setTipologia(TipologiaEventoEnum.valueOf(rs.getString("tipologiaEvento")));
+                evento.setLuogo(LuogoEnum.valueOf(rs.getString("luogo")));
+                evento.setData(rs.getString("data"));
+                evento.setOra(rs.getString("ora"));
+                evento.setImage(rs.getString("image"));
+                evento.setTipologiaBiglietti(
+                        TipologiaBigliettiEnum.valueOf(
+                                rs.getString("tipologiaBiglietti")));
+                evento.setPrezzo(rs.getFloat("prezzo"));
+                evento.setSconto(rs.getFloat("sconto"));
+                evento.setNumeroClick(rs.getInt("numeroClick"));
+
+                eventi.add(evento);
+            }
+
+        }
+        catch(SQLException e) {
+            throw new SQLException(e);
+        }
+        
+        return eventi;
+    }
+
+    // Returns a List of all the 3 most clicked events in the DB
+    //
+    // Arguments:
+    // - Connection
+    //
+    // Return value:
+    // A List<EventoBean> with all the profiles from the DB
+    //
+    // Throws:
+    // SQLException
+    public static List<EventoBean> GetMostClicked(Connection con) throws SQLException {
+
+        List<EventoBean> eventi = new ArrayList<>(); 
+
+        try {
+       
+            Statement stm = con.createStatement();
+            String query = "SELECT * FROM Eventi ORDER BY numeroClick DESC FETCH FIRST 3 ROWS ONLY";
+            ResultSet rs = stm.executeQuery(query);;
+            
+            while (rs.next()) {
+                
+                EventoBean evento = new EventoBean();
+                
+                evento.setTitolo(rs.getString("titolo"));
+                evento.setSottotitolo(rs.getString("sottotitolo"));
+                evento.setDescrizione(rs.getString("descrizione"));
+                evento.setTipologia(TipologiaEventoEnum.valueOf(rs.getString("tipologiaEvento")));
+                evento.setLuogo(LuogoEnum.valueOf(rs.getString("luogo")));
+                evento.setData(rs.getString("data"));
+                evento.setOra(rs.getString("ora"));
+                evento.setImage(rs.getString("image"));
+                evento.setTipologiaBiglietti(
+                        TipologiaBigliettiEnum.valueOf(
+                                rs.getString("tipologiaBiglietti")));
+                evento.setPrezzo(rs.getFloat("prezzo"));
+                evento.setSconto(rs.getFloat("sconto"));
+                evento.setNumeroClick(rs.getInt("numeroClick"));
+
+                eventi.add(evento);
+            }
+
+        }
+        catch(SQLException e) {
+            throw new SQLException(e);
+        }
+        
+        return eventi;
+    }
+
     // Returns an EventoBean from the DB with the given title
     //
     // Arguments:
@@ -277,6 +381,37 @@ public class EventoDAO {
             } else {
                 return false;
             }
+
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
+    }
+
+    // Increases the number of clicks of an EventoBean
+    // Arguments:
+    // - EventoBean
+    // - Connection
+    //
+    // Return value:
+    // The number of rows affected by the change
+    //
+    // Throws:
+    // SQLException
+    public static int IncreaseClickNumber(EventoBean evento, Connection con) throws SQLException {
+       
+        try {
+
+            if (!EventoExists(evento, con)) return 0;
+            
+            String query = "UPDATE Eventi SET numeroClick=? WHERE titolo=?";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, String.valueOf(evento.getNumeroClick() + 1));
+            ps.setString(2, evento.getTitolo());
+
+            int rowsaffected = ps.executeUpdate();
+
+            return rowsaffected;
 
         } catch (SQLException e) {
             throw new SQLException(e);
