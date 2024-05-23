@@ -3,12 +3,7 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.*;
 
-import com.google.gson.*;
-
 import java.sql.*;
-
-import java.util.List;
-import java.util.ArrayList;
 
 // This servlet is used to load the events page
 public class VisualizzaEventi extends HttpServlet {
@@ -36,12 +31,12 @@ public class VisualizzaEventi extends HttpServlet {
     String tipologia = req.getParameter("tipologia");
 
     if (tipologia != null) {
-
         req.setAttribute("tipologia", tipologia);
     }
 
-	// Forwarding the request to the Profile.jsp
+    // Forwarding the request to the Profile.jsp
     req.getRequestDispatcher("/jsp/Eventi.jsp").forward(req, res);
+  
   }
 
   public void doPost (HttpServletRequest req,
