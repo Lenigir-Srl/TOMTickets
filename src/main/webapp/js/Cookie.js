@@ -37,15 +37,16 @@ function showCookieConsent(){
 function setCookieConsent(Choice){
 	//Save the choice of the user inside a storage boolean variable called "cookies"
 	if(Choice == "T"){
-		window.localStorage.setItem('times_visited', 1);
 		window.localStorage.setItem("cookies", true)
 	}else{
 		if(Choice == "F"){
-			window.localStorage.setItem('times_visited', 1);
 			window.localStorage.setItem("cookies", false);
 		}else{
 			window.localStorage.setItem("cookies", "NaN");
 		}
+	}
+	if(window.localStorage.getItem('times_visited') == 0){
+           window.localStorage.setItem('times_visited', 1);
 	}
 	//Reload the page;
 	location.reload();

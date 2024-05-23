@@ -38,7 +38,6 @@
     function checkDeleteChoice(title = "defaultTitle"){
         showWarningModal();
 	document.getElementById("continueButton").onclick = () => {
-		console.log("diocan");
 		turnOffSwitch();
 		disableContinueButton();
 		$('#warningModal').modal('hide');
@@ -231,7 +230,7 @@
                 image_container.src = image;
 
                 var title_container = document.createElement("h4");
-		title_container.classList.add("text-truncate", "d-flex", "align-items-center", "px-3", "d-md-block", "d-none");
+		title_container.classList.add("text-truncate", "d-flex", "align-items-center", "px-3", "d-lg-block", "d-none");
                 title_container.textContent = title;
 
                 image_title.appendChild(image_container);

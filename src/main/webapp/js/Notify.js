@@ -14,7 +14,7 @@ function setErrorModal(){
     
     //Change the background color of the modal to "RED" for error
     var notifyType = document.getElementById('notifyType');
-    notifyType.style.backgroundColor = 'red';
+    notifyType.style.background = 'red';
 }
 
 //Used to display success modals
@@ -25,7 +25,7 @@ function setSuccessModal(){
     
     //Change the background color of the modal to "GREEN" for success
     var notifyType = document.getElementById('notifyType');
-    notifyType.style.backgroundColor = 'green';
+    notifyType.style.background = 'green';
 }
 
 //Shows the modal on screen, this is bootstrap's js code

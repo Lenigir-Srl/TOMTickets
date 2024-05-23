@@ -49,7 +49,7 @@
                         </div>
                         <div class="card-body">
                             <blockquote class="blockquote">
-                                <p class="text-center">Ci chiamiamo Giovanni e Valerio, siamo due programmatori volenterosi e skillati.<br>Abbiamo creato questo sito per prendere 30 e lode all'esame di "Introduzione alla programmazione per il WEB".</p>
+                                <p class="text-center">Ci chiamiamo Giovanni e Valerio, siamo due programmatori dell'università di Trento.<br>Abbiamo creato questo sito per l'esame di "Introduzione alla programmazione per il WEB".</p>
                             </blockquote>
                         </div>
                         <div class="card-footer align-items-center text-center justify-content-center">Università di Trento, "Dipartimento Ingegneria e Scienza dell'Informazione" (DISI)</div>
