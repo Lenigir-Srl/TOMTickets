@@ -1,5 +1,5 @@
 <%-- Include JS file into the page --%>
-<%@include file="/js/Carousel.js"%>
+<%@include file="/js/PiuCliccatiCarosello.js"%>
 
 <div class="card bg-dark-subtle border-0" style="padding-top: 50px;">
     <div class="card-header bg-warning text-white">
@@ -16,18 +16,30 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="https://via.placeholder.com/400x400" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 1">
+                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="1Image" alt="Immagine 1">
+			    <div class="carousel-caption d-none d-md-block">
+                                <h5 id="1Title">Un momento solo prego...</h5>
+                                <p id="1Subtitle">Stiamo cercando di ottenere gli eventi...</p>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="https://via.placeholder.com/400x400" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 2">
-                        </div>
+                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="2Image" alt="Immagine 2">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 id="2Title">Un momento solo prego...</h5>
+                                <p id="2Subtitle">Stiamo cercando di ottenere gli eventi...</p>
+                            </div>
+			</div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="https://via.placeholder.com/400x400" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 3">
-                        </div>
+                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="3Image" alt="Immagine 3">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 id="3Title">Un momento solo prego...</h5>
+                                <p id="3Subtitle">Stiamo cercando di ottenere gli eventi...</p>
+                            </div>
+			</div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">

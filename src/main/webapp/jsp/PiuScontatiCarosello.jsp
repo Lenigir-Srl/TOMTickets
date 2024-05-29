@@ -1,9 +1,9 @@
 <%-- Include JS file into the page --%>
-<%@include file="/js/Carousel.js"%>
+<%@include file="/js/PiuScontatiCarosello.js"%>
 
 <div class="card bg-dark-subtle border-0" style="padding-top: 50px;">
     <div class="card-header bg-warning text-white">
-        <div class="h1">I TRE EVENTI PIU' CLICCATI!</div>
+        <div class="h1">APPROFITTA DI QUESTI SCONTI!</div>
     </div>
     <span class="card-body bg-dark" style="border-radius: 0 0 0.25rem 0.25rem;">
         <div class="col-lg px-0 d-flex justify-content-center align-items-center text-center" style="height:400px">
@@ -16,17 +16,17 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="https://via.placeholder.com/400x400" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 1">
+                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 1">
                         </div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="https://via.placeholder.com/400x400" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 2">
+                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 2">
                         </div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="https://via.placeholder.com/400x400" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 3">
+                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" alt="Immagine 3">
                         </div>
                     </div>
                 </div>

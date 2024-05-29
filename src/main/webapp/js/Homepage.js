@@ -29,3 +29,9 @@ function printTimesVisited(){
         document.getElementById("Times_visited_shower").textContent = print;
 }
 
+function setupPage() {
+        getMostClicked();
+        getDiscounts();
+        window.setInterval(getMostClicked, 15000);
+        window.setInterval(getDiscounts, 15000);
+}
