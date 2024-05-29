@@ -104,41 +104,30 @@
       }
 
 
-
-       //Prepare your eyes for this one
-       _getDetailsCard(title = "defaultTitle", subtitle = "defaultSubTitle", description = "defaultDescription", eventType = "defaultEventType", place = "defaultPlace", date = "defaultDate", hour = "defaultHour", image = "...", ticketType = "defaultTicketType", price = "defaultPrice", discount = "defaultDiscount", numClicks = "defaultNumberOfClicks"){
-	
-		
-		if(ticketType === "InPiedi"){
-			ticketType = "In Piedi";
-		}
-
-		var card = document.createElement("div");
-		card.classList.add("card", "mt-4");
-		
-		var card_header = document.createElement("div");
-		card_header.classList.add("card-header", "text-white", "h3", "text-center");
+       _getDetailsCardHeader(){
+                var card_header = document.createElement("div");
+                card_header.classList.add("card-header", "text-white", "h3", "text-center");
 
 
-		switch (eventType){
+                switch (eventType){
 
                  case "Concerti":
-		     eventType = "Concerto";
+                     eventType = "Concerto";
                      card_header.style.backgroundColor = "red";
                  break;
 
                  case "EventiSportivi":
-		     eventType = "Evento Sportivo";
+                     eventType = "Evento Sportivo";
                      card_header.style.backgroundColor = "orange";
                  break;
 
                  case "SpettacoliTeatrali":
-		     eventType = "Spettacolo Teatrale";
+                     eventType = "Spettacolo Teatrale";
                      card_header.style.backgroundColor = "green";
                  break;
 
                  case "VisiteGuidate":
-		     eventType = "Visita Guidata";
+                     eventType = "Visita Guidata";
                      card_header.style.backgroundColor = "purple";
                  break;
 
@@ -146,9 +135,52 @@
                      card_header.style.backgroundColor = "blue";
                  break;
                }
+                card_header.textContent = title;
+		return card_header;
+       }
 
-	        card_header.textContent = title;
+       _getDetailsCardFooter(){
+                var card_footer = document.createElement("div");
+                card_footer.classList.add("card-footer", "d-flex", "justify-content-between");
 
+                function scrollToElementBottom(elementId) {
+                     var element = document.getElementById(elementId);
+                     if (element) {
+                         var rect = element.getBoundingClientRect();
+                         // Scorrere la pagina fino a quando l'elemento è visibile al bordo inferiore
+                         window.scrollTo({
+                               top: rect.bottom + window.pageYOffset - window.innerHeight, // Posiziona l'elemento al bordo inferiore
+                               behavior: 'smooth' // Scorrimento animato
+                         });
+                     }
+                }
+
+                var closeButton = document.createElement("button");
+                closeButton.textContent = "Chiudi";
+                closeButton.classList.add("btn", "btn-success");
+                closeButton.onclick = () => {
+                     var content = document.getElementById(title);
+                     // Clearing the table
+                     while (content.firstChild) {
+                         content.removeChild(content.firstChild);
+                     }
+                     scrollToElementBottom(title);
+
+                };
+
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Elimina";
+                deleteButton.classList.add("btn", "btn-warning");
+                deleteButton.onclick = () => {
+                    checkDeleteChoice(title);
+                }
+
+                card_footer.appendChild(closeButton);
+                card_footer.appendChild(deleteButton);
+       }
+
+       _getDetailsCardBody(){
+		
 		var card_body = document.createElement("div");
 		card_body.classList.add("card-body", "text-center");
 
@@ -262,13 +294,13 @@
 
 	}
 
-		second_row_first_col.appendChild(makeRow("Data:", "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png", date));
+		second_row_first_col.appendChild(makeRow("Data:", "../../utils/calendar-icon.png", this.date));
 		second_row_first_col.appendChild(getSeparator());
-		second_row_first_col.appendChild(makeRow("Ora:", "https://img.icons8.com/?size=160&id=2YPST59G2xJZ&format=png", hour));
+		second_row_first_col.appendChild(makeRow("Ora:", "../../utils/clock-icon.png", this.hour));
 		second_row_first_col.appendChild(getSeparator());
-		second_row_first_col.appendChild(makeRow("Luogo:", "https://cdn1.iconfinder.com/data/icons/search-engine-optimisation-seo/44/seo_icons-26-512.png", place));
+		second_row_first_col.appendChild(makeRow("Luogo:", "../../utils/location-icon.png", this.place));
 		second_row_first_col.appendChild(getSeparator());
-		second_row_first_col.appendChild(makeRow("Clicks:", "https://cdn0.iconfinder.com/data/icons/creative-process-4/155/vector_298_04-128.png", numClicks));
+		second_row_first_col.appendChild(makeRow("Clicks:", "../../utils/click-icon.png", this.numClicks));
 
 
 		var second_row_second_col = document.createElement("div");
@@ -279,18 +311,18 @@
 		
 		second_row_first_col.appendChild(special_hr);
 
-		second_row_second_col.appendChild(makeRow("Evento:", "https://cdn0.iconfinder.com/data/icons/new-year-2094/512/07_stage_spotlight_concert_festival_carnival-512.png", eventType));
+		second_row_second_col.appendChild(makeRow("Evento:", "../../utils/event-icon.png", this.eventType));
                 second_row_second_col.appendChild(getSeparator());
-                second_row_second_col.appendChild(makeRow("Biglietto:", "https://cdn4.iconfinder.com/data/icons/smashicons-movies-flat/56/11_-_Ticket_Flat-512.png", ticketType));
+                second_row_second_col.appendChild(makeRow("Biglietto:", "../../utils/ticket-icon.png", this.ticketType));
                 second_row_second_col.appendChild(getSeparator());
 
-		second_row_second_col.appendChild(makeRow("Prezzo:", "https://cdn3.iconfinder.com/data/icons/start-up-4/44/money-128.png", price + " euro"));
+		second_row_second_col.appendChild(makeRow("Prezzo:", "../../utils/price-icon.png", this.price + " euro"));
                 second_row_second_col.appendChild(getSeparator());
-                if(discount != 0){
-                    second_row_second_col.appendChild(makeRow("Sconto:", "https://cdn3.iconfinder.com/data/icons/e-commerce-pt-1/96/label_price_sale_percent-128.png", "-" + discount + "%"));
+                if(this.discount != 0){
+                    second_row_second_col.appendChild(makeRow("Sconto:", "../../utils/discount-icon.png", "-" + this.discount + "%"));
 
                 }else{
-                    second_row_second_col.appendChild(makeRow("Sconto:", "https://cdn3.iconfinder.com/data/icons/e-commerce-pt-1/96/label_price_sale_percent-128.png", "No"));
+                    second_row_second_col.appendChild(makeRow("Sconto:", "../../utils/discount-icon.png", "No"));
                 }
 
 		second_row_container_body_row.appendChild(second_row_first_col);
@@ -303,54 +335,18 @@
 		card_body.appendChild(first_row);
 		card_body.appendChild(second_row);
 
+		return card_body;
+       }
 
+       _getDetailsCard(){
+                var card = document.createElement("div");
+                card.classList.add("card", "mt-4");
+                
 
-	        var card_footer = document.createElement("div");
-		card_footer.classList.add("card-footer", "d-flex", "justify-content-between");
-
-                function scrollToElementBottom(elementId) {
-                     var element = document.getElementById(elementId);
-                     if (element) {
-                         var rect = element.getBoundingClientRect();
-                         // Scorrere la pagina fino a quando l'elemento è visibile al bordo inferiore
-                         window.scrollTo({
-                               top: rect.bottom + window.pageYOffset - window.innerHeight, // Posiziona l'elemento al bordo inferiore
-                               behavior: 'smooth' // Scorrimento animato
-                         });
-                     }
-                } 
-
-		var closeButton = document.createElement("button");
-		closeButton.textContent = "Chiudi";
-		closeButton.classList.add("btn", "btn-success");
-		closeButton.onclick = () => {
-                     var content = document.getElementById(title);
-                     // Clearing the table
-                     while (content.firstChild) {
-                         content.removeChild(content.firstChild);
-                     }
-		     scrollToElementBottom(title);
-
-		};
-
-		var deleteButton = document.createElement("button");
-		deleteButton.textContent = "Elimina";
-		deleteButton.classList.add("btn", "btn-warning");
-		deleteButton.onclick = () => {
-		    checkDeleteChoice(title);
-	        }
-
-		card_footer.appendChild(closeButton);
-		card_footer.appendChild(deleteButton);
-
-
-
-		card.appendChild(card_header);
-		card.appendChild(card_body);
-		card.appendChild(card_footer);
-		return card;
-
-
+		card.appendChild(this._getDetailsCardHeader());
+                card.appendChild(this._getDetailsCardBody());
+                card.appendChild(this._getDetailsCardFooter());
+                return card;
 
        }
 
@@ -363,7 +359,7 @@
                 content.removeChild(content.firstChild);
            }
 
-	   let url = 'http://localhost:41063/risto89-1.0/ottieniEvento?title=' + encodeURIComponent(this.title);
+	   let url = 'http://localhost:41063/risto89-1.0/ottieniEvento?titolo=' + encodeURIComponent(this.title);
 	   fetch(url )
                 .then(function(response) {
                     if (!response.ok) {

@@ -1,14 +1,3 @@
-    /**
-     * Function that makes a POST request to the server to delete an event
-     * @param {string} titolo - The title of the event to delete
-     */
-    function goEvento(titolo) {
-        const url = '/risto89-1.0/evento?titolo=';
-        var encoded = encodeURI(url + titolo);
-        console.log(encoded);
-        window.location.replace(encoded);
-    }
-
     class eventCard{
 
        //All the attributes of the event
@@ -246,17 +235,16 @@
            footer.classList.add("card-footer", "d-flex", "justify-content-center");
 
            //Blue button
-           var moreDetails = document.createElement("button");
+           var moreDetails = document.createElement("a");
            moreDetails.classList.add("btn", "btn-primary");
            moreDetails.textContent = "Vedi dettagli";
 
-           moreDetails.onclick = () => {
-              goEvento(this.title);
-	   };
+           const url = '/risto89-1.0/evento?titolo=';
+	   moreDetails.href = encodeURI(url + this.title);
 	   //Blue button
 
            footer.appendChild(moreDetails);
-	  return footer;
+	   return footer;
        }
 
        //Returns the whole block containing a Card element (very big and nested with a lot of html elements!)

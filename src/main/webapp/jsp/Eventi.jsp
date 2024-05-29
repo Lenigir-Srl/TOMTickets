@@ -10,21 +10,24 @@
     <title>TOMTickets - eventi</title>
 </head>
 
-    <script>
-    //Used by "Eventi.js" to only show certain type of events 
-    var tipologia = "${tipologia}";
-    </script>
+<script>
+//Used by "Eventi.js" to only show certain type of events 
+var tipologia = "${tipologia}";
+</script>
 
-    <body onload="mostraLista()">
+<body onload="mostraLista()">
 
-	<!--NAVIGATION BAR-->
-        <%@include file="./Header.jsp"%>
-	<!--NAVIGATION BAR-->
+<!--NAVIGATION BAR-->
+<%@include file="./Header.jsp"%>
+<!--NAVIGATION BAR-->
 
+<!--COOKIE-->
+<%@include file="/jsp/Cookie.jsp"%>
+<!--COOKIE-->
 
-        <!--PAGE CONTENT-->
-	<%--Gray background --%>
-	<section class="bg-dark-subtle" style="min-height: 95vh;">
+<!--PAGE CONTENT-->
+<%--Gray background --%>
+<section class="bg-dark-subtle" style="min-height: 95vh;">
 
 	<!--EVENTI LIST-->
 	<%--Used by "Eventi.js"--%>
@@ -32,12 +35,12 @@
         <!--EVENTI LIST-->
 
 
-        </section>
-	<!--PAGE CONTENT-->
+</section>
+<!--PAGE CONTENT-->
 
-        <!--FOOTER-->
-        <%@include file="./Footer.jsp"%>
-        <!--FOOTER-->
+<!--FOOTER-->
+<%@include file="./Footer.jsp"%>
+<!--FOOTER-->
 
-    </body>
+</body>
 </html>

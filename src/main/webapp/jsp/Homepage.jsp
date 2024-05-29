@@ -61,10 +61,9 @@ function setupPage() {
 </section>
 <!--PAGE CONTENT-->
 
-
-	<!--FOOTER-->
-        <%@include file="/jsp/Footer.jsp"%>
-        <!--FOOTER-->
+<!--FOOTER-->
+<%@include file="/jsp/Footer.jsp"%>
+<!--FOOTER-->
 
 
 </body>
