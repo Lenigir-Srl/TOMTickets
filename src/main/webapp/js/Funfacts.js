@@ -19,6 +19,8 @@ function printCookiesChoice(){
 }
 
 // Get the time that the user has passed in the website from local storage and print it.
+//This is done every second and has quite the number of ifs, but computers are so powerfull today that we can almost say
+//"Who cares :D"
 function printTimePassed() {
     var timePassed = parseInt(window.localStorage.getItem('time'));
 
@@ -26,19 +28,44 @@ function printTimePassed() {
     var minutes = Math.floor((timePassed % 3600) / 60);
     var seconds = timePassed % 60;
 
-    var print;
+    var print = "Hai trascorso ";
 
-    print = "Hai trascorso ";
-    if (hours > 0 || minutes > 0) {
-        if (hours > 0) {
-            print += hours + " ore ,";
+    if (hours > 0) {
+        print += hours;
+        if (hours > 1) {
+            print += " ore";
+        } else {
+            print += " ora";
         }
-        if (minutes > 0) {
-            print += minutes + " minuti e ";
+
+        if (minutes > 0 && seconds > 0) {
+            print += ", ";
+        } else if (minutes > 0 || seconds > 0) {
+            print += " e ";
         }
     }
 
-    print += seconds + " secondi su TOMTickets.";
+    if (minutes > 0) {
+        print += minutes;
+        if (minutes > 1) {
+            print += " minuti";
+        } else {
+            print += " minuto";
+        }
+
+        if (seconds > 0) {
+            print += " e ";
+        }
+    }
+
+    if (seconds > 0) {
+        print += seconds;
+        if (seconds > 1) {
+            print += " secondi su TOMTickets.";
+        } else {
+            print += " secondo su TOMTickets.";
+        }
+    }
 
     document.getElementById("Time_shower").textContent = print;
 }
