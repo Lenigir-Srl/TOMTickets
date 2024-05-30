@@ -17,28 +17,16 @@
                     <div class="carousel-item active">
                         <div class="d-flex align-items-center text-center" style="height:400px">
                             <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="1Image" alt="Immagine 1">
-			    <div class="carousel-caption d-none d-md-block">
-                                <h5 id="1Title">Un momento solo prego...</h5>
-                                <p id="1Subtitle">Stiamo cercando di ottenere gli eventi...</p>
-                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
                             <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="2Image" alt="Immagine 2">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5 id="2Title">Un momento solo prego...</h5>
-                                <p id="2Subtitle">Stiamo cercando di ottenere gli eventi...</p>
-                            </div>
 			</div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
                             <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="3Image" alt="Immagine 3">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5 id="3Title">Un momento solo prego...</h5>
-                                <p id="3Subtitle">Stiamo cercando di ottenere gli eventi...</p>
-                            </div>
 			</div>
                     </div>
                 </div>
@@ -53,5 +41,12 @@
             </div>
         </div>
     </span>
+    <div class="card-footer d-flex justify-content-center">
+        <span id="Subtitle"></span>
+	
+	<button onclick="getMostClicked()" class="d-flex flex-column justify-content-end ms-auto">
+            <img src="utils/update-icon.png" style="width:20px;"><span class="text-end mb-0" id="timer">15</span>
+	</button>
+    </div>
 </div>
 
