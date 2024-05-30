@@ -8,6 +8,12 @@ if(!window.sessionStorage.getItem('first_open_check')){
     }
 }
 
+function countTime(){
+    let seconds = window.localStorage.getItem('time');
+    seconds++;
+    window.localStorage.setItem('time', seconds);
+}
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,6 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 	$('#cookieModal').modal('show');
     }
+    if(!window.localStorage.getItem('time')){
+        window.localStorage.setItem('time', 0);
+    }
+    window.setInterval(countTime, 1000);
 });
 
 

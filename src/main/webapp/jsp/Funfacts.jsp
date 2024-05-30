@@ -1,7 +1,7 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
-<%-- <script type"text/javascript" src="js/Funfacts.js"></script> --%>
+<script type"text/javascript" src="js/Funfacts.js"></script>
 
 <style>
 #rainbow-box {
@@ -30,6 +30,7 @@
     </div>
     <ul class="list-group list-group-flush d-flex justify-content-center align-items-center">
         <li class="list-group-item text-center" id="Times_visited_shower"></li>
+        <li class="list-group-item text-center" id="Time_shower"></li>
         <li class="list-group-item text-center" id="Cookies_accepted_shower"></li>
     </ul>
 </div>

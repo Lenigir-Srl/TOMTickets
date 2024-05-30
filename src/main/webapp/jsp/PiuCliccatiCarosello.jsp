@@ -2,8 +2,11 @@
 <%@include file="/js/PiuCliccatiCarosello.js"%>
 
 <div class="card bg-dark-subtle border-0" style="padding-top: 50px;">
-    <div class="card-header bg-warning text-white">
+    <div class="card-header bg-warning text-white d-flex justify-content-center">
         <div class="h1">I TRE EVENTI PIU' CLICCATI!</div>
+	<button onclick="getMostClicked()" class="flex-column justify-content-end ms-auto" style="width:40px;">
+            <img src="utils/update-icon.png" style="width:20px;"><span class="text-end mb-0" id="timer">15</span>
+        </button>
     </div>
     <span class="card-body bg-dark" style="border-radius: 0 0 0.25rem 0.25rem;">
         <div class="col-lg px-0 d-flex justify-content-center align-items-center text-center" style="height:400px">
@@ -43,10 +46,6 @@
     </span>
     <div class="card-footer d-flex justify-content-center">
         <span id="Subtitle"></span>
-	
-	<button onclick="getMostClicked()" class="d-flex flex-column justify-content-end ms-auto">
-            <img src="utils/update-icon.png" style="width:20px;"><span class="text-end mb-0" id="timer">15</span>
-	</button>
     </div>
 </div>
 
