@@ -1,11 +1,13 @@
 <%-- Include JS file into the page --%>
-<%@include file="/js/PiuCliccatiCarosello.js"%>
+<script type="text/javascript" src="js/PiuCliccatiCarosello.js"></script>
+
 
 <div class="card bg-dark-subtle border-0" style="padding-top: 50px;">
     <div class="card-header bg-warning text-white d-flex justify-content-center">
-        <div class="h1">I TRE EVENTI PIU' CLICCATI!</div>
-	<button onclick="getMostClicked()" class="flex-column justify-content-end ms-auto" style="width:40px;">
-            <img src="utils/update-icon.png" style="width:20px;"><span class="text-end mb-0" id="timer">15</span>
+        <span class="h1">I NOSTRI EVENTI PIU' CLICCATI!</span>
+        <button onclick="getMostClicked()" class="position-absolute end-0 me-3" style="width:40px;">
+            <img src="utils/update-icon.png" style="width:20px;">
+            <span class="text-end mb-0" id="clickedTimer">15</span>
         </button>
     </div>
     <span class="card-body bg-dark" style="border-radius: 0 0 0.25rem 0.25rem;">
@@ -19,17 +21,17 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="1Image" alt="Immagine 1">
+                            <a id="1Link" class="d-block mx-auto" style="max-width:100%; max-height:400px;"><img src="utils/placeholder-image.png" id="1Image" alt="Immagine 1"></a>
                         </div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="2Image" alt="Immagine 2">
+                            <a id="2Link" class="d-block mx-auto" style="max-width:100%; max-height:400px;"><img src="utils/placeholder-image.png" id="2Image" alt="Immagine 2"></a>
 			</div>
                     </div>
                     <div class="carousel-item" style="height:400px;">
                         <div class="d-flex align-items-center text-center" style="height:400px">
-                            <img src="utils/placeholder-image.png" class="d-block mx-auto" style="max-width:100%; max-height:400px;" id="3Image" alt="Immagine 3">
+                            <a id="3Link" class="d-block mx-auto" style="max-width:100%; max-height:400px;"><img src="utils/placeholder-image.png" id="3Image" alt="Immagine 3"></a>
 			</div>
                     </div>
                 </div>

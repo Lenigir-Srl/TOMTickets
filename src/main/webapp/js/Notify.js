@@ -28,28 +28,46 @@ function setSuccessModal(){
     notifyType.style.background = 'green';
 }
 
-//Shows the modal on screen, this is bootstrap's js code
-function showModal(){
-    $('#notifyModal').modal({
-        backdrop: 'static',
-        focus: true,
-        keyboard: false
-    });
-    $('#notifyModal').modal('show');
+
+//Shows the notify modal on screen, this is bootstrap's js code
+function showNotifyModal() {
+    var notifyModal = document.getElementById('notifyModal');
+
+    if (notifyModal) {
+        // Create a new instance of the modal
+        var bootstrapModal = new bootstrap.Modal(notifyModal, {
+            backdrop: 'static',
+            focus: true,
+            keyboard: false
+        });
+
+        // Show the modal
+        bootstrapModal.show();
+    }
 }
 
-//Closes the modal, this is bootstrap's js code
-function closeNotifyModal(){
-    $('#notifyModal').modal('hide');
+//Closes the notify modal, this is bootstrap's js code
+function closeNotifyModal() {
+    var notifyModal = document.getElementById('notifyModal');
+
+    if (notifyModal) {
+        // Create a new instance of the modal
+        var bootstrapModal = bootstrap.Modal.getInstance(notifyModal);
+
+        if (bootstrapModal) {
+            // Hide the modal
+            bootstrapModal.hide();
+        }
+    }
 }
 
 //Takes the modal's title by ID and sets its content
-function setModalTitle(title = ""){
+function setModalTitle(title = "defaultTitle"){
     document.getElementById('notifyModalTitle').innerHTML = title;
 }
 
 //Takes the modal's description by ID and sets its content
-function setModalDescription(description = ""){
+function setModalDescription(description = "defaultDescription"){
     document.getElementById('notifyModalDescription').innerHTML = description;
 }
 
@@ -65,7 +83,7 @@ function showErrorModal(title, description) {
     setModalDescription(description);
 
     //Shows the modal on screen
-    showModal();
+    showNotifyModal();
 }
 
 //Print deleted event modal
@@ -77,5 +95,5 @@ function printDeletedEvent() {
     setSuccessModal();
     setModalTitle("Evento eliminato con successo!");
     setModalDescription("L'evento e' stato completamente rimosso da TOMTickets.<br>");
-    showModal();
+    showNotifyModal();
 }

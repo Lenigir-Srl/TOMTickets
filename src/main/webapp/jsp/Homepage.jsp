@@ -10,7 +10,7 @@
     <title>TOMTickets</title>
 </head>
 
-<body onload="setupPage();">
+<body>
 <!--NAVIGATION BAR-->
 <%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
@@ -26,10 +26,10 @@
         <%@include file="/jsp/PiuCliccatiCarosello.jsp"%>
 	<!--MOST CLICKED CAROUSEL-->
 	</div>
-	<div class="col-lg-6 offset-lg-3">
-        <!--MOST DISCOUNTED CAROUSEL-->
-        <%@include file="/jsp/PiuScontatiCarosello.jsp"%>
-        <!--MOST DISCOUNTED CAROUSEL-->
+	<div class="col-lg-10 offset-lg-1">
+        <!--MOST DISCOUNTED THREE CARDSL-->
+        <%@include file="/jsp/PiuScontatiCarte.jsp"%>
+        <!--MOST DISCOUNTED THREE CARDS-->
         </div>
 	<div class="col-lg-6 offset-lg-3">
         <!--FUNFACTS-->

@@ -14,35 +14,35 @@ function countTime(){
     window.localStorage.setItem('time', seconds);
 }
 
+//Function to show on screen the cookie modal, this is bootstrap's js
+function showCookieConsent() {
+    var cookieModal = document.getElementById('cookieModal');
 
+    if (cookieModal) {
+        // Create a new instance of the modal
+        var bootstrapModal = new bootstrap.Modal(cookieModal, {
+            backdrop: 'static',
+            focus: true,
+            keyboard: false
+        });
+
+        // Show the modal
+        bootstrapModal.show();
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     var checkFirstTimeVisit = window.localStorage.getItem('times_visited');
-    if(checkFirstTimeVisit == 0){
-    	window.localStorage.setItem("cookies", true);
-	$('#cookieModal').modal({
-  		backdrop: 'static',
-		focus: true,
-		keyboard: false
-	})
-	$('#cookieModal').modal('show');
+    if (checkFirstTimeVisit == 0) {
+        window.localStorage.setItem("cookies", true);
+        showCookieConsent();
     }
-    if(!window.localStorage.getItem('time')){
+    if (!window.localStorage.getItem('time')) {
         window.localStorage.setItem('time', 0);
     }
     window.setInterval(countTime, 1000);
 });
 
-
-//Function to show on screen the cookie modal, this is bootstrap's js
-function showCookieConsent(){
-    $('#cookieModal').modal({
-            backdrop: 'static',
-            focus: true,
-            keyboard: false
-    })
-    $('#cookieModal').modal('show');
-}
 
 function setCookieConsent(Choice){
 	//Save the choice of the user inside a storage boolean variable called "cookies"

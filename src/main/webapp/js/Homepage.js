@@ -28,8 +28,3 @@ function printTimesVisited(){
 	}
         document.getElementById("Times_visited_shower").textContent = print;
 }
-
-function setupPage() {
-        getDiscounts();
-        window.setInterval(getDiscounts, 15000);
-}

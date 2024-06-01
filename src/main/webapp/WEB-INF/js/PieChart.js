@@ -10,7 +10,7 @@ Highcharts.chart('pieChartModalContent', {
         type: 'pie'
     },
     title: {
-        text: 'Numero di click degli eventi di TOMTickets (totali:' + numeroClickTotali + ")",
+        text: 'Numero di click degli eventi di TOMTickets (totali:' + numeroClickTotali + " clicks)",
         align: 'left'
     },
     tooltip: {

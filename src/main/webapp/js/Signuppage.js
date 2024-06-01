@@ -51,14 +51,14 @@ function validateForm() {
     setRainbowModal();
     setModalTitle("Le macchine del tempo esistono!");
     setModalDescription("E' con grande ritegno che la informiamo che lei ha " + age + " anni.<br>Grazie per averci fatto sapere che proviene dal futuro, agiremo di conseguenza.");
-    showModal();
+    showNotifyModal();
     return false;
   }
 
   // Check if the user is 18 years or older
   if (age < 18) {
     showErrorModal("Non sei maggiorenne!", "Per motivi legali noi di TOMTickets non possiamo ammettere minorenni all'interno del nostro sito.<br>Grazie per la comprensione!");
-    showModal();
+    showNotifyModal();
     return false;
   }
   
@@ -67,7 +67,7 @@ function validateForm() {
     setRainbowModal();
     setModalTitle("wOW.");
     setModalDescription("dEVI aVERe mANGiaTO tAnTA fRUttA nELLA TUa VIta PERchE' haI lA BELleZzA DI bEN " + age + " ANnI.<br>cOMpLImeNTOni!1!11!!!1");
-    showModal();
+    showNotifyModal();
     return false;
   }
   

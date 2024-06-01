@@ -31,10 +31,13 @@
              <div class="card-body">
                   <div class="input-group container justify-content-center">
                        <div class="row container-fluid">
-		            <div class="col-lg-9 d-flex pt-2 container text-center">
+		            
+			    <%-- A search bar to search a particular event can be added by uncommenting this, it has to be implemented though
+			    <div class="col-lg-9 d-flex pt-2 container text-center">
 		                 <input type="search" class="form-control rounded" placeholder="titolo, sottotitolo, tipo evento..." aria-label="Search" aria-describedby="search-addon" />
                                  <button type="button" class="btn btn-outline-primary">Cerca</button>
-	                     </div>
+	                     </div
+			     >--%>
 		             <div class="col-lg-3 pt-2 container text-center">
 		                 <a class="btn btn-success" href="./creaEvento">Crea Evento</a>
                              </div>
@@ -77,9 +80,9 @@
     <%@include file="../../jsp/Warning.jsp"%>
     <!--WARNING-->
 
-    <!--NOTIFICATION-->
-    <%@include file="/jsp/Notify.jsp"%>
-    <!--NOTIFICATION-->
+    <!--NOTIFY-->
+    <%@include file="../../jsp/Notify.jsp"%>
+    <!--NOTIFY-->
 
     <!--CAKE DIAGRAM-->
     <%@include file="PieChart.jsp"%>
