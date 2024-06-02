@@ -5,6 +5,11 @@
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/Cookie.js"></script>
 
+<%--Cookie Sound--%>
+<audio id="cookieSound">
+    <source src="utils/cookie-sound.mp3" type="audio/mpeg">
+</audio>
+
 <div class="modal fade" id="cookieModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

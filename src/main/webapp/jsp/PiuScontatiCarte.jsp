@@ -1,7 +1,7 @@
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/PiuScontatiCarte.js"></script>
 
-<div class="card bg-dark-subtle border-0" style="padding-top: 50px;">
+<div class="card bg-dark-subtle border-0" id="mostDiscountedCard" style="padding-top: 50px;">
     <div class="card-header bg-success text-white d-flex justify-content-center position-relative">
         <span class="h1">APPROFITTA DI QUESTI SCONTI!</span>
         <button onclick="getDiscounts()" class="position-absolute end-0 me-3" style="width:40px;">

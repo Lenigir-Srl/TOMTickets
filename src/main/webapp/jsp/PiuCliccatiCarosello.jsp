@@ -2,7 +2,7 @@
 <script type="text/javascript" src="js/PiuCliccatiCarosello.js"></script>
 
 
-<div class="card bg-dark-subtle border-0" style="padding-top: 50px;">
+<div class="card bg-dark-subtle border-0" id="mostClickedCarousel" style="padding-top: 50px;">
     <div class="card-header bg-warning text-white d-flex justify-content-center">
         <span class="h1">I NOSTRI EVENTI PIU' CLICCATI!</span>
         <button onclick="getMostClicked()" class="position-absolute end-0 me-3" style="width:40px;">
@@ -10,7 +10,7 @@
             <span class="text-end mb-0" id="clickedTimer">15</span>
         </button>
     </div>
-    <span class="card-body bg-dark" style="border-radius: 0 0 0.25rem 0.25rem;">
+    <div class="card-body bg-dark" style="border-radius: 0 0 0.25rem 0.25rem;">
         <div class="col-lg px-0 d-flex justify-content-center align-items-center text-center" style="height:400px">
             <div id="welcomeCarousel" class="h-100 carousel slide justify-content-center container-fluid flex-grow-1 px-0 bg-dark" data-bs-interval="8000" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -45,7 +45,7 @@
                 </button>
             </div>
         </div>
-    </span>
+    </div>
     <div class="card-footer d-flex justify-content-center">
         <span id="Subtitle"></span>
     </div>

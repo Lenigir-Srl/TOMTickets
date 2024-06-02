@@ -15,12 +15,13 @@
 <%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
 
-<!--COOKIE-->
-<%@include file="/jsp/Cookie.jsp"%>
-<!--COOKIE-->
-
 <!--PAGE CONTENT-->
 <section class="bg-dark-subtle text-center align-items-center justify-content-center" style="min-height: 95vh;">
+	<div class="col-lg-12">
+        <!--WELCOME-->
+        <%@include file="/jsp/Welcome.jsp"%>
+        <!--WELCOME-->
+        </div>
 	<div class="col-lg-8 offset-lg-2">
 	<!--MOST CLICKED CAROUSEL-->
         <%@include file="/jsp/PiuCliccatiCarosello.jsp"%>
@@ -45,6 +46,9 @@
 <%@include file="/jsp/Footer.jsp"%>
 <!--FOOTER-->
 
+<!--COOKIE-->
+<%@include file="/jsp/Cookie.jsp"%>
+<!--COOKIE-->
 
 </body>
 </html>

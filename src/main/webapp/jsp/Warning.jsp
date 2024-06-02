@@ -5,6 +5,11 @@
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/Warning.js"></script>
 
+<%--Warning Sound--%>
+<audio id="warningSound">
+    <source src="utils/warning-sound.mp3" type="audio/mpeg">
+</audio>
+
 <div class="modal fade" id="warningModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

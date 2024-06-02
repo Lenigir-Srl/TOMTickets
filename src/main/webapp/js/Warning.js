@@ -1,3 +1,9 @@
+//Used to reproduce an audio cue when something dangerous is going to happen
+function playWarningSound(){
+    var warningSound = document.getElementById("warningSound");
+    warningSound.play();
+}
+
 function enableContinueButton(){
     var continueButton = document.getElementById("continueButton");
     // If the checkbox is checked
@@ -28,6 +34,7 @@ function toggleContinueButtonAvailable() {
 
 //Shows the warning modal on screen, this is bootstrap's js code
 function showWarningModal() {
+    playWarningSound();
     var warningModal = document.getElementById('warningModal');
 
     if (warningModal) {

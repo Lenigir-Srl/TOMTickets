@@ -370,8 +370,15 @@ class eventCard{
 		    //Reset the timer
 		    document.getElementById("discountsTimer").innerHTML = 15;
 
-		    //Lets show the obtained JSON to the browser!
-		    mostraCards(data);
+		    if(data.length > 0){
+		        //Make the card visible
+			document.getElementById("mostDiscountedCard").style.display = "block";
+                        //Lets show the obtained JSON to the browser!
+                        mostraCards(data);
+		    }else{
+		        //Make the card invisible, since we have no events to display
+                        document.getElementById("mostDiscountedCard").style.display = "none";
+		    }
                 })
                 .catch(function(error) {
 		    //Something went wrong! Inform the user...

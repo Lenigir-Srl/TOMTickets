@@ -1,3 +1,9 @@
+//Used to reproduce an audio cue when cookies are being eaten
+function playCookieSound(){
+    var cookieSound = document.getElementById("cookieSound");
+    cookieSound.play();
+}
+
 //Check if the user is connecting for the first time
 if(!window.sessionStorage.getItem('first_open_check')){
     window.sessionStorage.setItem('first_open_check', 1);
@@ -16,6 +22,7 @@ function countTime(){
 
 //Function to show on screen the cookie modal, this is bootstrap's js
 function showCookieConsent() {
+    playCookieSound();
     var cookieModal = document.getElementById('cookieModal');
 
     if (cookieModal) {

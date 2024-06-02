@@ -1,7 +1,7 @@
 //They store the information about the three most clicked events
 var eventi = new Array(3);
 
-//This points to the 
+//This points to the current carousel image being viewed by the user 
 var carouselIndex = 0;
 
 //Timer that counts from 15 to 0, when it reaches 0 it calls the api to update the events and it gets reset to 15
@@ -47,7 +47,6 @@ class event {
 
 }
 
-//TODO IMplementare se ci sono meno di tre eventi piu cliccati in tutto il sistema!!!
 
 //Calls the api "getmostclicked" to get the three most clicked events, uses the obtained json to print said events
 function getMostClicked() {
@@ -60,27 +59,36 @@ function getMostClicked() {
             .then(data => {
 	        //Reset the timer
                 document.getElementById("clickedTimer").innerHTML = 15;
-		
-		//Update the carousel
-		for (let i = 0; i < data.length; i++) {
-                    document.getElementById((i + 1) + "Image").src = "immagini/" + data[i].image;
-		    document.getElementById((i+1) + "Link").href = "evento?titolo=" + data[i].titolo;
-                    eventi[i] = new event(data[i].titolo, data[i].sottotitolo, data[i].luogo, data[i].ora, data[i].image);
-                }
+	        
+                if(data.length > 0){
+		    //Make the carousel visible
+		    document.getElementById("mostClickedCarousel").style.display = "block";
+                    
+                    //When the user changes event in the carousel, the footer gets updated with the new information about the viewed event
+                    document.getElementById('welcomeCarousel').addEventListener('slide.bs.carousel', function (e) {
+                        carouselIndex = e.to;
+                        eventi[carouselIndex].updateEventDetails();
+                    });
 
-		//Add info of the event to the footer of the carousel
-                eventi[carouselIndex].updateEventDetails();
+		    //Update the carousel
+                    for (let i = 0; i < data.length; i++) {
+                        document.getElementById((i + 1) + "Image").src = "immagini/" + data[i].image;
+                        document.getElementById((i+1) + "Link").href = "evento?titolo=" + data[i].titolo;
+                        eventi[i] = new event(data[i].titolo, data[i].sottotitolo, data[i].luogo, data[i].ora, data[i].image);
+                    }
+
+                    //Add info of the event to the footer of the carousel
+                    eventi[carouselIndex].updateEventDetails();
+		}else{
+		     //Make the carousel invisible, since we have no events to display
+                    document.getElementById("mostClickedCarousel").style.display = "none";
+		}
+
             });
 }
 
 //When document is loaded the 15 seconds timer starts and the events get printed
 document.addEventListener("DOMContentLoaded", function() {
-    //When the user changes event in the carousel, the info footer gets updated with the new information about the viewed event
-    document.getElementById('welcomeCarousel').addEventListener('slide.bs.carousel', function (e) {
-        carouselIndex = e.to;
-        eventi[carouselIndex].updateEventDetails();
-    });
-
     getMostClicked();
     window.setInterval(updateClickedTimer, 1000);
 });

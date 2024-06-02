@@ -5,6 +5,21 @@
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/Notify.js"></script>
 
+<%--Error Sound--%>
+<audio id="errorSound">
+    <source src="utils/error-sound.mp3" type="audio/mpeg">
+</audio>
+
+<%--Success Sound--%>
+<audio id="successSound">
+    <source src="utils/success-sound.mp3" type="audio/mpeg">
+</audio>
+
+<%--Laugh Sound--%>
+<audio id="laughSound">
+    <source src="utils/laugh-sound.mp3" type="audio/mpeg">
+</audio>
+
 <div class="modal fade" id="notifyModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

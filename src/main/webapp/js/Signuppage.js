@@ -66,7 +66,7 @@ function validateForm() {
   if (age >= 100){
     setRainbowModal();
     setModalTitle("wOW.");
-    setModalDescription("dEVI aVERe mANGiaTO tAnTA fRUttA nELLA TUa VIta PERchE' haI lA BELleZzA DI bEN " + age + " ANnI.<br>cOMpLImeNTOni!1!11!!!1");
+    setModalDescription("dEVI aVERe mANGiaTO tAnTA fRUttA DurAntE La TUa VIta PERchE' haI lA BELleZzA DI bEN " + age + " ANnI.<br>cOMpLImeNTOni!1!11!!!1");
     showNotifyModal();
     return false;
   }

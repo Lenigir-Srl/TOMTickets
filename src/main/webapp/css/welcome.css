@@ -1,0 +1,20 @@
+#trento-image {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    opacity: 0.7;
+}
+
+#welcome-container {
+    position: relative;
+    display: inline-block;
+}
+
+#welcome-card {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0, -50%);
+    z-index: 1000;
+
+}
