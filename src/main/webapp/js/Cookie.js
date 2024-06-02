@@ -1,6 +1,7 @@
 //Used to reproduce an audio cue when cookies are being eaten
 function playCookieSound(){
     var cookieSound = document.getElementById("cookieSound");
+    if(checkSound())
     cookieSound.play();
 }
 

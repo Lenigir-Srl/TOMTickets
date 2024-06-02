@@ -384,6 +384,7 @@ function getDiscounts(){
 //Used to reproduce an audio cue when something gets pressed
 function playClickSound(){
     var clickSound = document.getElementById("clickSound");
+    if(checkSound())
     clickSound.play();
 }
 

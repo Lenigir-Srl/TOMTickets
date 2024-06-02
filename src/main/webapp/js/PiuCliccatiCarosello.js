@@ -7,7 +7,7 @@ var carouselIndex = 0;
 //Used to reproduce an audio cue when something gets switched
 function playSwooshSound(){
     var swooshSound = document.getElementById("swooshSound");
-    swooshSound.volume = 0.1;
+    if(checkSound())
     swooshSound.play();
 }
 
@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //Used to reproduce an audio cue when something gets pressed
 function playClickSound(){
     var clickSound = document.getElementById("clickSound");
+    if(checkSound())
     clickSound.play();
 }
 

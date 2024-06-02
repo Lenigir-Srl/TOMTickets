@@ -1,6 +1,7 @@
 //Used to reproduce an audio cue when something dangerous is going to happen
 function playWarningSound(){
     var warningSound = document.getElementById("warningSound");
+    if(checkSound())
     warningSound.play();
 }
 

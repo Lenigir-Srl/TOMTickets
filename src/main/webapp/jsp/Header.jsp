@@ -11,8 +11,17 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 	    <ul class="nav navbar-nav">
-                <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showAboutUs()" style="background-color: coral;">About Us</a></li>
-		<li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showCookieConsent()" style="background-color: orange;">Privacy</a></li>
+                <li class="navbar-item d-flex">
+		    <button class="me-3 mb-1 mt-1 ms-auto btn navbar-btn border border-dark" onclick="switchSound()" style="background-color: white;">
+                        <img alt="  " id="soundIcon" style="width:1rem;">    
+		    </button>
+		</li>
+		<li class="navbar-item d-flex">
+		    <a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showAboutUs()" style="background-color: coral;">About Us</a>
+		</li>
+		<li class="navbar-item d-flex">
+		    <a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showCookieConsent()" style="background-color: orange;">Privacy</a>
+		</li>
 		<li class="nav-item mb-1 mt-1 dropdown d-flex">
                     <a class="me-3 ms-auto dropdown-toggle btn btn-warning text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="position: absolute; !important;">

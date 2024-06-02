@@ -1,18 +1,21 @@
 //Used to reproduce an audio cue when something bad happens
 function playErrorSound(){
     var errorSound = document.getElementById("errorSound");
+    if(checkSound())
     errorSound.play();
 }
 
 //Used to reproduce an audio cue when something good happens
 function playSuccessSound(){
     var successSound = document.getElementById("successSound");
+    if(checkSound())
     successSound.play();
 }
 
 //Used to reproduce an audio cue when something funny happens
 function playLaughSound(){
     var laughSound = document.getElementById("laughSound");
+    if(checkSound())
     laughSound.play();
 }
 
