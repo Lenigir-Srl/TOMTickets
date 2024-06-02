@@ -22,7 +22,14 @@ function countTime(){
 
 //Function to show on screen the cookie modal, this is bootstrap's js
 function showCookieConsent() {
-    playCookieSound();
+    //Autoplay policy prevents an audio from being played if the user didnt do any action
+    //https://developer.chrome.com/blog/autoplay
+    //So we just check if its the first time the user is entering the page, otherwise it meanse
+    //he clicked the "Privacy" button in the header
+    var checkFirstTimeVisit = window.localStorage.getItem('times_visited');
+    if (checkFirstTimeVisit != 0) {
+        playCookieSound();
+    }
     var cookieModal = document.getElementById('cookieModal');
 
     if (cookieModal) {

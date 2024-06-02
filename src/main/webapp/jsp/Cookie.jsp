@@ -28,8 +28,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="setCookieConsent('F')" class="btn btn-outline-danger" data-bs-dismiss="modal">Rifiuta tutti</button>
-                <button type="button" onclick="setCookieConsent('T')" class="btn btn-primary" data-bs-dismiss="modal">Accetta i cookie</button>
+                <button type="button" onclick="setCookieConsent('F')" class="btn btn-outline-danger" data-bs-dismiss="modal">Rifiuta</button>
+                <button type="button" onclick="setCookieConsent('T')" class="btn btn-primary" data-bs-dismiss="modal">Accetta</button>
             </div>
         </div>
     </div>
