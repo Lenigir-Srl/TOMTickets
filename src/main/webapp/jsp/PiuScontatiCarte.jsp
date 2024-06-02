@@ -4,7 +4,7 @@
 <div class="card bg-dark-subtle border-0" id="mostDiscountedCard" style="padding-top: 50px;">
     <div class="card-header bg-success text-white d-flex justify-content-center position-relative">
         <span class="h1">APPROFITTA DI QUESTI SCONTI!</span>
-        <button onclick="getDiscounts()" class="position-absolute end-0 me-3" style="width:40px;">
+        <button onclick="getUserDiscounts()" class="position-absolute end-0 me-3" style="width:40px;">
             <img src="utils/update-icon.png" style="width:20px;">
             <span class="text-end mb-0" id="discountsTimer">15</span>
         </button>

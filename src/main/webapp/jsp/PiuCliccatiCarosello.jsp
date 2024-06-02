@@ -1,11 +1,15 @@
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/PiuCliccatiCarosello.js"></script>
 
+<%--Swoosh Sound--%>
+<audio id="swooshSound">
+    <source src="utils/swoosh-sound.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card bg-dark-subtle border-0" id="mostClickedCarousel" style="padding-top: 50px;">
     <div class="card-header bg-warning text-white d-flex justify-content-center">
         <span class="h1">I NOSTRI EVENTI PIU' CLICCATI!</span>
-        <button onclick="getMostClicked()" class="position-absolute end-0 me-3" style="width:40px;">
+        <button onclick="getUserMostClicked()" class="position-absolute end-0 me-3" style="width:40px;">
             <img src="utils/update-icon.png" style="width:20px;">
             <span class="text-end mb-0" id="clickedTimer">15</span>
         </button>

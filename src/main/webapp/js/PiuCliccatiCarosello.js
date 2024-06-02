@@ -4,12 +4,19 @@ var eventi = new Array(3);
 //This points to the current carousel image being viewed by the user 
 var carouselIndex = 0;
 
+//Used to reproduce an audio cue when something gets switched
+function playSwooshSound(){
+    var swooshSound = document.getElementById("swooshSound");
+    swooshSound.volume = 0.1;
+    swooshSound.play();
+}
+
 //Timer that counts from 15 to 0, when it reaches 0 it calls the api to update the events and it gets reset to 15
 function updateClickedTimer(){
     //Gets current time from html element
     let time = document.getElementById("clickedTimer").innerHTML;
     if(time == 0){
-        //If time is 0 its time to call the api!
+	//If time is 0 its time to call the api!
         getMostClicked();
     }else{
         //Decrease time by 1 second
@@ -66,7 +73,8 @@ function getMostClicked() {
                     
                     //When the user changes event in the carousel, the footer gets updated with the new information about the viewed event
                     document.getElementById('welcomeCarousel').addEventListener('slide.bs.carousel', function (e) {
-                        carouselIndex = e.to;
+                        playSwooshSound();
+			carouselIndex = e.to;
                         eventi[carouselIndex].updateEventDetails();
                     });
 
@@ -92,4 +100,16 @@ document.addEventListener("DOMContentLoaded", function() {
     getMostClicked();
     window.setInterval(updateClickedTimer, 1000);
 });
+
+//Used to reproduce an audio cue when something gets pressed
+function playClickSound(){
+    var clickSound = document.getElementById("clickSound");
+    clickSound.play();
+}
+
+//When user clicks the update button, and audio cue is produced and the events get refreshed
+function getUserMostClicked(){
+   playClickSound();
+   getMostClicked();
+}
 
