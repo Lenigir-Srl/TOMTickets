@@ -1,7 +1,7 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
-<div class="container-fluid bg-transparent">
+<div class="container-fluid bg-transparent" id="AboutUs">
     <footer class="py-2 my-2">
         <div class="row">
             <div class="col-lg mb-2 mt-2">

@@ -1,8 +1,7 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
-
-<%--TODO RIMUOVERE JQUERY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--%>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<%-- Include JS file into the page --%>
+<script type="text/javascript" src="js/Header.js"></script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light-subtle">
     <div class="container-fluid">
@@ -12,9 +11,10 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 	    <ul class="nav navbar-nav">
-                <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showCookieConsent()" style="background-color: orange;">Privacy</a></li>
+                <li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showAboutUs()" style="background-color: coral;">About Us</a></li>
+		<li class="navbar-item d-flex"><a class="me-3 mb-1 mt-1 ms-auto btn navbar-btn text-white" onclick="showCookieConsent()" style="background-color: orange;">Privacy</a></li>
 		<li class="nav-item mb-1 mt-1 dropdown d-flex">
-                    <a class="me-3 ms-auto dropdown-toggle btn btn-warning text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
+                    <a class="me-3 ms-auto dropdown-toggle btn btn-warning text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="position: absolute; !important;">
                         <li><a class="dropdown-item" href="/eventi?tipologia=Concerti">Concerti</a></li>
                         <li><a class="dropdown-item" href="/eventi?tipologia=SpettacoliTeatrali">Spettacoli teatrali</a></li>

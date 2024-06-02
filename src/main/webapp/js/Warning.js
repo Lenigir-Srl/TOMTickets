@@ -32,11 +32,25 @@ function toggleContinueButtonAvailable() {
     }
 }
 
-//Shows the warning modal on screen, this is bootstrap's js code
-function showWarningModal() {
-    playWarningSound();
-    var warningModal = document.getElementById('warningModal');
+//Takes the modal's title by ID and sets its content
+function setWarningModalTitle(title = "defaultTitle"){
+    document.getElementById('warningModalTitle').innerHTML = title;
+}
 
+//Takes the modal's description by ID and sets its content
+function setWarningModalDescription(description = "defaultDescription"){
+    document.getElementById('warningModalDescription').innerHTML = description;
+}
+
+//Shows the warning modal on screen, this is bootstrap's js code
+function showWarningModal(title = "defaultTitle", description = "defaultDescription") {
+    playWarningSound();
+
+    setWarningModalTitle(title);
+    setWarningModalDescription(description);
+
+
+    var warningModal = document.getElementById('warningModal');
     if (warningModal) {
         // Create a new instance of the modal
         var bootstrapModal = new bootstrap.Modal(warningModal, {
@@ -63,16 +77,6 @@ function closeWarningModal() {
             bootstrapModal.hide();
         }
     }
-}
-
-//Takes the modal's title by ID and sets its content
-function setWarningModalTitle(title = "defaultTitle"){
-    document.getElementById('warningModalTitle').innerHTML = title;
-}
-
-//Takes the modal's description by ID and sets its content
-function setWarningModalDescription(description = "defaultDescription"){
-    document.getElementById('warningModalDescription').innerHTML = description;
 }
 
 //Turns the switch off

@@ -31,9 +31,8 @@
 
     //Makes a worning modal appear and modifies the button "elimina" to specifically call the api for that certain event
     function checkDeleteChoice(title = "defaultTitle"){
-	setWarningModalTitle("NE SEI DAVVERO SICURO??");
-        setWarningModalDescription("Eliminando l'evento non sara' piu' possibile recuperarne i dati, i dettagli e tutte le relative informazioni legate ad esso!!!");
-	showWarningModal();
+	showWarningModal("NE SEI DAVVERO SICURO??",
+	"Eliminando l'evento non sara' piu' possibile recuperarne i dati, i dettagli e tutte le relative informazioni legate ad esso!!!");
 	document.getElementById("continueButton").onclick = () => {
 		//Closes the warning modal
 		closeWarningModal();

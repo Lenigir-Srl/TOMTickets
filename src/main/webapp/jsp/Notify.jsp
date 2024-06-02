@@ -1,9 +1,11 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
-
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/Notify.js"></script>
+
+<%-- Include CSS file into the page --%>
+<link rel="stylesheet" href="css/Notify.css">
 
 <%--Error Sound--%>
 <audio id="errorSound">
@@ -29,7 +31,9 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-3 d-flex align-items-center justify-content-center">
-                        <img style="width:5rem;" id="notifyImage" />
+                        
+                        <%--src changed dynamically by js scripts--%>
+			<img id="notifyImage" src=""/>
                     </div>
 
                     <div class="col-9">
