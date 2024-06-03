@@ -24,7 +24,7 @@
                         <div class="d-flex align-items-center mb-3 pb-1">
                             <span class="h2 fw-bold mb-0">TOMTickets</span>
                         </div>
-                        <h5 class="h3 fw-normal mb-3" style="letter-spacing: 1px;">Crea un nuovo evento</h5>
+                        <h5 class="h3 fw-normal mb-3">Crea un nuovo evento</h5>
                         <div class="row justify-content-center">
                             <div class="col-md-6 mb-2">
                                  <div class="form-outline">

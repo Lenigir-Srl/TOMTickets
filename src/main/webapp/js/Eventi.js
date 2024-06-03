@@ -264,7 +264,7 @@ class eventCard {
         moreDetails.classList.add("btn", "btn-primary");
         moreDetails.textContent = "Vedi dettagli";
 
-        const url = '/risto89-1.0/evento?titolo=';
+        const url = '/TOMTickets-1.0/evento?titolo=';
         moreDetails.href = encodeURI(url + this.title);
         // Blue button
 
@@ -362,7 +362,7 @@ function mostraLista() {
     // tipologia = "${tipologia}"   <--- This line is inside "Eventi.jsp"
 
     // Creating the url needed to call the api
-    var url = '/risto89-1.0/ottieniEventi';
+    var url = '/TOMTickets-1.0/ottieniEventi';
     if (tipologia != "") {
         // Add the specific type of event request (GET)
         url += '?tipologia=' + tipologia;

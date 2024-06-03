@@ -50,7 +50,7 @@
                        <label class="form-check-label fs-6" for="isOrdered">Ordina per numero di visualizzazioni</label>
                   </div>
                   <div class="text-start ms-md-auto">
-                       <button type="button" onclick="showPieChart()" id="Charts" class="btn btn-primary">Diagrammi</button>
+                       <button type="button" onclick="openChartModal()" id="Charts" class="btn btn-primary">Diagrammi</button>
                   </div>
              </div>
         </div>
@@ -84,9 +84,9 @@
     <%@include file="../../jsp/Notify.jsp"%>
     <!--NOTIFY-->
 
-    <!--CAKE DIAGRAM-->
-    <%@include file="PieChart.jsp"%>
-    <!--CAKE DIAGRAM-->
+    <!--DIAGRAMs-->
+    <%@include file="./Charts.jsp"%>
+    <!--DIAGRAMS-->
 
     </body>
 </html>

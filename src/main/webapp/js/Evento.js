@@ -96,7 +96,7 @@ class eventoCard {
         var picture = document.createElement("img");
         picture.style.maxWidth = "100%";
         picture.style.maxHeight = "240px";
-        picture.src = "http://localhost:41063/risto89-1.0/immagini/" + this.image;
+        picture.src = "TOMTickets-1.0/immagini/" + this.image;
 
         picture_container.appendChild(picture);
 
@@ -281,7 +281,7 @@ class eventoCard {
 
         // Green button to buy the event
         var acquistaForm = document.createElement("form");
-        acquistaForm.action = "/risto89-1.0/acquistaevento";
+        acquistaForm.action = "/TOMTickets-1.0/acquistaevento";
         acquistaForm.method = "POST";
 
         var hiddenInput = document.createElement("input");
@@ -349,7 +349,7 @@ function mostraLista() {
     // titolo = "${titolo}"   <--- This line is inside "Eventi.jsp"
 
     // Creating the url needed to call the api
-    var url = '/risto89-1.0/ottieniEvento';
+    var url = '/TOMTickets-1.0/ottieniEvento';
     if (titolo != "") {
         // Add the specific type of event request (GET)
         url += '?titolo=' + titolo;

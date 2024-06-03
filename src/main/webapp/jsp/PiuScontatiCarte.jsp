@@ -1,11 +1,14 @@
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/PiuScontatiCarte.js"></script>
 
-<div class="card bg-dark-subtle border-0" id="mostDiscountedCard" style="padding-top: 50px;">
+<%-- Include CSS file into the page --%>
+<link rel="stylesheet" href="css/PiuScontatiCarte.css">
+
+<div class="card bg-dark-subtle border-0" id="mostDiscountedCard">
     <div class="card-header bg-success text-white d-flex justify-content-center position-relative">
         <span class="h1">APPROFITTA DI QUESTI SCONTI!</span>
-        <button onclick="getUserDiscounts()" class="position-absolute end-0 me-3" style="width:40px;">
-            <img src="utils/update-icon.png" style="width:20px;">
+        <button id="reloadMostDiscountedButton" onclick="getUserDiscounts()" class="position-absolute end-0 me-3">
+            <img id="reloadMostDiscountedIcon" src="utils/update-icon.png">
             <span class="text-end mb-0" id="discountsTimer">15</span>
         </button>
     </div>

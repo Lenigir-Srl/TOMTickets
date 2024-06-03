@@ -4,18 +4,11 @@
 
 <html lang="en">
 <head>
-    <!-- Bootstrap CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<!-- jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <%-- Include JS file into the page --%>
     <script type="text/javascript" src="js/Loginpage.js"></script>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="/html/Metacontent.html"%>
-    <title>TOMTickets - log in</title>
+    <title>TOMTickets - Log In</title>
 </head>
 <body>
 
@@ -32,11 +25,11 @@
                     <form id="loginForm" action="./login" method="POST">
 
                         <div class="d-flex align-items-center mb-3 pb-1">
-                            <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                            <i class="fas fa-cubes fa-2x me-3"></i>
                             <span class="h2 fw-bold mb-0">TOMTickets</span>
                         </div>
 
-                        <h5 class="h3 fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Accedi nel tuo profilo</h5>
+                        <h5 class="h3 fw-normal mb-3 pb-3">Accedi nel tuo profilo</h5>
 
                         <div class="form-outline mb-4">
                             <input type="text" id="username" name="username" class="form-control form-control-lg border border-dark" required />
@@ -87,13 +80,15 @@
     <% } %>
     <% if(wrongCredentials == true){ %>
     <%--Show the modal--%>
-         <script>
-         document.getElementById("username").value = "<%= request.getAttribute("username") %>";
-	 document.getElementById("password").value = "<%= request.getAttribute("password") %>";
-         document.addEventListener('DOMContentLoaded', function() {
-	     setTimeout(showErrorModal("Credenziali errate", "Lo username e la password non corrispondono a nessun profilo esistente.<br>Controlla che tu abbia inserito le credenziali corrette per accedere nel tuo profilo."), 100);
-	 });
-	 </script>
+    <script>
+        document.getElementById("username").value = "<%= request.getAttribute("username") %>";
+        document.getElementById("password").value = "<%= request.getAttribute("password") %>";
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(showErrorModal(
+                "Credenziali errate", 
+                "Lo username e la password non corrispondono a nessun profilo esistente.<br>Controlla che tu abbia inserito le credenziali corrette per accedere nel tuo profilo."), 100);
+        });
+    </script>
     <% } %>
 
 </body>

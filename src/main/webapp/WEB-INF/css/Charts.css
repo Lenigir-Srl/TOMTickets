@@ -1,0 +1,11 @@
+<style>
+    /*Background color of the header of Chart modal*/
+    #chartType {
+        background-color: orange;
+    }
+
+    /*Body of the Chart modal*/
+    #chartModalContent {
+        width: 100%;
+    }
+</style>

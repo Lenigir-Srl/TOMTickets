@@ -57,7 +57,7 @@ class event {
 
 //Calls the api "getmostclicked" to get the three most clicked events, uses the obtained json to print said events
 function getMostClicked() {
-        var url = "/risto89-1.0/getmostclicked";
+        var url = "/TOMTickets-1.0/getmostclicked";
         fetch(url)
             .then(response => {
                 return response.json()
@@ -80,8 +80,8 @@ function getMostClicked() {
 
 		    //Update the carousel
                     for (let i = 0; i < data.length; i++) {
-                        document.getElementById((i + 1) + "Image").src = "immagini/" + data[i].image;
-                        document.getElementById((i+1) + "Link").href = "evento?titolo=" + data[i].titolo;
+                        document.getElementById("Image" + (i+1)).src = "immagini/" + data[i].image;
+                        document.getElementById("Link" + (i+1)).href = "evento?titolo=" + data[i].titolo;
                         eventi[i] = new event(data[i].titolo, data[i].sottotitolo, data[i].luogo, data[i].ora, data[i].image);
                     }
 

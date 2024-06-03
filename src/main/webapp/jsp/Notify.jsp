@@ -25,7 +25,7 @@
 <div class="modal fade" id="notifyModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header text-white" id="notifyType" style="background-color: red">
+            <div class="modal-header text-white" id="notifyType">
                 <h5 class="modal-title" id="notifyModalTitle"></h5>
             </div>
             <div class="modal-body">

@@ -1,0 +1,29 @@
+/*Title of the header, "TOMTickets"*/
+#navbarLogo {
+    width: 4rem;
+}
+
+/*Sound Button*/
+#soundButton {
+    background-color: white;
+}
+
+/*Icon of the sound button*/
+#soundIcon {
+    width: 1rem;
+}
+
+/*About Us Button*/
+#aboutUsButton {
+    background-color: coral;
+}
+
+/*Cookie Button*/
+#cookieButton {
+    background-color: orange;
+}
+
+/*Gestione Eventi Button*/
+#gestioneEventiButton {
+    background-color: purple;
+}

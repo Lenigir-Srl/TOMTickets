@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/welcome.css">
 
 
-<div id="welcome-container" style="display:none;">
+<div id="welcome-container">
     <img src="utils/trento-image.jpg" id="trento-image" alt="Trento Image">
     <div class="jumbotron bg-white" id="welcome-card">
         <h1 class="display-4">BENVENUTO!</h1>

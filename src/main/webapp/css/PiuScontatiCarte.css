@@ -1,0 +1,14 @@
+/*Card that contains the three cards*/
+#mostDiscountedCards {
+    padding-top: 50px;
+}
+
+/*Button to refresh the cards*/
+#reloadMostDiscountedButton {
+    width: 40px;
+}
+
+/*Icon to refresh the cards*/
+#reloadMostDiscountedIcon {
+    width: 20px;
+}

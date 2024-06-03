@@ -228,7 +228,7 @@ class eventCard{
         moreDetails.classList.add("btn", "btn-primary");
         moreDetails.textContent = "Vedi dettagli";
 
-        const url = '/risto89-1.0/evento?titolo=';
+        const url = '/TOMTickets-1.0/evento?titolo=';
         moreDetails.href = encodeURI(url + this.title);
         //Blue button
 
@@ -347,7 +347,7 @@ function getDiscounts(){
     //tipologia = "${tipologia}"   <--- This line is inside "Eventi.jsp"
 
     //Creating the url needed to call the api
-    var url = '/risto89-1.0/getsconti';
+    var url = '/TOMTickets-1.0/getsconti';
         
     //Let's call the api!
     fetch(url)
