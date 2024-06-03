@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.Lenigir.app</groupId>
-  <artifactId>risto89</artifactId>
+  <artifactId>TOMTickets</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
 
@@ -14,7 +14,6 @@
      <maven.compiler.source>1.8</maven.compiler.source>
      <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-
   
   <name>risto89</name>
   
@@ -56,4 +55,18 @@
 
   </dependencies>
 
+  <build>
+    <finalName>TOMTickets</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <outputFileNameMapping>@{artifactId}</outputFileNameMapping>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
+
