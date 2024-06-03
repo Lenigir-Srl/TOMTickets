@@ -162,7 +162,7 @@ class eventCard{
             //Add it to the container
             row_container.appendChild(content_container);
 
-            //Add the container to the actual row and we're done!!
+            //Add the container to the actual row, and we're done!!
             row.appendChild(row_container);
 
             return row;
@@ -291,7 +291,7 @@ function mostraCards(datiJson) {
 	elemento.numeroClick
 	);
 
-        //Get the entire card block with the event informations in it
+        //Get the entire card block with the event information in it
         //insert it inside the column
         col.appendChild(event.getCard());
 
@@ -324,7 +324,7 @@ function updateDiscountsTimer(){
     //Gets current time from html element
     let time = document.getElementById("discountsTimer").innerHTML;
     if(time == 0){
-        //If time is 0 its time to call the api!
+        //If time is 0 it's time to call the api!
         getDiscounts();
     }else{
         //Decrease time by 1 second
@@ -347,8 +347,8 @@ function getDiscounts(){
     //tipologia = "${tipologia}"   <--- This line is inside "Eventi.jsp"
 
     //Creating the url needed to call the api
-    var url = '/TOMTickets-1.0/getsconti';
-        
+    var url = getUrl() + '/getsconti';
+
     //Let's call the api!
     fetch(url)
         .then(function(response) {
@@ -366,7 +366,7 @@ function getDiscounts(){
             if(data.length > 0){
                 //Make the card visible
                 document.getElementById("mostDiscountedCard").style.display = "block";
-                //Lets show the obtained JSON to the browser!
+                //Let's show the obtained JSON to the browser!
                 mostraCards(data);
             }else{
                 //Make the card invisible, since we have no events to display

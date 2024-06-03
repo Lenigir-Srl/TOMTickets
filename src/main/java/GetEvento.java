@@ -36,11 +36,7 @@ public class GetEvento extends HttpServlet {
       }
 
       // Assuming `title` is passed as a parameter
-      String title = req.getParameter("titolo");
-
-      if(title == null){
-           throw new Exception("Titolo non specificato");
-      }
+      String title = req.getParameter("title");
 
       // Getting the profile bean from the dao
       EventoBean evento = EventoDAO.GetEvento(title, con);

@@ -21,11 +21,11 @@
                 <%-- Get the title --%>
                 <% String title = (String) request.getAttribute("title"); %>
                 <% if (title == null){ %>
-                    <%-- OK if null --%>
-                    <h1 class="text-center text-white">OK!</h1>
+                <%-- OK if null --%>
+                <h1 class="text-center text-white">OK!</h1>
                 <% } else { %>
-                    <%-- Print the OK title --%>
-                    <h1 class="text-center text-white"><%= title %></h1>
+                <%-- Print the OK title --%>
+                <h1 class="text-center text-white"><%= title %></h1>
                 <% } %>
             </div>
             <div class="card-body py-3">
@@ -33,28 +33,28 @@
                     <%-- Get the OK message --%>
                     <% String ok = (String) request.getAttribute("OK"); %>
                     <% if (ok == null){ %>
-                        <%-- No message printed if null --%>
-                        <p class="text-center">Nessun messagio ricevuto.</p>
+                    <%-- No message printed if null --%>
+                    <p class="text-center">Nessun messagio ricevuto.</p>
                     <% } else { %>
-                        <%-- Print the OK message --%>
-                        <% String description = (String) request.getAttribute("description"); %>
-                        <p class="text-center"><%= ok %></p>
-                        <footer class="blockquote-footer text-center"><cite title="Source Title"><%= description %></cite></footer>
+                    <%-- Print the OK message --%>
+                    <% String description = (String) request.getAttribute("description"); %>
+                    <p class="text-center"><%= ok %></p>
+                    <footer class="blockquote-footer text-center"><cite title="Source Title"><%= description %></cite></footer>
                     <% } %>
                 </blockquote>
             </div>
             <div class="card-footer align-items-center text-center justify-content-center">
                 <% if (title == "Login"){ %>
-                    <%-- logout if login was done --%>
-                    <a class="mb-1 mt-1 btn btn-danger" href="./logout">Esci dal profilo</a>
-		    <a class="mb-1 mt-1 btn btn-primary" href="./profile">Visualizza il profilo</a>
+                <%-- logout if login was done --%>
+                <a class="mb-1 mt-1 btn btn-danger" href="./logout">Esci dal profilo</a>
+                <a class="mb-1 mt-1 btn btn-primary" href="./profile">Visualizza il profilo</a>
                 <% } %>
 
-		<% if (title == "Registrazione") { %>
-                    <%-- login if registration --%>
-                    <a class="mb-1 mt-1 btn btn-success" href="./login">Accedi al profilo creato</a>
-		<% } %>
-		<a class="mb-1 mt-1 btn btn-dark" href="./">Vai alla homepage</a>
+                <% if (title == "Registrazione") { %>
+                <%-- login if registration --%>
+                <a class="mb-1 mt-1 btn btn-success" href="./login">Accedi al profilo creato</a>
+                <% } %>
+                <a class="mb-1 mt-1 btn btn-dark" href="./">Vai alla homepage</a>
             </div>
         </div>
     </div>

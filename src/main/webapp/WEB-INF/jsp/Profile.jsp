@@ -65,7 +65,7 @@
                             <a href="./logout" type="button" class="btn btn-danger">Esci dal mio Profilo</a>
                         </div>
                         <div class="col-md mt-1 mb-1">
-                            <form action="./eliminaProfilo" id="deleteProfile" method="post">
+                            <form action="./eliminaProfilo" method="post">
                                 <button type="button" onclick="return checkChoice()" id="deleteProfile" class="btn btn-warning">Elimina il mio Profilo</button>
                             </form>
                         </div>

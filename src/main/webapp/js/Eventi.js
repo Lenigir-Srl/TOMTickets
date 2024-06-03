@@ -210,7 +210,7 @@ class eventCard {
         body_container.appendChild(first_half_image);
         body_container.appendChild(second_half_details);
 
-        // Add the container to its actual card-body and we're done!!!
+        // Add the container to its actual card-body, and we're done!!!
         body.appendChild(body_container);
         return body;
     }
@@ -235,7 +235,7 @@ class eventCard {
 
     // Returns the whole Card element, calls the other methods created previously
     getCard() {
-        //Card contatiner, inside of it: card header, card body and card footer
+        //Card contatiner, inside it: card header, card body and card footer
         var card = document.createElement("div");
         card.classList.add("card", "h-100");
 
@@ -288,7 +288,7 @@ function mostraCards(datiJson) {
             elemento.numeroClick
         );
 
-        // Get the entire card block with the event informations in it
+        // Get the entire card block with the event information in it
         // insert it inside the column
         col.appendChild(event.getCard());
 
@@ -323,8 +323,8 @@ function mostraLista() {
     // tipologia = "${tipologia}"   <--- This line is inside "Eventi.jsp"
 
     // Creating the url needed to call the api
-    var url = '/TOMTickets-1.0/ottieniEventi';
-    if (tipologia != "") {
+    var url = getUrl() + '/ottieniEventi';
+    if (tipologia !== "") {
         // Add the specific type of event request (GET)
         url += '?tipologia=' + tipologia;
     }
@@ -340,7 +340,7 @@ function mostraLista() {
             return response.json();
         })
         .then(function (data) {
-            // Lets show the obtained JSON to the browser!
+            // Let's show the obtained JSON to the browser!
             mostraCards(data);
         })
         .catch(function (error) {

@@ -49,7 +49,7 @@ public class VisualizzaEvento extends HttpServlet {
       Connection con = DriverManager.getConnection(url);
 
       EventoBean evento = EventoDAO.GetEvento(titolo, con);
-      req.setAttribute("titolo", titolo);
+      req.setAttribute("evento", evento);
 
       // Increase the number of clicks
       EventoDAO.IncreaseClickNumber(evento, con); 

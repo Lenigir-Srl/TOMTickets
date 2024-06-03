@@ -149,7 +149,7 @@ function calculatePieChart(arrayJson){
 }
 
 function printPieChart(){
-    let url = '/TOMTickets-1.0/ottieniEventi';
+    let url = getUrl() + '/ottieniEventi';
     fetch(url)
         .then(function(response) {
             if (!response.ok) {

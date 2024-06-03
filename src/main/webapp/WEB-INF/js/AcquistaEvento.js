@@ -62,7 +62,7 @@ function mostraLista(){
        //titolo = "${titolo}"   <--- This line is inside "AcquistaEvento.jsp"
 
        //Creating the url needed to call the api
-       var url = '/TOMTickets-1.0/ottieniEvento';
+       var url = getUrl() + '/ottieniEvento';
        if (titolo != "") {
            //Add the specific type of event request (GET)
            url += '?titolo=' + titolo;

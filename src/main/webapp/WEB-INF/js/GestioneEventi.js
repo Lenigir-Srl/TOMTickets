@@ -7,7 +7,7 @@
     
     //Calls the api "eliminaEvento" to delete the event
     function deleteEvent(title) {
-        const url = '/TOMTickets-1.0/eliminaEvento';
+        const url = getUrl() + '/eliminaEvento';
         
         // Data to be sent in the POST request
         var data = new URLSearchParams();
@@ -88,7 +88,7 @@
        }
 
       //Scrolls the manager's page until the element identified by its ID is at the bottom of the viewport
-      _scrollToElementBottom(elementId) {
+      tBottom(elementId) {
           //Get the element by its ID
 	  var element = document.getElementById(elementId);
           if (element) {
@@ -188,7 +188,7 @@
         var picture = document.createElement("img");
         picture.style.maxWidth = "100%";
         picture.style.maxHeight = "240px";
-        picture.src = "/TOMTickets-1.0/immagini/" + this.image;
+        picture.src = getUrl() + "/immagini/" + this.image;
 
         picture_container.appendChild(picture);
 
@@ -715,7 +715,7 @@ function mostraCards(datiJson) {
     // calls the "ottieniEventi" api to get all the events and prints them on the screen using bootstrap cards
 function mostraLista() {
     // Creating the url needed to call the api
-    var url = '/TOMTickets-1.0/ottieniEventi';
+    var url = getUrl() + '/ottieniEventi';
 
     // Let's call the api!
     fetch(url)

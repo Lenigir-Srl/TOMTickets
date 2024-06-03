@@ -53,7 +53,7 @@ public class AcquistaEvento extends HttpServlet {
 
       // Get the event from the database
       EventoBean evento = EventoDAO.GetEvento(titolo, con);
-      req.setAttribute("titolo", titolo);
+      req.setAttribute("evento", evento);
 
       // Get the number of tickets bought by the user
       ProfiloBean profilo = ProfiloDAO.GetProfiloBean(username, con);

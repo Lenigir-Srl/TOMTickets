@@ -77,11 +77,11 @@ class eventoCard {
         return card_header;
     }
 
-    //Returns the body of the event card, this might seem complicated but its all
+    //Returns the body of the event card, this might seem complicated but it's all
     //styling and html writing via javascript
     _getDetailsCardBody() {
 
-        //The body of the card, inside of it we are going to place everything we need
+        //The body of the card, inside it we are going to place everything we need
         var card_body = document.createElement("div");
         card_body.classList.add("card-body", "text-center");
 
@@ -281,7 +281,7 @@ class eventoCard {
 
         // Green button to buy the event
         var acquistaForm = document.createElement("form");
-        acquistaForm.action = "/TOMTickets-1.0/acquistaevento";
+        acquistaForm.action = getUrl() + "/acquistaevento";
         acquistaForm.method = "POST";
 
         var hiddenInput = document.createElement("input");

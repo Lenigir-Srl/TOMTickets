@@ -248,7 +248,7 @@
     }
 
     function mostraLista(){
-        let url = '/TOMTickets-1.0/ottieniProfili';
+        let url = getUrl() + '/ottieniProfili';
            fetch(url)
                 .then(function(response) {
                     if (!response.ok) {

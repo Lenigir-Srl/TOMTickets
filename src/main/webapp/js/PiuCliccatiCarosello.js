@@ -16,7 +16,7 @@ function updateClickedTimer(){
     //Gets current time from html element
     let time = document.getElementById("clickedTimer").innerHTML;
     if(time == 0){
-	//If time is 0 its time to call the api!
+	//If time is 0 it's time to call the api!
         getMostClicked();
     }else{
         //Decrease time by 1 second
@@ -57,7 +57,7 @@ class event {
 
 //Calls the api "getmostclicked" to get the three most clicked events, uses the obtained json to print said events
 function getMostClicked() {
-        var url = "/TOMTickets-1.0/getmostclicked";
+        var url = getUrl() + '/getmostclicked';
         fetch(url)
             .then(response => {
                 return response.json()
