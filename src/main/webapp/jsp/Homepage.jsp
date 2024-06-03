@@ -24,6 +24,10 @@
             <!--WELCOME-->
         </div>
 
+	<!--SEPARATOR-->
+        <%@include file="/html/Separator.html"%>
+        <!--SEPARATOR-->
+
         <%--Click Sound--%>
         <audio id="clickSound">
             <source src="utils/click-sound.mp3" type="audio/mpeg">
@@ -36,12 +40,19 @@
 	    <!--MOST CLICKED CAROUSEL-->
 	</div>
 
+	<!--SEPARATOR-->
+        <%@include file="/html/Separator.html"%>
+        <!--SEPARATOR-->
 
 	<div class="col-lg-10 offset-lg-1">
             <!--MOST DISCOUNTED THREE CARDS-->
             <%@include file="/jsp/PiuScontatiCarte.jsp"%>
             <!--MOST DISCOUNTED THREE CARDS-->
         </div>
+
+	<!--SEPARATOR-->
+        <%@include file="/html/Separator.html"%>
+        <!--SEPARATOR-->
 
 
 	<div class="col-lg-6 offset-lg-3">

@@ -106,7 +106,7 @@ class eventCard {
         var image = document.createElement("img");
         image.classList.add("img-fluid", "rounded", "d-block"); // Bootstrap classes for responsive images and centering
         image.style.maxHeight = "200px";
-        image.src = "./immagini/" + this.image;
+        image.src = "/TOMTickets-1.0/immagini/" + this.image;
         first_half_image.appendChild(image);
 
         // This half will contain a table-like element that displays the event's information
@@ -176,45 +176,6 @@ class eventCard {
         }
 
         // Let's add each information to the second half, using the function we just made
-        // Prezzo
-        second_half_container.appendChild(makeRow("Prezzo:", "./utils/price-icon.png", this.price + " euro"));
-
-        // Line
-        second_half_container.appendChild(getSeparator());
-
-        // Sconto
-        if (this.discount != 0) {
-            // If there's a discount we print its value
-            second_half_container.appendChild(makeRow("Sconto:", "./utils/discount-icon.png", "-" + this.discount + "%"));
-        } else {
-            // If there's no discount we print "No"
-            second_half_container.appendChild(makeRow("Sconto:", "./utils/discount-icon.png", "No"));
-        }
-
-        // Line
-        second_half_container.appendChild(getSeparator());
-
-        // Data
-        second_half_container.appendChild(makeRow("Data:", "./utils/calendar-icon.png", this.date));
-
-        // Line
-        second_half_container.appendChild(getSeparator());
-
-        // Luogo
-        second_half_container.appendChild(makeRow("Luogo:", "./utils/location-icon.png", this.place));
-
-        // Line
-        second_half_details.appendChild(second_half_container);
-
-        // Add everything to the card-body container!
-        body_container.appendChild(first_half_image);
-        body_container.appendChild(second_half_details);
-
-        // Add the container to its actual card-body and we're done!!!
-        body.appendChild(body_container);
-        return body;
-    }
-// Let's add each information to the second half, using the function we just made
         // Prezzo
         second_half_container.appendChild(makeRow("Prezzo:", "./utils/price-icon.png", this.price + " euro"));
 

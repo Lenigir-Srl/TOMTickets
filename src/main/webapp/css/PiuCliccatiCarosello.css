@@ -1,8 +1,3 @@
-/*Card that contains the carousel*/
-#mostClickedCarousel {
-    padding-top: 50px;
-}
-
 /*Button to refresh the carousel*/
 #reloadMostClickedButton {
     width: 40px;
@@ -47,6 +42,24 @@
 
 /*Container of the third image inside the carousel*/
 #Link3 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*First image inside the carousel*/
+#Image1 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*Second image inside the carousel*/
+#Image2 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*Third image inside the carousel*/
+#Image3 {
     max-width: 100%;
     max-height: 400px;
 }

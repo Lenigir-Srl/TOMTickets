@@ -7,7 +7,7 @@
     <%@include file="../js/AcquistaEvento.js"%>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="../../html/Metacontent.html"%>
-    <title>risto89 - acquista evento</title>
+    <title>TOMTickets - Acquista Evento</title>
 </head>
 
 <script>
@@ -69,7 +69,7 @@ var numeroAcquisti = ${numeroAcquisti};
 
             <!-- BUY BUTTON -->
             <div class="card-footer">
-                    <form action="/risto89-1.0/terminaacquisto" id="acquista" method="POST">
+                    <form action="/TOMTickets-1.0/terminaacquisto" id="acquista" method="POST">
                         <div class="row">
 			    <label class="text-center">Numero di biglietti: </p>
                             <input type="number" id="quantita" name="quantita" class="form-control text-center"  onchange="calcolaPrezzo()" min="1" max="100" value="1" required> 

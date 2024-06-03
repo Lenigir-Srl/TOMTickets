@@ -1,9 +1,12 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
+<!--SEPARATOR-->
+<%@include file="/html/Separator.html"%>
+<!--SEPARATOR-->
 <div class="container-fluid bg-transparent" id="AboutUs">
     <footer class="py-2 my-2">
-        <div class="row">
+	<div class="row">
             <div class="col-lg mb-2 mt-2">
                 <div class="container align-items-center justify-content-center flex-grow-1">
                     <div class="card h-100">

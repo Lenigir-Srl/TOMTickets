@@ -107,7 +107,7 @@ class eventCard{
         var image = document.createElement("img");
         image.classList.add("img-fluid", "rounded", "d-block"); // Bootstrap classes for responsive images and centering
         image.style.maxHeight = "200px";
-        image.src = "./immagini/" + this.image;
+        image.src = "/TOMTickets-1.0/immagini/" + this.image;
         first_half_image.appendChild(image);
 
         //This half will contain a table-like element that desplays the event's information

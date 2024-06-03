@@ -29,12 +29,12 @@
 		<li class="nav-item mb-1 mt-1 dropdown d-flex">
                     <a class="me-3 ms-auto dropdown-toggle btn btn-warning text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Eventi</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="position: absolute; !important;">
-                        <li><a class="dropdown-item" href="/eventi?tipologia=Concerti">Concerti</a></li>
-                        <li><a class="dropdown-item" href="/eventi?tipologia=SpettacoliTeatrali">Spettacoli teatrali</a></li>
-                        <li><a class="dropdown-item" href="/eventi?tipologia=EventiSportivi">Eventi sportivi</a></li>
-                        <li><a class="dropdown-item" href="/eventi?tipologia=VisiteGuidate">Visite guidate</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=Concerti">Concerti</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=SpettacoliTeatrali">Spettacoli teatrali</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=EventiSportivi">Eventi sportivi</a></li>
+                        <li><a class="dropdown-item" href="./eventi?tipologia=VisiteGuidate">Visite guidate</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/eventi">Visualizza tutti</a></li>
+                        <li><a class="dropdown-item" href="./eventi">Visualizza tutti</a></li>
                     </ul>
                 </li>
 		<% String name = (String) session.getAttribute("username"); %>

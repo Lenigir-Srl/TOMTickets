@@ -29,11 +29,10 @@ var tipologia = "${tipologia}";
 <%--Gray background --%>
 <section class="bg-dark-subtle" style="min-height: 95vh;">
 
-	<!--EVENTI LIST-->
-	<%--Used by "Eventi.js"--%>
-        <div class="container-fluid align-items-center justify-content-center flex-grow-1" id="eventiCards"></div>
-        <!--EVENTI LIST-->
-
+    <!--EVENTI LIST-->
+    <%--Used by "Eventi.js"--%>
+    <div class="container-fluid align-items-center justify-content-center flex-grow-1" id="eventiCards"></div>
+    <!--EVENTI LIST-->
 
 </section>
 <!--PAGE CONTENT-->

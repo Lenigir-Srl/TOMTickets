@@ -10,7 +10,7 @@
 </audio>
 
 <div class="card bg-dark-subtle border-0" id="mostClickedCarousel">
-    <div class="card-header bg-warning text-white d-flex justify-content-center">
+    <div class="card-header bg-primary text-white d-flex justify-content-center">
         <span class="h1">I NOSTRI EVENTI PIU' CLICCATI!</span>
         <button id="reloadMostClickedButton" onclick="getUserMostClicked()" class="position-absolute end-0 me-3">
             <img id="reloadMostClickedIcon" src="utils/update-icon.png">
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="card-footer d-flex justify-content-center">
+    <div class="card-footer d-flex justify-content-center bg-primary text-white">
         <span id="Subtitle"></span>
     </div>
 </div>

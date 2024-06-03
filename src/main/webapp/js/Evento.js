@@ -96,7 +96,7 @@ class eventoCard {
         var picture = document.createElement("img");
         picture.style.maxWidth = "100%";
         picture.style.maxHeight = "240px";
-        picture.src = "TOMTickets-1.0/immagini/" + this.image;
+        picture.src = "immagini/" + this.image;
 
         picture_container.appendChild(picture);
 
@@ -347,6 +347,10 @@ function mostraLista() {
     // The page has to show a single event, identified by the title
     // We use this variable to write a GET request and get only that event
     // titolo = "${titolo}"   <--- This line is inside "Eventi.jsp"
+    //
+    //Calling "ottieniEvento" makes the number of clicks increase by one, that also happens if 
+    //we just refresh the page....this could be wanted or not and that depends on the manager himself, really.
+    //So i guess we'll just leave it like the way it is now.
 
     // Creating the url needed to call the api
     var url = '/TOMTickets-1.0/ottieniEvento';

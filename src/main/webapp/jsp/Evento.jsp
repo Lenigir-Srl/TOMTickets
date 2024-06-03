@@ -29,11 +29,10 @@ var titolo = "${titolo}";
 <%--Gray background --%>
 <section class="bg-dark-subtle" style="min-height: 95vh;">
 
-        <!--EVENTO-->
-        <%--Used by "Eventi.js"--%>
-        <div class="container-fluid align-items-center justify-content-center flex-grow-1" id="eventoCard"></div>
-        <!--EVENTO-->
-
+    <!--EVENTO-->
+    <%--Used by "Eventi.js"--%>
+    <div class="container-fluid align-items-center justify-content-center flex-grow-1" id="eventoCard"></div>
+    <!--EVENTO-->
 
 </section>
 <!--PAGE CONTENT-->
