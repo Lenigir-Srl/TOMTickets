@@ -200,11 +200,7 @@ public class ProfiloDAO {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                return true;
-            } else {
-                return false;
-            }
+            return rs.next();
 
         } catch (SQLException e) {
             throw new SQLException(e);

@@ -1,5 +1,3 @@
-<script>
-
 function printPieChart(eventi, numeroClickTotali){
 // Data retrieved from https://netmarketshare.com
 Highcharts.chart('pieChartModalContent', {
@@ -98,4 +96,3 @@ function showPieChartModal(){
 function closePieChart(){
     $('#pieChartModal').modal('hide');
 }
-</script>

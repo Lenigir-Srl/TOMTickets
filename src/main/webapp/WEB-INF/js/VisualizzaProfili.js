@@ -1,10 +1,3 @@
-<script>
-
-//HELLO FELLOW TRAVELLER!!!!!!
-//
-//Be carefull down there, its very scary.
-//Also dont check the "_getBody" method of the "userCard" class please. Its for your mental care.
-
     class userCard{
 
        #name;
@@ -268,4 +261,3 @@
 
     }
 
-</script> 

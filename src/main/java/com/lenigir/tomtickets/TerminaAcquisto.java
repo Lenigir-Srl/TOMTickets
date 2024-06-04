@@ -35,7 +35,7 @@ public class TerminaAcquisto extends HttpServlet {
         ProfiloBean profilo = ProfiloDAO.GetProfiloBean(username, scon.getConnection());
 
         // Increase the number of acquisti
-        ProfiloDAO.IncreaseAcquisti(profilo, scon.getConnection(), Integer.valueOf(numeroAcquisti));
+        ProfiloDAO.IncreaseAcquisti(profilo, scon.getConnection(), Integer.parseInt(numeroAcquisti));
 
         req.setAttribute("OK", "Tutto e' andato bene");
         req.setAttribute("description", "Il pagamento e' andato a buon fine");

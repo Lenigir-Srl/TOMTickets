@@ -1,7 +1,5 @@
-<script>
-
     //WARNING:
-    //The following code is VERY long, mainly because it unites together "Eventi.js" and "Evento.js".
+    //The following code is VERY long, mainly because it puts together "Eventi.js" and "Evento.js" code.
     //Don't be scared though, you have to keep in mind that everything inside here ONLY MAKES THINGS LOOK BETTER TO THE USER
     //that is why it's so long: writing html with javascript is a bit tedious.
     
@@ -22,7 +20,7 @@
         // Make the POST request
         fetch(url, options).then(response => {
             if (response.ok) {
-		setTimeout(printDeletedEvent, 100);
+		        setTimeout(printDeletedEvent, 100);
             } else {
                 console.error('Request failed:', response.statusText);
             }
@@ -44,36 +42,36 @@
 
     class eventCard{
        
-       // All the attributes of the event
-       #title;
-       #subtitle;
-       #description;
-       #event_type;
-       #place;
-       #date;
-       #hour;
-       #image;
-       #ticket_type;
-       #price;
-       #discount;
-       #numberOfClicks;
+        // All the attributes of the event
+        title;
+        subtitle;
+        description;
+        eventType;
+        place;
+        date;
+        hour;
+        image;
+        ticket_type;
+        price;
+        discount;
+        numberOfClicks;
 
-       // Constructor for the class, we set everything to have a default value of the type "default<Name>"
-       constructor(
-           title = "defaultTitle",
-	   subtitle = "defaultSubTitle",
-	   description = "defaultDescription",
-	   eventType = "defaultEventType",
-	   place = "defaultPlace",
-	   date = "defaultDate",
-	   hour = "defaultHour",
-	   image = "...",
-	   ticket_type = "defaultTicketType",
-	   price = "defaultPrice",
-	   discount = "defaultDiscount",
-	   numberOfClicks = "defaultNumberOfClicks"
+        // Constructor for the class, we set everything to have a default value of the type "default<Name>"
+        constructor(
+            title = "defaultTitle",
+            subtitle = "defaultSubTitle",
+            description = "defaultDescription",
+	        eventType = "defaultEventType",
+	        place = "defaultPlace",
+	        date = "defaultDate",
+	        hour = "defaultHour",
+            image = "...",
+	        ticket_type = "defaultTicketType",
+	        price = "defaultPrice",
+	        discount = "defaultDiscount",
+	        numberOfClicks = "defaultNumberOfClicks"
        ) {
-	   this.title = title;
+           this.title = title;
            this.subtitle = subtitle;
            this.description = description;
            this.eventType = eventType;
@@ -82,9 +80,9 @@
            this.hour = hour;
            this.image = image;
            this.ticket_type = ticket_type;
-	   this.price = price;
-	   this.discount = discount;
-	   this.numberOfClicks = numberOfClicks;
+           this.price = price;
+           this.discount = discount;
+           this.numberOfClicks = numberOfClicks;
        }
 
       //Scrolls the manager's page until the element identified by its ID is at the bottom of the viewport
@@ -120,7 +118,7 @@
     //Returns the header of the event card, this changes its color based on which kind of event it is displaying
     _getDetailsCardHeader() {
 
-        //The header of the card, inside of it we have a different color and the title of the event
+        //The header of the card, inside we have a different color and the title of the event
         var card_header = document.createElement("div");
         card_header.classList.add("card-header", "text-white", "h3", "text-center");
   
@@ -169,11 +167,11 @@
         return card_header;
     }
 
-    //Returns the body of the event card, this might seem complicated but its all
+    //Returns the body of the event card, this might seem complicated, but it's all
     //styling and html writing via javascript
     _getDetailsCardBody() {
 
-        //The body of the card, inside of it we are going to place everything we need
+        //The body of the card, inside it we are going to place everything we need
         var card_body = document.createElement("div");
         card_body.classList.add("card-body", "text-center");
 
@@ -188,7 +186,7 @@
         var picture = document.createElement("img");
         picture.style.maxWidth = "100%";
         picture.style.maxHeight = "240px";
-        picture.src = getUrl() + "/immagini/" + this.image;
+        picture.src = "immagini/" + this.image;
 
         picture_container.appendChild(picture);
 
@@ -228,7 +226,7 @@
         first_row.appendChild(subtitle_description_container);
 
 
-        //The second row shows the event's info, its just a table but made to appear
+        //The second row shows the event's info, it's just a table but made to appear
         //decent to the manager ;)
         var second_row = document.createElement("div");
         second_row.classList.add("row", "container-fluid", "mx-auto");
@@ -253,7 +251,7 @@
             var row = document.createElement("div");
             row.classList.add("row", "d-flex", "justify-content-center");
 
-            //Our actual row, contains an image, a title and the content inside of it
+            //Our actual row, contains an image, a title and the content inside it
             var row_container = document.createElement("div");
             row_container.classList.add("text-white", "row");
 
@@ -290,7 +288,7 @@
             return row;
         }
 
-        //This function just makes an hr element to make a gray thin line that acts as a separator
+        //This function just makes a hr element to make a gray thin line that acts as a separator
         function getSeparator() {
             var hr = document.createElement("hr");
             hr.classList.add("hr", "hr-blurry");
@@ -334,7 +332,7 @@
         second_row_second_col.appendChild(makeRow("Prezzo:", "utils/price-icon.png", this.price + " euro"));
         second_row_second_col.appendChild(getSeparator());
 
-        if (this.discount != "0") {
+        if (this.discount !== "0") {
             second_row_second_col.appendChild(makeRow("Sconto:", "utils/discount-icon.png", "-" + this.discount + "%"));
         } else {
             second_row_second_col.appendChild(makeRow("Sconto:", "utils/discount-icon.png", "No"));
@@ -391,7 +389,7 @@
         return card_footer;
     }
 
-    //Calls the three methos for "header", "body" and "footer" of the card and puts them together, then attaches them to the details card placeholder
+    //Calls the three methods for "header", "body" and "footer" of the card and puts them together, then attaches them to the details card placeholder
     _showDetailsCard() {
         //The place where our details card has to be placed, they are immediately under their event card and are first invisible
 	var content = document.getElementById(this.title);
@@ -409,8 +407,8 @@
         card.appendChild(this._getDetailsCardBody());
         card.appendChild(this._getDetailsCardFooter());
 
-	content.appendChild(card);
-        return;
+	    content.appendChild(card);
+
     }
 
     // Returns the header block of the card, this just contains the title of the event and has a
@@ -456,8 +454,8 @@
         return header;
     }
     
-    // Returns the body block of the card, this might seem complex and long but its just to show the
-    // event informations in a decent manner to the manager (writing html in javascript is not the best!)
+    // Returns the body block of the card, this might seem complex and long but it's just to show the
+    // event information in a decent manner to the manager (writing html in javascript is not the best!)
     _getBody() {
         // card-body
         var body = document.createElement("div");
@@ -473,11 +471,11 @@
         var first_half_image = document.createElement("div");
         first_half_image.classList.add("col-md-12", "d-flex", "justify-content-center", "pt-1");
 
-        // Image event, a bit of styling and then we add it to its half
+        // Image event, a bit of styling, and then we add it to its half
         var image = document.createElement("img");
         image.classList.add("img-fluid", "rounded", "d-block"); // Bootstrap classes for responsive images and centering
         image.style.maxHeight = "200px";
-        image.src = "./immagini/" + this.image;
+        image.src = "immagini/" + this.image;
         first_half_image.appendChild(image);
 
         // This half will contain a table-like element that displays the event's information
@@ -488,7 +486,7 @@
         var second_half_container = document.createElement("div");
         second_half_container.classList.add("card-body", "bg-dark", "rounded");
 
-        // Since we need to display many event informations, might as well make a function for it!
+        // Since we need to display many event information, might as well make a function for it!
         function makeRow(title = "defaultTitle", image = "defaultImage", content = "defaultContent") {
             // A row that contains one information of the event
             var row = document.createElement("div");
@@ -498,7 +496,7 @@
             var row_container = document.createElement("div");
             row_container.classList.add("text-white", "d-flex", "justify-content-between");
 
-            // This is a container that has an image and some text inside of it
+            // This is a container that has an image and some text inside it
             var image_title = document.createElement("span");
             image_title.classList.add("d-flex");
 
@@ -582,7 +580,7 @@
         body_container.appendChild(first_half_image);
         body_container.appendChild(second_half_details);
 
-        // Add the container to its actual card-body and we're done!!!
+        // Add the container to its actual card-body, and we're done!!!
         body.appendChild(body_container);
         return body;
     }
@@ -621,7 +619,7 @@
 
     // Returns the whole Card element, calls the other methods created previously
     getCard() {
-        //Card contatiner, inside of it: card header, card body and card footer
+        //Card container, inside it: card header, card body and card footer
         var card = document.createElement("div");
         card.classList.add("card", "h-100");
 
@@ -676,7 +674,7 @@ function mostraCards(datiJson) {
             elemento.numeroClick
         );
 
-        // Get the entire card block with the event informations in it
+        // Get the entire card block with the event information in it
         // insert it inside the column
         col.appendChild(event.getCard());
 
@@ -728,7 +726,7 @@ function mostraLista() {
             return response.json();
         })
         .then(function (data) {
-            // Lets show the obtained JSON to the browser!
+            // Let's show the obtained JSON to the browser!
             mostraCards(data);
         })
         .catch(function (error) {
@@ -737,5 +735,3 @@ function mostraLista() {
             content.innerHTML = 'Error fetching data.';
         });
 }
-    
-</script>   

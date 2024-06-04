@@ -86,7 +86,7 @@ class eventCard {
     }
 
     // Returns the body block of the card, this might seem complex and long but its just to show the
-    // event informations in a decent manner to the user (writing html in javascript is not the best!)
+    // event information in a decent manner to the user (writing html in javascript is not the best!)
     _getBody() {
         // card-body
         var body = document.createElement("div");
@@ -102,11 +102,11 @@ class eventCard {
         var first_half_image = document.createElement("div");
         first_half_image.classList.add("col-md-12", "d-flex", "justify-content-center", "pt-1");
 
-        // Image event, a bit of styling and then we add it to its half
+        // Image event, a bit of styling, and then we add it to its half
         var image = document.createElement("img");
         image.classList.add("img-fluid", "rounded", "d-block"); // Bootstrap classes for responsive images and centering
         image.style.maxHeight = "200px";
-        image.src = "/TOMTickets-1.0/immagini/" + this.image;
+        image.src = "immagini/" + this.image;
         first_half_image.appendChild(image);
 
         // This half will contain a table-like element that displays the event's information
@@ -117,7 +117,7 @@ class eventCard {
         var second_half_container = document.createElement("div");
         second_half_container.classList.add("card-body", "bg-dark", "rounded");
 
-        // Since we need to display many event informations, might as well make a function for it!
+        // Since we need to display many event information, might as well make a function for it!
         function makeRow(title = "defaultTitle", image = "defaultImage", content = "defaultContent") {
             // A row that contains one information of the event
             var row = document.createElement("div");
@@ -127,7 +127,7 @@ class eventCard {
             var row_container = document.createElement("div");
             row_container.classList.add("text-white", "d-flex", "justify-content-between");
 
-            // This is a container that has an image and some text inside of it
+            // This is a container that has an image and some text inside it
             var image_title = document.createElement("span");
             image_title.classList.add("d-flex");
 
@@ -161,13 +161,13 @@ class eventCard {
             // Add it to the container
             row_container.appendChild(content_container);
 
-            // Add the container to the actual row and we're done!!
+            // Add the container to the actual row, and we're done!!
             row.appendChild(row_container);
 
             return row;
         }
 
-        // This function just makes an hr element to make a gray thin line that acts as a separator
+        // This function just makes a hr element to make a gray thin line that acts as a separator
         function getSeparator() {
             var hr = document.createElement("hr");
             hr.classList.add("hr", "hr-blurry", "text-white");
@@ -225,7 +225,7 @@ class eventCard {
         moreDetails.classList.add("btn", "btn-primary");
         moreDetails.textContent = "Vedi dettagli";
 
-        const url = '/TOMTickets-1.0/evento?titolo=';
+        const url = getUrl() + '/evento?titolo=';
         moreDetails.href = encodeURI(url + this.title);
         // Blue button
 

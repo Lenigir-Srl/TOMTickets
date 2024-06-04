@@ -1,5 +1,3 @@
-<script>
-
 //Shows the Chart modal on screen, this is bootstrap's js code
 function showChartModal() {
     var chartModal = document.getElementById('chartModal');
@@ -222,4 +220,3 @@ function openChartModal(){
     showChartModal();
     showPieChart();
 }
-</script>

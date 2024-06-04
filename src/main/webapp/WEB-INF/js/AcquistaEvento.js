@@ -1,12 +1,11 @@
-<script>
-
 function calcolaPrezzo() {
     var quantita = parseInt(document.getElementById("quantita").value, 10);
     var prezzo = parseFloat(document.getElementById("price").innerHTML);
-    if(document.getElementById("discount").innerHTML != "No"){
-        var sconto = parseFloat(document.getElementById("discount").innerHTML);
+    var sconto;
+    if(document.getElementById("discount").innerHTML !== "No"){
+        sconto = parseFloat(document.getElementById("discount").innerHTML);
     }else{
-        var sconto = 0;
+        sconto = 0;
     }
 
     // Calculate the total number of tickets including current purchase
@@ -28,7 +27,7 @@ function calcolaPrezzo() {
     // Display a message if free tickets are being given
     document.getElementById("finalPrice").innerHTML = finalPrice.toFixed(2) + " euro";
     if(numeroBigliettiGratis > 0){
-        if(numeroBigliettiGratis == 1){
+        if(numeroBigliettiGratis === 1){
             document.getElementById("freeTickets").innerHTML = "Avendo acquistato in totale " + bigliettiTotali + " biglietti<br>avresti diritto a " + numeroBigliettiGratis + " biglietto gratis!<br>(Un'altro biglietto gratis se acquisti altri " + (5-(bigliettiTotali % 5)) + " biglietti)";
 	}else{
             document.getElementById("freeTickets").innerHTML = "Avendo acquistato in totale " + bigliettiTotali + " biglietti<br>avresti diritto a " + numeroBigliettiGratis + " biglietti gratis!<br>(Un'altro biglietto gratis se acquisti altri " + (5-(bigliettiTotali % 5)) + " biglietti)";
@@ -45,7 +44,7 @@ document.getElementById("subtitle").innerHTML = elemento.sottotitolo;
 document.getElementById("place").innerHTML = elemento.luogo;
 document.getElementById("date").innerHTML = elemento.data;
 document.getElementById("price").innerHTML = elemento.prezzo + " euro ";
-if(elemento.sconto != 0 ){
+if(elemento.sconto !== 0 ){
     document.getElementById("discount").innerHTML = elemento.sconto + "%";
 }else{
     document.getElementById("discount").innerHTML = "No";
@@ -79,7 +78,7 @@ function mostraLista(){
                     return response.json();
                 })
                 .then(function(data) {
-                    //Lets show the obtained JSON to the browser!
+                    //Let's show the obtained JSON to the browser!
                    mostraEvento(data);
                 })
                 .catch(function(error) {
@@ -103,7 +102,7 @@ function validateForm(){
     //Check if value is negative
     if(quantita < 1){
         showErrorModal("Numero di biglietti negativo!", "Hai inserito un numero di biglietti minore o uguale a 0.<br>Perfavore inserisci un numero di biglietti positivo.");
-	return false;
+	    return false;
     }
 
     //Check if value is float (good try ngl)
@@ -111,8 +110,8 @@ function validateForm(){
         setRainbowModal();
         setModalTitle("Ok. Ci hai provato.");
         setModalDescription("Ammettilo dai, stai cercando di trovare una vulnerabilità nel nostro sito...Non siamo cosi sciocchi in fondo!");
-        showModal();
-	return false;
+        showNotifyModal();
+	    return false;
     }
 
     //Check if value is too large
@@ -120,11 +119,10 @@ function validateForm(){
         setRainbowModal();
         setModalTitle("Uhm....Ok?");
         setModalDescription("Vorresti comprare " + quantita + " biglietti?<br>Non dubito che tu abbia i soldi....Ma di sicuro<br>noi non abbiamo abbastanza biglietti! ");
-        showModal();
+        showNotifyModal();
         return false;
     }
-
+    document.getElementById("acquista").action = getUrl() + "/terminaacquisto";
     return true;
 }
 
-</script>
