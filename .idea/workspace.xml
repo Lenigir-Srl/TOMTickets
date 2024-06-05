@@ -10,61 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c74373bd-9b83-40b6-aeab-f64b9ffa3878" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testo_Progetto.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AcquistaEvento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AdminFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreaEvento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EventoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ProfiloDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/TentativoAccessoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DeleteEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DeleteProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Discounts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Error.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GestioneEventi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GetEventi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GetEvento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GetProfili.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Logout.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MostClicked.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/OK.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Profile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SessionConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Signup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TerminaAcquisto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TestDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VisualizzaEventi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VisualizzaEvento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VisualizzaProfili.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/beans/EventoBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/beans/ProfiloBean.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/beans/TentativoAccessoBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/Diagramma_TOMTickets.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Diagramma_TOMTickets.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/CreaEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/CreaEvento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/EventoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/EventoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/ProfiloDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/ProfiloDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/GestioneEventi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/GestioneEventi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/beans/TentativoAccessoBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/beans/TentativoAccessoBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enums/LuogoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enums/TipologiaBigliettiEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enums/TipologiaEventoEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/GestioneEventi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/GestioneEventi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/PieChart.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/Charts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/Charts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Charts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Charts.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/TOMTickets_logo.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/immagini/antipasto.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/immagini/bevande.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/immagini/dessert.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/immagini/primopiatto.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/immagini/secondopiatto.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Eventi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/Eventi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/evento3.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/trento-image.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +26,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -103,7 +59,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/asaro/Desktop/ciao/TOMTickets&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/asaro/Desktop/winver/TOMTickets&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -200,6 +156,9 @@
       <workItem from="1717608234390" duration="662000" />
       <workItem from="1717609010286" duration="27000" />
       <workItem from="1717609149414" duration="13000" />
+      <workItem from="1717609684597" duration="1007000" />
+      <workItem from="1717612502888" duration="304000" />
+      <workItem from="1717613571181" duration="1961000" />
     </task>
     <servers />
   </component>

@@ -39,9 +39,8 @@ public class EventoDAO {
     // Throws:
     // SQLException
     public static void AggiungiEvento(EventoBean evento, Connection con) throws SQLException {
-        
         try {
-
+            System.out.println(evento.toString());
             if (EventoExists(evento, con)) return;
             
             String query = "INSERT INTO Eventi VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

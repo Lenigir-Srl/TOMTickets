@@ -51,7 +51,6 @@ public class CreaEvento extends HttpServlet {
                      HttpServletResponse res)
     throws ServletException, IOException
   {
-
       // DB Connection
       try {
 
@@ -93,7 +92,7 @@ public class CreaEvento extends HttpServlet {
                         sottotitolo, descrizione, tipologiaEvento,
                         luogo, data, ora, fileName, tipologiaBiglietti,
                         prezzo, sconto, 0);
-       
+
 
         // Check if the event already exists
         if (EventoDAO.EventoExists(eventoBean, con)) {
@@ -105,7 +104,6 @@ public class CreaEvento extends HttpServlet {
         ServletContext sc = getServletContext();
         String path = sc.getRealPath("/immagini");
         EventoDAO.salvaImmagine(filePart, path);
-
 
         // Insert the event in the database
         EventoDAO.AggiungiEvento(eventoBean, con);

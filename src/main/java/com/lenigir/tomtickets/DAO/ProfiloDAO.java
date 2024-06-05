@@ -35,7 +35,6 @@ public class ProfiloDAO {
     public static void AggiungiProfilo(ProfiloBean profilo, Connection con) throws SQLException {
         
         try {
-
             if (UserExists(profilo.getUsername(), con)) return;
             
             String query = "INSERT INTO Profili VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";

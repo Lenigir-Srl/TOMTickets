@@ -32,6 +32,7 @@ function closeChartModal() {
 
 //Uses HighCharts's code to print the pie chart in the modal
 function pieChart(eventi, numeroClickTotali){
+    document.getElementById("chartType").style.backgroundColor = "orange";
 Highcharts.chart('chartModalContent', {
     chart: {
         plotBackgroundColor: null,
@@ -70,6 +71,7 @@ Highcharts.chart('chartModalContent', {
 }
 
 function barChart(){
+    document.getElementById("chartType").style.backgroundColor = "purple";
 Highcharts.chart('chartModalContent', {
 
     chart: {

@@ -14,7 +14,7 @@
 <div class="modal modal-xl fade" id="chartModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header text-white" id="pieChartType">
+            <div class="modal-header text-white" id="chartType">
                 <h5 class="modal-title" id="chartTitle">Diagrammi e Grafici</h5>
             </div>
             <div class="modal-body">
