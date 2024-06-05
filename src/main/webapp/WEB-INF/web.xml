@@ -89,6 +89,12 @@
    <servlet>
        <servlet-name>eliminaEvento</servlet-name>
        <servlet-class>com.lenigir.tomtickets.DeleteEvent</servlet-class>
+
+   </servlet>
+   
+   <servlet>
+       <servlet-name>creaEvento</servlet-name>
+       <servlet-class>com.lenigir.tomtickets.CreaEvento</servlet-class>
        <!-- Save images -->
        <multipart-config>
            <location>/tmp</location>
@@ -96,11 +102,6 @@
            <max-request-size>418018841</max-request-size>
            <file-size-threshold>1048576</file-size-threshold>
        </multipart-config>
-   </servlet>
-   
-   <servlet>
-       <servlet-name>creaEvento</servlet-name>
-       <servlet-class>com.lenigir.tomtickets.CreaEvento</servlet-class>
    </servlet>
 
    <servlet>

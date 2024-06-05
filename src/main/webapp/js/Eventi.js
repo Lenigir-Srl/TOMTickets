@@ -167,6 +167,7 @@ class eventCard {
             return row;
         }
 
+
         // This function just makes a hr element to make a gray thin line that acts as a separator
         function getSeparator() {
             var hr = document.createElement("hr");

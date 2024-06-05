@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 // This class provides the following methods:
-// - int AggiungiProfilo(ProfiloBean, Connection)
-// - int EliminaProfilo(ProfileBean, Connection)
+// - void AggiungiProfilo(ProfiloBean, Connection)
+// - void EliminaProfilo(ProfileBean, Connection)
 // - ProfiloBean GetProfiloBean(String username, Connection)
 // - List<ProfiloBean> GetProfili(Connection)
 // - void IncreaseAcquisti(ProfiloBean, Connection)
@@ -70,7 +70,6 @@ public class ProfiloDAO {
     // Throws:
     // SQLException
     public static void EliminaProfilo(ProfiloBean profilo, Connection con) throws SQLException {
-       
         try {
 
             if (!UserExists(profilo.getUsername(), con)) {
@@ -78,10 +77,9 @@ public class ProfiloDAO {
             }
             
             String query = "DELETE FROM Profili WHERE username=?";
-
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, profilo.getUsername());
-
+            ps.executeUpdate();
             return;
 
         } catch (SQLException e) {
@@ -248,7 +246,7 @@ public class ProfiloDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, String.valueOf(profilo.getAcquisti() + numeroAcquisti));
             ps.setString(2, profilo.getUsername());
-
+            ps.executeUpdate();
             return;
 
         } catch (SQLException e) {

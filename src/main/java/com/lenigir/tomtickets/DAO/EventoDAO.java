@@ -13,8 +13,8 @@ import javax.servlet.http.Part;
 import java.io.*;
 
 // This class provides the following methods:
-// - int CreaEvento(EventoBean, Connection)
-// - int EliminaEvento(EventoBean, Connection)
+// - void CreaEvento(EventoBean, Connection)
+// - void EliminaEvento(EventoBean, Connection)
 // - List<EventoBean> GetEventi(Connection)
 // - List<EventoBean> GetEventi(Connection, TipologiaEventoEnum)
 // - List<EventoBean> GetMostClicked(Connection)
@@ -60,7 +60,7 @@ public class EventoDAO {
             ps.setDouble(10, evento.getPrezzo());
             ps.setDouble(11, evento.getSconto());
             ps.setInt(12, evento.getNumeroClick());
-
+            ps.executeUpdate();
             return;
 
         } catch (SQLException e) {
@@ -89,7 +89,7 @@ public class EventoDAO {
 
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, evento.getTitolo());
-
+            ps.executeUpdate();
             return;
 
         } catch (SQLException e) {
@@ -420,7 +420,7 @@ public class EventoDAO {
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, String.valueOf(evento.getNumeroClick() + 1));
             ps.setString(2, evento.getTitolo());
-
+            ps.executeUpdate();
             return;
 
         } catch (SQLException e) {

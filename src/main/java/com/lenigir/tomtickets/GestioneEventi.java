@@ -38,7 +38,8 @@ public class GestioneEventi extends HttpServlet {
           throw new Exception();
         }
 
-	// Forwarding the request to the Profile.jsp
+
+	    // Forwarding the request to the Profile.jsp
         req.getRequestDispatcher("/WEB-INF/jsp/GestioneEventi.jsp").forward(req, res);
 
       }

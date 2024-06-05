@@ -6,7 +6,7 @@ public class TentativoAccessoBean implements Serializable {
 	
 	private String username;	
 	private String password;
-        private boolean isValid;
+    private boolean isValid;
 
 	public TentativoAccessoBean(String username, String password) {
         this.username = username;
@@ -18,7 +18,7 @@ public class TentativoAccessoBean implements Serializable {
 		return this.username;
 	}
 
-	protected void setUsername(String arg) {
+	public void setUsername(String arg) {
 		this.username = arg;
 	}
 
@@ -26,7 +26,7 @@ public class TentativoAccessoBean implements Serializable {
 		return this.password;
 	}
 
-	protected void setPassword(String arg) {
+	public void setPassword(String arg) {
 		this.password = arg;
 	}
 

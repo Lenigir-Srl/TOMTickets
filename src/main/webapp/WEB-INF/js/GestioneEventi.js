@@ -171,7 +171,7 @@
     //styling and html writing via javascript
     _getDetailsCardBody() {
 
-        //The body of the card, inside it we are going to place everything we need
+        //The body of the card, inside we are going to place everything we need
         var card_body = document.createElement("div");
         card_body.classList.add("card-body", "text-center");
 
