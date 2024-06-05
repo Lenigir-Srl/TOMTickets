@@ -1,10 +1,18 @@
-# risto89
 
-The best restaurant all over Arezzo
+# TOMTickets
+## - Trento Online Market for Tickets -
 
-### Testo consegna
+Your trusted portal for purchasing tickets for events in Trentino!
 
-Il testo per la consegna può essere trovato in [Testo](Testo_Progetto.pdf)
+
+# Made By
+
+## Giovanni Santini
+## Valerio Asaro
+
+### Delivery Text
+
+The delivery text can be found here [Text](Testo_Progetto.pdf)
 
 ---
 
@@ -23,7 +31,7 @@ Check that everything works
 
 ## Creating a project from an archetype
 
-You can schoose an [archetype](https://maven.apache.org/archetypes/index.html) to get started, It's basically a template
+You can choose an [archetype](https://maven.apache.org/archetypes/index.html) to get started, It's basically a template
 I choose [maven-archetype-j2ee-simple](https://maven.apache.org/archetypes/maven-archetype-j2ee-simple/) as It's the closest to a servlet program.
 
 Install the servlet by running:
@@ -39,7 +47,7 @@ Define value for property 'version' 1.0-SNAPSHOT: : 1.0
 Define value for property 'package' com.unitn.app: : 1.0
 ```
 
-I deleted everything soutside `servlets/servlet` as It's just garbage
+I deleted everything outside `servlets/servlet` because it is just garbage
 
 I changed the pom.xml file with the following:
 ```xml

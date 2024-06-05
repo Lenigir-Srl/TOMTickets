@@ -5,7 +5,7 @@
 <head>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="../../html/Metacontent.html"%>
-    <title>risto89 - OK</title>
+    <title>TOMTickets - OK</title>
 </head>
 <body>
 

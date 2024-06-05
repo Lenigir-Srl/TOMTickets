@@ -1,0 +1,9 @@
+/*Logo of the page*/
+#TOMTickets-image {
+    height: 200px;
+}
+
+/*Container of the welcome section*/
+#welcome-container {
+    background-color: orange;
+}

@@ -1,9 +1,16 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
-
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/Warning.js"></script>
+
+<%-- Include CSS file into the page --%>
+<link rel="stylesheet" href="css/Warning.css">
+
+<%--Warning Sound--%>
+<audio id="warningSound">
+    <source src="utils/warning-sound.mp3" type="audio/mpeg">
+</audio>
 
 <div class="modal fade" id="warningModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
@@ -14,7 +21,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-3 d-flex align-items-center justify-content-center">
-                        <img style="width:5rem;" src="https://t3.ftcdn.net/jpg/04/96/42/26/360_F_496422630_kxcfGbFBcUPHzB1v0mhpg5XQI9phxNx2.jpg" />
+                        <img id="warningIcon" src="utils/warning-icon.jpg" />
                     </div>
 
                     <div class="col-9">
@@ -30,6 +37,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" onclick="continueButton()" class="btn btn-success">Torna indietro</button>
+		
+
+		<%--onclick changed dynamically by js scripts--%>
                 <button type="button" id="continueButton" onclick="" class="btn btn-outline-warning" disabled>Continua</button>
 	    </div>
         </div>

@@ -8,64 +8,70 @@
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets</title>
-    <script>
-   
-function setupPage() {
-        getMostClicked();
-        getDiscounts();
-        window.setInterval(getMostClicked, 15000);
-        window.setInterval(getDiscounts, 15000);
-}
-    </script>
 </head>
-<body onload="setupPage();">
+
+<body>
 <!--NAVIGATION BAR-->
 <%@include file="/jsp/Header.jsp"%>
 <!--NAVIGATION BAR-->
 
-<!--COOKIE-->
-<%@include file="/jsp/Cookie.jsp"%>
-<!--COOKIE-->
-
 <!--PAGE CONTENT-->
 <section class="bg-dark-subtle text-center align-items-center justify-content-center" style="min-height: 95vh;">
+	
+	<div class="col-lg-12">
+            <!--WELCOME-->
+            <%@include file="/jsp/Welcome.jsp"%>
+            <!--WELCOME-->
+        </div>
+
+	<!--SEPARATOR-->
+        <%@include file="/html/Separator.html"%>
+        <!--SEPARATOR-->
+
+        <%--Click Sound--%>
+        <audio id="clickSound">
+            <source src="utils/click-sound.mp3" type="audio/mpeg">
+        </audio>
+
+
 	<div class="col-lg-8 offset-lg-2">
-	    <div class="card bg-dark-subtle border-0" style="padding-top: 50px;"> 
-                <div class="card-header bg-success text-white">
-	            <div class="h1">BENVENUTO!</div>
-	        </div>
-	        <span class="card-body bg-dark" style="border-radius: 0 0 0.25rem 0.25rem;">
-	        <!--CAROUSEL-->
-                <%@include file="/jsp/Carousel.jsp"%>
-	        <!--CAROUSEL-->
-	        </span>
-	     </div>
+	    <!--MOST CLICKED CAROUSEL-->
+            <%@include file="/jsp/PiuCliccatiCarosello.jsp"%>
+	    <!--MOST CLICKED CAROUSEL-->
 	</div>
+
+	<!--SEPARATOR-->
+        <%@include file="/html/Separator.html"%>
+        <!--SEPARATOR-->
+
+	<div class="col-lg-10 offset-lg-1">
+            <!--MOST DISCOUNTED THREE CARDS-->
+            <%@include file="/jsp/PiuScontatiCarte.jsp"%>
+            <!--MOST DISCOUNTED THREE CARDS-->
+        </div>
+
+	<!--SEPARATOR-->
+        <%@include file="/html/Separator.html"%>
+        <!--SEPARATOR-->
+
+
 	<div class="col-lg-6 offset-lg-3">
-             <!--FUNFACTS-->
-	     <%@include file="/jsp/Funfacts.jsp"%>
-             <!--FUNFACTS-->
-
+            <!--FUNFACTS-->
+            <%@include file="/jsp/Funfacts.jsp"%>
+            <!--FUNFACTS-->
 	</div>
-
-    <div>
-    <!-- MOST CLICKED EVENTS -->
-    <%@include file="/jsp/MostClicked.jsp"%>
-    <!-- MOST CLICKED EVENTS -->
-
-    <!-- DISCOUNTS -->
-    <%@include file="/jsp/Discounts.jsp"%>
-    <!-- DISCOUNTS -->
     </div>
 
 </section>
 <!--PAGE CONTENT-->
 
+<!--FOOTER-->
+<%@include file="/jsp/Footer.jsp"%>
+<!--FOOTER-->
 
-	<!--FOOTER-->
-        <%@include file="/jsp/Footer.jsp"%>
-        <!--FOOTER-->
-
+<!--COOKIE-->
+<%@include file="/jsp/Cookie.jsp"%>
+<!--COOKIE-->
 
 </body>
 </html>

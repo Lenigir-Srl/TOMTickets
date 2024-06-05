@@ -1,0 +1,65 @@
+/*Button to refresh the carousel*/
+#reloadMostClickedButton {
+    width: 40px;
+}
+
+/*Icon to refresh the carousel*/
+#reloadMostClickedIcon {
+    width: 20px;
+}
+
+/*Body of the card that contains the carousel*/
+#cardBody {
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+
+/*First Carousel Item*/
+#Carousel1 {
+    height: 400px;
+}
+
+/*Second Carousel Item*/
+#Carousel2 {
+    height: 400px;
+}
+
+/*Third Carousel Item*/
+#Carousel3 {
+    height: 400px;
+}
+
+/*Container of the first image inside the carousel*/
+#Link1 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*Container of the second image inside the carousel*/
+#Link2 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*Container of the third image inside the carousel*/
+#Link3 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*First image inside the carousel*/
+#Image1 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*Second image inside the carousel*/
+#Image2 {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+/*Third image inside the carousel*/
+#Image3 {
+    max-width: 100%;
+    max-height: 400px;
+}

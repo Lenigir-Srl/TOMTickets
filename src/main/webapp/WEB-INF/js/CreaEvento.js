@@ -58,7 +58,7 @@ function validateForm(){
 
   // Discount validation
   var discount = parseFloat(form["sconto"].value);
-  if (isNaN(discount) || discount < 0) {
+  if (isNaN(discount) || discount < 0 || discount > 100) {
     showErrorModal("Sconto errato!", "Lo sconto inserito non e' valido!");
     return false;
   }

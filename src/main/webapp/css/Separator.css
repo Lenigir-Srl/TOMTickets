@@ -1,0 +1,9 @@
+/*Separator*/
+.separator-container{
+    background-color: orange;
+}
+
+/*Small separator symbol*/
+.separator {
+    width: 35px;
+}

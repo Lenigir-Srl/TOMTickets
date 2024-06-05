@@ -1,9 +1,12 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
-<div class="container-fluid bg-transparent">
+<!--SEPARATOR-->
+<%@include file="/html/Separator.html"%>
+<!--SEPARATOR-->
+<div class="container-fluid bg-transparent" id="AboutUs">
     <footer class="py-2 my-2">
-        <div class="row">
+	<div class="row">
             <div class="col-lg mb-2 mt-2">
                 <div class="container align-items-center justify-content-center flex-grow-1">
                     <div class="card h-100">
@@ -49,7 +52,7 @@
                         </div>
                         <div class="card-body">
                             <blockquote class="blockquote">
-                                <p class="text-center">Ci chiamiamo Giovanni e Valerio, siamo due programmatori volenterosi e skillati.<br>Abbiamo creato questo sito per prendere 30 e lode all'esame di "Introduzione alla programmazione per il WEB".</p>
+                                <p class="text-center">Ci chiamiamo Giovanni e Valerio, siamo due programmatori dell'università di Trento.<br>Abbiamo creato questo sito per l'esame di "Introduzione alla programmazione per il WEB".</p>
                             </blockquote>
                         </div>
                         <div class="card-footer align-items-center text-center justify-content-center">Università di Trento, "Dipartimento Ingegneria e Scienza dell'Informazione" (DISI)</div>

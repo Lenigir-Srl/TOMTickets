@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.Lenigir.app</groupId>
-  <artifactId>risto89</artifactId>
+  <artifactId>TOMTickets</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
 
@@ -55,5 +55,5 @@
     </dependency>
 
   </dependencies>
-
 </project>
+

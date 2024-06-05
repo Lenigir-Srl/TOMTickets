@@ -2,28 +2,14 @@ function validateForm() {
   // Username validation
   var username = document.forms["loginForm"]["username"].value.trim(); // Trim to remove leading and trailing whitespace
   if (!username || /^\s*$/.test(username)) { // Check if username is null, empty, or contains only whitespace
-    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito uno username!";
-    document.getElementById('notifyModalDescription').innerHTML = "Il campo username risulta essere vuoto.<br>Perfavore inserisci lo username del tuo profilo.";
-    $('#notifyModal').modal({
-        backdrop: 'static',
-        focus: true,
-        keyboard: false
-    });
-    $('#notifyModal').modal('show');
+    showErrorModal("Non hai inserito uno username!", "Il campo username risulta essere vuoto.<br>Perfavore inserisci lo username del tuo profilo.");
     return false;
   }
 
   // Password validation
   var password = document.forms["loginForm"]["password"].value.trim(); // Trim to remove leading and trailing whitespace
   if (!password || /^\s*$/.test(password)) { // Check if password is null, empty, or contains only whitespace
-    document.getElementById('notifyModalTitle').innerHTML = "Non hai inserito la password!";
-    document.getElementById('notifyModalDescription').innerHTML = "Il campo password risulta essere vuoto.<br>Perfavore inserisci la password del tuo profilo.";
-    $('#notifyModal').modal({
-        backdrop: 'static',
-        focus: true,
-        keyboard: false
-    });
-    $('#notifyModal').modal('show');
+    showErrorModal("Non hai inserito la password!", "Il campo password risulta essere vuoto.<br>Perfavore inserisci la password del tuo profilo.");
     return false;
   }
 

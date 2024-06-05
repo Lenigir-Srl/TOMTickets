@@ -53,7 +53,7 @@ public class GetEventi extends HttpServlet {
           throw new Exception();
         }
 
-        // Getting the profile bean from the dao
+        // Getting the eventi beans from the dao
         List<EventoBean> eventi = null;
         if (tipologia != null) {
             eventi = EventoDAO.GetEventiTipologia(con, tipologiaEnum);

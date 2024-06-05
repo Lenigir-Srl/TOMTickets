@@ -248,7 +248,7 @@
     }
 
     function mostraLista(){
-        let url = 'http://localhost:41063/risto89-1.0/ottieniProfili';
+        let url = '/TOMTickets-1.0/ottieniProfili';
            fetch(url)
                 .then(function(response) {
                     if (!response.ok) {

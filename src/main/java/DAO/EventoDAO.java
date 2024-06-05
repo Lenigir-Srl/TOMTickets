@@ -349,8 +349,25 @@ public class EventoDAO {
         catch(SQLException e) {
             throw new SQLException(e);
         }
-        
-        return eventi;
+
+	// Find the top 3 events with the highest discounts
+        List<EventoBean> top3Events = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            EventoBean maxEvent = null;
+            for (EventoBean event : eventi) {
+                if (maxEvent == null || event.getSconto() > maxEvent.getSconto()) {
+                    if (!top3Events.contains(event)) {
+                        maxEvent = event;
+                    }
+                }
+            }
+            if (maxEvent != null) {
+                top3Events.add(maxEvent);
+            }
+        }
+
+        return top3Events;
+
     }
 
     // Checks if and Evento already exists in the DB
