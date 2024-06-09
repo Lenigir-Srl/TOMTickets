@@ -36,7 +36,11 @@ class eventoCard {
         this.date = date;
         this.hour = hour;
         this.image = image;
-        this.ticket_type = ticket_type;
+        if(ticket_type == "InPiedi"){
+            this.ticket_type = "In Piedi";
+        }else{
+            this.ticket_type = ticket_type;
+        }
         this.price = price;
         this.discount = discount;
         this.numberOfClicks = numberOfClicks;

@@ -11,13 +11,26 @@
   <component name="ChangeListManager">
     <list default="true" id="c74373bd-9b83-40b6-aeab-f64b9ffa3878" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Diagramma_TOMTickets.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Diagramma_TOMTickets.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/CreaEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/CreaEvento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/EventoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/EventoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/ProfiloDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/DAO/ProfiloDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lenigir/tomtickets/Signup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/Charts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/Charts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Charts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Charts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/GestioneEventi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/GestioneEventi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/PieChart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/VisualizzaProfili.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/VisualizzaProfili.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/GestioneEventi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/GestioneEventi.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/immagini/evento1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/immagini/evento1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/immagini/evento2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/immagini/evento2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/immagini/evento3.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/immagini/evento3.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/immagini/evento4.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/immagini/evento4.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/immagini/evento5.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/immagini/evento5.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Eventi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/Eventi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/Evento.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Loginpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/Loginpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/Notify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Signuppage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/Signuppage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/Loginpage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/Loginpage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/SignupPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/SignupPage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +171,8 @@
       <workItem from="1717609149414" duration="13000" />
       <workItem from="1717609684597" duration="1007000" />
       <workItem from="1717612502888" duration="304000" />
-      <workItem from="1717613571181" duration="1961000" />
+      <workItem from="1717613571181" duration="2154000" />
+      <workItem from="1717888327188" duration="10806000" />
     </task>
     <servers />
   </component>

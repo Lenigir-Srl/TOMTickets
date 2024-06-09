@@ -62,7 +62,7 @@ function setSuccessModal(){
 }
 
 
-//Shows the notify modal on screen, this is bootstrap's js code
+//Shows notify modal on screen, this is bootstrap's js code
 function showNotifyModal() {
     var notifyModal = document.getElementById('notifyModal');
 
@@ -79,7 +79,7 @@ function showNotifyModal() {
     }
 }
 
-//Closes the notify modal, this is bootstrap's js code
+//Closes notify modal, this is bootstrap's js code
 function closeNotifyModal() {
     var notifyModal = document.getElementById('notifyModal');
 

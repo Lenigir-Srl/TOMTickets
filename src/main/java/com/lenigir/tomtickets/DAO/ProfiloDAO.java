@@ -49,7 +49,7 @@ public class ProfiloDAO {
             ps.setString(7, profilo.getPhoneNumber());
             ps.setInt(8, profilo.getAcquisti());
             ps.setBoolean(9, profilo.isAdmin());
-
+            ps.executeUpdate();
             return;
 
         } catch (SQLException e) {
@@ -197,7 +197,11 @@ public class ProfiloDAO {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
 
-            return rs.next();
+            if(rs.next() == true){
+                return true;
+            }else{
+                return false;
+            }
 
         } catch (SQLException e) {
             throw new SQLException(e);

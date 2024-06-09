@@ -1,46 +1,32 @@
 class eventCard {
     // All the attributes of the event
-    #title;
-    #subtitle;
-    #description;
-    #event_type;
-    #place;
-    #date;
-    #hour;
-    #image;
-    #ticket_type;
-    #price;
-    #discount;
-    #numberOfClicks;
+    title;
+    place;
+    date;
+    eventType;
+    image;
+    price;
+    discount;
 
     // Constructor for the class, we set everything to have a default value of the type "default<Name>"
     constructor(
         title = "defaultTitle",
-        subtitle = "defaultSubTitle",
-        description = "defaultDescription",
-        eventType = "defaultEventType",
         place = "defaultPlace",
+        eventType = "defaultType",
         date = "defaultDate",
-        hour = "defaultHour",
         image = "...",
-        ticket_type = "defaultTicketType",
         price = "defaultPrice",
         discount = "defaultDiscount",
-        numberOfClicks = "defaultNumberOfClicks"
     ) {
         this.title = title;
-        this.subtitle = subtitle;
-        this.description = description;
-        this.eventType = eventType;
         this.place = place;
+        this.eventType = eventType;
         this.date = date;
-        this.hour = hour;
         this.image = image;
-        this.ticket_type = ticket_type;
         this.price = price;
         this.discount = discount;
-        this.numberOfClicks = numberOfClicks;
     }
+
 
     // Returns the header block of the card, this just contains the title of the event and has a
     // different background color based on the type of event it's displaying
@@ -184,7 +170,7 @@ class eventCard {
         second_half_container.appendChild(getSeparator());
 
         // Sconto
-        if (this.discount != 0) {
+        if (this.discount !== 0) {
             // If there's a discount we print its value
             second_half_container.appendChild(makeRow("Sconto:", "./utils/discount-icon.png", "-" + this.discount + "%"));
         } else {
@@ -276,18 +262,14 @@ function mostraCards(datiJson) {
         // Create a new object of type "event" and use its methods
         var event = new eventCard(
             elemento.titolo,
-            elemento.sottotitolo,
-            elemento.descrizione,
-            elemento.tipologia,
             elemento.luogo,
+            elemento.tipologia,
             elemento.data,
-            elemento.ora,
             elemento.image,
-            elemento.tipologiaBiglietti,
             elemento.prezzo,
-            elemento.sconto,
-            elemento.numeroClick
+            elemento.sconto
         );
+
 
         // Get the entire card block with the event information in it
         // insert it inside the column

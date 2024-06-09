@@ -79,7 +79,11 @@
            this.date = date;
            this.hour = hour;
            this.image = image;
-           this.ticket_type = ticket_type;
+           if(ticket_type == "InPiedi"){
+               this.ticket_type = "In Piedi";
+           }else{
+               this.ticket_type = ticket_type;
+           }
            this.price = price;
            this.discount = discount;
            this.numberOfClicks = numberOfClicks;
@@ -140,14 +144,14 @@
                 this.eventType = "Evento Sportivo";
                 card_header.style.backgroundColor = "orange";
                 break;
-	    case "Evento Sportivo":
+	        case "Evento Sportivo":
                 card_header.style.backgroundColor = "orange";
                 break;
             case "SpettacoliTeatrali":
                 this.eventType = "Spettacolo Teatrale";
                 card_header.style.backgroundColor = "green";
                 break;
-	    case "Spettacolo Teatrale":
+	        case "Spettacolo Teatrale":
                 card_header.style.backgroundColor = "green";
                 break;
             case "VisiteGuidate":
@@ -157,7 +161,7 @@
             case "Visita Guidata":
                 card_header.style.backgroundColor = "purple";
                 break;
-	    default:
+	        default:
                 card_header.style.backgroundColor = "blue";
                 break;
         }
@@ -633,6 +637,14 @@
 
 // Function that shows the cards of the events
 function mostraCards(datiJson) {
+
+    var check = document.getElementById("isOrdered");
+    if (check.checked) {
+        datiJson.sort(function(a, b) {
+            return a.numeroClick < b.numeroClick;
+        });
+    }
+
     // div inside the "Eventi.jsp"
     var cardList = document.getElementById("eventiCards");
 

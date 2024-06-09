@@ -10,7 +10,7 @@ import java.sql.*;
 
 // This Servlet handles login with user credentials:
 // it requires the parameters "user" and "password" and It will
-// check the existance of those credentials over a list of hardcoded
+// check the existence of those credentials over a list of hardcoded
 // users. If it finds the credentials, the user will be granted a session.
 //
 public class Login extends HttpServlet {
@@ -41,62 +41,57 @@ public class Login extends HttpServlet {
       // DB Connection
       try {
 
-        // Connecting
-        String url = "jdbc:derby://localhost:1527/DerbyDB";
-        Connection con = DriverManager.getConnection(url);
+          // Connecting
+          String url = "jdbc:derby://localhost:1527/DerbyDB";
+          Connection con = DriverManager.getConnection(url);
 
-        // Get parameters name and password
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
+          // Get parameters name and password
+          String username = req.getParameter("username");
+          String password = req.getParameter("password");
 
-        //Create Java Bean for profile
-	    TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
-        TentativoAccessoDAO.checkUser(tentativoAccessoBean, con);
+          //Create Java Bean for profile
+          TentativoAccessoBean tentativoAccessoBean = new TentativoAccessoBean(username, password);
+          TentativoAccessoDAO.checkUser(tentativoAccessoBean, con);
 
-        // Check for existance and create session
-        if (tentativoAccessoBean.getValid()) {
+          // Check for existance and create session
+          if (tentativoAccessoBean.getValid()) {
 
-            HttpSession session = req.getSession();
+              HttpSession session = req.getSession();
         
-            // Thread safe
-            synchronized(session) {
+              // Thread safe
+              synchronized(session) {
 
-                // Set name attribute
-                session.setAttribute("username", username);
-		
-		if(ProfiloDAO.isAdmin(username, con)){
-                    session.setAttribute("isAdmin", true);
-		}else{
-		    session.setAttribute("isAdmin", false);
-		}
+                  // Set name attribute
+                  session.setAttribute("username", username);
 
-                // Set DB connection attribute
-                SessionConnection sessionconnection = new SessionConnection(con);
-                session.setAttribute("sessionconnection", sessionconnection);
-            }
+                  if(ProfiloDAO.isAdmin(username, con)){
+                      session.setAttribute("isAdmin", true);
+                  }else{
+                      session.setAttribute("isAdmin", false);
+                  }
 
-            // Redirect to another page
-            // req.getRequestDispatcher("./HelloServlet").forward(req, res);
-            req.setAttribute("title", "Login");
-	    req.setAttribute("OK", "Accesso nel profilo effettuato con successo!");
-            req.setAttribute("description", "Hai inserito le credenziali corrette e adesso ti trovi dentro il tuo profilo.<br>Siamo felici di rivederti, " + username + "!");
-	    req.getRequestDispatcher("/OK").forward(req, res);
-	}
-        else {
-            
-            con.close();
-    	    req.setAttribute("username", username);
-	    req.setAttribute("password", password);
-	    req.setAttribute("wrongCredentials", true);
-            req.getRequestDispatcher("/jsp/Loginpage.jsp").forward(req, res);
-	    //res.sendRedirect("/risto89-1.0/login");
-        }
+                  // Set DB connection attribute
+                  SessionConnection sessionconnection = new SessionConnection(con);
+                  session.setAttribute("sessionconnection", sessionconnection);
+              }
+
+              // Redirect to another page
+              req.setAttribute("title", "Login");
+              req.setAttribute("OK", "Accesso nel profilo effettuato con successo!");
+              req.setAttribute("description", "Hai inserito le credenziali corrette e adesso ti trovi dentro il tuo profilo.<br>Siamo felici di rivederti, " + username + "!");
+              req.getRequestDispatcher("/OK").forward(req, res);
+          }else{
+              con.close();
+              req.setAttribute("username", username);
+              req.setAttribute("password", password);
+              req.setAttribute("wrongCredentials", true);
+              req.getRequestDispatcher("/jsp/Loginpage.jsp").forward(req, res);
+          }
 
       }
       catch (SQLException e) {
-
-        req.setAttribute("error", "Errore di connessione al database");
-        req.getRequestDispatcher("/error").forward(req, res);
+          req.setAttribute("error", "Errore di connessione al database");
+          req.getRequestDispatcher("/error").forward(req, res);
       }
 
   }
@@ -105,9 +100,7 @@ public class Login extends HttpServlet {
   		     HttpServletResponse res)
      throws ServletException, IOException
   {
-    
-    res.setCharacterEncoding("UTF-8");
-    req.getRequestDispatcher("/jsp/Loginpage.jsp").include(req, res);
-    
+        res.setCharacterEncoding("UTF-8");
+        req.getRequestDispatcher("/jsp/Loginpage.jsp").include(req, res);
   }
 }

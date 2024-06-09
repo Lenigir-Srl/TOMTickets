@@ -12,18 +12,18 @@
 
        constructor(name = "defaultName", surname = "defaultSurname", dateOfBirth = "defaultDateOfBirth", phoneNumber = "defaultPhoneNumber", email = "defaultEmail", username = "defaultUserName", password = "defaultPassword", numberOfPurchases = 0, isAdmin = false) {
             this.name = name;
-	   this.surname = surname;
-	   this.dateOfBirth = dateOfBirth;
-	   this.phoneNumber = phoneNumber;
-	   this.email = email;
-	   this.username = username;
-	   this.password = password;
-	   this.numberOfPurchases = numberOfPurchases;
-	   if(isAdmin){
-		this.isAdmin = "Si";
-	   }else{
+            this.surname = surname;
+            this.dateOfBirth = dateOfBirth;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+            this.username = username;
+            this.password = password;
+            this.numberOfPurchases = numberOfPurchases;
+            if(isAdmin){
+                this.isAdmin = "Si";
+            }else{
                 this.isAdmin = "No";
-	   }
+            }
        }
 
        //Private method
