@@ -1,3 +1,4 @@
+<script>
 class eventoCard {
     // All the attributes of the event
     title;
@@ -284,8 +285,9 @@ class eventoCard {
         // Blue button
 
         // Green button to buy the event
+        var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
         var acquistaForm = document.createElement("form");
-        acquistaForm.action = getUrl() + "/acquistaevento";
+        acquistaForm.action = getUrl() + "/acquistaevento" + '?jsessionid=' + jsessionid;
         acquistaForm.method = "POST";
 
         var hiddenInput = document.createElement("input");
@@ -383,4 +385,4 @@ function mostraLista() {
             content.innerHTML = 'Error fetching data.';
         });
 }
-
+</script>

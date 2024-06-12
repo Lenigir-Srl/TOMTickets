@@ -228,8 +228,9 @@ class eventCard{
         moreDetails.classList.add("btn", "btn-primary");
         moreDetails.textContent = "Vedi dettagli";
 
+        var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
         const url = getUrl() + '/evento?titolo=';
-        moreDetails.href = encodeURI(url + this.title);
+        moreDetails.href = encodeURI(url + this.title + '&jsessionid=' + jsessionid);
         //Blue button
 
         footer.appendChild(moreDetails);

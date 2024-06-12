@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Update all <a> tags
     var links = document.getElementsByTagName('a');
     for (var i = 0; i < links.length; i++) {
-        links[i].href = encodeUrl(links[i].href);
+        if (links[i].href != "") {
+            links[i].href = encodeUrl(links[i].href);
+        }
     }
 
     // Update all form actions

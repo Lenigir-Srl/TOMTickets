@@ -1,5 +1,5 @@
 <%-- Include JS file into the page --%>
-<script type="text/javascript" src="js/PiuScontatiCarte.js"></script>
+<script><%@include file="/js/PiuScontatiCarte.js"%></script>
 
 <%-- Include CSS file into the page --%>
 <link rel="stylesheet" href="css/PiuScontatiCarte.css">

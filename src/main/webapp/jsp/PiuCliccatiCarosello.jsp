@@ -1,5 +1,6 @@
 <%-- Include JS file into the page --%>
-<script type="text/javascript" src="js/PiuCliccatiCarosello.js"></script>
+
+<script><%@include file="/js/PiuCliccatiCarosello.js"%></script>
 
 <%-- Include CSS file into the page --%>
 <link rel="stylesheet" href="css/PiuCliccatiCarosello.css">

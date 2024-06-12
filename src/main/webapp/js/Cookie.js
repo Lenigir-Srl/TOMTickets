@@ -44,6 +44,7 @@ function showCookieConsent() {
         // Show the modal
         bootstrapModal.show();
     }
+    console.log("modal");
 }
 
 document.addEventListener('DOMContentLoaded', function() {

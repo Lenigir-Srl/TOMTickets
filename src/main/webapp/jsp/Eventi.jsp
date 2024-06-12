@@ -3,8 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script> </script>
     <%-- Include JS file into the page --%>
-    <script type="text/javascript" src="js/Eventi.js"></script>
+    <%@include file="/js/Eventi.js"%>
+
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="/html/Metacontent.html"%>
     <title>TOMTickets - eventi</title>

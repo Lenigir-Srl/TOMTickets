@@ -1,3 +1,4 @@
+<script>
 function calcolaPrezzo() {
     var quantita = parseInt(document.getElementById("quantita").value, 10);
     var prezzo = parseFloat(document.getElementById("price").innerHTML);
@@ -122,7 +123,8 @@ function validateForm(){
         showNotifyModal();
         return false;
     }
-    document.getElementById("acquista").action = getUrl() + "/terminaacquisto";
+    var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
+    document.getElementById("acquista").action = getUrl() + "/terminaacquisto" + '?jsessionid=' + jsessionid;
     return true;
 }
-
+</script>

@@ -1,6 +1,9 @@
 <%-- Make special characters (ù è à) and java coding available --%>
 <%@page language="java" contentType="text/html;charset=UTF-8"%>
 
+<!-- Cookie encorder -->
+<%@include file="/js/EncodeToken.js"%>
+
 <%-- Include JS file into the page --%>
 <script type="text/javascript" src="js/Header.js"></script>
 
