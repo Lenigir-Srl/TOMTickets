@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script> </script>
     <%-- Include JS file into the page --%>
     <%@include file="/js/Eventi.js"%>
 

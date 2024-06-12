@@ -359,11 +359,16 @@ function mostraLista() {
     //So I guess we'll just leave it like the way it is now.
 
     // Creating the url needed to call the api
+    var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
     var url =  getUrl() + '/ottieniEvento';
     if (titolo !== "") {
         // Add the specific type of event request (GET)
-        url += '?titolo=' + titolo;
+        url += '?titolo=' + titolo + '&jsessionid' = jsessionid;
     }
+    else {
+        url += '?jsessionid' = jsessionid;
+    }
+    
 
     // Let's call the api!
     fetch(url)

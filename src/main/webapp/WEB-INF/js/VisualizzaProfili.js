@@ -241,7 +241,10 @@
     }
 
     function mostraLista(){
+
+        var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
         let url = getUrl() + '/ottieniProfili';
+        url += '?jsessionid=' + jsessionid;
            fetch(url)
                 .then(function(response) {
                     if (!response.ok) {
