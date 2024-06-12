@@ -1,46 +1,32 @@
 class eventCard {
     // All the attributes of the event
-    #title;
-    #subtitle;
-    #description;
-    #event_type;
-    #place;
-    #date;
-    #hour;
-    #image;
-    #ticket_type;
-    #price;
-    #discount;
-    #numberOfClicks;
+    title;
+    place;
+    date;
+    eventType;
+    image;
+    price;
+    discount;
 
     // Constructor for the class, we set everything to have a default value of the type "default<Name>"
     constructor(
         title = "defaultTitle",
-        subtitle = "defaultSubTitle",
-        description = "defaultDescription",
-        eventType = "defaultEventType",
         place = "defaultPlace",
+        eventType = "defaultType",
         date = "defaultDate",
-        hour = "defaultHour",
         image = "...",
-        ticket_type = "defaultTicketType",
         price = "defaultPrice",
         discount = "defaultDiscount",
-        numberOfClicks = "defaultNumberOfClicks"
     ) {
         this.title = title;
-        this.subtitle = subtitle;
-        this.description = description;
-        this.eventType = eventType;
         this.place = place;
+        this.eventType = eventType;
         this.date = date;
-        this.hour = hour;
         this.image = image;
-        this.ticket_type = ticket_type;
         this.price = price;
         this.discount = discount;
-        this.numberOfClicks = numberOfClicks;
     }
+
 
     // Returns the header block of the card, this just contains the title of the event and has a
     // different background color based on the type of event it's displaying
@@ -86,7 +72,7 @@ class eventCard {
     }
 
     // Returns the body block of the card, this might seem complex and long but its just to show the
-    // event informations in a decent manner to the user (writing html in javascript is not the best!)
+    // event information in a decent manner to the user (writing html in javascript is not the best!)
     _getBody() {
         // card-body
         var body = document.createElement("div");
@@ -102,11 +88,11 @@ class eventCard {
         var first_half_image = document.createElement("div");
         first_half_image.classList.add("col-md-12", "d-flex", "justify-content-center", "pt-1");
 
-        // Image event, a bit of styling and then we add it to its half
+        // Image event, a bit of styling, and then we add it to its half
         var image = document.createElement("img");
         image.classList.add("img-fluid", "rounded", "d-block"); // Bootstrap classes for responsive images and centering
         image.style.maxHeight = "200px";
-        image.src = "/TOMTickets-1.0/immagini/" + this.image;
+        image.src = "immagini/" + this.image;
         first_half_image.appendChild(image);
 
         // This half will contain a table-like element that displays the event's information
@@ -117,7 +103,7 @@ class eventCard {
         var second_half_container = document.createElement("div");
         second_half_container.classList.add("card-body", "bg-dark", "rounded");
 
-        // Since we need to display many event informations, might as well make a function for it!
+        // Since we need to display many event information, might as well make a function for it!
         function makeRow(title = "defaultTitle", image = "defaultImage", content = "defaultContent") {
             // A row that contains one information of the event
             var row = document.createElement("div");
@@ -127,7 +113,7 @@ class eventCard {
             var row_container = document.createElement("div");
             row_container.classList.add("text-white", "d-flex", "justify-content-between");
 
-            // This is a container that has an image and some text inside of it
+            // This is a container that has an image and some text inside it
             var image_title = document.createElement("span");
             image_title.classList.add("d-flex");
 
@@ -161,13 +147,14 @@ class eventCard {
             // Add it to the container
             row_container.appendChild(content_container);
 
-            // Add the container to the actual row and we're done!!
+            // Add the container to the actual row, and we're done!!
             row.appendChild(row_container);
 
             return row;
         }
 
-        // This function just makes an hr element to make a gray thin line that acts as a separator
+
+        // This function just makes a hr element to make a gray thin line that acts as a separator
         function getSeparator() {
             var hr = document.createElement("hr");
             hr.classList.add("hr", "hr-blurry", "text-white");
@@ -183,7 +170,7 @@ class eventCard {
         second_half_container.appendChild(getSeparator());
 
         // Sconto
-        if (this.discount != 0) {
+        if (this.discount !== 0) {
             // If there's a discount we print its value
             second_half_container.appendChild(makeRow("Sconto:", "./utils/discount-icon.png", "-" + this.discount + "%"));
         } else {
@@ -210,7 +197,7 @@ class eventCard {
         body_container.appendChild(first_half_image);
         body_container.appendChild(second_half_details);
 
-        // Add the container to its actual card-body and we're done!!!
+        // Add the container to its actual card-body, and we're done!!!
         body.appendChild(body_container);
         return body;
     }
@@ -225,7 +212,7 @@ class eventCard {
         moreDetails.classList.add("btn", "btn-primary");
         moreDetails.textContent = "Vedi dettagli";
 
-        const url = '/TOMTickets-1.0/evento?titolo=';
+        const url = getUrl() + '/evento?titolo=';
         moreDetails.href = encodeURI(url + this.title);
         // Blue button
 
@@ -235,7 +222,7 @@ class eventCard {
 
     // Returns the whole Card element, calls the other methods created previously
     getCard() {
-        //Card contatiner, inside of it: card header, card body and card footer
+        //Card contatiner, inside it: card header, card body and card footer
         var card = document.createElement("div");
         card.classList.add("card", "h-100");
 
@@ -275,20 +262,16 @@ function mostraCards(datiJson) {
         // Create a new object of type "event" and use its methods
         var event = new eventCard(
             elemento.titolo,
-            elemento.sottotitolo,
-            elemento.descrizione,
-            elemento.tipologia,
             elemento.luogo,
+            elemento.tipologia,
             elemento.data,
-            elemento.ora,
             elemento.image,
-            elemento.tipologiaBiglietti,
             elemento.prezzo,
-            elemento.sconto,
-            elemento.numeroClick
+            elemento.sconto
         );
 
-        // Get the entire card block with the event informations in it
+
+        // Get the entire card block with the event information in it
         // insert it inside the column
         col.appendChild(event.getCard());
 
@@ -323,8 +306,8 @@ function mostraLista() {
     // tipologia = "${tipologia}"   <--- This line is inside "Eventi.jsp"
 
     // Creating the url needed to call the api
-    var url = '/TOMTickets-1.0/ottieniEventi';
-    if (tipologia != "") {
+    var url = getUrl() + '/ottieniEventi';
+    if (tipologia !== "") {
         // Add the specific type of event request (GET)
         url += '?tipologia=' + tipologia;
     }
@@ -340,7 +323,7 @@ function mostraLista() {
             return response.json();
         })
         .then(function (data) {
-            // Lets show the obtained JSON to the browser!
+            // Let's show the obtained JSON to the browser!
             mostraCards(data);
         })
         .catch(function (error) {

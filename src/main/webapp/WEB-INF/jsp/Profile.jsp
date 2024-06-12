@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <%@include file="../js/Profile.js"%>
+    <script><%@include file="../js/Profile.js"%></script>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="../../html/Metacontent.html"%>
     <title>TOMTickets - Profilo</title>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-md mt-1 mb-1">
                             <form action="./eliminaProfilo" id="deleteProfile" method="post">
-                                <button type="button" onclick="return checkChoice()" id="deleteProfile" class="btn btn-warning">Elimina il mio Profilo</button>
+                                <button type="button" onclick="return checkChoice()" class="btn btn-warning">Elimina il mio Profilo</button>
                             </form>
                         </div>
                     </div>

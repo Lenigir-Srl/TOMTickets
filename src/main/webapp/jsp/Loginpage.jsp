@@ -33,7 +33,7 @@
 
                         <div class="form-outline mb-4">
                             <input type="text" id="username" name="username" class="form-control form-control-lg border border-dark" required />
-                            <label class="form-label" for="email">Username</label>
+                            <label class="form-label" for="username">Username</label>
                         </div>
 
                         <div class="form-outline mb-4">
@@ -81,11 +81,11 @@
     <% if(wrongCredentials == true){ %>
     <%--Show the modal--%>
     <script>
-        document.getElementById("username").value = "<%= request.getAttribute("username") %>";
-        document.getElementById("password").value = "<%= request.getAttribute("password") %>";
         document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("username").value = "<%= request.getAttribute("username") %>";
+            document.getElementById("password").value = "<%= request.getAttribute("password") %>";
             setTimeout(showErrorModal(
-                "Credenziali errate", 
+                "Credenziali errate",
                 "Lo username e la password non corrispondono a nessun profilo esistente.<br>Controlla che tu abbia inserito le credenziali corrette per accedere nel tuo profilo."), 100);
         });
     </script>

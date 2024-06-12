@@ -1,17 +1,17 @@
 class eventoCard {
     // All the attributes of the event
-    #title;
-    #subtitle;
-    #description;
-    #event_type;
-    #place;
-    #date;
-    #hour;
-    #image;
-    #ticket_type;
-    #price;
-    #discount;
-    #numberOfClicks;
+    title;
+    subtitle;
+    description;
+    eventType;
+    place;
+    date;
+    hour;
+    image;
+    ticket_type;
+    price;
+    discount;
+    numberOfClicks;
 
     // Constructor for the class, we set everything to have a default value of the type "default<Name>"
     constructor(
@@ -36,7 +36,11 @@ class eventoCard {
         this.date = date;
         this.hour = hour;
         this.image = image;
-        this.ticket_type = ticket_type;
+        if(ticket_type == "InPiedi"){
+            this.ticket_type = "In Piedi";
+        }else{
+            this.ticket_type = ticket_type;
+        }
         this.price = price;
         this.discount = discount;
         this.numberOfClicks = numberOfClicks;
@@ -45,7 +49,7 @@ class eventoCard {
     //Returns the header of the event card, this changes its color based on which kind of event it is displaying
     _getDetailsCardHeader() {
 
-        //The header of the card, inside of it we have a different color and the title of the event
+        //The header of the card, inside it we have a different color and the title of the event
         var card_header = document.createElement("div");
         card_header.classList.add("card-header", "text-white", "h3", "text-center");
 
@@ -77,11 +81,11 @@ class eventoCard {
         return card_header;
     }
 
-    //Returns the body of the event card, this might seem complicated but its all
+    //Returns the body of the event card, this might seem complicated, but it's all
     //styling and html writing via javascript
     _getDetailsCardBody() {
 
-        //The body of the card, inside of it we are going to place everything we need
+        //The body of the card, inside it we are going to place everything we need
         var card_body = document.createElement("div");
         card_body.classList.add("card-body", "text-center");
 
@@ -136,8 +140,8 @@ class eventoCard {
         first_row.appendChild(subtitle_description_container);
 
 
-        //The second row shows the event's info, its just a table but made to appear
-	//decent to the user ;)
+        //The second row shows the event's info, it's just a table but made to appear
+	    //decent to the user ;)
         var second_row = document.createElement("div");
         second_row.classList.add("row", "container-fluid", "mx-auto");
 
@@ -158,11 +162,11 @@ class eventoCard {
         function makeRow(title = "defaultTitle", image = "defaultImage", content = "defaultContent") {
             
             //Our row, made to center things up
-	    var row = document.createElement("div");
+	        var row = document.createElement("div");
             row.classList.add("row", "d-flex", "justify-content-center");
 
-            //Our actual row, contains an image, a title and the content inside of it
-	    var row_container = document.createElement("div");
+            //Our actual row, contains an image, a title and the content inside it
+	        var row_container = document.createElement("div");
             row_container.classList.add("text-white", "row");
 
             //Image is just a tiny icon that resembles what the information is all about (e.g. an image of a pointer for the number of clicks)
@@ -198,7 +202,7 @@ class eventoCard {
             return row;
         }
 
-        //This function just makes an hr element to make a gray thin line that acts as a separator
+        //This function just makes a hr element to make a gray thin line that acts as a separator
         function getSeparator() {
             var hr = document.createElement("hr");
             hr.classList.add("hr", "hr-blurry");
@@ -206,19 +210,19 @@ class eventoCard {
             return hr;
         }
 
-	//Let's use our function to actually create each row for the infos!
+	    //Let's use our function to actually create each row for the infos!
 
         //Left side of table
-	second_row_first_col.appendChild(makeRow("Data:", "utils/calendar-icon.png", this.date));
+	    second_row_first_col.appendChild(makeRow("Data:", "utils/calendar-icon.png", this.date));
         second_row_first_col.appendChild(getSeparator());
 
         second_row_first_col.appendChild(makeRow("Ora:", "utils/clock-icon.png", this.hour));
         second_row_first_col.appendChild(getSeparator());
         
-	second_row_first_col.appendChild(makeRow("Luogo:", "utils/location-icon.png", this.place));
+	    second_row_first_col.appendChild(makeRow("Luogo:", "utils/location-icon.png", this.place));
         second_row_first_col.appendChild(getSeparator());
         
-	second_row_first_col.appendChild(makeRow("Clicks:", "utils/click-icon.png", this.numberOfClicks));
+	    second_row_first_col.appendChild(makeRow("Clicks:", "utils/click-icon.png", this.numberOfClicks));
         //Left side of table
 
 
@@ -226,7 +230,7 @@ class eventoCard {
         second_row_second_col.classList.add("col-md-6");
 
         //This hr is special because it has to disappear when the screen is small enough to be a "mobile phone" or a "tablet" unlike the others
-	var special_hr = document.createElement("hr");
+	    var special_hr = document.createElement("hr");
         special_hr.classList.add("hr", "hr-blurry", "d-md-none", "d-block");
 
         second_row_first_col.appendChild(special_hr);
@@ -236,13 +240,13 @@ class eventoCard {
         second_row_second_col.appendChild(makeRow("Evento:", "utils/event-icon.png", this.eventType));
         second_row_second_col.appendChild(getSeparator());
         
-	second_row_second_col.appendChild(makeRow("Biglietto:", "utils/ticket-icon.png", this.ticket_type));
+	    second_row_second_col.appendChild(makeRow("Biglietto:", "utils/ticket-icon.png", this.ticket_type));
         second_row_second_col.appendChild(getSeparator());
         
-	second_row_second_col.appendChild(makeRow("Prezzo:", "utils/price-icon.png", this.price + " euro"));
+	    second_row_second_col.appendChild(makeRow("Prezzo:", "utils/price-icon.png", this.price + " euro"));
         second_row_second_col.appendChild(getSeparator());
         
-	if (this.discount != "0") {
+	    if (this.discount !== "0") {
             second_row_second_col.appendChild(makeRow("Sconto:", "utils/discount-icon.png", "-" + this.discount + "%"));
         } else {
             second_row_second_col.appendChild(makeRow("Sconto:", "utils/discount-icon.png", "No"));
@@ -281,7 +285,7 @@ class eventoCard {
 
         // Green button to buy the event
         var acquistaForm = document.createElement("form");
-        acquistaForm.action = "/TOMTickets-1.0/acquistaevento";
+        acquistaForm.action = getUrl() + "/acquistaevento";
         acquistaForm.method = "POST";
 
         var hiddenInput = document.createElement("input");
@@ -346,15 +350,15 @@ function mostraEvento(elemento) {
 function mostraLista() {
     // The page has to show a single event, identified by the title
     // We use this variable to write a GET request and get only that event
-    // titolo = "${titolo}"   <--- This line is inside "Eventi.jsp"
+    // titolo = "${titolo}"   <--- This line is inside "Evento.jsp"
     //
     //Calling "ottieniEvento" makes the number of clicks increase by one, that also happens if 
     //we just refresh the page....this could be wanted or not and that depends on the manager himself, really.
-    //So i guess we'll just leave it like the way it is now.
+    //So I guess we'll just leave it like the way it is now.
 
     // Creating the url needed to call the api
-    var url = '/TOMTickets-1.0/ottieniEvento';
-    if (titolo != "") {
+    var url =  getUrl() + '/ottieniEvento';
+    if (titolo !== "") {
         // Add the specific type of event request (GET)
         url += '?titolo=' + titolo;
     }
@@ -370,7 +374,7 @@ function mostraLista() {
             return response.json();
         })
         .then(function (data) {
-            // Lets show the obtained JSON to the browser!
+            // Let's show the obtained JSON to the browser!
             mostraEvento(data);
         })
         .catch(function (error) {

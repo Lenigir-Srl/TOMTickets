@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <%@include file="../js/GestioneEventi.js"%>
+    <script><%@include file="../js/GestioneEventi.js"%></script>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="../../html/Metacontent.html"%>
     <title>TOMTickets - Gestione Eventi</title>
@@ -40,7 +40,7 @@
                 <div class="card-footer d-flex flex-column flex-md-row justify-content-center align-items-center text-center">
                     <div class="text-center mb-2 mb-md-0">
                         <input class="form-check-input fs-3 me-2" onchange="mostraLista()" type="checkbox" id="isOrdered" autocomplete="off">
-                        <label class="form-check-label fs-6" for="isOrdered">Ordina per numero di visualizzazioni</label>
+                        <label class="form-check-label fs-6" for="isOrdered">Ordina per numero di clicks</label>
                     </div>
                     <div class="text-start ms-md-auto">
                         <button type="button" onclick="openChartModal()" id="Charts" class="btn btn-primary">Diagrammi</button>

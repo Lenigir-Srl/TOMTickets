@@ -58,7 +58,6 @@ function validateForm() {
   // Check if the user is 18 years or older
   if (age < 18) {
     showErrorModal("Non sei maggiorenne!", "Per motivi legali noi di TOMTickets non possiamo ammettere minorenni all'interno del nostro sito.<br>Grazie per la comprensione!");
-    showNotifyModal();
     return false;
   }
   
@@ -135,7 +134,6 @@ function validateForm() {
   return true; // Form is valid
 
 }
-
 
 function makePasswordVisible(){
     var passwordBox = document.getElementById("password");

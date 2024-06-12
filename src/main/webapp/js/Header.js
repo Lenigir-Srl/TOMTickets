@@ -1,3 +1,22 @@
+
+//Returns the root of the url (e.g. "TOMTickets_war_exploded")
+function getUrl(){
+    // Get the current URL
+    var currentURL = window.location.href;
+
+    // Use regular expression to extract the root URL
+    var match = currentURL.match(/^https?:\/\/[^\/]+\/([^\/]+)/);
+
+    // Check if a match is found
+    if (match && match.length > 1) {
+        var rootURL = match[1];
+        return '/' + rootURL;
+    } else {
+        console.error("Root URL not found in the current URL.");
+    }
+}
+
+//Checks if the sound is on
 function checkSound(){
     if(window.localStorage.getItem('sound') == 'true'){
         return true;
@@ -6,16 +25,19 @@ function checkSound(){
     }
 }
 
+//Turns the sound on
 function enableSound(){
     window.localStorage.setItem('sound', true);
     document.getElementById('soundIcon').src = 'utils/sound-icon.png';
 }
 
+//Turns the sound off
 function disableSound(){
     window.localStorage.setItem('sound', false);
     document.getElementById('soundIcon').src = 'utils/muted-icon.png';
 }
 
+//If the sound is on it gets turned off, and viceversa
 function switchSound(){
     if(checkSound()){
         disableSound();

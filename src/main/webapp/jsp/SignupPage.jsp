@@ -11,6 +11,7 @@
     <title>TOMTickets - signup</title>
 </head>
 <body>
+
     <!--NAVIGATION BAR-->
     <%@include file="/jsp/Header.jsp"%>
     <!--NAVIGATION BAR-->
@@ -53,20 +54,20 @@
                                 </div>
                             </div>
                         </div>
-			<div class="row">
-			    <div class="col-md-6 mb-2">
+			            <div class="row">
+			                <div class="col-md-6 mb-2">
                                 <div class="form-outline mb-2">
                                     <input type="email" id="email" name="email" class="form-control border border-dark" required />
                                     <label class="form-label" for="email">Indirizzo Email</label>
                                 </div>
-		            </div>
-			    <div class="col-md-6 mb-2">
+		                    </div>
+			                <div class="col-md-6 mb-2">
                                 <div class="form-outline mb-2">
                                     <input type="text" id="username" name="username" class="form-control border border-dark" required />
                                     <label class="form-label" for="username">Username</label>
                                 </div>
                             </div>
-			</div>
+			            </div>
                         <div class="row">
                             <div class="col-md-6 mb-2">
                                 <div class="form-outline">
@@ -110,26 +111,28 @@
     <%@include file="/jsp/Notify.jsp"%>
     <!--NOTIFICATION-->
 
-    <%--Existing username modal info--%>
-    <% boolean existingUsername = false; %>
-    <% if(request.getAttribute("existingUsername") != null){ %>
-    <%   existingUsername = (boolean) request.getAttribute("existingUsername"); %>
+    <%--Wrong credentials modal info--%>
+    <% boolean wrongCredentials = false; %>
+    <% if(request.getAttribute("wrongCredentials") != null){ %>
+    <%   wrongCredentials = (boolean) request.getAttribute("wrongCredentials"); %>
     <% } %>
-    <% if(existingUsername == true){ %>
+    <% if(wrongCredentials == true){ %>
     <%--Show the modal--%>
-         <script>
-	 document.getElementById("nome").value = "<%= request.getAttribute("name") %>";
-	 document.getElementById("cognome").value = "<%= request.getAttribute("surname") %>";
-	 document.getElementById("dataNascita").value = "<%= request.getAttribute("dateOfBirth") %>";
-	 document.getElementById("email").value = "<%= request.getAttribute("email") %>";
-	 document.getElementById("telefono").value = "<%= request.getAttribute("phoneNumber") %>";
-	 document.getElementById("username").value = "<%= request.getAttribute("username") %>";
-	 document.getElementById("password").value = "<%= request.getAttribute("password") %>";
-	 document.getElementById("ripetiPassword").value = "<%= request.getAttribute("password") %>";
-	 document.addEventListener('DOMContentLoaded', function() {
-	     showErrorModal("Username non disponibile", "Ci dispiace ma lo username che hai inserito è gia associato ad un altro profilo.<br>Perfavore inserisci uno username diverso.");
-         });
-	 </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("nome").value = "<%= request.getAttribute("name") %>";
+            document.getElementById("cognome").value = "<%= request.getAttribute("surname") %>";
+            document.getElementById("dataNascita").value = "<%= request.getAttribute("dateOfBirth") %>";
+            document.getElementById("email").value = "<%= request.getAttribute("email") %>";
+            document.getElementById("telefono").value = "<%= request.getAttribute("phoneNumber") %>";
+            document.getElementById("username").value = "<%= request.getAttribute("username") %>";
+            document.getElementById("password").value = "<%= request.getAttribute("password") %>";
+            document.getElementById("ripetiPassword").value = "<%= request.getAttribute("password") %>";
+            setTimeout(showErrorModal(
+                "Credenziali errate",
+                "Lo username e la password non corrispondono a nessun profilo esistente.<br>Controlla che tu abbia inserito le credenziali corrette per accedere nel tuo profilo."), 100);
+        });
+    </script>
     <% } %>
 
 </body>

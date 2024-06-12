@@ -1,5 +1,3 @@
-<script>
-
 //Shows the Chart modal on screen, this is bootstrap's js code
 function showChartModal() {
     var chartModal = document.getElementById('chartModal');
@@ -34,6 +32,8 @@ function closeChartModal() {
 
 //Uses HighCharts's code to print the pie chart in the modal
 function pieChart(eventi, numeroClickTotali){
+    document.getElementById("chartType").style.backgroundColor = "green";
+    document.getElementById("chartTitle").innerHTML = "Grafico a Torta";
 Highcharts.chart('chartModalContent', {
     chart: {
         plotBackgroundColor: null,
@@ -70,67 +70,65 @@ Highcharts.chart('chartModalContent', {
     }]
 });
 }
-
-function barChart(){
-Highcharts.chart('chartModalContent', {
-
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'column',
-        styledMode: true
-    },
-
-    title: {
-        text: 'Average weight and BMI in some countries, women',
-        align: 'left'
-    },
-
-    subtitle: {
-        text: 'Source:', 
-	align: 'left'
-    },
-
-    xAxis: {
-        categories: ['Tokelau', 'Ireland', 'Italy', 'Timor-Leste']
-    },
-
-    yAxis: [{ // Primary axis
-        className: 'highcharts-color-0',
+//Uses HighCharts's code to print the bar chart in the modal
+function barChart(eventi, prezzi, sconti, clicks){
+    document.getElementById("chartType").style.backgroundColor = "orange";
+    document.getElementById("chartTitle").innerHTML = "Grafico a Barre";
+    Highcharts.chart('chartModalContent', {
+        chart: {
+            type: 'column'
+        },
         title: {
-            text: 'Weight'
-        }
-    }, { // Secondary axis
-        className: 'highcharts-color-1',
-        opposite: true,
-        title: {
-            text: 'BMI'
-        }
-    }],
-
-    plotOptions: {
-        column: {
-            borderRadius: 5
-        }
-    },
-
-    series: [{
-        name: 'Weight',
-        data: [92.5, 73.1, 64.8, 49.0],
-        tooltip: {
-            valueSuffix: ' kg'
-        }
-    }, {
-        name: 'BMI',
-        data: [33.7, 27.1, 24.9, 21.2],
-        yAxis: 1
-    }]
-
-});
+            text: 'Prezzo, Sconto e numero di clicks di ciascun evento',
+            align: 'left'
+        },
+        xAxis: {
+            categories: eventi,
+            crosshair: true,
+            accessibility: {
+                description: 'Eventi'
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'clicks/euro/%'
+            }
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+            {
+                name: 'Numero di clicks',
+                data: clicks,
+                tooltip: {
+                    valueSuffix: ' clicks'
+                }
+            },
+            {
+                name: 'Prezzo',
+                data: prezzi,
+                tooltip: {
+                    valueSuffix: ' euro'
+                }
+            },
+            {
+                name: 'Sconto',
+                data: sconti,
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }
+        ]
+    });
 
 }
 
+//Prepare the arrays that the chart will need
 function calculatePieChart(arrayJson){
         var totNumberOfClicks = 0;
 
@@ -148,8 +146,29 @@ function calculatePieChart(arrayJson){
     pieChart(pieChartValues, totNumberOfClicks);
 }
 
+//Prepare the arrays that the chart will need
+function calculateBarChart(arrayJson){
+    var eventi = arrayJson.map(function(evento) {
+        return evento.titolo;
+    });
+
+    var prezzi = arrayJson.map(function(evento) {
+        return evento.prezzo;
+    });
+
+    var sconti = arrayJson.map(function(evento) {
+        return evento.sconto;
+    });
+
+    var clicks = arrayJson.map(function(evento) {
+        return evento.numeroClick;
+    });
+    barChart(eventi, prezzi, sconti, clicks);
+}
+
+//Call the api to get the information about the events
 function printPieChart(){
-    let url = '/TOMTickets-1.0/ottieniEventi';
+    let url = getUrl() + '/ottieniEventi';
     fetch(url)
         .then(function(response) {
             if (!response.ok) {
@@ -169,8 +188,26 @@ function printPieChart(){
         }); 
 }
 
+//Call the api to get the information about the events
 function printBarChart(){
-    barChart();
+    let url = getUrl() + '/ottieniEventi';
+    fetch(url)
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse JSON data from response
+        })
+        .then(function(data) {
+            data.sort(function(a, b) {
+                return a.numeroClick < b.numeroClick;
+            });
+            calculateBarChart(data);
+        })
+        .catch(function(error) {
+            console.error('Error fetching data:', error);
+            content.innerHTML = 'Error fetching data.';
+        });
 }
 
 //Enables the PieChart button
@@ -222,4 +259,3 @@ function openChartModal(){
     showChartModal();
     showPieChart();
 }
-</script>

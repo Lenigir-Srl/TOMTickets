@@ -25,10 +25,10 @@ function countTime(){
 function showCookieConsent() {
     //Autoplay policy prevents an audio from being played if the user didnt do any action
     //https://developer.chrome.com/blog/autoplay
-    //So we just check if its the first time the user is entering the page, otherwise it meanse
+    //So we just check if it's the first time the user is entering the page, otherwise it meanse
     //he clicked the "Privacy" button in the header
     var checkFirstTimeVisit = window.localStorage.getItem('times_visited');
-    if (checkFirstTimeVisit != 0) {
+    if (checkFirstTimeVisit !== 0) {
         playCookieSound();
     }
     var cookieModal = document.getElementById('cookieModal');
@@ -48,7 +48,7 @@ function showCookieConsent() {
 
 document.addEventListener('DOMContentLoaded', function() {
     var checkFirstTimeVisit = window.localStorage.getItem('times_visited');
-    if (checkFirstTimeVisit == 0) {
+    if (checkFirstTimeVisit === 0) {
         window.localStorage.setItem("cookies", true);
         showCookieConsent();
     }
@@ -61,16 +61,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function setCookieConsent(Choice){
 	//Save the choice of the user inside a storage boolean variable called "cookies"
-	if(Choice == "T"){
+	if(Choice === "T"){
 		window.localStorage.setItem("cookies", true)
 	}else{
-		if(Choice == "F"){
+		if(Choice === "F"){
 			window.localStorage.setItem("cookies", false);
 		}else{
 			window.localStorage.setItem("cookies", "NaN");
 		}
 	}
-	if(window.localStorage.getItem('times_visited') == 0){
+	if(window.localStorage.getItem('times_visited') === 0){
            window.localStorage.setItem('times_visited', 1);
 	}
 	//Reload the page;

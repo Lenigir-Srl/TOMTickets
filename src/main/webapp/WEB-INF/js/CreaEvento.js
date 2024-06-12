@@ -1,6 +1,3 @@
-<script>
-
-
 function validateForm(){
   
   //Commonly used;
@@ -98,5 +95,4 @@ function clearFields(){
    form["image"].value = "";
    return;
 }
-</script>
 

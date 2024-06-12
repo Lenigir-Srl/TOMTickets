@@ -6,15 +6,15 @@
 
 
 <%-- Include JS file into the page --%>
-<%@include file="../js/Charts.js"%>
+<script><%@include file="../js/Charts.js"%></script>
 
 <%-- Include CSS file into the page --%>
-<%@include file="../css/Charts.css"%>
+<style><%@include file="../css/Charts.css"%></style>
 
 <div class="modal modal-xl fade" id="chartModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header text-white" id="pieChartType">
+            <div class="modal-header text-white" id="chartType">
                 <h5 class="modal-title" id="chartTitle">Diagrammi e Grafici</h5>
             </div>
             <div class="modal-body">

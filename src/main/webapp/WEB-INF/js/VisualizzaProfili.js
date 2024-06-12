@@ -1,10 +1,3 @@
-<script>
-
-//HELLO FELLOW TRAVELLER!!!!!!
-//
-//Be carefull down there, its very scary.
-//Also dont check the "_getBody" method of the "userCard" class please. Its for your mental care.
-
     class userCard{
 
        #name;
@@ -19,18 +12,18 @@
 
        constructor(name = "defaultName", surname = "defaultSurname", dateOfBirth = "defaultDateOfBirth", phoneNumber = "defaultPhoneNumber", email = "defaultEmail", username = "defaultUserName", password = "defaultPassword", numberOfPurchases = 0, isAdmin = false) {
             this.name = name;
-	   this.surname = surname;
-	   this.dateOfBirth = dateOfBirth;
-	   this.phoneNumber = phoneNumber;
-	   this.email = email;
-	   this.username = username;
-	   this.password = password;
-	   this.numberOfPurchases = numberOfPurchases;
-	   if(isAdmin){
-		this.isAdmin = "Si";
-	   }else{
+            this.surname = surname;
+            this.dateOfBirth = dateOfBirth;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+            this.username = username;
+            this.password = password;
+            this.numberOfPurchases = numberOfPurchases;
+            if(isAdmin){
+                this.isAdmin = "Si";
+            }else{
                 this.isAdmin = "No";
-	   }
+            }
        }
 
        //Private method
@@ -248,7 +241,7 @@
     }
 
     function mostraLista(){
-        let url = '/TOMTickets-1.0/ottieniProfili';
+        let url = getUrl() + '/ottieniProfili';
            fetch(url)
                 .then(function(response) {
                     if (!response.ok) {
@@ -268,4 +261,3 @@
 
     }
 
-</script> 
