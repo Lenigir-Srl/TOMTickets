@@ -212,8 +212,10 @@ class eventCard {
         moreDetails.classList.add("btn", "btn-primary");
         moreDetails.textContent = "Vedi dettagli";
 
-        const url = getUrl() + '/evento?titolo=';
-        moreDetails.href = encodeURI(url + this.title);
+
+        var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
+        const url = getUrl() + '/evento';
+        moreDetails.href = encodeURI(url + ';jsessionid=' + jsessionid + '?titolo=' + this.title);
         // Blue button
 
         footer.appendChild(moreDetails);
@@ -306,12 +308,12 @@ function mostraLista() {
     // tipologia = "${tipologia}"   <--- This line is inside "Eventi.jsp"
 
     // Creating the url needed to call the api
-    var url = getUrl() + '/ottieniEventi';
+    var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
+    var url = getUrl() + '/ottieniEventi' + ';jsessionid=' + jsessionid;
     if (tipologia !== "") {
         // Add the specific type of event request (GET)
         url += '?tipologia=' + tipologia;
     }
-
     // Let's call the api!
     fetch(url)
         .then(function (response) {
@@ -332,4 +334,3 @@ function mostraLista() {
             content.innerHTML = 'Error fetching data.';
         });
 }
-

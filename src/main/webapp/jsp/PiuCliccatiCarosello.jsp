@@ -1,13 +1,9 @@
 <%-- Include JS file into the page --%>
-<script type="text/javascript" src="js/PiuCliccatiCarosello.js"></script>
+
+<script><%@include file="/js/PiuCliccatiCarosello.js"%></script>
 
 <%-- Include CSS file into the page --%>
 <link rel="stylesheet" href="css/PiuCliccatiCarosello.css">
-
-<%--Swoosh Sound--%>
-<audio id="swooshSound">
-    <source src="utils/swoosh-sound.mp3" type="audio/mpeg">
-</audio>
 
 <div class="card bg-dark-subtle border-0" id="mostClickedCarousel">
     <div class="card-header bg-primary text-white d-flex justify-content-center">

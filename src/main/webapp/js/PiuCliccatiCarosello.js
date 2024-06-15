@@ -4,13 +4,6 @@ var eventi = new Array(3);
 //This points to the current carousel image being viewed by the user 
 var carouselIndex = 0;
 
-//Used to reproduce an audio cue when something gets switched
-function playSwooshSound(){
-    var swooshSound = document.getElementById("swooshSound");
-    if(checkSound())
-    swooshSound.play();
-}
-
 //Timer that counts from 15 to 0, when it reaches 0 it calls the api to update the events and it gets reset to 15
 function updateClickedTimer(){
     //Gets current time from html element
@@ -57,7 +50,8 @@ class event {
 
 //Calls the api "getmostclicked" to get the three most clicked events, uses the obtained json to print said events
 function getMostClicked() {
-        var url = getUrl() + '/getmostclicked';
+        var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
+        var url = getUrl() + '/getmostclicked' + ';jsessionid=' + jsessionid;
         fetch(url)
             .then(response => {
                 return response.json()
@@ -73,7 +67,6 @@ function getMostClicked() {
                     
                     //When the user changes event in the carousel, the footer gets updated with the new information about the viewed event
                     document.getElementById('welcomeCarousel').addEventListener('slide.bs.carousel', function (e) {
-                        playSwooshSound();
 			carouselIndex = e.to;
                         eventi[carouselIndex].updateEventDetails();
                     });
@@ -81,7 +74,7 @@ function getMostClicked() {
 		    //Update the carousel
                     for (let i = 0; i < data.length; i++) {
                         document.getElementById("Image" + (i+1)).src = "immagini/" + data[i].image;
-                        document.getElementById("Link" + (i+1)).href = "evento?titolo=" + data[i].titolo;
+                        document.getElementById("Link" + (i+1)).href = "evento"  + ';jsessionid=' + jsessionid + "?titolo=" + data[i].titolo;
                         eventi[i] = new event(data[i].titolo, data[i].sottotitolo, data[i].luogo, data[i].ora, data[i].image);
                     }
 

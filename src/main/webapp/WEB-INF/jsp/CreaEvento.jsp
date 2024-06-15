@@ -79,7 +79,7 @@
                         <div class="col-md-3 mb-2">
                             <div class="form-outline">
                                 <input type="number" id="discount" name="sconto" class="form-control border border-dark" required />
-                                <label class="form-label" for="discount">Sconto</label>
+                                <label class="form-label" for="discount">Sconto (0-100)%</label>
                             </div>
                         </div>
                     </div>

@@ -284,8 +284,9 @@ class eventoCard {
         // Blue button
 
         // Green button to buy the event
+        var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
         var acquistaForm = document.createElement("form");
-        acquistaForm.action = getUrl() + "/acquistaevento";
+        acquistaForm.action = getUrl() + "/acquistaevento" + ';jsessionid=' + jsessionid;
         acquistaForm.method = "POST";
 
         var hiddenInput = document.createElement("input");
@@ -362,9 +363,10 @@ function mostraLista() {
         // Add the specific type of event request (GET)
         url += '?titolo=' + titolo;
     }
+    
 
     // Let's call the api!
-    fetch(url)
+    fetch(encodeURI(url))
         .then(function (response) {
             if (!response.ok) {
                 // Something went wrong! Inform the user...
@@ -383,4 +385,3 @@ function mostraLista() {
             content.innerHTML = 'Error fetching data.';
         });
 }
-

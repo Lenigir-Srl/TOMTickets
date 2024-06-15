@@ -122,7 +122,7 @@ function validateForm(){
         showNotifyModal();
         return false;
     }
-    document.getElementById("acquista").action = getUrl() + "/terminaacquisto";
+    var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
+    document.getElementById("acquista").action = getUrl() + "/terminaacquisto" + ';jsessionid=' + jsessionid;
     return true;
 }
-
