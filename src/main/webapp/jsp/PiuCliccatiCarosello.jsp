@@ -5,11 +5,6 @@
 <%-- Include CSS file into the page --%>
 <link rel="stylesheet" href="css/PiuCliccatiCarosello.css">
 
-<%--Swoosh Sound--%>
-<audio id="swooshSound">
-    <source src="utils/swoosh-sound.mp3" type="audio/mpeg">
-</audio>
-
 <div class="card bg-dark-subtle border-0" id="mostClickedCarousel">
     <div class="card-header bg-primary text-white d-flex justify-content-center">
         <span class="h1">I NOSTRI EVENTI PIU' CLICCATI!</span>
