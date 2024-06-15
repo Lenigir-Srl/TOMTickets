@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function() {
     var sessionId = '<%= request.getSession().getId() %>';  // Get session ID from the server
 
@@ -35,4 +34,3 @@ document.addEventListener("DOMContentLoaded", function() {
         buttons[i].setAttribute('data-url', encodeUrl(buttons[i].getAttribute('data-url')));
     }
 });
-</script>

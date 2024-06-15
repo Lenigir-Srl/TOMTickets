@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <%@include file="../js/AcquistaEvento.js"%>
+    <script><%@include file="../js/AcquistaEvento.js"%></script>
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="../../html/Metacontent.html"%>
     <title>TOMTickets - Acquista Evento</title>

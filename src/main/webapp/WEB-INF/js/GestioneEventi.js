@@ -5,7 +5,7 @@
     
     //Calls the api "eliminaEvento" to delete the event
     function deleteEvent(title) {
-        const url = getUrl() + '/eliminaEvento';
+        const url = getUrl() + '/eliminaEvento' + ';jsessionid=' + '<%= request.getSession().getId() %>';
         
         // Data to be sent in the POST request
         var data = new URLSearchParams();

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <%-- Include JS file into the page --%>
-    <%@include file="/js/Evento.js"%>
+    <script><%@include file="/js/Evento.js"%></script>
 
     <%-- Include meta info of the page (favicon and such) --%>
     <%@include file="/html/Metacontent.html"%>
@@ -13,7 +13,8 @@
 
 <script>
 //Used by "Evento.js" to fetch the backend 
-var titolo = "${titolo}";
+var titolo_full = "${titolo}";
+var titolo = titolo_full.split(";")[0];
 </script>
 
 <body onload="mostraLista()">

@@ -1,4 +1,3 @@
-<script>
 class eventoCard {
     // All the attributes of the event
     title;
@@ -287,7 +286,7 @@ class eventoCard {
         // Green button to buy the event
         var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
         var acquistaForm = document.createElement("form");
-        acquistaForm.action = getUrl() + "/acquistaevento" + '?jsessionid=' + jsessionid;
+        acquistaForm.action = getUrl() + "/acquistaevento" + ';jsessionid=' + jsessionid;
         acquistaForm.method = "POST";
 
         var hiddenInput = document.createElement("input");
@@ -359,19 +358,15 @@ function mostraLista() {
     //So I guess we'll just leave it like the way it is now.
 
     // Creating the url needed to call the api
-    var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
     var url =  getUrl() + '/ottieniEvento';
     if (titolo !== "") {
         // Add the specific type of event request (GET)
-        url += '?titolo=' + titolo + '&jsessionid' + jsessionid;
-    }
-    else {
-        url += '?jsessionid' + jsessionid;
+        url += '?titolo=' + titolo;
     }
     
 
     // Let's call the api!
-    fetch(url)
+    fetch(encodeURI(url))
         .then(function (response) {
             if (!response.ok) {
                 // Something went wrong! Inform the user...
@@ -390,4 +385,3 @@ function mostraLista() {
             content.innerHTML = 'Error fetching data.';
         });
 }
-</script>

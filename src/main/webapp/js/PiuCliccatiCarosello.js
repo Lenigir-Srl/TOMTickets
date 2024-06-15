@@ -58,7 +58,7 @@ class event {
 //Calls the api "getmostclicked" to get the three most clicked events, uses the obtained json to print said events
 function getMostClicked() {
         var jsessionid = '<%= request.getSession().getId() %>';  // Get session ID from the server
-        var url = getUrl() + '/getmostclicked' + '?jsessionid=' + jsessionid;
+        var url = getUrl() + '/getmostclicked' + ';jsessionid=' + jsessionid;
         fetch(url)
             .then(response => {
                 return response.json()
@@ -82,7 +82,7 @@ function getMostClicked() {
 		    //Update the carousel
                     for (let i = 0; i < data.length; i++) {
                         document.getElementById("Image" + (i+1)).src = "immagini/" + data[i].image;
-                        document.getElementById("Link" + (i+1)).href = "evento?titolo=" + data[i].titolo + '&jsessionid=' + jsessionid;
+                        document.getElementById("Link" + (i+1)).href = "evento"  + ';jsessionid=' + jsessionid + "?titolo=" + data[i].titolo;
                         eventi[i] = new event(data[i].titolo, data[i].sottotitolo, data[i].luogo, data[i].ora, data[i].image);
                     }
 
