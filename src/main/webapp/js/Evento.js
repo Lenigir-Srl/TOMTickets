@@ -363,10 +363,10 @@ function mostraLista() {
     var url =  getUrl() + '/ottieniEvento';
     if (titolo !== "") {
         // Add the specific type of event request (GET)
-        url += '?titolo=' + titolo + '&jsessionid' = jsessionid;
+        url += '?titolo=' + titolo + '&jsessionid' + jsessionid;
     }
     else {
-        url += '?jsessionid' = jsessionid;
+        url += '?jsessionid' + jsessionid;
     }
     
 
